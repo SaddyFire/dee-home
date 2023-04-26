@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>SaddyFire</title>
+  
+  <subtitle>🐷Xian🐷</subtitle>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2023-04-26T15:58:27.295Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>👑Dee👑</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>手机扫码登录流程</title>
+    <link href="http://example.com/2023/04/26/scan-code/"/>
+    <id>http://example.com/2023/04/26/scan-code/</id>
+    <published>2023-04-26T06:21:59.000Z</published>
+    <updated>2023-04-26T15:58:27.295Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;流程图&quot;&gt;流程图&lt;/h2&gt;
+&lt;div class=&quot;mermaid&quot;&gt;
+  
+sequenceDiagram
+	actor c as 手机端
+	participant p as PC端
+	participant s as Server端
+	p -&gt;&gt; +s:</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="http://example.com/categories/program/"/>
+    
+    
+    <category term="safe" scheme="http://example.com/tags/safe/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前后端api交互安全</title>
+    <link href="http://example.com/2023/04/16/api-safety/"/>
+    <id>http://example.com/2023/04/16/api-safety/</id>
+    <published>2023-04-16T01:38:04.000Z</published>
+    <updated>2023-04-26T15:57:12.307Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div class=&quot;mermaid&quot;&gt;
+  sequenceDiagram
+	actor c as 客户端
+	participant f as 前端服务器
+	participant b as 后端服务器
+	f -&gt;&gt; +b: 发送请求
+	b -&gt;&gt; b:</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="http://example.com/categories/program/"/>
+    
+    
+    <category term="safe" scheme="http://example.com/tags/safe/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx-ssl</title>
+    <link href="http://example.com/2023/04/15/nginx-ssl/"/>
+    <id>http://example.com/2023/04/15/nginx-ssl/</id>
+    <published>2023-04-15T15:32:16.000Z</published>
+    <updated>2023-04-26T15:54:11.213Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;Nginx及SSL配置&lt;/h1&gt;
+&lt;h2 id=&quot;Nginx安装&quot;&gt;Nginx安装&lt;/h2&gt;
+&lt;h3 id=&quot;编译流程&quot;&gt;编译流程&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;cd到nginx源码包下(可能在此之前要先tar -zxvf</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="http://example.com/categories/program/"/>
+    
+    
+    <category term="nginx" scheme="http://example.com/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>日常查询</title>
+    <link href="http://example.com/2023/04/14/daily/"/>
+    <id>http://example.com/2023/04/14/daily/</id>
+    <published>2023-04-14T12:24:21.000Z</published>
+    <updated>2023-04-26T15:52:53.375Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;git&quot;&gt;git&lt;/h2&gt;
+&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="http://example.com/categories/program/"/>
+    
+    
+    <category term="develop" scheme="http://example.com/tags/develop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mermaid-note</title>
+    <link href="http://example.com/2023/04/10/mermaid-note/"/>
+    <id>http://example.com/2023/04/10/mermaid-note/</id>
+    <published>2023-04-10T10:02:16.000Z</published>
+    <updated>2023-04-26T15:51:24.293Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;mermaid入门(基于hexo)&lt;/h1&gt;
+&lt;p&gt;基于hexo的前置说明&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;hexo默认markdown渲染引擎为</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="http://example.com/categories/program/"/>
+    
+    
+    <category term="mermaid" scheme="http://example.com/tags/mermaid/"/>
+    
+    <category term="markdown" scheme="http://example.com/tags/markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>th-login</title>
+    <link href="http://example.com/2023/04/10/th-login/"/>
+    <id>http://example.com/2023/04/10/th-login/</id>
+    <published>2023-04-10T09:33:40.000Z</published>
+    <updated>2023-04-26T15:55:34.718Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;第三方登录:&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;&lt;code&gt;vue-java&lt;/code&gt;前后端交互流程&lt;code&gt;demo&lt;/code&gt; (本篇以&lt;code&gt;gitee&lt;/code&gt; 为例)&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;时序图&quot;&gt;时序图&lt;/h2&gt;
+&lt;div</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="http://example.com/categories/program/"/>
+    
+    
+    <category term="Vue2" scheme="http://example.com/tags/Vue2/"/>
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue_axios</title>
+    <link href="http://example.com/2023/04/09/vue-axios/"/>
+    <id>http://example.com/2023/04/09/vue-axios/</id>
+    <published>2023-04-09T09:03:43.000Z</published>
+    <updated>2023-04-26T15:54:55.458Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;Axios请求示例&lt;/h1&gt;
+&lt;p&gt;本篇基于vue2, 简单自定义拦截器, 并发送post请求至后端服务器&lt;/p&gt;
+&lt;h2 id=&quot;1-安装&quot;&gt;1. 安装&lt;/h2&gt;
+&lt;pre class=&quot;line-numbers language-bash&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="http://example.com/categories/program/"/>
+    
+    
+    <category term="Vue2" scheme="http://example.com/tags/Vue2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo Start</title>
+    <link href="http://example.com/2023/04/08/hexo-start/"/>
+    <id>http://example.com/2023/04/08/hexo-start/</id>
+    <published>2023-04-07T16:22:43.000Z</published>
+    <updated>2023-04-26T15:58:30.957Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;开始&quot;&gt;开始&lt;/h2&gt;
+&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="http://example.com/categories/program/"/>
+    
+    
+    <category term="Hexo" scheme="http://example.com/tags/Hexo/"/>
+    
+    <category term="Blog" scheme="http://example.com/tags/Blog/"/>
+    
+  </entry>
+  
+</feed>

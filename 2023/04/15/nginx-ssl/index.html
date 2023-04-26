@@ -5,16 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="nginx-ssl, SaddyFire">
-    <meta name="description" content="Nginx及SSL配置
-Nginx安装
-编译流程
-
-
-cd到nginx源码包下(可能在此之前要先tar -zxvf xxx)
-
-
-编译前配置
-./configure --prefix=/usr/local/nginx --with-http">
+    <meta name="description" content="基于Nginx的SSL配置">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -59,7 +50,8 @@ cd到nginx源码包下(可能在此之前要先tar -zxvf xxx)
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SaddyFire" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -331,21 +323,21 @@ cd到nginx源码包下(可能在此之前要先tar -zxvf xxx)
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-17
+                    2023-04-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    505
+                    733
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -449,6 +441,43 @@ firewall-cmd <span class="token parameter variable">--permanent</span> --add-ric
 <span class="token comment"># 移除规则</span>
 firewall-cmd <span class="token parameter variable">--permanent</span> --remove-rich-rule<span class="token operator">=</span><span class="token string">"rule family="</span>ipv4<span class="token string">" source address="</span><span class="token number">192.168</span>.123.100<span class="token string">" port port="</span><span class="token number">8080</span><span class="token string">" protocol="</span>tcp<span class="token string">" accept"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="配置SSL">配置SSL</h2>
+<h3 id="SSL证书申请">SSL证书申请</h3>
+<p><img src="http://pic.saddydire.site/deeblog/2023/04/26/20230426232049.png" alt=""></p>
+<blockquote>
+<p>正常情况下会在解析中添加一条TXT记录, 如果没有则需手动添加</p>
+</blockquote>
+<h3 id="添加服务解析">添加服务解析</h3>
+<p><img src="http://pic.saddydire.site/deeblog/2023/04/26/20230426232440.png" alt=""></p>
+<h3 id="证书下载">证书下载</h3>
+<p>根据服务器类型下载, 此处使用Nginx, 后将将公私钥放到nginx的conf目录下</p>
+<h3 id="Nginx配置">Nginx配置</h3>
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token comment"># HTTPS server</span>
+
+<span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">&#123;</span>
+    <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">443</span> ssl</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">server_name</span>  localhost
+    ssl_certificate      9755530_xxxxxx.com.pem</span><span class="token punctuation">;</span>  <span class="token comment"># 配置公钥 公钥的开头是(BEGIN CERTIFICATE)</span>
+    <span class="token directive"><span class="token keyword">ssl_certificate_key</span>  9755530_xxxxxx.com.key</span><span class="token punctuation">;</span>  <span class="token comment"># 配置私钥 私钥的开头是(BEGIN RSA PRIVATE KEY)</span>
+    <span class="token directive"><span class="token keyword">ssl_session_cache</span>    shared:SSL:1m</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">ssl_session_timeout</span>  <span class="token number">5m</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">ssl_ciphers</span>  HIGH:!aNULL:!MD5</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">ssl_prefer_server_ciphers</span>  <span class="token boolean">on</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">&#123;</span>
+        <span class="token directive"><span class="token keyword">root</span>   html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">index</span>  index.html index.htm</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>另外nginx再添加重定向配置, 根据自己需要, 如果不用泛解析, 添加www和@ 这一步可以不要</p>
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token comment"># 监听http</span>
+<span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">&#123;</span>
+	<span class="token directive"><span class="token keyword">listen</span>       <span class="token number">80</span></span><span class="token punctuation">;</span>
+	<span class="token comment">#域名、主机名 匹配站点: 完整匹配、通配符匹配、通配符结束匹配、正则匹配</span>
+	<span class="token directive"><span class="token keyword">server_name</span>  www.xxxxxx.cn xxxxxx.cn</span><span class="token punctuation">;</span>
+
+	<span class="token directive"><span class="token keyword">return</span> <span class="token number">301</span> https://<span class="token variable">$server_name</span><span class="token variable">$request_uri</span></span><span class="token punctuation">;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>更新nginx配置即可</p>
 
                 
             </div>
@@ -522,7 +551,7 @@ firewall-cmd <span class="token parameter variable">--permanent</span> --remove-
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            如题bui bui🤐
                         
                     </div>
                     <div class="publish-info">
@@ -571,7 +600,7 @@ firewall-cmd <span class="token parameter variable">--permanent</span> --remove-
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            个人隐私咯😋😋😋
                         
                     </div>
                     <div class="publish-info">
@@ -693,7 +722,7 @@ firewall-cmd <span class="token parameter variable">--permanent</span> --remove-
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
+            collapseDepth: Number('2'),
             headingSelector: 'h2, h3, h4'
         });
 
@@ -885,6 +914,10 @@ firewall-cmd <span class="token parameter variable">--permanent</span> --remove-
 
 
 
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
 
 </div>
     </div>
