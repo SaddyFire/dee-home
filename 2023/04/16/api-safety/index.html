@@ -5,12 +5,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="前后端api交互安全, SaddyFire">
-    <meta name="description" content="sequenceDiagram
+    <meta name="description" content="
+  sequenceDiagram
 	actor c as 客户端
 	participant f as 前端服务器
 	participant b as 后端服务器
 	f -&gt;&gt; +b: 发送请求
-	b -&gt;&gt; b: 通过RSA生成pubkey1">
+	b -&gt;&gt; b: 通过RSA生成pubk">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -293,9 +294,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/safe/">
+                                <span class="chip bg-color">safe</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -323,7 +328,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-17
+                    2023-04-26
                 </div>
                 
 
@@ -360,27 +365,30 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
+                <div class="mermaid">
+  sequenceDiagram
 	actor c as 客户端
-	<span class="token keyword">participant</span> f as 前端服务器
-	<span class="token keyword">participant</span> b as 后端服务器
-	f <span class="token arrow operator">->></span> +b<span class="token operator">:</span> 发送请求
-	b <span class="token arrow operator">->></span> b<span class="token operator">:</span> 通过RSA生成pubkey1和prikey1
-	<span class="token keyword">note right of</span> b<span class="token operator">:</span> pubkey1, prikey1
-	b <span class="token arrow operator">-->></span> -f<span class="token operator">:</span> 将pubkey1返回前端
-	b <span class="token arrow operator">--></span> +f<span class="token operator">:</span> 
-	f <span class="token arrow operator">->></span> f<span class="token operator">:</span> 通过RSA生成pubkey2和prikey2
-	<span class="token keyword">note left of</span> f<span class="token operator">:</span> pubkey2, prikey2
-	f <span class="token arrow operator">->></span> f<span class="token operator">:</span> 加密<span class="token operator">:</span> pubkey1<span class="token text string">(pubkey2)</span> => secret1
-    f <span class="token arrow operator">->></span> -b<span class="token operator">:</span> 用secret1请求后端
-    f <span class="token arrow operator">--></span> +b<span class="token operator">:</span> 
-    b <span class="token arrow operator">->></span> b<span class="token operator">:</span> 解密<span class="token operator">:</span> prikey1<span class="token text string">(secret1)</span> => pubkey2
-    b <span class="token arrow operator">->></span> b<span class="token operator">:</span> 加密<span class="token operator">:</span> pubkey2<span class="token text string">(AESkey)</span> => secret2
-    b <span class="token arrow operator">->></span> -f<span class="token operator">:</span> 返回secret2
-    b <span class="token arrow operator">--></span> +f<span class="token operator">:</span> 
-    f <span class="token arrow operator">->></span> f<span class="token operator">:</span> 解密<span class="token operator">:</span> prikey2<span class="token text string">(secret2)</span> => AESkey
-    f <span class="token arrow operator">->></span> f<span class="token operator">:</span> 加密<span class="token operator">:</span> AESkey<span class="token text string">(data)</span> => secretData
-    f <span class="token arrow operator">->></span> -b<span class="token operator">:</span> 将加密数据发送给后端<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	participant f as 前端服务器
+	participant b as 后端服务器
+	f ->> +b: 发送请求
+	b ->> b: 通过RSA生成pubkey1和prikey1
+	note right of b: pubkey1, prikey1
+	b -->> -f: 将pubkey1返回前端
+	b --> +f: 
+	f ->> f: 通过RSA生成pubkey2和prikey2
+	note left of f: pubkey2, prikey2
+	f ->> f: 加密: pubkey1(pubkey2) => secret1
+    f ->> -b: 用secret1请求后端
+    f --> +b: 
+    b ->> b: 解密: prikey1(secret1) => pubkey2
+    b ->> b: 加密: pubkey2(AESkey) => secret2
+    b ->> -f: 返回secret2
+    b --> +f: 
+    f ->> f: 解密: prikey2(secret2) => AESkey
+    f ->> f: 加密: AESkey(data) => secretData
+    f ->> -b: 将加密数据发送给后端
+</div>
+
 <pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
   &lt;div&gt;
     &lt;input type&#x3D;&quot;text&quot; v-model&#x3D;&quot;text&quot; &#x2F;&gt;
@@ -565,7 +573,11 @@ export default &#123;
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/safe/">
+                                    <span class="chip bg-color">safe</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -606,17 +618,16 @@ export default &#123;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/04/16/api-safety/">
+                <a href="/2023/04/26/scan-code/">
                     <div class="card-image">
                         
-                        <img src="/images/article/5.jpg" class="responsive-img" alt="前后端api交互安全">
+                        <img src="/images/article/14.jpg" class="responsive-img" alt="手机扫码登录流程">
                         
-                        <span class="card-title">前后端api交互安全</span>
+                        <span class="card-title">手机扫码登录流程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -626,9 +637,9 @@ export default &#123;
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-16
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-26
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -641,7 +652,14 @@ export default &#123;
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/safe/">
+                        <span class="chip bg-color">safe</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
