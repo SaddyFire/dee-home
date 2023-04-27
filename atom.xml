@@ -53,20 +53,20 @@ sequenceDiagram
     <link href="http://example.com/2023/04/16/api-safety/"/>
     <id>http://example.com/2023/04/16/api-safety/</id>
     <published>2023-04-16T01:38:04.000Z</published>
-    <updated>2023-04-26T15:57:12.307Z</updated>
+    <updated>2023-04-27T14:51:50.649Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;div class=&quot;mermaid&quot;&gt;
+    <summary type="html">&lt;h2 id=&quot;demo1&quot;&gt;demo1&lt;/h2&gt;
+&lt;div class=&quot;mermaid&quot;&gt;
   sequenceDiagram
 	actor c as 客户端
 	participant f as 前端服务器
 	participant b as 后端服务器
-	f -&gt;&gt; +b: 发送请求
-	b -&gt;&gt; b:</summary>
+	c -&gt;&gt; f:</summary>
         
       
     

@@ -323,14 +323,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-26
+                    2023-04-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.2k
                 </div>
                 
 
@@ -360,28 +360,30 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div class="mermaid">
+                <h2 id="demo1">demo1</h2>
+<div class="mermaid">
   sequenceDiagram
 	actor c as 客户端
 	participant f as 前端服务器
 	participant b as 后端服务器
-	f ->> +b: 发送请求
-	b ->> b: 通过RSA生成pubkey1和prikey1
-	note right of b: pubkey1, prikey1
-	b -->> -f: 将pubkey1返回前端
-	b --> +f: 
-	f ->> f: 通过RSA生成pubkey2和prikey2
-	note left of f: pubkey2, prikey2
-	f ->> f: 加密: pubkey1(pubkey2) => secret1
-    f ->> -b: 用secret1请求后端
-    f --> +b: 
-    b ->> b: 解密: prikey1(secret1) => pubkey2
-    b ->> b: 加密: pubkey2(AESkey) => secret2
-    b ->> -f: 返回secret2
-    b --> +f: 
-    f ->> f: 解密: prikey2(secret2) => AESkey
-    f ->> f: 加密: AESkey(data) => secretData
-    f ->> -b: 将加密数据发送给后端
+	c ->> f: 触发请求
+​	f ->> +b: 发送请求
+​	b ->> b: 通过RSA生成pubkey1和prikey1
+​	note right of b: pubkey1, prikey1
+​	b -->> -f: 将pubkey1返回前端
+​	b --> +f: 
+​	f ->> f: 通过RSA生成pubkey2和prikey2
+​	note left of f: pubkey2, prikey2
+​	f ->> f: 加密: pubkey1(pubkey2) => secret1
+​    f ->> -b: 用secret1请求后端
+​    f --> +b: 
+​    b ->> b: 解密: prikey1(secret1) => pubkey2
+​    b ->> b: 加密: pubkey2(AESkey) => secret2
+​    b ->> -f: 返回secret2
+​    b --> +f: 
+​    f ->> f: 解密: prikey2(secret2) => AESkey
+​    f ->> f: 加密: AESkey(data) => secretData
+​    f ->> -b: 将加密数据发送给后端
 </div>
 
 <pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
@@ -554,7 +556,27 @@ export default &#123;
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>plaintext<span class="token punctuation">,</span> <span class="token class-name">StandardCharsets</span><span class="token punctuation">.</span><span class="token constant">UTF_8</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 输出：Hello World!</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-none"><code class="language-none">上述代码使用了CryptoJS库和Bouncy Castle库实现了前后端数据加密。在这个示例中，前端使用AES算法对数据进行加密，然后使用RSA公钥加密AES密钥，将加密后的密钥和加密后的数据一起发送给后端。后端使用RSA私钥解密AES密钥，然后使用解密后的密钥对数据进行解密。同样，后端也可以使用AES算法对数据进行加密，然后使用RSA公钥加密AES密钥，将加密后的密钥和加密后的数据一起发送给前端。前端使用RSA私钥解密AES密钥，然后使用解密后的密钥对数据进行解密。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>上述代码使用了CryptoJS库和Bouncy Castle库实现了前后端数据加密。在这个示例中，前端使用AES算法对数据进行加密，然后使用RSA公钥加密AES密钥，将加密后的密钥和加密后的数据一起发送给后端。后端使用RSA私钥解密AES密钥，然后使用解密后的密钥对数据进行解密。同样，后端也可以使用AES算法对数据进行加密，然后使用RSA公钥加密AES密钥，将加密后的密钥和加密后的数据一起发送给前端。前端使用RSA私钥解密AES密钥，然后使用解密后的密钥对数据进行解密。</p>
+<h2 id="demo2">demo2</h2>
+<div class="mermaid">
+  
+sequenceDiagram
+	actor a as 用户
+	participant f as 前端服务器
+	participant b as 后端服务器
+	a ->> +f: 触发操作
+	f ->> f: 生成随机AES密钥
+	f ->> f: AES(data) => secretData
+	f ->> f: RSA_priKey(AES) => aesKey
+	f ->> +b: aesKey + secretData
+	b ->> b: RSA_pubKey(aesKey) => AES
+	b ->> b: AES(secretData) => data
+	b ->> b: 同等方式加密
+	b -->> -f: 响应数据
+	f -->> -a: 响应给用户
+
+</div>
+
 
                 
             </div>
