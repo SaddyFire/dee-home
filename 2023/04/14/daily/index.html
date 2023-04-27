@@ -323,21 +323,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-26
+                    2023-04-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    333
+                    542
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -393,24 +393,49 @@
 <span class="token comment">-- 查询当前回滚剩余条数</span>
 <span class="token keyword">select</span> sess_id<span class="token punctuation">,</span>ins_cnt<span class="token operator">+</span>del_cnt<span class="token operator">+</span>upd_cnt<span class="token operator">+</span>upd_ins_cnt<span class="token punctuation">,</span>systimestamp <span class="token keyword">from</span> v$trx <span class="token keyword">where</span> ROLLBACK_FLAG<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
 
-
 <span class="token comment">-- 查询具体报锁超时的表对应的会话锁，查询第一列用于杀掉对应SESSION</span>
 <span class="token keyword">select</span> <span class="token string">'sp_close_session('</span><span class="token operator">||</span>sess_id<span class="token operator">||</span><span class="token string">')'</span><span class="token punctuation">,</span><span class="token operator">*</span> <span class="token keyword">from</span> v$sessions <span class="token keyword">where</span> trx_id <span class="token operator">in</span> <span class="token punctuation">(</span>
 <span class="token keyword">select</span> trx_id <span class="token keyword">from</span> v$<span class="token keyword">lock</span> a<span class="token punctuation">,</span>SYSOBJECTS b <span class="token keyword">where</span> a<span class="token punctuation">.</span>table_id <span class="token operator">=</span> b<span class="token punctuation">.</span>id <span class="token operator">and</span> b<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'表名'</span> <span class="token operator">and</span> b<span class="token punctuation">.</span>SUBTYPE$<span class="token operator">=</span><span class="token string">'UTAB'</span> <span class="token operator">and</span> trx_id<span class="token operator">&lt;></span><span class="token number">0</span>
 <span class="token punctuation">)</span>
 
-
 <span class="token comment">-- 杀死会话</span>
-sp_close_session<span class="token punctuation">(</span><span class="token number">140170753999128</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+sp_close_session<span class="token punctuation">(</span><span class="token number">140170753999128</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 统计当前阻塞的详情</span>
+<span class="token keyword">select</span> clnt_ip<span class="token punctuation">,</span>clnt_type<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">from</span> v$sessions <span class="token keyword">where</span> run_status <span class="token operator">=</span> <span class="token string">'idle'</span> <span class="token keyword">group</span> <span class="token keyword">by</span> clnt_ip<span class="token punctuation">,</span> clnt_type <span class="token keyword">order</span> <span class="token keyword">by</span> clnt_ip<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="进程端口命令">进程端口命令</h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">netstat</span> -ano<span class="token operator">|</span>findstr <span class="token number">80</span>  <span class="token comment"># 端口查看</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># linux</span>
 <span class="token function">lsof</span> <span class="token parameter variable">-i:80</span>  <span class="token comment"># 根据端口查看PID及应用名</span>
 <span class="token function">netstat</span> -ntulp<span class="token operator">|</span><span class="token function">grep</span> nginx  <span class="token comment"># 根据应用名查看端口</span>
+<span class="token function">top</span> <span class="token parameter variable">-Hp</span> pid  <span class="token comment"># 查看某个进程下所有子线程</span>
 
+<span class="token comment">#win</span>
 tasklist <span class="token operator">|</span> findstr xxx  <span class="token comment"># 查看进程 ps -ef</span>
 taskkill  <span class="token comment"># 杀死进程 kill -9</span>
-<span class="token function">top</span> <span class="token parameter variable">-Hp</span> pid  <span class="token comment"># 查看某个进程下所有子线程</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="日期类">日期类</h2>
+<span class="token function">netstat</span> -ano<span class="token operator">|</span>findstr <span class="token number">80</span>  <span class="token comment"># 端口查看</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="日期">日期</h2>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 格式化日期</span>
+<span class="token class-name">String</span> now <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> now <span class="token operator">=</span> <span class="token class-name">DateFormatUtils</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// lang3包下的工具类</span>
+<span class="token class-name">String</span> now <span class="token operator">=</span> <span class="token class-name">DateTimeFormatter</span><span class="token punctuation">.</span><span class="token function">ofPattern</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> now <span class="token operator">=</span> <span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token class-name">DateTimeFormatter</span><span class="token punctuation">.</span><span class="token function">ofPattern</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 解析日期</span>
+<span class="token class-name">Date</span> parse <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"2023-12-12 12:12:12"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 要处理异常 Tue Dec 12 12:12:12 CST 2023</span>
+<span class="token class-name">LocalDateTime</span> parse <span class="token operator">=</span> <span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"2023-12-12 12:12:12"</span><span class="token punctuation">,</span> <span class="token class-name">DateTimeFormatter</span><span class="token punctuation">.</span><span class="token function">ofPattern</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 2023-12-12T12:12:12</span>
+
+<span class="token comment">// 相互转换</span>
+<span class="token comment">// 1.Date => LocalDateTime</span>
+<span class="token class-name">Date</span> date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">LocalDateTime</span> localDateTime <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">toInstant</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">atZone</span><span class="token punctuation">(</span><span class="token class-name">ZoneId</span><span class="token punctuation">.</span><span class="token function">systemDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLocalDateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 2.LocalDateTime => Date (不常用, 因此多写点备注)</span>
+<span class="token class-name">LocalDateTime</span> localDateTime <span class="token operator">=</span> <span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Date</span> date <span class="token operator">=</span> <span class="token class-name">Date</span><span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>localDateTime
+                      <span class="token comment">// 时区的日期和时间(系统默认时区)</span>
+                      <span class="token punctuation">.</span><span class="token function">atZone</span><span class="token punctuation">(</span><span class="token class-name">ZoneId</span><span class="token punctuation">.</span><span class="token function">systemDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                      <span class="token comment">// 转为即使时间</span>
+                      <span class="token punctuation">.</span><span class="token function">toInstant</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
