@@ -323,14 +323,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-27
+                    2023-05-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    542
+                    576
                 </div>
                 
 
@@ -411,8 +411,14 @@ sp_close_session<span class="token punctuation">(</span><span class="token numbe
 
 <span class="token comment">#win</span>
 tasklist <span class="token operator">|</span> findstr xxx  <span class="token comment"># 查看进程 ps -ef</span>
-taskkill  <span class="token comment"># 杀死进程 kill -9</span>
-<span class="token function">netstat</span> -ano<span class="token operator">|</span>findstr <span class="token number">80</span>  <span class="token comment"># 端口查看</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+taskkill /T /F /PID <span class="token number">12345</span>  <span class="token comment"># 杀死进程 kill -9</span>
+<span class="token function">netstat</span> -ano<span class="token operator">|</span>findstr <span class="token number">80</span>  <span class="token comment"># 端口查看</span>
+
+<span class="token comment"># linux查找文件</span>
+<span class="token function">find</span> / <span class="token parameter variable">-iname</span> *abc*  <span class="token comment"># 全局搜索</span>
+<span class="token function">find</span> / <span class="token parameter variable">-type</span> d <span class="token parameter variable">-iname</span> *abc* <span class="token comment"># 搜索文件夹</span>
+<span class="token function">find</span> / <span class="token parameter variable">-size</span> +100M
+<span class="token function">find</span> / <span class="token parameter variable">-maxdepth</span> <span class="token number">1</span> <span class="token parameter variable">-iname</span> abc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="日期">日期</h2>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 格式化日期</span>
 <span class="token class-name">String</span> now <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
