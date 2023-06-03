@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="手机扫码登录流程, SaddyFire">
-    <meta name="description" content="如题bui bui🥳🥳">
+    <meta name="keywords" content="cas, SaddyFire">
+    <meta name="description" content="cas笔记🪶">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>手机扫码登录流程 | SaddyFire</title>
+    <title>cas | SaddyFire</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -262,12 +262,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/article/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/article/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">手机扫码登录流程</h1>
+                    <h1 class="description center-align post-title">cas</h1>
                 </div>
             </div>
         </div>
@@ -291,8 +291,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/safe/">
-                                <span class="chip bg-color">safe</span>
+                            <a href="/tags/juc/">
+                                <span class="chip bg-color">juc</span>
                             </a>
                         
                     </div>
@@ -316,21 +316,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-04-26
+                    2023-05-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-26
+                    2023-05-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    220
+                    66
                 </div>
                 
 
@@ -360,40 +360,20 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="流程图">流程图</h2>
-<div class="mermaid">
-  
-sequenceDiagram
-	actor c as 手机端
-	participant p as PC端
-	participant s as Server端
-	p ->> +s: 发送生成二维码请求
-    s ->> s: 生成二维码ID
-    s -->> -p: 返回二维码ID
-    p ->> p: 根据二维码ID生成二维码
-    loop 定时轮询
-    	p ->> +s: 查询二维码状态, 直到登录成功
-    end
-	c ->> +p: 扫描二维码
-	p -->> -c: 二维码ID
-	c ->> +s: 将手机端身份信息, 二维码信息发送至Server端
-	s ->> s: 二维码ID和身份证信息绑定, 并生成临时token
-	s -->> -c: 返回临时token
-	alt 已扫码
-		s -->> p: 二维码状态改为: 已扫码, 待确认	
-	end
-	c ->> +s: 携带临时token, 确认登录
-	s ->> s: 生成PC端的token
-	alt 已确认登录
-		s -->> -p: 二维码状态改为: 已登录
-	end
-	s -->> -p: 返回PC端的token
-	p ->> +s: 凭借token进行访问
-	s -->> -p: 返回信息
-
-</div>
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h2 id="CAS之Atomic包">CAS之Atomic包</h2>
+<h4 id="updateAndGet实现原理demo">updateAndGet实现原理demo</h4>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">updateAndGet</span><span class="token punctuation">(</span><span class="token class-name">AtomicInteger</span> i<span class="token punctuation">,</span> <span class="token class-name">IntUnaryOperator</span> operator<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 获取当前值</span>
+        <span class="token keyword">int</span> prev <span class="token operator">=</span> i<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 计算值</span>
+        <span class="token keyword">int</span> next <span class="token operator">=</span> operator<span class="token punctuation">.</span><span class="token function">applyAsInt</span><span class="token punctuation">(</span>prev<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 比较并交换, 成功则返回, 不成功则自旋重试</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i<span class="token punctuation">.</span><span class="token function">compareAndSet</span><span class="token punctuation">(</span>prev<span class="token punctuation">,</span> next<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> next<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -408,8 +388,8 @@ sequenceDiagram
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/safe/">
-                                    <span class="chip bg-color">safe</span>
+                                <a href="/tags/juc/">
+                                    <span class="chip bg-color">juc</span>
                                 </a>
                             
                         </div>
@@ -456,23 +436,23 @@ sequenceDiagram
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/05/20/cas/">
+                <a href="/2023/06/03/el-ui-primary-md/">
                     <div class="card-image">
                         
-                        <img src="/images/article/15.jpg" class="responsive-img" alt="cas">
+                        <img src="/images/article/0.jpg" class="responsive-img" alt="el-ui-primary.md">
                         
-                        <span class="card-title">cas</span>
+                        <span class="card-title">el-ui-primary.md</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            cas笔记🪶
+                            element-ui笔记🧐🧐🧐
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-05-20
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-06-03
                         </span>
                         <span class="publish-author">
                             
@@ -487,14 +467,6 @@ sequenceDiagram
                     </div>
                 </div>
                 
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/juc/">
-                        <span class="chip bg-color">juc</span>
-                    </a>
-                    
-                </div>
-                
             </div>
         </div>
         
@@ -504,23 +476,23 @@ sequenceDiagram
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/04/16/api-safety/">
+                <a href="/2023/04/26/scan-code/">
                     <div class="card-image">
                         
-                        <img src="/images/article/5.jpg" class="responsive-img" alt="前后端api交互安全">
+                        <img src="/images/article/14.jpg" class="responsive-img" alt="手机扫码登录流程">
                         
-                        <span class="card-title">前后端api交互安全</span>
+                        <span class="card-title">手机扫码登录流程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            如题bui bui🤐
+                            如题bui bui🥳🥳
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-26
                             </span>
                         <span class="publish-author">
                             
