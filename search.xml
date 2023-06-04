@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>el-ui-primary.md</title>
+      <title>el-ui-primary</title>
       <link href="/2023/06/03/el-ui-primary/"/>
       <url>/2023/06/03/el-ui-primary/</url>
       
@@ -17,6 +17,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> vue2 </tag>
+            
+        </tags>
       
     </entry>
     
