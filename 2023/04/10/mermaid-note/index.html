@@ -1,0 +1,1548 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="mermaid-note, SaddyFire">
+    <meta name="description" content="mermaid入门">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>mermaid-note | SaddyFire</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SaddyFire" type="application/atom+xml">
+</head>
+
+
+<body>
+    
+    <div id="loading-box">
+        <div class="loading-left-bg"></div>
+        <div class="loading-right-bg"></div>
+        <div class="spinner-box">
+            <div class="configure-border-1">
+                <div class="configure-core"></div>
+            </div>
+            <div class="configure-border-2">
+                <div class="configure-core"></div>
+            </div>
+            <div class="loading-word">玩命加载中🤣🤣🤣</div>
+        </div>
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+        $(document).ready(function () {
+            document.body.style.overflow = 'auto';
+            document.getElementById('loading-box').classList.add("loaded")
+        })
+    </script>
+
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">SaddyFire</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">SaddyFire</div>
+        <div class="logo-desc">
+            
+            每一个抖腿的人, 心里都有台缝纫机
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/article/3.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">mermaid-note</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/mermaid/">
+                                <span class="chip bg-color">mermaid</span>
+                            </a>
+                        
+                            <a href="/tags/markdown/">
+                                <span class="chip bg-color">markdown</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/program/" class="post-category">
+                                program
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-04-10
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-09-05
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    5 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="mermaid入门-基于hexo"><a href="#mermaid入门-基于hexo" class="headerlink" title="mermaid入门(基于hexo)"></a>mermaid入门(基于hexo)</h1><p>基于hexo的前置说明</p>
+<pre class="line-numbers language-none"><code class="language-none">hexo默认markdown渲染引擎为 hexo-renderer-markdown
+可以更换hexo-renderer-markdown-it, 可选项更多, github地址如下
+https:&#x2F;&#x2F;github.com&#x2F;hexojs&#x2F;hexo-renderer-markdown-it<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><code>hexo-renderer-markdown-it</code> 及 <code>meraid</code> 插件安装命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> un hexo-renderer-marked <span class="token parameter variable">--save</span>
+<span class="token function">npm</span> i hexo-renderer-markdown-it <span class="token parameter variable">--save</span>
+<span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">--save</span> hexo-tag-mermaid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="一、流程图-graph"><a href="#一、流程图-graph" class="headerlink" title="一、流程图(graph)"></a>一、流程图(graph)</h2><div class="mermaid">
+     graph TD
+       A --> B
+       A --> C
+       style B fill:#f9f,stroke:#333,stroke-width:4px
+style C fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5
+</div>
+
+<pre class="line-numbers language-none"><code class="language-none">&#123;% mermaid %&#125;
+    graph TD
+        A --&gt; B
+        A --&gt; C
+        style B fill:#f9f,stroke:#333,stroke-width:4px %% 样式
+   		style C fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5 %% 样式
+&#123;% endmermaid %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="方向"><a href="#方向" class="headerlink" title="方向"></a>方向</h3><ul>
+<li>TB&#x2F;TD - top bottom&#x2F;down</li>
+<li>BT - bottom&#x2F;top</li>
+<li>LR - left right</li>
+<li>RL - right left</li>
+</ul>
+<h3 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h3><div class="mermaid">
+  graph LR;
+	B[直角]
+	C(圆角)
+	D((圆形))
+	E>不对称]
+	F{菱形}
+	G([椭圆形])
+	H[(圆柱)]
+	I[[双杠]]
+	K[\平行1\]
+	L[/平行2/]
+	M[\梯形1/]
+	N[/梯形2\]
+	B --> C --> D --> E
+	F --> G --> H --> I
+	K --> L --> M --> N
+</div>
+
+
+<pre class="line-numbers language-null" data-language="null"><code class="language-null">graph LR;
+	直角[] ---&gt; 圆角(()) ---&gt; 圆形D(()) ---&gt; 不对称&gt;]
+	菱形&#123;&#125; ---&gt; 椭圆形([]) ---&gt; 圆柱[()] ---&gt; 双杠[[]] ---&gt; 六边形&#123;&#123;&#125;&#125;
+	平行1[\\] ---&gt; 平行2[&#x2F;&#x2F;] ---&gt; 梯形1[\&#x2F;] ---&gt; 梯形2[&#x2F;\]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="连线"><a href="#连线" class="headerlink" title="连线"></a>连线</h3><ul>
+<li>实线</li>
+</ul>
+<div class="mermaid">
+  graph LR
+	A --> B --- C -- 文字 --- D -- 文字 --> E
+</div>
+
+
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token comment">%% A(有箭头,无文字) -> B(无箭头，无文字) -> C(有箭头，文字) -> D(有箭头,文字)</span>
+<span class="token keyword">graph</span> LR
+	A <span class="token arrow operator">--></span> B <span class="token arrow operator">---</span> C <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">文字</span> <span class="token arrow operator">---</span></span> D <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">文字</span> <span class="token arrow operator">--></span></span> E<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>虚线</li>
+</ul>
+<div class="mermaid">
+  graph LR;
+	A -.-> B -.文字.-> C
+</div>
+
+
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token comment">%% A(有箭头,无文字) -> B(有箭头，无有文字) </span>
+<span class="token keyword">graph</span> LR
+	A <span class="token arrow operator">-.-></span> B <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">-.</span><span class="token label property">文字</span><span class="token arrow operator">.-></span></span> C<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>大箭头</li>
+</ul>
+<div class="mermaid">
+  graph LR
+	A ==> B == 文字 ==> C
+</div>
+
+
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token comment">%% A(大箭头,无文字) -> B(大箭头,有文字)</span>
+<span class="token keyword">graph</span> LR
+	A <span class="token arrow operator">==></span> B <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">==</span> <span class="token label property">文字</span> <span class="token arrow operator">==></span></span> C<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="子图"><a href="#子图" class="headerlink" title="子图"></a>子图</h3><div class="mermaid">
+  graph TB
+    subgraph one
+    a1-->a2
+    end
+    subgraph two
+    b1-->b2
+    end
+    subgraph three
+    c1-->c2
+    end
+    c1-->a2
+</div>
+
+
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> TB
+    <span class="token keyword">subgraph</span> one
+    a1<span class="token arrow operator">--></span>a2
+    <span class="token keyword">end</span>
+    <span class="token keyword">subgraph</span> two
+    b1<span class="token arrow operator">--></span>b2
+    <span class="token keyword">end</span>
+    <span class="token keyword">subgraph</span> three
+    c1<span class="token arrow operator">--></span>c2
+    <span class="token keyword">end</span>
+    c1<span class="token arrow operator">--></span>a2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="二、时序图-sequenceDiagram"><a href="#二、时序图-sequenceDiagram" class="headerlink" title="二、时序图(sequenceDiagram)"></a>二、时序图(sequenceDiagram)</h2><h3 id="参与者-participant"><a href="#参与者-participant" class="headerlink" title="参与者(participant)"></a>参与者(participant)</h3><div class="mermaid">
+  
+sequenceDiagram
+	dee ->> xian: I'm hungry
+	xian -->> dee: Me too
+
+</div>
+
+
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
+	dee <span class="token arrow operator">->></span> xian<span class="token operator">:</span> I'm hungry
+	xian <span class="token arrow operator">-->></span> dee<span class="token operator">:</span> Me too<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>注: 如果希望自定义参与者顺序, 使用<code>participant</code>关键字</p>
+</blockquote>
+<div class="mermaid">
+  
+sequenceDiagram
+	participant xian
+	participant dee
+	dee ->> xian: I'm hungry
+	xian -->> dee: Me too
+
+</div>
+
+
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
+	<span class="token keyword">participant</span> xian
+	<span class="token keyword">participant</span> dee
+	dee <span class="token arrow operator">->></span> xian<span class="token operator">:</span> I'm hungry
+	xian <span class="token arrow operator">-->></span> dee<span class="token operator">:</span> Me too<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="别名-as"><a href="#别名-as" class="headerlink" title="别名(as)"></a>别名(as)</h3><div class="mermaid">
+  
+sequenceDiagram
+	participant A as xian
+	participant D as dee
+	A ->> D: How are you
+	D -->> A: Fine
+
+</div>
+
+
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
+	<span class="token keyword">participant</span> A as xian
+	<span class="token keyword">participant</span> D as dee
+	A <span class="token arrow operator">--></span> D<span class="token operator">:</span> How are you
+	D <span class="token arrow operator">-->></span> A<span class="token operator">:</span> Fine<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="连线-1"><a href="#连线-1" class="headerlink" title="连线"></a>连线</h3><div class="mermaid">
+  
+sequenceDiagram
+	A -> B: 无箭头实线
+	A --> B: 无箭头虚线
+	A ->> B: 有箭头实线
+	A -->> B: 有箭头虚线
+	A -X B: 有箭头x实线
+	A --X B: 有箭头x虚线
+
+</div>
+
+
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
+	A <span class="token arrow operator">-></span> B<span class="token operator">:</span> 无箭头实线
+	A <span class="token arrow operator">--></span> B<span class="token operator">:</span> 无箭头虚线
+	A <span class="token arrow operator">->></span> B<span class="token operator">:</span> 有箭头实线
+	A <span class="token arrow operator">-->></span> B<span class="token operator">:</span> 有箭头虚线
+	A -X B<span class="token operator">:</span> 有箭头x实线
+	A <span class="token arrow operator">--</span>X B<span class="token operator">:</span> 有箭头x虚线<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="控制焦点"><a href="#控制焦点" class="headerlink" title="控制焦点(+-)"></a>控制焦点(+-)</h3><div class="mermaid">
+  
+sequenceDiagram
+	dee ->>+ xian: Let's Fighting!
+	%% +表示激活角色
+	xian -->>- dee: Grate!
+
+</div>
+
+
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
+	dee <span class="token arrow operator">->></span>+ xian<span class="token operator">:</span> Let's Fighting!
+	<span class="token comment">%% +表示激活角色</span>
+	xian <span class="token arrow operator">-->></span>- dee<span class="token operator">:</span> Grate!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>焦点嵌套</strong></p>
+<div class="mermaid">
+  
+sequenceDiagram
+	xian ->>+ dee: Let's Shopping!
+    xian ->>+ dee: Can you hear me?
+    dee -->>- xian: I can hear you.
+    dee -->>- xian: But I'm tired.
+
+</div>
+
+
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
+	xian <span class="token arrow operator">->></span>+ dee<span class="token operator">:</span> Let's Shopping!
+    xian <span class="token arrow operator">->></span>+ dee<span class="token operator">:</span> Can you hear me?
+    dee <span class="token arrow operator">-->></span>- xian<span class="token operator">:</span> I can hear you.
+    dee <span class="token arrow operator">-->></span>- xian<span class="token operator">:</span> But I'm tired.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="备注-Note"><a href="#备注-Note" class="headerlink" title="备注(Note)"></a>备注(Note)</h3><p>Note [ right of | left of | over ] [Actor]</p>
+<div class="mermaid">
+  
+sequenceDiagram
+	participant A
+	Note right of A: I'm note
+
+</div>
+
+
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
+	<span class="token keyword">participant</span> A
+	<span class="token keyword">Note right of</span> A<span class="token operator">:</span> I'm note<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>over用法</p>
+<div class="mermaid">
+  
+sequenceDiagram
+	participant A as dee
+	participant B as xian
+	A ->> B: Let 's shopping
+	Note over B: I don't want to
+	Note over A,B: Just 20 min
+
+</div>
+
+
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
+	<span class="token keyword">participant</span> A as dee
+	<span class="token keyword">participant</span> B as xian
+	A <span class="token arrow operator">->></span> B<span class="token operator">:</span> Let 's shopping
+	<span class="token keyword">Note over</span> B<span class="token operator">:</span> I don't want to
+	<span class="token keyword">Note over</span> A,B<span class="token operator">:</span> Just 20 min<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="循环-loop"><a href="#循环-loop" class="headerlink" title="循环(loop)"></a>循环(loop)</h3><div class="mermaid">
+  
+sequenceDiagram
+	xian ->> dee: let's shopping
+	%% loop 后
+	loop 20 min
+		dee --> xian: let me see see
+	end
+	dee -->> xian: ok
+
+</div>
+
+
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
+	xian <span class="token arrow operator">->></span> dee<span class="token operator">:</span> let's shopping
+	<span class="token comment">%% loop 后</span>
+	<span class="token keyword">loop</span> 20 min
+		dee <span class="token arrow operator">--></span> xian<span class="token operator">:</span> let me see see
+	<span class="token keyword">end</span>
+	dee <span class="token arrow operator">-->></span> xian<span class="token operator">:</span> ok<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><div class="mermaid">
+  
+sequenceDiagram
+	dee ->> xian: What do you want to drink
+	alt summer
+		xian -->> dee: ice cream
+	else winter
+		xian -->> dee: tea
+	end
+	opt all the time
+		xian -->> dee: milk tea is ok
+	end
+
+</div>
+
+
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
+	dee <span class="token arrow operator">->></span> xian<span class="token operator">:</span> What do you want to drink
+	<span class="token keyword">alt</span> summer
+		xian <span class="token arrow operator">-->></span> dee<span class="token operator">:</span> ice cream
+	<span class="token keyword">else</span> winter
+		xian <span class="token arrow operator">-->></span> dee<span class="token operator">:</span> tea
+	<span class="token keyword">end</span>
+	<span class="token keyword">opt</span> all the time
+		xian <span class="token arrow operator">-->></span> dee<span class="token operator">:</span> milk tea is ok
+	<span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="色块"><a href="#色块" class="headerlink" title="色块"></a>色块</h3><div class="mermaid">
+  sequenceDiagram
+	actor a as client
+	participant b as server
+	rect rgb(213, 235, 225)
+        a ->> +b: quest
+        b -->> -a: response
+	end
+	rect rgb(192, 214, 149)
+		a ->> +b: quest
+		b ->> -a: response
+	end
+</div>
+
+
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
+	actor a as client
+	<span class="token keyword">participant</span> b as server
+	<span class="token keyword">rect</span> rgb<span class="token text string">(213, 235, 225)</span>
+        a <span class="token arrow operator">->></span> +b<span class="token operator">:</span> quest
+        b <span class="token arrow operator">-->></span> -a<span class="token operator">:</span> response
+	<span class="token keyword">end</span>
+	<span class="token keyword">rect</span> rgb<span class="token text string">(192, 214, 149)</span>
+		a <span class="token arrow operator">->></span> +b<span class="token operator">:</span> quest
+		b <span class="token arrow operator">->></span> -a<span class="token operator">:</span> response
+	<span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="三、类图-classDiagram"><a href="#三、类图-classDiagram" class="headerlink" title="三、类图(classDiagram)"></a>三、类图(classDiagram)</h2><div class="mermaid">
+  
+classDiagram
+class Person {
+	+String name // public
+	-int age // private
+	+save() void
+	+eat(food) void
+	+breathe(air) void
+}
+class Student~Primary~ {
+	-String studentNo
+	+doHomework(pen) Homework
+}
+class Tool {
+	+String function
+	+use() void
+}
+class Pen {
+	+use() void
+}
+class Air {
+	+String O2
+}
+class Eye {
+	+String eyes
+}
+class Grade {
+	+Student students
+}
+Air <.. Person: 依赖(一个需要另一个的协助)
+Person <|-- Student: 继承
+Tool <|.. Pen: 实现
+Pen <.. Student: 依赖
+Person *-- Eye: 组合(整体与部分的关系, 部分不能离开整体单独存在)
+Grade o-- Student: 聚合(整体与部分的关系, 部分可以离开整体单独存在)
+
+</div>
+
+
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">classDiagram</span>
+<span class="token keyword">class</span> Person <span class="token punctuation">&#123;</span>
+	+String name // public
+	-int age // private
+	+save<span class="token punctuation">(</span><span class="token punctuation">)</span> void
+	+eat<span class="token text string">(food)</span> void
+	+breathe<span class="token text string">(air)</span> void
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> Student~Primary~ <span class="token punctuation">&#123;</span>
+	-String studentNo
+	+doHomework<span class="token text string">(pen)</span> Homework
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> Tool <span class="token punctuation">&#123;</span>
+	+String function
+	+use<span class="token punctuation">(</span><span class="token punctuation">)</span> void
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> Pen <span class="token punctuation">&#123;</span>
+	+use<span class="token punctuation">(</span><span class="token punctuation">)</span> void
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> Air <span class="token punctuation">&#123;</span>
+	+String O2
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> Eye <span class="token punctuation">&#123;</span>
+	+String eyes
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> Grade <span class="token punctuation">&#123;</span>
+	+Student students
+<span class="token punctuation">&#125;</span>
+Air <span class="token arrow operator">&lt;..</span> Person<span class="token operator">:</span> 依赖<span class="token text string">(一个需要另一个的协助)</span>
+Person <span class="token arrow operator">&lt;|--</span> Student<span class="token operator">:</span> 继承
+Tool <span class="token arrow operator">&lt;|..</span> Pen<span class="token operator">:</span> 实现
+Pen <span class="token arrow operator">&lt;..</span> Student<span class="token operator">:</span> 依赖
+Person <span class="token arrow operator">*--</span> Eye<span class="token operator">:</span> 组合<span class="token text string">(整体与部分的关系, 部分不能离开整体单独存在)</span>
+Grade <span class="token arrow operator">o--</span> Student<span class="token operator">:</span> 聚合<span class="token text string">(整体与部分的关系, 部分可以离开整体单独存在)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.saddyfire.cn" rel="external nofollow noreferrer">👑Dee👑</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.saddyfire.cn/2023/04/10/mermaid-note/">https://www.saddyfire.cn/2023/04/10/mermaid-note/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://www.saddyfire.cn" target="_blank">👑Dee👑</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/mermaid/">
+                                    <span class="chip bg-color">mermaid</span>
+                                </a>
+                            
+                                <a href="/tags/markdown/">
+                                    <span class="chip bg-color">markdown</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/04/14/daily/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="日常查询">
+                        
+                        <span class="card-title">日常查询</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            个人隐私咯😋😋😋
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-14
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/program/" class="post-category">
+                                    program
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Develop/">
+                        <span class="chip bg-color">Develop</span>
+                    </a>
+                    
+                    <a href="/tags/Git/">
+                        <span class="chip bg-color">Git</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/04/10/th-login/">
+                    <div class="card-image">
+                        
+                        <img src="/images/article/2.jpg" class="responsive-img" alt="th-login">
+                        
+                        <span class="card-title">th-login</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            第三方登录流程
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/program/" class="post-category">
+                                    program
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/Vue2/">
+                        <span class="chip bg-color">Vue2</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: SaddyFire<br />'
+            + '文章作者: 👑Dee👑<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('4'),
+            headingSelector: 'h2, h3, h4, h5, h6'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023</span>
+            
+            <a href="/about" target="_blank">👑Dee👑</a>
+            
+                <span id="translate">|&nbsp;繁/简：</span><a id="translateLink" href="javascript:translatePage();">繁</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2023";
+                        var startMonth = "2";
+                        var startDate = "3";
+                        var startHour = "23";
+                        var startMinute = "22";
+                        var startSecond = "33";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备2022021631号-2</a>
+            </span>
+            
+            
+                &emsp;&emsp;&emsp;<span id="icp">
+                <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010202002588" target="_blank">浙公网安备 33010202002588号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/SaddyFire" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:960879984@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=960879984" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 960879984" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            // 如果用户点击切换则进行标记
+            sessionStorage.setItem('manualDark','0')
+            $('body').hasClass('DarkMode')
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <script>
+        //自动切换夜间模式
+        if (!sessionStorage.getItem('manualDark')){
+            // 当前主题是否为夜间模式
+            let isDark = localStorage.getItem("isDark") === '1';
+            // 当前时间是否为夜间
+            let isNight = (new Date().getHours() >= 20 || new Date().getHours() < 7)
+            // 夜间但不是夜间模式
+            if (isNight && !isDark) {
+                $('body').addClass('DarkMode')
+                localStorage.setItem('isDark', '1')
+                $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')
+            }
+            // 不是夜间但是夜间模式
+            if (!isNight && isDark) {
+                $('body').removeClass('DarkMode')
+                localStorage.setItem('isDark', '0')
+                $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')
+            }
+        }
+    </script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
+        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script>
+          if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+          }
+        </script>
+    
+
+    
+        <script type="text/javascript" src="/js/tw_cn.js"></script>
+        <script type="text/javascript">
+          var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
+          var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+          var cookieDomain = "https://www.saddyfire.cn"; //Cookie地址, 一定要设定, 通常为你的网址
+          var msgToTraditionalChinese = "繁"; //此处可以更改为你想要显示的文字
+          var msgToSimplifiedChinese = "简"; //同上，但两处均不建议更改
+          var translateButtonId = "translateLink"; //默认互换id
+          translateInitilization();
+        </script>
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

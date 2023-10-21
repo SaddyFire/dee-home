@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>SaddyFire</title>
+  
+  <subtitle>🐷Xian🐷</subtitle>
+  <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
+  
+  <link href="https://www.saddyfire.cn/"/>
+  <updated>2023-10-21T06:55:20.669Z</updated>
+  <id>https://www.saddyfire.cn/</id>
+  
+  <author>
+    <name>👑Dee👑</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Netty</title>
+    <link href="https://www.saddyfire.cn/2023/09/14/netty/"/>
+    <id>https://www.saddyfire.cn/2023/09/14/netty/</id>
+    <published>2023-09-14T13:44:28.000Z</published>
+    <updated>2023-10-21T06:55:20.669Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;ByteBuffer&quot;&gt;&lt;a href=&quot;#ByteBuffer&quot; class=&quot;headerlink&quot; title=&quot;ByteBuffer&quot;&gt;&lt;/a&gt;ByteBuffer&lt;/h2&gt;&lt;h3 id=&quot;结构&quot;&gt;&lt;a href=&quot;#结构&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+    <category term="NIO" scheme="https://www.saddyfire.cn/tags/NIO/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>crontab定时任务</title>
+    <link href="https://www.saddyfire.cn/2023/09/08/crontab/"/>
+    <id>https://www.saddyfire.cn/2023/09/08/crontab/</id>
+    <published>2023-09-08T14:07:50.000Z</published>
+    <updated>2023-09-11T00:49:53.944Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;命令&quot;&gt;&lt;a href=&quot;#命令&quot; class=&quot;headerlink&quot; title=&quot;命令&quot;&gt;&lt;/a&gt;命令&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="linux" scheme="https://www.saddyfire.cn/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>goaccess</title>
+    <link href="https://www.saddyfire.cn/2023/09/02/goaccess/"/>
+    <id>https://www.saddyfire.cn/2023/09/02/goaccess/</id>
+    <published>2023-09-02T15:02:07.000Z</published>
+    <updated>2023-09-05T03:28:42.314Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Nginx日志分析&quot;&gt;&lt;a href=&quot;#Nginx日志分析&quot; class=&quot;headerlink&quot; title=&quot;Nginx日志分析&quot;&gt;&lt;/a&gt;Nginx日志分析&lt;/h1&gt;&lt;h2 id=&quot;linux-工具&quot;&gt;&lt;a href=&quot;#linux-工具&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="windows" scheme="https://www.saddyfire.cn/tags/windows/"/>
+    
+    <category term="Nginx" scheme="https://www.saddyfire.cn/tags/Nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>wsl-note</title>
+    <link href="https://www.saddyfire.cn/2023/08/22/wsl-note/"/>
+    <id>https://www.saddyfire.cn/2023/08/22/wsl-note/</id>
+    <published>2023-08-22T14:54:05.000Z</published>
+    <updated>2023-08-23T01:42:42.723Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;系统安装与启动&quot;&gt;&lt;a href=&quot;#系统安装与启动&quot; class=&quot;headerlink&quot; title=&quot;系统安装与启动&quot;&gt;&lt;/a&gt;系统安装与启动&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-bash&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="linux" scheme="https://www.saddyfire.cn/tags/linux/"/>
+    
+    <category term="wsl" scheme="https://www.saddyfire.cn/tags/wsl/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>yunnan-diary</title>
+    <link href="https://www.saddyfire.cn/2023/08/19/yunnan-diary/"/>
+    <id>https://www.saddyfire.cn/2023/08/19/yunnan-diary/</id>
+    <published>2023-08-19T11:28:54.000Z</published>
+    <updated>2023-08-22T15:10:58.019Z</updated>
+    
+    
+    
+    
+    <category term="life" scheme="https://www.saddyfire.cn/categories/life/"/>
+    
+    
+    <category term="旅游" scheme="https://www.saddyfire.cn/tags/%E6%97%85%E6%B8%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>el-ui-积累</title>
+    <link href="https://www.saddyfire.cn/2023/08/18/el-ui-advance/"/>
+    <id>https://www.saddyfire.cn/2023/08/18/el-ui-advance/</id>
+    <published>2023-08-18T09:50:23.000Z</published>
+    <updated>2023-08-19T11:23:20.313Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;el-table-column压缩单行&quot;&gt;&lt;a href=&quot;#el-table-column压缩单行&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Vue" scheme="https://www.saddyfire.cn/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于websocket实现实时日志输出</title>
+    <link href="https://www.saddyfire.cn/2023/08/17/websocket-log/"/>
+    <id>https://www.saddyfire.cn/2023/08/17/websocket-log/</id>
+    <published>2023-08-17T08:47:39.000Z</published>
+    <updated>2023-08-19T09:56:26.081Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;由于本demo是在原有服务进行拓展, 为减少耦合故新建模块&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;依赖及配置文件&quot;&gt;&lt;a href=&quot;#依赖及配置文件&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nutz.dao笔记整理</title>
+    <link href="https://www.saddyfire.cn/2023/08/15/nutz/"/>
+    <id>https://www.saddyfire.cn/2023/08/15/nutz/</id>
+    <published>2023-08-15T02:22:03.000Z</published>
+    <updated>2023-08-17T15:09:59.619Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;基础封装&quot;&gt;&lt;a href=&quot;#基础封装&quot; class=&quot;headerlink&quot; title=&quot;基础封装&quot;&gt;&lt;/a&gt;基础封装&lt;/h2&gt;&lt;p&gt;封装单个对象查询&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-java&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+    <category term="nutz" scheme="https://www.saddyfire.cn/tags/nutz/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx-location配置</title>
+    <link href="https://www.saddyfire.cn/2023/08/14/nginx-location/"/>
+    <id>https://www.saddyfire.cn/2023/08/14/nginx-location/</id>
+    <published>2023-08-14T14:11:16.000Z</published>
+    <updated>2023-08-17T15:10:23.249Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;proxy-pass-端口后紧跟&quot;&gt;&lt;a href=&quot;#proxy-pass-端口后紧跟&quot; class=&quot;headerlink&quot; title=&quot;proxy_pass 端口后紧跟 /&quot;&gt;&lt;/a&gt;&lt;code&gt;proxy_pass&lt;/code&gt; 端口后紧跟</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="linux" scheme="https://www.saddyfire.cn/tags/linux/"/>
+    
+    <category term="nginx" scheme="https://www.saddyfire.cn/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自定义线程池</title>
+    <link href="https://www.saddyfire.cn/2023/08/06/diy-thread-pool/"/>
+    <id>https://www.saddyfire.cn/2023/08/06/diy-thread-pool/</id>
+    <published>2023-08-06T07:00:44.000Z</published>
+    <updated>2023-09-05T12:36:13.843Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;自定义线程池demo&quot;&gt;&lt;a href=&quot;#自定义线程池demo&quot; class=&quot;headerlink&quot; title=&quot;自定义线程池demo&quot;&gt;&lt;/a&gt;自定义线程池demo&lt;/h1&gt;&lt;h2 id=&quot;流程图&quot;&gt;&lt;a href=&quot;#流程图&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>lambda</title>
+    <link href="https://www.saddyfire.cn/2023/08/05/lambda/"/>
+    <id>https://www.saddyfire.cn/2023/08/05/lambda/</id>
+    <published>2023-08-05T14:17:26.000Z</published>
+    <updated>2023-08-17T15:10:45.086Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;自定义lambda用法&quot;&gt;&lt;a href=&quot;#自定义lambda用法&quot; class=&quot;headerlink&quot; title=&quot;自定义lambda用法&quot;&gt;&lt;/a&gt;自定义lambda用法&lt;/h1&gt;&lt;h2 id=&quot;基础用法&quot;&gt;&lt;a href=&quot;#基础用法&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>dm-mysql</title>
+    <link href="https://www.saddyfire.cn/2023/07/16/dm-mysql/"/>
+    <id>https://www.saddyfire.cn/2023/07/16/dm-mysql/</id>
+    <published>2023-07-16T08:31:18.000Z</published>
+    <updated>2023-09-11T08:04:18.692Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;MD-mysql-通用语法-对比&quot;&gt;&lt;a href=&quot;#MD-mysql-通用语法-对比&quot; class=&quot;headerlink&quot; title=&quot;MD - mysql 通用语法&amp;#x2F;对比&quot;&gt;&lt;/a&gt;MD - mysql</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="数据库" scheme="https://www.saddyfire.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>el-ui-primary</title>
+    <link href="https://www.saddyfire.cn/2023/06/03/el-ui-primary/"/>
+    <id>https://www.saddyfire.cn/2023/06/03/el-ui-primary/</id>
+    <published>2023-06-02T23:33:46.000Z</published>
+    <updated>2023-08-18T09:27:50.620Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;element-ui-笔记&quot;&gt;&lt;a href=&quot;#element-ui-笔记&quot; class=&quot;headerlink&quot; title=&quot;element-ui 笔记&quot;&gt;&lt;/a&gt;element-ui</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="vue2" scheme="https://www.saddyfire.cn/tags/vue2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cas</title>
+    <link href="https://www.saddyfire.cn/2023/05/20/cas/"/>
+    <id>https://www.saddyfire.cn/2023/05/20/cas/</id>
+    <published>2023-05-20T02:21:27.000Z</published>
+    <updated>2023-08-17T15:11:52.600Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;CAS之Atomic包&quot;&gt;&lt;a href=&quot;#CAS之Atomic包&quot; class=&quot;headerlink&quot; title=&quot;CAS之Atomic包&quot;&gt;&lt;/a&gt;CAS之Atomic包&lt;/h2&gt;&lt;h4 id=&quot;updateAndGet实现原理demo&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+    <category term="Juc" scheme="https://www.saddyfire.cn/tags/Juc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>手机扫码登录流程</title>
+    <link href="https://www.saddyfire.cn/2023/04/26/scan-code/"/>
+    <id>https://www.saddyfire.cn/2023/04/26/scan-code/</id>
+    <published>2023-04-26T06:21:59.000Z</published>
+    <updated>2023-04-26T15:58:27.295Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;流程图&quot;&gt;&lt;a href=&quot;#流程图&quot; class=&quot;headerlink&quot; title=&quot;流程图&quot;&gt;&lt;/a&gt;流程图&lt;/h2&gt;&lt;div class=&quot;mermaid&quot;&gt;
+  
+sequenceDiagram
+	actor c as</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="safe" scheme="https://www.saddyfire.cn/tags/safe/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前后端api交互安全</title>
+    <link href="https://www.saddyfire.cn/2023/04/16/api-safety/"/>
+    <id>https://www.saddyfire.cn/2023/04/16/api-safety/</id>
+    <published>2023-04-16T01:38:04.000Z</published>
+    <updated>2023-08-17T15:12:11.910Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;demo1&quot;&gt;&lt;a href=&quot;#demo1&quot; class=&quot;headerlink&quot; title=&quot;demo1&quot;&gt;&lt;/a&gt;demo1&lt;/h2&gt;&lt;div class=&quot;mermaid&quot;&gt;
+  sequenceDiagram
+	actor c as</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+    <category term="Safe" scheme="https://www.saddyfire.cn/tags/Safe/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx-ssl</title>
+    <link href="https://www.saddyfire.cn/2023/04/15/nginx-ssl/"/>
+    <id>https://www.saddyfire.cn/2023/04/15/nginx-ssl/</id>
+    <published>2023-04-15T15:32:16.000Z</published>
+    <updated>2023-08-17T15:10:10.241Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Nginx及SSL配置&quot;&gt;&lt;a href=&quot;#Nginx及SSL配置&quot; class=&quot;headerlink&quot; title=&quot;Nginx及SSL配置&quot;&gt;&lt;/a&gt;Nginx及SSL配置&lt;/h1&gt;&lt;h2 id=&quot;Nginx安装&quot;&gt;&lt;a href=&quot;#Nginx安装&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="linux" scheme="https://www.saddyfire.cn/tags/linux/"/>
+    
+    <category term="nginx" scheme="https://www.saddyfire.cn/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>日常查询</title>
+    <link href="https://www.saddyfire.cn/2023/04/14/daily/"/>
+    <id>https://www.saddyfire.cn/2023/04/14/daily/</id>
+    <published>2023-04-14T12:24:21.000Z</published>
+    <updated>2023-10-17T09:39:46.129Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;git&quot;&gt;&lt;a href=&quot;#git&quot; class=&quot;headerlink&quot; title=&quot;git&quot;&gt;&lt;/a&gt;git&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Develop" scheme="https://www.saddyfire.cn/tags/Develop/"/>
+    
+    <category term="Git" scheme="https://www.saddyfire.cn/tags/Git/"/>
+    
+    <category term="数据库" scheme="https://www.saddyfire.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="linux" scheme="https://www.saddyfire.cn/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mermaid-note</title>
+    <link href="https://www.saddyfire.cn/2023/04/10/mermaid-note/"/>
+    <id>https://www.saddyfire.cn/2023/04/10/mermaid-note/</id>
+    <published>2023-04-10T10:02:16.000Z</published>
+    <updated>2023-09-05T05:51:41.430Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;mermaid入门-基于hexo&quot;&gt;&lt;a href=&quot;#mermaid入门-基于hexo&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="mermaid" scheme="https://www.saddyfire.cn/tags/mermaid/"/>
+    
+    <category term="markdown" scheme="https://www.saddyfire.cn/tags/markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>th-login</title>
+    <link href="https://www.saddyfire.cn/2023/04/10/th-login/"/>
+    <id>https://www.saddyfire.cn/2023/04/10/th-login/</id>
+    <published>2023-04-10T09:33:40.000Z</published>
+    <updated>2023-08-17T10:02:37.157Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;第三方登录&quot;&gt;&lt;a href=&quot;#第三方登录&quot; class=&quot;headerlink&quot; title=&quot;第三方登录:&quot;&gt;&lt;/a&gt;第三方登录:&lt;/h1&gt;&lt;p&gt;&lt;em&gt;&lt;code&gt;vue-java&lt;/code&gt;前后端交互流程&lt;code&gt;demo&lt;/code&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+    <category term="Vue2" scheme="https://www.saddyfire.cn/tags/Vue2/"/>
+    
+  </entry>
+  
+</feed>
