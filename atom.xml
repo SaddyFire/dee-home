@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2023-10-21T15:42:34.112Z</updated>
+  <updated>2023-10-21T16:15:32.640Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.saddyfire.cn/2023/10/21/dm-move/"/>
     <id>https://www.saddyfire.cn/2023/10/21/dm-move/</id>
     <published>2023-10-21T15:22:26.000Z</published>
-    <updated>2023-10-21T15:42:34.112Z</updated>
+    <updated>2023-10-21T16:15:32.640Z</updated>
     
     
       
@@ -34,6 +34,10 @@
     
     
     
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Database" scheme="https://www.saddyfire.cn/tags/Database/"/>
     
   </entry>
   
@@ -446,9 +450,9 @@ sequenceDiagram
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="safe" scheme="https://www.saddyfire.cn/tags/safe/"/>
-    
     <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+    <category term="safe" scheme="https://www.saddyfire.cn/tags/safe/"/>
     
   </entry>
   
