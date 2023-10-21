@@ -48,7 +48,7 @@
     <link href="https://www.saddyfire.cn/2023/09/08/crontab/"/>
     <id>https://www.saddyfire.cn/2023/09/08/crontab/</id>
     <published>2023-09-08T14:07:50.000Z</published>
-    <updated>2023-09-11T00:49:53.944Z</updated>
+    <updated>2023-10-21T14:57:44.200Z</updated>
     
     
       
@@ -64,7 +64,7 @@
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="linux" scheme="https://www.saddyfire.cn/tags/linux/"/>
+    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
     
   </entry>
   
@@ -73,7 +73,7 @@
     <link href="https://www.saddyfire.cn/2023/09/02/goaccess/"/>
     <id>https://www.saddyfire.cn/2023/09/02/goaccess/</id>
     <published>2023-09-02T15:02:07.000Z</published>
-    <updated>2023-09-05T03:28:42.314Z</updated>
+    <updated>2023-10-21T15:02:56.218Z</updated>
     
     
       
@@ -89,7 +89,7 @@
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="windows" scheme="https://www.saddyfire.cn/tags/windows/"/>
+    <category term="Windows" scheme="https://www.saddyfire.cn/tags/Windows/"/>
     
     <category term="Nginx" scheme="https://www.saddyfire.cn/tags/Nginx/"/>
     
@@ -100,7 +100,7 @@
     <link href="https://www.saddyfire.cn/2023/08/22/wsl-note/"/>
     <id>https://www.saddyfire.cn/2023/08/22/wsl-note/</id>
     <published>2023-08-22T14:54:05.000Z</published>
-    <updated>2023-08-23T01:42:42.723Z</updated>
+    <updated>2023-10-21T15:03:31.309Z</updated>
     
     
       
@@ -116,9 +116,9 @@
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="linux" scheme="https://www.saddyfire.cn/tags/linux/"/>
+    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
     
-    <category term="wsl" scheme="https://www.saddyfire.cn/tags/wsl/"/>
+    <category term="WSL" scheme="https://www.saddyfire.cn/tags/WSL/"/>
     
   </entry>
   
@@ -197,7 +197,7 @@
     <link href="https://www.saddyfire.cn/2023/08/15/nutz/"/>
     <id>https://www.saddyfire.cn/2023/08/15/nutz/</id>
     <published>2023-08-15T02:22:03.000Z</published>
-    <updated>2023-08-17T15:09:59.619Z</updated>
+    <updated>2023-10-21T14:57:18.933Z</updated>
     
     
       
@@ -216,7 +216,7 @@
     
     <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
     
-    <category term="nutz" scheme="https://www.saddyfire.cn/tags/nutz/"/>
+    <category term="Nutz" scheme="https://www.saddyfire.cn/tags/Nutz/"/>
     
   </entry>
   
@@ -225,7 +225,7 @@
     <link href="https://www.saddyfire.cn/2023/08/14/nginx-location/"/>
     <id>https://www.saddyfire.cn/2023/08/14/nginx-location/</id>
     <published>2023-08-14T14:11:16.000Z</published>
-    <updated>2023-08-17T15:10:23.249Z</updated>
+    <updated>2023-10-21T14:57:07.179Z</updated>
     
     
       
@@ -241,9 +241,9 @@
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="linux" scheme="https://www.saddyfire.cn/tags/linux/"/>
+    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
     
-    <category term="nginx" scheme="https://www.saddyfire.cn/tags/nginx/"/>
+    <category term="Nginx" scheme="https://www.saddyfire.cn/tags/Nginx/"/>
     
   </entry>
   
@@ -302,14 +302,14 @@
     <link href="https://www.saddyfire.cn/2023/07/16/dm-mysql/"/>
     <id>https://www.saddyfire.cn/2023/07/16/dm-mysql/</id>
     <published>2023-07-16T08:31:18.000Z</published>
-    <updated>2023-09-11T08:04:18.692Z</updated>
+    <updated>2023-10-21T15:11:24.613Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;MD-mysql-通用语法-对比&quot;&gt;&lt;a href=&quot;#MD-mysql-通用语法-对比&quot; class=&quot;headerlink&quot; title=&quot;MD - mysql 通用语法&amp;#x2F;对比&quot;&gt;&lt;/a&gt;MD - mysql</summary>
+    <summary type="html">&lt;h1 id=&quot;DM-mysql-通用语法-对比&quot;&gt;&lt;a href=&quot;#DM-mysql-通用语法-对比&quot; class=&quot;headerlink&quot; title=&quot;DM - mysql 通用语法&amp;#x2F;对比&quot;&gt;&lt;/a&gt;DM - mysql</summary>
         
       
     
@@ -318,7 +318,7 @@
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="数据库" scheme="https://www.saddyfire.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <category term="Database" scheme="https://www.saddyfire.cn/tags/Database/"/>
     
   </entry>
   
@@ -327,7 +327,7 @@
     <link href="https://www.saddyfire.cn/2023/06/03/el-ui-primary/"/>
     <id>https://www.saddyfire.cn/2023/06/03/el-ui-primary/</id>
     <published>2023-06-02T23:33:46.000Z</published>
-    <updated>2023-08-18T09:27:50.620Z</updated>
+    <updated>2023-10-21T14:58:07.297Z</updated>
     
     
       
@@ -343,7 +343,7 @@
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="vue2" scheme="https://www.saddyfire.cn/tags/vue2/"/>
+    <category term="Vue2" scheme="https://www.saddyfire.cn/tags/Vue2/"/>
     
   </entry>
   
@@ -352,7 +352,7 @@
     <link href="https://www.saddyfire.cn/2023/05/20/cas/"/>
     <id>https://www.saddyfire.cn/2023/05/20/cas/</id>
     <published>2023-05-20T02:21:27.000Z</published>
-    <updated>2023-08-17T15:11:52.600Z</updated>
+    <updated>2023-10-21T15:01:47.103Z</updated>
     
     
       
@@ -370,7 +370,7 @@
     
     <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
     
-    <category term="Juc" scheme="https://www.saddyfire.cn/tags/Juc/"/>
+    <category term="JUC" scheme="https://www.saddyfire.cn/tags/JUC/"/>
     
   </entry>
   
@@ -407,7 +407,7 @@ sequenceDiagram
     <link href="https://www.saddyfire.cn/2023/04/16/api-safety/"/>
     <id>https://www.saddyfire.cn/2023/04/16/api-safety/</id>
     <published>2023-04-16T01:38:04.000Z</published>
-    <updated>2023-08-17T15:12:11.910Z</updated>
+    <updated>2023-10-21T14:58:25.518Z</updated>
     
     
       
@@ -427,7 +427,7 @@ sequenceDiagram
     
     <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
     
-    <category term="Safe" scheme="https://www.saddyfire.cn/tags/Safe/"/>
+    <category term="safe" scheme="https://www.saddyfire.cn/tags/safe/"/>
     
   </entry>
   
@@ -436,7 +436,7 @@ sequenceDiagram
     <link href="https://www.saddyfire.cn/2023/04/15/nginx-ssl/"/>
     <id>https://www.saddyfire.cn/2023/04/15/nginx-ssl/</id>
     <published>2023-04-15T15:32:16.000Z</published>
-    <updated>2023-08-17T15:10:10.241Z</updated>
+    <updated>2023-10-21T14:58:35.987Z</updated>
     
     
       
@@ -452,9 +452,9 @@ sequenceDiagram
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="linux" scheme="https://www.saddyfire.cn/tags/linux/"/>
+    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
     
-    <category term="nginx" scheme="https://www.saddyfire.cn/tags/nginx/"/>
+    <category term="Nginx" scheme="https://www.saddyfire.cn/tags/Nginx/"/>
     
   </entry>
   
@@ -463,14 +463,14 @@ sequenceDiagram
     <link href="https://www.saddyfire.cn/2023/04/14/daily/"/>
     <id>https://www.saddyfire.cn/2023/04/14/daily/</id>
     <published>2023-04-14T12:24:21.000Z</published>
-    <updated>2023-10-17T09:39:46.129Z</updated>
+    <updated>2023-10-21T15:10:29.556Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;git&quot;&gt;&lt;a href=&quot;#git&quot; class=&quot;headerlink&quot; title=&quot;git&quot;&gt;&lt;/a&gt;git&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
+    <summary type="html">&lt;h2 id=&quot;Git&quot;&gt;&lt;a href=&quot;#Git&quot; class=&quot;headerlink&quot; title=&quot;Git&quot;&gt;&lt;/a&gt;Git&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
         
       
     
@@ -479,13 +479,13 @@ sequenceDiagram
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="linux" scheme="https://www.saddyfire.cn/tags/linux/"/>
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
     
-    <category term="Develop" scheme="https://www.saddyfire.cn/tags/Develop/"/>
+    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
     
     <category term="Git" scheme="https://www.saddyfire.cn/tags/Git/"/>
     
-    <category term="数据库" scheme="https://www.saddyfire.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <category term="Database" scheme="https://www.saddyfire.cn/tags/Database/"/>
     
   </entry>
   
@@ -494,7 +494,7 @@ sequenceDiagram
     <link href="https://www.saddyfire.cn/2023/04/10/mermaid-note/"/>
     <id>https://www.saddyfire.cn/2023/04/10/mermaid-note/</id>
     <published>2023-04-10T10:02:16.000Z</published>
-    <updated>2023-09-05T05:51:41.430Z</updated>
+    <updated>2023-10-21T15:00:27.769Z</updated>
     
     
       
@@ -510,9 +510,9 @@ sequenceDiagram
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="mermaid" scheme="https://www.saddyfire.cn/tags/mermaid/"/>
+    <category term="Mermaid" scheme="https://www.saddyfire.cn/tags/Mermaid/"/>
     
-    <category term="markdown" scheme="https://www.saddyfire.cn/tags/markdown/"/>
+    <category term="Markdown" scheme="https://www.saddyfire.cn/tags/Markdown/"/>
     
   </entry>
   
