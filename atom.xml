@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2023-10-21T14:45:02.595Z</updated>
+  <updated>2023-10-21T15:42:34.112Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DM备份还原笔记</title>
+    <link href="https://www.saddyfire.cn/2023/10/21/dm-move/"/>
+    <id>https://www.saddyfire.cn/2023/10/21/dm-move/</id>
+    <published>2023-10-21T15:22:26.000Z</published>
+    <updated>2023-10-21T15:42:34.112Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;DM备份还原笔记&quot;&gt;&lt;a href=&quot;#DM备份还原笔记&quot; class=&quot;headerlink&quot; title=&quot;DM备份还原笔记&quot;&gt;&lt;/a&gt;DM备份还原笔记&lt;/h1&gt;&lt;h2 id=&quot;还原&quot;&gt;&lt;a href=&quot;#还原&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Netty</title>
@@ -425,9 +446,9 @@ sequenceDiagram
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
-    
     <category term="safe" scheme="https://www.saddyfire.cn/tags/safe/"/>
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
     
   </entry>
   
@@ -513,33 +534,6 @@ sequenceDiagram
     <category term="Mermaid" scheme="https://www.saddyfire.cn/tags/Mermaid/"/>
     
     <category term="Markdown" scheme="https://www.saddyfire.cn/tags/Markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>th-login</title>
-    <link href="https://www.saddyfire.cn/2023/04/10/th-login/"/>
-    <id>https://www.saddyfire.cn/2023/04/10/th-login/</id>
-    <published>2023-04-10T09:33:40.000Z</published>
-    <updated>2023-08-17T10:02:37.157Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;第三方登录&quot;&gt;&lt;a href=&quot;#第三方登录&quot; class=&quot;headerlink&quot; title=&quot;第三方登录:&quot;&gt;&lt;/a&gt;第三方登录:&lt;/h1&gt;&lt;p&gt;&lt;em&gt;&lt;code&gt;vue-java&lt;/code&gt;前后端交互流程&lt;code&gt;demo&lt;/code&gt;</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
-    
-    <category term="Vue2" scheme="https://www.saddyfire.cn/tags/Vue2/"/>
     
   </entry>
   
