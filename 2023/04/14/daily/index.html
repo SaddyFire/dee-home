@@ -295,16 +295,16 @@
                                 <span class="chip bg-color">Java</span>
                             </a>
                         
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
-                            </a>
-                        
                             <a href="/tags/Git/">
                                 <span class="chip bg-color">Git</span>
                             </a>
                         
                             <a href="/tags/Database/">
                                 <span class="chip bg-color">Database</span>
+                            </a>
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
                             </a>
                         
                     </div>
@@ -335,14 +335,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-10-21
+                    2023-10-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    701
+                    740
                 </div>
                 
 
@@ -409,8 +409,9 @@
 	SF_GET_SESSION_SQL<span class="token punctuation">(</span>SESS_ID<span class="token punctuation">)</span> fullsql<span class="token punctuation">,</span>
 	clnt_ip<span class="token punctuation">,</span>clnt_type<span class="token punctuation">,</span>create_time
 	<span class="token keyword">FROM</span> V$SESSIONS <span class="token keyword">WHERE</span> STATE<span class="token operator">=</span><span class="token string">'ACTIVE'</span><span class="token punctuation">)</span>
-	<span class="token keyword">where</span> Y_EXETIME<span class="token operator">>=</span><span class="token number">2</span>
+	<span class="token keyword">where</span> Y_EXETIME<span class="token operator">>=</span><span class="token number">2</span> <span class="token keyword">order</span> <span class="token keyword">by</span> y_exetime <span class="token keyword">desc</span>
 <span class="token punctuation">)</span>
+
 <span class="token comment">-- 查询当前回滚剩余条数</span>
 <span class="token keyword">select</span> sess_id<span class="token punctuation">,</span>ins_cnt<span class="token operator">+</span>del_cnt<span class="token operator">+</span>upd_cnt<span class="token operator">+</span>upd_ins_cnt<span class="token punctuation">,</span>systimestamp <span class="token keyword">from</span> v$trx <span class="token keyword">where</span> ROLLBACK_FLAG<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
 
@@ -436,7 +437,7 @@ sp_close_session<span class="token punctuation">(</span><span class="token numbe
             <span class="token keyword">end</span> <span class="token keyword">loop</span><span class="token punctuation">;</span>
 	<span class="token keyword">end</span><span class="token punctuation">;</span>
 
-<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> table_count <span class="token keyword">order</span> <span class="token keyword">by</span> used_space_mb <span class="token keyword">desc</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> table_count <span class="token keyword">order</span> <span class="token keyword">by</span> used_space_mb <span class="token keyword">desc</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="进程端口命令"><a href="#进程端口命令" class="headerlink" title="进程端口命令"></a>进程端口命令</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># linux</span>
 <span class="token function">lsof</span> <span class="token parameter variable">-i:80</span>  <span class="token comment"># 根据端口查看PID及应用名</span>
@@ -461,7 +462,11 @@ taskkill /T /F /PID <span class="token number">12345</span>  <span class="token 
 yum search <span class="token function">ifconfig</span>
 yum <span class="token function">install</span> net-tools
 yum info net-tools
-yum list jdk   查看安装过的包<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+yum list jdk   查看安装过的包
+
+<span class="token function">cp</span> /dev/null nohup.out  <span class="token comment"># 不重启服务清空nohup文件</span>
+<span class="token function">chmod</span> <span class="token number">766</span> <span class="token operator">&lt;</span>name<span class="token operator">></span> <span class="token comment"># user,group,other r=4,w=2,x=1</span>
+<span class="token function">chown</span> <span class="token operator">&lt;</span>user<span class="token operator">></span>:<span class="token operator">&lt;</span>group<span class="token operator">></span> <span class="token operator">&lt;</span>name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 格式化日期</span>
 <span class="token class-name">String</span> now <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -556,16 +561,16 @@ yum list jdk   查看安装过的包<span aria-hidden="true" class="line-numbers
                                     <span class="chip bg-color">Java</span>
                                 </a>
                             
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
-                                </a>
-                            
                                 <a href="/tags/Git/">
                                     <span class="chip bg-color">Git</span>
                                 </a>
                             
                                 <a href="/tags/Database/">
                                     <span class="chip bg-color">Database</span>
+                                </a>
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
                                 </a>
                             
                         </div>
