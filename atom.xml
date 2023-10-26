@@ -73,7 +73,7 @@
     <link href="https://www.saddyfire.cn/2023/09/08/crontab/"/>
     <id>https://www.saddyfire.cn/2023/09/08/crontab/</id>
     <published>2023-09-08T14:07:50.000Z</published>
-    <updated>2023-10-21T14:57:44.200Z</updated>
+    <updated>2023-10-26T14:40:30.209Z</updated>
     
     
       
@@ -89,7 +89,7 @@
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
+    <category term="Linux1" scheme="https://www.saddyfire.cn/tags/Linux1/"/>
     
   </entry>
   
@@ -458,9 +458,9 @@ sequenceDiagram
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
-    
     <category term="safe" scheme="https://www.saddyfire.cn/tags/safe/"/>
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
     
   </entry>
   
