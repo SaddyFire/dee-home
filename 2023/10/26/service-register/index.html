@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="日常查询, SaddyFire">
-    <meta name="description" content="个人隐私咯😋😋😋">
+    <meta name="keywords" content="service-register, SaddyFire">
+    <meta name="description" content="注册服务至linux及win">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>日常查询 | SaddyFire</title>
+    <title>service-register | SaddyFire</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -249,7 +249,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '61503690505f84b144e6ac89124540a3eb8d22e77db76500984cfc50a1d8776e';
+        let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -262,12 +262,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/article/39.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">日常查询</h1>
+                    <h1 class="description center-align post-title">service-register</h1>
                 </div>
             </div>
         </div>
@@ -291,20 +291,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
-                            </a>
-                        
                             <a href="/tags/Linux-s/">
                                 <span class="chip bg-color">Linux-s</span>
                             </a>
                         
-                            <a href="/tags/Git/">
-                                <span class="chip bg-color">Git</span>
-                            </a>
-                        
-                            <a href="/tags/Database/">
-                                <span class="chip bg-color">Database</span>
+                            <a href="/tags/Windows-s/">
+                                <span class="chip bg-color">Windows-s</span>
                             </a>
                         
                     </div>
@@ -328,7 +320,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-04-14
+                    2023-10-26
                 </div>
                 
 
@@ -342,14 +334,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    740
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    6 分
                 </div>
                 
 
@@ -377,121 +369,254 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push <span class="token parameter variable">-u</span> origin dev-dee
-<span class="token function">git</span> branch <span class="token parameter variable">-D</span> 分支名  -- 强制删除分支
-<span class="token function">git</span> push origin <span class="token parameter variable">-d</span> 分支名  -- 强制删除远端分支
-
-<span class="token function">git</span> stash list  -- 查询暂存区
-<span class="token function">git</span> stash show <span class="token parameter variable">-p</span> 缓存id  -- 查询具体某个stash变更内容
-<span class="token function">git</span> stash push <span class="token parameter variable">-m</span> <span class="token string">'xxx'</span>  -- 暂存并取名
-<span class="token function">git</span> stash drop stash@<span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">&#125;</span>  -- 删除某一个暂存
-
-<span class="token function">npm</span> i <span class="token parameter variable">-g</span> git-br
-<span class="token function">git</span> br
-<span class="token function">git</span> config branch.develop.description 分支备注<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
-<li>删除git中.idea文件</li>
+                <h1 id="服务注册"><a href="#服务注册" class="headerlink" title="服务注册"></a>服务注册</h1><h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="服务文件路径"><a href="#服务文件路径" class="headerlink" title="服务文件路径"></a>服务文件路径</h3><ul>
+<li>&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;</li>
+<li>&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-- <span class="token number">1</span>. 修改.gitignore文件
--- <span class="token number">2</span>. 删除本地缓存区.idea文件
-<span class="token function">git</span> <span class="token function">rm</span> <span class="token parameter variable">--cached</span> <span class="token parameter variable">-r</span> .idea
--- <span class="token number">3</span>. 推送
-<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">'delete .idea'</span>
-<span class="token function">git</span> push origin dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p> <code>systemctl daemon-reload</code></p>
+<h3 id="Nginx案例"><a href="#Nginx案例" class="headerlink" title="Nginx案例"></a>Nginx案例</h3><h4 id="配置文件-nginx-service"><a href="#配置文件-nginx-service" class="headerlink" title="配置文件 nginx.service"></a>配置文件 nginx.service</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>Unit<span class="token punctuation">]</span>
+<span class="token assign-left variable">Description</span><span class="token operator">=</span>nginx - web server
+<span class="token assign-left variable">After</span><span class="token operator">=</span>network.target remote-fs.target nss-lookup.target
+<span class="token punctuation">[</span>Service<span class="token punctuation">]</span>
+<span class="token assign-left variable">Type</span><span class="token operator">=</span>forking
+<span class="token assign-left variable">PIDFile</span><span class="token operator">=</span>/usr/local/nginx/logs/nginx.pid
+<span class="token assign-left variable">ExecStartPre</span><span class="token operator">=</span>/usr/local/nginx/sbin/nginx <span class="token parameter variable">-t</span> <span class="token parameter variable">-c</span> /usr/local/nginx/conf/nginx.conf
+<span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/usr/local/nginx/sbin/nginx <span class="token parameter variable">-c</span> /usr/local/nginx/conf/nginx.conf
+<span class="token assign-left variable">ExecReload</span><span class="token operator">=</span>/usr/local/nginx/sbin/nginx <span class="token parameter variable">-s</span> reload
+<span class="token assign-left variable">ExecStop</span><span class="token operator">=</span>/usr/local/nginx/sbin/nginx <span class="token parameter variable">-s</span> stop
+<span class="token assign-left variable">ExecQuit</span><span class="token operator">=</span>/usr/local/nginx/sbin/nginx <span class="token parameter variable">-s</span> quit
+<span class="token assign-left variable">PrivateTmp</span><span class="token operator">=</span>true
+<span class="token punctuation">[</span>Install<span class="token punctuation">]</span>
+<span class="token assign-left variable">WantedBy</span><span class="token operator">=</span>multi-user.target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="DM"><a href="#DM" class="headerlink" title="DM"></a>DM</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 已经执行超过2s的活动SQL</span>
-<span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">from</span> <span class="token punctuation">(</span>
-	<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token punctuation">(</span>
-	<span class="token keyword">SELECT</span> sess_id<span class="token punctuation">,</span>
-	sql_text<span class="token punctuation">,</span>
-	datediff<span class="token punctuation">(</span>ss<span class="token punctuation">,</span>last_recv_time<span class="token punctuation">,</span>sysdate<span class="token punctuation">)</span> Y_EXETIME<span class="token punctuation">,</span>
-	SF_GET_SESSION_SQL<span class="token punctuation">(</span>SESS_ID<span class="token punctuation">)</span> fullsql<span class="token punctuation">,</span>
-	clnt_ip<span class="token punctuation">,</span>clnt_type<span class="token punctuation">,</span>create_time
-	<span class="token keyword">FROM</span> V$SESSIONS <span class="token keyword">WHERE</span> STATE<span class="token operator">=</span><span class="token string">'ACTIVE'</span><span class="token punctuation">)</span>
-	<span class="token keyword">where</span> Y_EXETIME<span class="token operator">>=</span><span class="token number">2</span> <span class="token keyword">order</span> <span class="token keyword">by</span> y_exetime <span class="token keyword">desc</span>
-<span class="token punctuation">)</span>
+<h4 id="注册脚本-参考"><a href="#注册脚本-参考" class="headerlink" title="注册脚本(参考)"></a>注册脚本(参考)</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment">## -bash: ./initdee.sh: /bin/bash^M: bad interpreter: No such file or directory</span>
+<span class="token comment">## vim或者vi的命令模式下, 输入命令 set ff=unix 即可解决换行问题</span>
 
-<span class="token comment">-- 查询当前回滚剩余条数</span>
-<span class="token keyword">select</span> sess_id<span class="token punctuation">,</span>ins_cnt<span class="token operator">+</span>del_cnt<span class="token operator">+</span>upd_cnt<span class="token operator">+</span>upd_ins_cnt<span class="token punctuation">,</span>systimestamp <span class="token keyword">from</span> v$trx <span class="token keyword">where</span> ROLLBACK_FLAG<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-
-<span class="token comment">-- 查询具体报锁超时的表对应的会话锁，查询第一列用于杀掉对应SESSION</span>
-<span class="token keyword">select</span> <span class="token string">'sp_close_session('</span><span class="token operator">||</span>sess_id<span class="token operator">||</span><span class="token string">')'</span><span class="token punctuation">,</span><span class="token operator">*</span> <span class="token keyword">from</span> v$sessions <span class="token keyword">where</span> trx_id <span class="token operator">in</span> <span class="token punctuation">(</span>
-<span class="token keyword">select</span> trx_id <span class="token keyword">from</span> v$<span class="token keyword">lock</span> a<span class="token punctuation">,</span>SYSOBJECTS b <span class="token keyword">where</span> a<span class="token punctuation">.</span>table_id <span class="token operator">=</span> b<span class="token punctuation">.</span>id <span class="token operator">and</span> b<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'表名'</span> <span class="token operator">and</span> b<span class="token punctuation">.</span>SUBTYPE$<span class="token operator">=</span><span class="token string">'UTAB'</span> <span class="token operator">and</span> trx_id<span class="token operator">&lt;></span><span class="token number">0</span>
-<span class="token punctuation">)</span>
-
-<span class="token comment">-- 杀死会话</span>
-sp_close_session<span class="token punctuation">(</span><span class="token number">140170753999128</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">-- 统计当前阻塞的详情</span>
-<span class="token keyword">select</span> clnt_ip<span class="token punctuation">,</span>clnt_type<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">from</span> v$sessions <span class="token keyword">where</span> run_status <span class="token operator">=</span> <span class="token string">'idle'</span> <span class="token keyword">group</span> <span class="token keyword">by</span> clnt_ip<span class="token punctuation">,</span> clnt_type <span class="token keyword">order</span> <span class="token keyword">by</span> clnt_ip
-
-<span class="token comment">-- 统计表空间大小</span>
-<span class="token keyword">create</span> <span class="token keyword">table</span> table_count <span class="token punctuation">(</span>owner <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>table_name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>used_space_MB <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">declare</span>
-    <span class="token keyword">begin</span>
-        <span class="token keyword">for</span> rec <span class="token operator">in</span>
-        <span class="token punctuation">(</span><span class="token keyword">select</span> owner<span class="token punctuation">,</span> table_name <span class="token keyword">from</span> all_tables <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
-            <span class="token keyword">loop</span>
-            <span class="token keyword">insert</span> <span class="token keyword">into</span> table_count <span class="token keyword">select</span> rec<span class="token punctuation">.</span>owner<span class="token punctuation">,</span> rec<span class="token punctuation">.</span>table_name<span class="token punctuation">,</span>table_used_pages<span class="token punctuation">(</span>rec<span class="token punctuation">.</span>owner<span class="token punctuation">,</span> rec<span class="token punctuation">.</span>table_name<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>page<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">1024</span> <span class="token keyword">from</span> dual<span class="token punctuation">;</span>
-            <span class="token keyword">end</span> <span class="token keyword">loop</span><span class="token punctuation">;</span>
-	<span class="token keyword">end</span><span class="token punctuation">;</span>
-
-<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> table_count <span class="token keyword">order</span> <span class="token keyword">by</span> used_space_mb <span class="token keyword">desc</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="进程端口命令"><a href="#进程端口命令" class="headerlink" title="进程端口命令"></a>进程端口命令</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># linux</span>
-<span class="token function">lsof</span> <span class="token parameter variable">-i:80</span>  <span class="token comment"># 根据端口查看PID及应用名</span>
-<span class="token function">netstat</span> -ntulp<span class="token operator">|</span><span class="token function">grep</span> nginx  <span class="token comment"># 根据应用名查看端口</span>
-<span class="token function">top</span> <span class="token parameter variable">-Hp</span> pid  <span class="token comment"># 查看某个进程下所有子线程</span>
-
-<span class="token comment">#win</span>
-tasklist <span class="token operator">|</span> findstr xxx  <span class="token comment"># 查看进程 ps -ef</span>
-taskkill /T /F /PID <span class="token number">12345</span>  <span class="token comment"># 杀死进程 kill -9</span>
-<span class="token function">netstat</span> -ano<span class="token operator">|</span>findstr <span class="token number">80</span>  <span class="token comment"># 端口查看</span>
-
-<span class="token comment"># linux查找文件</span>
-<span class="token function">find</span> / <span class="token parameter variable">-iname</span> *abc*  <span class="token comment"># 全局搜索</span>
-<span class="token function">find</span> / <span class="token parameter variable">-type</span> d <span class="token parameter variable">-iname</span> *abc* <span class="token comment"># 搜索文件夹</span>
-<span class="token function">find</span> / <span class="token parameter variable">-size</span> +100M
-<span class="token function">find</span> / <span class="token parameter variable">-maxdepth</span> <span class="token number">1</span> <span class="token parameter variable">-iname</span> abc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="其他linux常用命令"><a href="#其他linux常用命令" class="headerlink" title="其他linux常用命令"></a>其他linux常用命令</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">journalctl <span class="token parameter variable">-u</span> <span class="token string">'服务名'</span> <span class="token parameter variable">-f</span> <span class="token parameter variable">-n</span> 行数
-<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> 解压  <span class="token function">gzip</span> extract verbose <span class="token function">file</span>
-<span class="token function">tar</span> <span class="token parameter variable">-zcvf</span> 压缩  <span class="token function">gzip</span> create <span class="token punctuation">..</span>.
-
-yum search <span class="token function">ifconfig</span>
-yum <span class="token function">install</span> net-tools
-yum info net-tools
-yum list jdk   查看安装过的包
-
-<span class="token function">cp</span> /dev/null nohup.out  <span class="token comment"># 不重启服务清空nohup文件</span>
-<span class="token function">chmod</span> <span class="token number">766</span> <span class="token operator">&lt;</span>name<span class="token operator">></span> <span class="token comment"># user,group,other r=4,w=2,x=1</span>
-<span class="token function">chown</span> <span class="token operator">&lt;</span>user<span class="token operator">></span>:<span class="token operator">&lt;</span>group<span class="token operator">></span> <span class="token operator">&lt;</span>name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 格式化日期</span>
-<span class="token class-name">String</span> now <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">String</span> now <span class="token operator">=</span> <span class="token class-name">DateFormatUtils</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// lang3包下的工具类</span>
-<span class="token class-name">String</span> now <span class="token operator">=</span> <span class="token class-name">DateTimeFormatter</span><span class="token punctuation">.</span><span class="token function">ofPattern</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">String</span> now <span class="token operator">=</span> <span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token class-name">DateTimeFormatter</span><span class="token punctuation">.</span><span class="token function">ofPattern</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 解析日期</span>
-<span class="token class-name">Date</span> parse <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"2023-12-12 12:12:12"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 要处理异常 Tue Dec 12 12:12:12 CST 2023</span>
-<span class="token class-name">LocalDateTime</span> parse <span class="token operator">=</span> <span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"2023-12-12 12:12:12"</span><span class="token punctuation">,</span> <span class="token class-name">DateTimeFormatter</span><span class="token punctuation">.</span><span class="token function">ofPattern</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 2023-12-12T12:12:12</span>
-
-<span class="token comment">// 相互转换</span>
-<span class="token comment">// 1.Date => LocalDateTime</span>
-<span class="token class-name">Date</span> date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">LocalDateTime</span> localDateTime <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">toInstant</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">atZone</span><span class="token punctuation">(</span><span class="token class-name">ZoneId</span><span class="token punctuation">.</span><span class="token function">systemDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLocalDateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 2.LocalDateTime => Date (不常用, 因此多写点备注)</span>
-<span class="token class-name">LocalDateTime</span> localDateTime <span class="token operator">=</span> <span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">Date</span> date <span class="token operator">=</span> <span class="token class-name">Date</span><span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>localDateTime
-                      <span class="token comment">// 时区的日期和时间(系统默认时区)</span>
-                      <span class="token punctuation">.</span><span class="token function">atZone</span><span class="token punctuation">(</span><span class="token class-name">ZoneId</span><span class="token punctuation">.</span><span class="token function">systemDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                      <span class="token comment">// 转为即使时间</span>
-                      <span class="token punctuation">.</span><span class="token function">toInstant</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token builtin class-name">cd</span> /root
+<span class="token comment"># 此处是nginx位置</span>
+<span class="token assign-left variable">nginxdir</span><span class="token operator">=</span><span class="token string">'/usr/local/nginx'</span>
+<span class="token function">touch</span> nginx.service
+<span class="token builtin class-name">echo</span> <span class="token string">'[Unit]'</span> <span class="token operator">>></span> nginx.service
+<span class="token builtin class-name">echo</span> <span class="token string">'Description=nginx - web server'</span> <span class="token operator">>></span> nginx.service
+<span class="token builtin class-name">echo</span> <span class="token string">'After=network.target remote-fs.target nss-lookup.target'</span> <span class="token operator">>></span> nginx.service
+<span class="token builtin class-name">echo</span> <span class="token string">''</span> <span class="token operator">>></span> nginx.service
+<span class="token builtin class-name">echo</span> <span class="token string">'[Service]'</span> <span class="token operator">>></span> nginx.service
+<span class="token builtin class-name">echo</span> <span class="token string">'Type=forking'</span> <span class="token operator">>></span> nginx.service
+<span class="token builtin class-name">echo</span> <span class="token string">"PIDFile=<span class="token variable">$nginxdir</span>/logs/nginx.pid"</span> <span class="token operator">>></span> nginx.service
+<span class="token builtin class-name">echo</span> <span class="token string">"ExecStartPre=<span class="token variable">$nginxdir</span>/sbin/nginx -t -c <span class="token variable">$nginxdir</span>/conf/nginx.conf"</span> <span class="token operator">>></span> nginx.service
+<span class="token builtin class-name">echo</span> <span class="token string">"ExecStart=<span class="token variable">$nginxdir</span>/sbin/nginx -c <span class="token variable">$nginxdir</span>/conf/nginx.conf"</span> <span class="token operator">>></span> nginx.service
+<span class="token builtin class-name">echo</span> <span class="token string">"ExecReload=<span class="token variable">$nginxdir</span>/sbin/nginx -s reload"</span> <span class="token operator">>></span> nginx.service
+<span class="token builtin class-name">echo</span> <span class="token string">"ExecStop=<span class="token variable">$nginxdir</span>/sbin/nginx -s stop"</span> <span class="token operator">>></span> nginx.service
+<span class="token builtin class-name">echo</span> <span class="token string">"ExecQuit=<span class="token variable">$nginxdir</span>/sbin/nginx -s quit"</span> <span class="token operator">>></span> nginx.service
+<span class="token builtin class-name">echo</span> <span class="token string">'PrivateTmp=true'</span> <span class="token operator">>></span> nginx.service
+<span class="token builtin class-name">echo</span> <span class="token string">''</span> <span class="token operator">>></span> nginx.service
+<span class="token builtin class-name">echo</span> <span class="token string">'[Install]'</span> <span class="token operator">>></span> nginx.service
+<span class="token builtin class-name">echo</span> <span class="token string">'WantedBy=multi-user.target'</span> <span class="token operator">>></span> nginx.service
+<span class="token function">mv</span> nginx.service /usr/lib/systemd/system
+<span class="token builtin class-name">unset</span> nginxdir
 
 
+systemctl daemon-reload
+systemctl <span class="token builtin class-name">enable</span> nginx.service
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Redis案例"><a href="#Redis案例" class="headerlink" title="Redis案例"></a>Redis案例</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment">## -bash: ./initdee.sh: /bin/bash^M: bad interpreter: No such file or directory</span>
+<span class="token comment">## vim或者vi的命令模式下, 输入命令 set ff=unix 即可解决换行问题</span>
+
+<span class="token builtin class-name">cd</span> /usr/local/redis*
+<span class="token assign-left variable">redisdir</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">pwd</span><span class="token variable">`</span></span>
+<span class="token function">touch</span> redis.service
+<span class="token builtin class-name">echo</span> <span class="token string">'[Unit]'</span> <span class="token operator">>></span> redis.service
+<span class="token builtin class-name">echo</span> <span class="token string">'Description=Redis'</span> <span class="token operator">>></span> redis.service
+<span class="token builtin class-name">echo</span> <span class="token string">'After=syslog.target network.target remote-fs.target nss-lookup.target'</span> <span class="token operator">>></span> redis.service
+<span class="token builtin class-name">echo</span> <span class="token string">''</span> <span class="token operator">>></span> redis.service
+<span class="token builtin class-name">echo</span> <span class="token string">'[Service]'</span> <span class="token operator">>></span> redis.service
+<span class="token builtin class-name">echo</span> <span class="token string">'Type=forking'</span> <span class="token operator">>></span> redis.service
+<span class="token builtin class-name">echo</span> <span class="token string">'PIDFile=/var/run/redis_6379.pid'</span> <span class="token operator">>></span> redis.service
+<span class="token builtin class-name">echo</span> <span class="token string">"ExecStart=<span class="token variable">$redisdir</span>/src/redis-server <span class="token variable">$redisdir</span>/redis.conf"</span> <span class="token operator">>></span> redis.service
+<span class="token builtin class-name">echo</span> <span class="token string">"ExecReload=<span class="token variable">$redisdir</span>/src/redis-server -s reload"</span> <span class="token operator">>></span> redis.service
+<span class="token builtin class-name">echo</span> <span class="token string">"ExecStop=<span class="token variable">$redisdir</span>/src/redis-server -s stop"</span> <span class="token operator">>></span> redis.service
+<span class="token builtin class-name">echo</span> <span class="token string">'PrivateTmp=true'</span> <span class="token operator">>></span> redis.service
+<span class="token builtin class-name">echo</span> <span class="token string">''</span> <span class="token operator">>></span> redis.service
+<span class="token builtin class-name">echo</span> <span class="token string">'[Install]'</span> <span class="token operator">>></span> redis.service
+<span class="token builtin class-name">echo</span> <span class="token string">'WantedBy=multi-user.target'</span> <span class="token operator">>></span> redis.service
+
+<span class="token function">mv</span> redis.service /usr/lib/systemd/system
+
+systemctl daemon-reload
+systemctl <span class="token builtin class-name">enable</span> redis.service
+<span class="token comment">## 修改redis.conf </span>
+<span class="token function">sed</span> <span class="token parameter variable">-i</span> <span class="token string">'s/daemonize no/daemonize yes/g'</span> redis.conf
+<span class="token function">sed</span> <span class="token parameter variable">-i</span> <span class="token string">'s/# supervised auto/supervised auto/g'</span> redis.conf
+
+<span class="token builtin class-name">cd</span> ~
+<span class="token builtin class-name">unset</span> redisdir<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Java项目案例-动态注册"><a href="#Java项目案例-动态注册" class="headerlink" title="Java项目案例(动态注册)"></a>Java项目案例(动态注册)</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment">## -bash: ./initdee.sh: /bin/bash^M: bad interpreter: No such file or directory</span>
+<span class="token comment">## vim或者vi的命令模式下, 输入命令 set ff=unix 即可解决换行问题</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>本案例采取winsw, 并且通过<code>bat</code>脚本进行服务的管理. 也可以通过服务管理器进行管理</p>
+<h3 id="所需文件"><a href="#所需文件" class="headerlink" title="所需文件"></a>所需文件</h3><ol>
+<li><code>winsw.exe</code> 启动文件</li>
+<li><code>winsw.xml</code> 配置文件</li>
+</ol>
+<h3 id="java-项目案例"><a href="#java-项目案例" class="headerlink" title="java 项目案例"></a>java 项目案例</h3><h4 id="注册服务"><a href="#注册服务" class="headerlink" title="注册服务"></a>注册服务</h4><pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
+
+echo -----------------------
+echo Sentinel 一键安装程序
+echo -----------------------
+
+%~d0
+
+cd %~dp0
+
+echo Sentinel安装服务中
+winsw install
+echo Sentinel安装完成
+
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
+
+echo -----------------------
+echo Sentinel 一键启动程序
+echo ----------------------- 
+
+net start Sentinel
+
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="关闭服务"><a href="#关闭服务" class="headerlink" title="关闭服务"></a>关闭服务</h4><pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
+
+echo -----------------------
+echo Sentinel 一键关闭
+echo -----------------------
+
+:: 此处是服务名
+net stop Sentinel
+
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="卸载服务"><a href="#卸载服务" class="headerlink" title="卸载服务"></a>卸载服务</h4><pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
+
+echo -----------------------
+echo saddyfire Sentinel 一键卸载程序
+echo -----------------------
+
+%~d0
+
+cd %~dp0
+
+echo Sentinel卸载服务中
+winsw uninstall
+echo Sentinel卸载完成
+
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="配置文件-xml"><a href="#配置文件-xml" class="headerlink" title="配置文件 xml"></a>配置文件 xml</h4><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>service</span><span class="token punctuation">></span></span>
+  <span class="token comment">&lt;!-- 指定在Windows系统内部使用的识别服务的ID。在系统中安装的所有服务中，这必须是唯一的，它应该完全由字母数字字符组成 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">></span></span>Sentinel<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">></span></span>
+   <span class="token comment">&lt;!-- 服务的简短名称，它可以包含空格和其他字符。尽量简短，就像“id”一样，在系统的所有服务名称中，也要保持唯一 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>Sentinel<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+  <span class="token comment">&lt;!-- 该服务可读描述。当选中该服务时，它将显示在Windows服务管理器中 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>description</span><span class="token punctuation">></span></span>Sentinel<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>description</span><span class="token punctuation">></span></span>
+  <span class="token comment">&lt;!-- 环境变量设置 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>env</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>JAVA_HOME<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>%JAVA_HOME%<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+  <span class="token comment">&lt;!-- 启动方式: 开机自启 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>startmode</span><span class="token punctuation">></span></span>Automatic<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>startmode</span><span class="token punctuation">></span></span>
+  <span class="token comment">&lt;!-- 可执行文件传递的参数 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>arguments</span><span class="token punctuation">></span></span>-Xrs -Xmx256m -jar "%BASE%\sentinel-dashboard-1.8.1.jar"  --server.port=9999<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>arguments</span><span class="token punctuation">></span></span>
+  <span class="token comment">&lt;!-- 该元素指定要启动的可执行文件 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>executable</span><span class="token punctuation">></span></span>java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>executable</span><span class="token punctuation">></span></span>
+  <span class="token comment">&lt;!-- 日志输出位置 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logmode</span><span class="token punctuation">></span></span>rotate<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>logmode</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>service</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="nacos服务案例"><a href="#nacos服务案例" class="headerlink" title="nacos服务案例"></a>nacos服务案例</h3><h4 id="服务注册-1"><a href="#服务注册-1" class="headerlink" title="服务注册"></a>服务注册</h4><pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
+
+echo -----------------------
+echo nacos 一键安装程序
+echo -----------------------
+
+%~d0
+
+cd %~dp0
+
+:: 复制winsw.exe至 \bin
+xcopy &#x2F;Y &#x2F;E &#x2F;i winsw.exe ..\bin\
+:: 复制winsw.xml 配置文件至 \bin
+copy &#x2F;Y winsw.xml ..\bin\
+:: 进入 \bin
+cd ..\bin\
+
+echo saddyfire安装服务中
+winsw install
+echo saddyfire安装完成
+
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="启动服务-1"><a href="#启动服务-1" class="headerlink" title="启动服务"></a>启动服务</h4><pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
+
+echo -----------------------
+echo saddyfire 666 一键启动程序
+echo ----------------------- 
+
+net start Nacos
+
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="关闭服务-1"><a href="#关闭服务-1" class="headerlink" title="关闭服务"></a>关闭服务</h4><pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
+
+echo -----------------------
+echo saddyfire 666 一键关闭
+echo -----------------------
+
+:: 此处是服务名
+net stop Nacos
+
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="卸载服务-1"><a href="#卸载服务-1" class="headerlink" title="卸载服务"></a>卸载服务</h4><pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
+
+echo -----------------------
+echo saddyfire 666 一键卸载程序
+echo -----------------------
+
+%~d0
+
+cd %~dp0
+
+echo Nacos卸载服务中
+winsw uninstall
+echo Nacos卸载完成
+
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="配置文件-xml-1"><a href="#配置文件-xml-1" class="headerlink" title="配置文件 xml"></a>配置文件 xml</h4><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>service</span><span class="token punctuation">></span></span>
+	<span class="token comment">&lt;!-- 指定在Windows系统内部使用的识别服务的ID。在系统中安装的所有服务中，这必须是唯一的，它应该完全由字母数字字符组成 --></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">></span></span>Nacos<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">></span></span>
+	<span class="token comment">&lt;!-- 服务的简短名称，它可以包含空格和其他字符。尽量简短，就像“id”一样，在系统的所有服务名称中，也要保持唯一 --></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>Nacos<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+	<span class="token comment">&lt;!-- 该服务可读描述。当选中该服务时，它将显示在Windows服务管理器中 --></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>description</span><span class="token punctuation">></span></span>注册中心<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>description</span><span class="token punctuation">></span></span>
+	<span class="token comment">&lt;!-- 该元素指定要启动的可执行文件 --></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>executable</span><span class="token punctuation">></span></span>%BASE%\startup.cmd<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>executable</span><span class="token punctuation">></span></span>
+	<span class="token comment">&lt;!-- 日志输出位置 --></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logmode</span><span class="token punctuation">></span></span>rotate<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>logmode</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>service</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="PS-普通命令启动Nacos"><a href="#PS-普通命令启动Nacos" class="headerlink" title="PS: 普通命令启动Nacos"></a>PS: 普通命令启动Nacos</h4><pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
+:: 此处为nacos位置
+start cmd &#x2F;k &quot;cd &#x2F;d D:\develop\nacos-server-1.4.1\nacos\bin\ &amp;&amp; startup.cmd -m standalone&quot;
+exit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -519,7 +644,7 @@ yum list jdk   查看安装过的包
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.saddyfire.cn/2023/04/14/daily/">https://www.saddyfire.cn/2023/04/14/daily/</a>
+                    <a href="https://www.saddyfire.cn/2023/10/26/service-register/">https://www.saddyfire.cn/2023/10/26/service-register/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -530,7 +655,7 @@ yum list jdk   查看安装过的包
                 </span>
                 <span class="reprint-info">
                     本博客所有文章除特別声明外，均采用
-                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a>
                     许可协议。转载请注明来源
                     <a href="https://www.saddyfire.cn" target="_blank">👑Dee👑</a>
                     !
@@ -557,20 +682,12 @@ yum list jdk   查看安装过的包
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
-                                </a>
-                            
                                 <a href="/tags/Linux-s/">
                                     <span class="chip bg-color">Linux-s</span>
                                 </a>
                             
-                                <a href="/tags/Git/">
-                                    <span class="chip bg-color">Git</span>
-                                </a>
-                            
-                                <a href="/tags/Database/">
-                                    <span class="chip bg-color">Database</span>
+                                <a href="/tags/Windows-s/">
+                                    <span class="chip bg-color">Windows-s</span>
                                 </a>
                             
                         </div>
@@ -613,28 +730,29 @@ yum list jdk   查看安装过的包
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/04/15/nginx-ssl/">
+                <a href="/2023/10/26/service-register/">
                     <div class="card-image">
                         
-                        <img src="/images/article/4.jpg" class="responsive-img" alt="nginx-ssl">
+                        <img src="/images/article/39.jpg" class="responsive-img" alt="service-register">
                         
-                        <span class="card-title">nginx-ssl</span>
+                        <span class="card-title">service-register</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于Nginx的SSL配置
+                            注册服务至linux及win
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -647,6 +765,7 @@ yum list jdk   查看安装过的包
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -654,8 +773,8 @@ yum list jdk   查看安装过的包
                         <span class="chip bg-color">Linux-s</span>
                     </a>
                     
-                    <a href="/tags/Nginx/">
-                        <span class="chip bg-color">Nginx</span>
+                    <a href="/tags/Windows-s/">
+                        <span class="chip bg-color">Windows-s</span>
                     </a>
                     
                 </div>
@@ -669,23 +788,23 @@ yum list jdk   查看安装过的包
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/04/10/mermaid-note/">
+                <a href="/2023/10/21/dm-move/">
                     <div class="card-image">
                         
-                        <img src="/images/article/3.jpg" class="responsive-img" alt="mermaid-note">
+                        <img src="/images/article/39.jpg" class="responsive-img" alt="DM备份还原笔记">
                         
-                        <span class="card-title">mermaid-note</span>
+                        <span class="card-title">DM备份还原笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            mermaid入门
+                            DM备份还原笔记
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-21
                             </span>
                         <span class="publish-author">
                             
@@ -702,12 +821,8 @@ yum list jdk   查看安装过的包
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Mermaid-s/">
-                        <span class="chip bg-color">Mermaid-s</span>
-                    </a>
-                    
-                    <a href="/tags/Markdown-s/">
-                        <span class="chip bg-color">Markdown-s</span>
+                    <a href="/tags/Database/">
+                        <span class="chip bg-color">Database</span>
                     </a>
                     
                 </div>

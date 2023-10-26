@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2023-10-23T02:57:32.068Z</updated>
+  <updated>2023-10-26T15:40:17.497Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>service-register</title>
+    <link href="https://www.saddyfire.cn/2023/10/26/service-register/"/>
+    <id>https://www.saddyfire.cn/2023/10/26/service-register/</id>
+    <published>2023-10-26T13:44:00.000Z</published>
+    <updated>2023-10-26T15:40:17.497Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;服务注册&quot;&gt;&lt;a href=&quot;#服务注册&quot; class=&quot;headerlink&quot; title=&quot;服务注册&quot;&gt;&lt;/a&gt;服务注册&lt;/h1&gt;&lt;h2 id=&quot;Linux&quot;&gt;&lt;a href=&quot;#Linux&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Linux-s" scheme="https://www.saddyfire.cn/tags/Linux-s/"/>
+    
+    <category term="Windows-s" scheme="https://www.saddyfire.cn/tags/Windows-s/"/>
+    
+  </entry>
   
   <entry>
     <title>DM备份还原笔记</title>
@@ -512,40 +539,13 @@ sequenceDiagram
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="Linux-s" scheme="https://www.saddyfire.cn/tags/Linux-s/"/>
-    
     <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+    <category term="Linux-s" scheme="https://www.saddyfire.cn/tags/Linux-s/"/>
     
     <category term="Git" scheme="https://www.saddyfire.cn/tags/Git/"/>
     
     <category term="Database" scheme="https://www.saddyfire.cn/tags/Database/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mermaid-note</title>
-    <link href="https://www.saddyfire.cn/2023/04/10/mermaid-note/"/>
-    <id>https://www.saddyfire.cn/2023/04/10/mermaid-note/</id>
-    <published>2023-04-10T10:02:16.000Z</published>
-    <updated>2023-10-26T15:01:18.398Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;mermaid入门-基于hexo&quot;&gt;&lt;a href=&quot;#mermaid入门-基于hexo&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Mermaid-s" scheme="https://www.saddyfire.cn/tags/Mermaid-s/"/>
-    
-    <category term="Markdown-s" scheme="https://www.saddyfire.cn/tags/Markdown-s/"/>
     
   </entry>
   
