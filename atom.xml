@@ -73,7 +73,7 @@
     <link href="https://www.saddyfire.cn/2023/09/08/crontab/"/>
     <id>https://www.saddyfire.cn/2023/09/08/crontab/</id>
     <published>2023-09-08T14:07:50.000Z</published>
-    <updated>2023-10-26T14:40:30.209Z</updated>
+    <updated>2023-10-26T14:43:44.277Z</updated>
     
     
       
@@ -89,7 +89,7 @@
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="Linux1" scheme="https://www.saddyfire.cn/tags/Linux1/"/>
+    <category term="Linux_" scheme="https://www.saddyfire.cn/tags/Linux/"/>
     
   </entry>
   
@@ -98,7 +98,7 @@
     <link href="https://www.saddyfire.cn/2023/09/02/goaccess/"/>
     <id>https://www.saddyfire.cn/2023/09/02/goaccess/</id>
     <published>2023-09-02T15:02:07.000Z</published>
-    <updated>2023-10-21T15:02:56.218Z</updated>
+    <updated>2023-10-26T14:44:59.292Z</updated>
     
     
       
@@ -114,9 +114,9 @@
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="Windows" scheme="https://www.saddyfire.cn/tags/Windows/"/>
+    <category term="Windows_" scheme="https://www.saddyfire.cn/tags/Windows/"/>
     
-    <category term="Nginx" scheme="https://www.saddyfire.cn/tags/Nginx/"/>
+    <category term="Nginx_" scheme="https://www.saddyfire.cn/tags/Nginx/"/>
     
   </entry>
   
@@ -125,7 +125,7 @@
     <link href="https://www.saddyfire.cn/2023/08/22/wsl-note/"/>
     <id>https://www.saddyfire.cn/2023/08/22/wsl-note/</id>
     <published>2023-08-22T14:54:05.000Z</published>
-    <updated>2023-10-21T15:03:31.309Z</updated>
+    <updated>2023-10-26T14:45:23.589Z</updated>
     
     
       
@@ -141,9 +141,9 @@
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
+    <category term="Linux_" scheme="https://www.saddyfire.cn/tags/Linux/"/>
     
-    <category term="WSL" scheme="https://www.saddyfire.cn/tags/WSL/"/>
+    <category term="WSL_" scheme="https://www.saddyfire.cn/tags/WSL/"/>
     
   </entry>
   
@@ -230,7 +230,7 @@
     <link href="https://www.saddyfire.cn/2023/08/15/nutz/"/>
     <id>https://www.saddyfire.cn/2023/08/15/nutz/</id>
     <published>2023-08-15T02:22:03.000Z</published>
-    <updated>2023-10-21T14:57:18.933Z</updated>
+    <updated>2023-10-26T14:46:05.142Z</updated>
     
     
       
@@ -249,7 +249,7 @@
     
     <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
     
-    <category term="Nutz" scheme="https://www.saddyfire.cn/tags/Nutz/"/>
+    <category term="Nutz_" scheme="https://www.saddyfire.cn/tags/Nutz/"/>
     
   </entry>
   
@@ -258,7 +258,7 @@
     <link href="https://www.saddyfire.cn/2023/08/14/nginx-location/"/>
     <id>https://www.saddyfire.cn/2023/08/14/nginx-location/</id>
     <published>2023-08-14T14:11:16.000Z</published>
-    <updated>2023-10-21T14:57:07.179Z</updated>
+    <updated>2023-10-26T14:46:14.966Z</updated>
     
     
       
@@ -274,7 +274,7 @@
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
+    <category term="Linux_" scheme="https://www.saddyfire.cn/tags/Linux/"/>
     
     <category term="Nginx" scheme="https://www.saddyfire.cn/tags/Nginx/"/>
     
@@ -385,7 +385,7 @@
     <link href="https://www.saddyfire.cn/2023/05/20/cas/"/>
     <id>https://www.saddyfire.cn/2023/05/20/cas/</id>
     <published>2023-05-20T02:21:27.000Z</published>
-    <updated>2023-10-21T15:01:47.103Z</updated>
+    <updated>2023-10-26T14:46:44.975Z</updated>
     
     
       
@@ -403,7 +403,7 @@
     
     <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
     
-    <category term="JUC" scheme="https://www.saddyfire.cn/tags/JUC/"/>
+    <category term="JUC_" scheme="https://www.saddyfire.cn/tags/JUC/"/>
     
   </entry>
   
@@ -412,7 +412,7 @@
     <link href="https://www.saddyfire.cn/2023/04/26/scan-code/"/>
     <id>https://www.saddyfire.cn/2023/04/26/scan-code/</id>
     <published>2023-04-26T06:21:59.000Z</published>
-    <updated>2023-04-26T15:58:27.295Z</updated>
+    <updated>2023-10-26T14:47:03.371Z</updated>
     
     
       
@@ -431,7 +431,7 @@ sequenceDiagram
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="safe" scheme="https://www.saddyfire.cn/tags/safe/"/>
+    <category term="safe_" scheme="https://www.saddyfire.cn/tags/safe/"/>
     
   </entry>
   
@@ -440,7 +440,7 @@ sequenceDiagram
     <link href="https://www.saddyfire.cn/2023/04/16/api-safety/"/>
     <id>https://www.saddyfire.cn/2023/04/16/api-safety/</id>
     <published>2023-04-16T01:38:04.000Z</published>
-    <updated>2023-10-21T14:58:25.518Z</updated>
+    <updated>2023-10-26T14:47:11.115Z</updated>
     
     
       
@@ -458,7 +458,7 @@ sequenceDiagram
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="safe" scheme="https://www.saddyfire.cn/tags/safe/"/>
+    <category term="safe_" scheme="https://www.saddyfire.cn/tags/safe/"/>
     
     <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
     
@@ -469,7 +469,7 @@ sequenceDiagram
     <link href="https://www.saddyfire.cn/2023/04/15/nginx-ssl/"/>
     <id>https://www.saddyfire.cn/2023/04/15/nginx-ssl/</id>
     <published>2023-04-15T15:32:16.000Z</published>
-    <updated>2023-10-21T14:58:35.987Z</updated>
+    <updated>2023-10-26T14:47:18.592Z</updated>
     
     
       
@@ -485,7 +485,7 @@ sequenceDiagram
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
+    <category term="Linux_" scheme="https://www.saddyfire.cn/tags/Linux/"/>
     
     <category term="Nginx" scheme="https://www.saddyfire.cn/tags/Nginx/"/>
     
@@ -496,7 +496,7 @@ sequenceDiagram
     <link href="https://www.saddyfire.cn/2023/04/14/daily/"/>
     <id>https://www.saddyfire.cn/2023/04/14/daily/</id>
     <published>2023-04-14T12:24:21.000Z</published>
-    <updated>2023-10-23T08:34:16.553Z</updated>
+    <updated>2023-10-26T14:47:26.304Z</updated>
     
     
       
@@ -512,9 +512,9 @@ sequenceDiagram
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
-    
     <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+    <category term="Linux_" scheme="https://www.saddyfire.cn/tags/Linux/"/>
     
     <category term="Git" scheme="https://www.saddyfire.cn/tags/Git/"/>
     
@@ -527,7 +527,7 @@ sequenceDiagram
     <link href="https://www.saddyfire.cn/2023/04/10/mermaid-note/"/>
     <id>https://www.saddyfire.cn/2023/04/10/mermaid-note/</id>
     <published>2023-04-10T10:02:16.000Z</published>
-    <updated>2023-10-21T15:00:27.769Z</updated>
+    <updated>2023-10-26T14:48:05.840Z</updated>
     
     
       
@@ -543,9 +543,9 @@ sequenceDiagram
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="Mermaid" scheme="https://www.saddyfire.cn/tags/Mermaid/"/>
+    <category term="Mermaid_" scheme="https://www.saddyfire.cn/tags/Mermaid/"/>
     
-    <category term="Markdown" scheme="https://www.saddyfire.cn/tags/Markdown/"/>
+    <category term="Markdown_" scheme="https://www.saddyfire.cn/tags/Markdown/"/>
     
   </entry>
   
