@@ -28,11 +28,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;DM备份还原笔记&lt;/h1&gt;
-&lt;h2 id=&quot;还原&quot;&gt;还原&lt;/h2&gt;
-&lt;h3 id=&quot;备份文件拆分-Linux&quot;&gt;备份文件拆分(Linux)&lt;/h3&gt;
-&lt;p&gt;当库体积太大时, 需要对备份文件进行拆分&lt;/p&gt;
-&lt;pre class=&quot;line-numbers</summary>
+    <summary type="html">&lt;h1 id=&quot;DM备份还原笔记&quot;&gt;&lt;a href=&quot;#DM备份还原笔记&quot; class=&quot;headerlink&quot; title=&quot;DM备份还原笔记&quot;&gt;&lt;/a&gt;DM备份还原笔记&lt;/h1&gt;&lt;h2 id=&quot;还原&quot;&gt;&lt;a href=&quot;#还原&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -57,12 +53,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;ByteBuffer&quot;&gt;ByteBuffer&lt;/h2&gt;
-&lt;h3 id=&quot;结构&quot;&gt;结构&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;capacity 容量&lt;/li&gt;
-&lt;li&gt;position 写入(读取)位置&lt;/li&gt;
-&lt;li&gt;limit</summary>
+    <summary type="html">&lt;h2 id=&quot;ByteBuffer&quot;&gt;&lt;a href=&quot;#ByteBuffer&quot; class=&quot;headerlink&quot; title=&quot;ByteBuffer&quot;&gt;&lt;/a&gt;ByteBuffer&lt;/h2&gt;&lt;h3 id=&quot;结构&quot;&gt;&lt;a href=&quot;#结构&quot;</summary>
         
       
     
@@ -89,8 +80,7 @@
       
         
         
-    <summary type="html">&lt;h3 id=&quot;命令&quot;&gt;命令&lt;/h3&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token</summary>
+    <summary type="html">&lt;h3 id=&quot;命令&quot;&gt;&lt;a href=&quot;#命令&quot; class=&quot;headerlink&quot; title=&quot;命令&quot;&gt;&lt;/a&gt;命令&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
         
       
     
@@ -115,10 +105,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;Nginx日志分析&lt;/h1&gt;
-&lt;h2 id=&quot;linux-工具&quot;&gt;linux 工具&lt;/h2&gt;
-&lt;p&gt;获取前20的ip访问数量&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
+    <summary type="html">&lt;h1 id=&quot;Nginx日志分析&quot;&gt;&lt;a href=&quot;#Nginx日志分析&quot; class=&quot;headerlink&quot; title=&quot;Nginx日志分析&quot;&gt;&lt;/a&gt;Nginx日志分析&lt;/h1&gt;&lt;h2 id=&quot;linux-工具&quot;&gt;&lt;a href=&quot;#linux-工具&quot;</summary>
         
       
     
@@ -145,8 +132,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;系统安装与启动&quot;&gt;系统安装与启动&lt;/h2&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;wsl &lt;span</summary>
+    <summary type="html">&lt;h2 id=&quot;系统安装与启动&quot;&gt;&lt;a href=&quot;#系统安装与启动&quot; class=&quot;headerlink&quot; title=&quot;系统安装与启动&quot;&gt;&lt;/a&gt;系统安装与启动&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-bash&quot;</summary>
         
       
     
@@ -173,11 +159,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;云南Happy日记&lt;/h1&gt;
-&lt;h3 id=&quot;1️⃣大理篇&quot;&gt;1️⃣大理篇&lt;/h3&gt;
-&lt;p&gt;杭州✈昆明🚆大理🚕大理古镇附近🛖投宿&lt;/p&gt;
-&lt;h4 id=&quot;😋超级超级好吃的清蒸街&quot;&gt;😋超级超级好吃的清蒸街&lt;/h4&gt;
-&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;h1 id=&quot;云南Happy日记&quot;&gt;&lt;a href=&quot;#云南Happy日记&quot; class=&quot;headerlink&quot; title=&quot;云南Happy日记&quot;&gt;&lt;/a&gt;云南Happy日记&lt;/h1&gt;&lt;h3 id=&quot;1️⃣大理篇&quot;&gt;&lt;a href=&quot;#1️⃣大理篇&quot;</summary>
         
       
     
@@ -202,9 +184,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;el-table-column压缩单行&quot;&gt;el-table-column压缩单行&lt;/h2&gt;
-&lt;p&gt;div&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-markup&quot; data-language=&quot;markup&quot;&gt;&lt;code</summary>
+    <summary type="html">&lt;h2 id=&quot;el-table-column压缩单行&quot;&gt;&lt;a href=&quot;#el-table-column压缩单行&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -232,9 +212,7 @@
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;由于本demo是在原有服务进行拓展, 为减少耦合故新建模块&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;依赖及配置文件&quot;&gt;依赖及配置文件&lt;/h2&gt;
-&lt;h3 id=&quot;pom文件&quot;&gt;pom文件&lt;/h3&gt;
-&lt;pre</summary>
+&lt;h2 id=&quot;依赖及配置文件&quot;&gt;&lt;a href=&quot;#依赖及配置文件&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -259,9 +237,8 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;基础封装&quot;&gt;基础封装&lt;/h2&gt;
-&lt;p&gt;封装单个对象查询&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-java&quot; data-language=&quot;java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span</summary>
+    <summary type="html">&lt;h2 id=&quot;基础封装&quot;&gt;&lt;a href=&quot;#基础封装&quot; class=&quot;headerlink&quot; title=&quot;基础封装&quot;&gt;&lt;/a&gt;基础封装&lt;/h2&gt;&lt;p&gt;封装单个对象查询&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-java&quot;</summary>
         
       
     
@@ -288,8 +265,7 @@
       
         
         
-    <summary type="html">&lt;h3 id=&quot;proxy-pass-端口后紧跟&quot;&gt;&lt;code&gt;proxy_pass&lt;/code&gt; 端口后紧跟 &lt;code&gt;/&lt;/code&gt;&lt;/h3&gt;
-&lt;img src=&quot;../nginx-location/image-20230814221948781.png&quot;</summary>
+    <summary type="html">&lt;h3 id=&quot;proxy-pass-端口后紧跟&quot;&gt;&lt;a href=&quot;#proxy-pass-端口后紧跟&quot; class=&quot;headerlink&quot; title=&quot;proxy_pass 端口后紧跟 /&quot;&gt;&lt;/a&gt;&lt;code&gt;proxy_pass&lt;/code&gt; 端口后紧跟</summary>
         
       
     
@@ -316,15 +292,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;自定义线程池demo&lt;/h1&gt;
-&lt;h2 id=&quot;流程图&quot;&gt;流程图&lt;/h2&gt;
-&lt;div class=&quot;mermaid&quot;&gt;
-  
-graph LR
-	subgraph Thread Pool
-        t1[t1]
-        t2[t2]
-       </summary>
+    <summary type="html">&lt;h1 id=&quot;自定义线程池demo&quot;&gt;&lt;a href=&quot;#自定义线程池demo&quot; class=&quot;headerlink&quot; title=&quot;自定义线程池demo&quot;&gt;&lt;/a&gt;自定义线程池demo&lt;/h1&gt;&lt;h2 id=&quot;流程图&quot;&gt;&lt;a href=&quot;#流程图&quot;</summary>
         
       
     
@@ -349,13 +317,7 @@ graph LR
       
         
         
-    <summary type="html">&lt;h1&gt;自定义lambda用法&lt;/h1&gt;
-&lt;h2 id=&quot;基础用法&quot;&gt;基础用法&lt;/h2&gt;
-&lt;h3 id=&quot;supplier&quot;&gt;supplier&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;提供者: 无中生有  ()-&amp;gt;结果&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre</summary>
+    <summary type="html">&lt;h1 id=&quot;自定义lambda用法&quot;&gt;&lt;a href=&quot;#自定义lambda用法&quot; class=&quot;headerlink&quot; title=&quot;自定义lambda用法&quot;&gt;&lt;/a&gt;自定义lambda用法&lt;/h1&gt;&lt;h2 id=&quot;基础用法&quot;&gt;&lt;a href=&quot;#基础用法&quot;</summary>
         
       
     
@@ -380,10 +342,7 @@ graph LR
       
         
         
-    <summary type="html">&lt;h1&gt;DM - mysql 通用语法/对比&lt;/h1&gt;
-&lt;p&gt;由于达梦数据库语法更偏向oracle, 同时兼容部分mysql, 因此整理一些两者都通用语法. 同时对不通用的语法做些许对比&lt;/p&gt;
-&lt;h2 id=&quot;字符-数字&quot;&gt;字符/数字&lt;/h2&gt;
-&lt;pre</summary>
+    <summary type="html">&lt;h1 id=&quot;DM-mysql-通用语法-对比&quot;&gt;&lt;a href=&quot;#DM-mysql-通用语法-对比&quot; class=&quot;headerlink&quot; title=&quot;DM - mysql 通用语法&amp;#x2F;对比&quot;&gt;&lt;/a&gt;DM - mysql</summary>
         
       
     
@@ -408,12 +367,7 @@ graph LR
       
         
         
-    <summary type="html">&lt;h1&gt;element-ui 笔记&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;快速搜索:&lt;/p&gt;
-&lt;p&gt;选择框的映射写法 &amp;gt;&amp;gt;&amp;gt; flag_1&lt;/p&gt;
-&lt;p&gt;表单重置 &amp;gt;&amp;gt;&amp;gt; flag_2&lt;/p&gt;
-&lt;p&gt;分页 &amp;gt;&amp;gt;&amp;gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;element-ui-笔记&quot;&gt;&lt;a href=&quot;#element-ui-笔记&quot; class=&quot;headerlink&quot; title=&quot;element-ui 笔记&quot;&gt;&lt;/a&gt;element-ui</summary>
         
       
     
@@ -438,9 +392,7 @@ graph LR
       
         
         
-    <summary type="html">&lt;h2 id=&quot;CAS之Atomic包&quot;&gt;CAS之Atomic包&lt;/h2&gt;
-&lt;h4 id=&quot;updateAndGet实现原理demo&quot;&gt;updateAndGet实现原理demo&lt;/h4&gt;
-&lt;pre class=&quot;line-numbers language-java&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;CAS之Atomic包&quot;&gt;&lt;a href=&quot;#CAS之Atomic包&quot; class=&quot;headerlink&quot; title=&quot;CAS之Atomic包&quot;&gt;&lt;/a&gt;CAS之Atomic包&lt;/h2&gt;&lt;h4 id=&quot;updateAndGet实现原理demo&quot;&gt;&lt;a</summary>
         
       
     
@@ -467,14 +419,10 @@ graph LR
       
         
         
-    <summary type="html">&lt;h2 id=&quot;流程图&quot;&gt;流程图&lt;/h2&gt;
-&lt;div class=&quot;mermaid&quot;&gt;
+    <summary type="html">&lt;h2 id=&quot;流程图&quot;&gt;&lt;a href=&quot;#流程图&quot; class=&quot;headerlink&quot; title=&quot;流程图&quot;&gt;&lt;/a&gt;流程图&lt;/h2&gt;&lt;div class=&quot;mermaid&quot;&gt;
   
 sequenceDiagram
-	actor c as 手机端
-	participant p as PC端
-	participant s as Server端
-	p -&gt;&gt; +s:</summary>
+	actor c as</summary>
         
       
     
@@ -499,13 +447,9 @@ sequenceDiagram
       
         
         
-    <summary type="html">&lt;h2 id=&quot;demo1&quot;&gt;demo1&lt;/h2&gt;
-&lt;div class=&quot;mermaid&quot;&gt;
+    <summary type="html">&lt;h2 id=&quot;demo1&quot;&gt;&lt;a href=&quot;#demo1&quot; class=&quot;headerlink&quot; title=&quot;demo1&quot;&gt;&lt;/a&gt;demo1&lt;/h2&gt;&lt;div class=&quot;mermaid&quot;&gt;
   sequenceDiagram
-	actor c as 客户端
-	participant f as 前端服务器
-	participant b as 后端服务器
-	c -&gt;&gt; f:</summary>
+	actor c as</summary>
         
       
     
@@ -532,12 +476,7 @@ sequenceDiagram
       
         
         
-    <summary type="html">&lt;h1&gt;Nginx及SSL配置&lt;/h1&gt;
-&lt;h2 id=&quot;Nginx安装&quot;&gt;Nginx安装&lt;/h2&gt;
-&lt;h3 id=&quot;编译流程&quot;&gt;编译流程&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;cd到nginx源码包下(可能在此之前要先tar -zxvf</summary>
+    <summary type="html">&lt;h1 id=&quot;Nginx及SSL配置&quot;&gt;&lt;a href=&quot;#Nginx及SSL配置&quot; class=&quot;headerlink&quot; title=&quot;Nginx及SSL配置&quot;&gt;&lt;/a&gt;Nginx及SSL配置&lt;/h1&gt;&lt;h2 id=&quot;Nginx安装&quot;&gt;&lt;a href=&quot;#Nginx安装&quot;</summary>
         
       
     
@@ -564,8 +503,7 @@ sequenceDiagram
       
         
         
-    <summary type="html">&lt;h2 id=&quot;Git&quot;&gt;Git&lt;/h2&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token</summary>
+    <summary type="html">&lt;h2 id=&quot;Git&quot;&gt;&lt;a href=&quot;#Git&quot; class=&quot;headerlink&quot; title=&quot;Git&quot;&gt;&lt;/a&gt;Git&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
         
       
     
@@ -574,9 +512,9 @@ sequenceDiagram
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
-    
     <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
     
     <category term="Git" scheme="https://www.saddyfire.cn/tags/Git/"/>
     
@@ -596,9 +534,7 @@ sequenceDiagram
       
         
         
-    <summary type="html">&lt;h1&gt;mermaid入门(基于hexo)&lt;/h1&gt;
-&lt;p&gt;基于hexo的前置说明&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;hexo默认markdown渲染引擎为</summary>
+    <summary type="html">&lt;h1 id=&quot;mermaid入门-基于hexo&quot;&gt;&lt;a href=&quot;#mermaid入门-基于hexo&quot; class=&quot;headerlink&quot;</summary>
         
       
     
