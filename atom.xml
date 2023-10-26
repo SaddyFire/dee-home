@@ -512,9 +512,9 @@ sequenceDiagram
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
-    
     <category term="Linux-s" scheme="https://www.saddyfire.cn/tags/Linux-s/"/>
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
     
     <category term="Git" scheme="https://www.saddyfire.cn/tags/Git/"/>
     
