@@ -72,7 +72,7 @@
       
         <tags>
             
-            <tag> Linux_ </tag>
+            <tag> Linuxs </tag>
             
         </tags>
       
@@ -99,7 +99,7 @@
             
             <tag> Windows_ </tag>
             
-            <tag> Nginx_ </tag>
+            <tag> Nginx </tag>
             
         </tags>
       
@@ -432,9 +432,9 @@
       
         <tags>
             
-            <tag> safe_ </tag>
-            
             <tag> Java </tag>
+            
+            <tag> safe_ </tag>
             
         </tags>
       
@@ -488,11 +488,11 @@
             
             <tag> Java </tag>
             
-            <tag> Linux_ </tag>
-            
             <tag> Git </tag>
             
             <tag> Database </tag>
+            
+            <tag> Linux_ </tag>
             
         </tags>
       
