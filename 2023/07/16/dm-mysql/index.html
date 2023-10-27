@@ -323,7 +323,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-10-21
+                    2023-10-27
                 </div>
                 
 
@@ -365,10 +365,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1>DM - mysql 通用语法/对比</h1>
-<p>由于达梦数据库语法更偏向oracle, 同时兼容部分mysql, 因此整理一些两者都通用语法. 同时对不通用的语法做些许对比</p>
-<h2 id="字符-数字">字符/数字</h2>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 33 补到 8位, 用0补充</span>
+                <h1 id="DM-mysql-通用语法-对比"><a href="#DM-mysql-通用语法-对比" class="headerlink" title="DM - mysql 通用语法&#x2F;对比"></a>DM - mysql 通用语法&#x2F;对比</h1><p>由于达梦数据库语法更偏向oracle, 同时兼容部分mysql, 因此整理一些两者都通用语法. 同时对不通用的语法做些许对比</p>
+<h2 id="字符-数字"><a href="#字符-数字" class="headerlink" title="字符&#x2F;数字"></a>字符&#x2F;数字</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 33 补到 8位, 用0补充</span>
 <span class="token keyword">select</span> LPAD<span class="token punctuation">(</span><span class="token number">33</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
 <span class="token keyword">select</span> RPAD<span class="token punctuation">(</span><span class="token number">33</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
 
@@ -389,8 +387,8 @@
 <span class="token keyword">select</span> FLOOR<span class="token punctuation">(</span><span class="token number">1.08</span><span class="token punctuation">)</span>  <span class="token comment">-- 向下</span>
 <span class="token keyword">select</span> <span class="token keyword">truncate</span><span class="token punctuation">(</span><span class="token number">1.23456</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">-- 截断</span>
 <span class="token keyword">select</span> <span class="token function">mod</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment">-- 取模</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="日期时间">日期时间</h2>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> timestampadd<span class="token punctuation">(</span><span class="token keyword">second</span><span class="token punctuation">,</span> floor<span class="token punctuation">(</span>DBMS_RANDOM<span class="token punctuation">.</span><span class="token keyword">VALUE</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">,</span> <span class="token number">120</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'2023-01-01'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment">-- 随机获取2023-01-01 00:00:00 之上45s到120s之间的时间</span>
+
+<h2 id="日期时间"><a href="#日期时间" class="headerlink" title="日期时间"></a>日期时间</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> timestampadd<span class="token punctuation">(</span><span class="token keyword">second</span><span class="token punctuation">,</span> floor<span class="token punctuation">(</span>DBMS_RANDOM<span class="token punctuation">.</span><span class="token keyword">VALUE</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">,</span> <span class="token number">120</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'2023-01-01'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment">-- 随机获取2023-01-01 00:00:00 之上45s到120s之间的时间</span>
 
 <span class="token comment">-- ====获取具体时间</span>
 <span class="token keyword">select</span> <span class="token keyword">year</span><span class="token punctuation">(</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">month</span><span class="token punctuation">(</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">DAY</span><span class="token punctuation">(</span><span class="token function">NOW</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> CURDATE<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> curtime<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- 通用</span>
@@ -408,13 +406,13 @@
 <span class="token comment">-- ====时间函数</span>
 <span class="token keyword">select</span> date_sub<span class="token punctuation">(</span>curdate<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">interval</span> <span class="token string">'1'</span> <span class="token keyword">month</span><span class="token punctuation">)</span> <span class="token comment">-- 距离param1 1个月前的日期 (DM)</span>
 <span class="token keyword">select</span> date_add<span class="token punctuation">(</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">interval</span> <span class="token operator">-</span><span class="token number">30</span> <span class="token keyword">minute</span><span class="token punctuation">)</span> <span class="token comment">-- 距离param1 30分钟前的时间(mysql)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="多行转为一列">多行转为一列</h2>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- ====DM</span>
+
+<h2 id="多行转为一列"><a href="#多行转为一列" class="headerlink" title="多行转为一列"></a>多行转为一列</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- ====DM</span>
 <span class="token keyword">select</span> id<span class="token punctuation">,</span> wmsys<span class="token punctuation">.</span>wm_concat<span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token keyword">as</span> name<span class="token punctuation">,</span> wmsys<span class="token punctuation">.</span>wm_concat<span class="token punctuation">(</span>age<span class="token punctuation">)</span> <span class="token keyword">as</span> age <span class="token keyword">from</span> test <span class="token keyword">group</span> id<span class="token punctuation">;</span>
 <span class="token comment">-- ====mysql</span>
 <span class="token keyword">SELECT</span> GROUP_CONCAT<span class="token punctuation">(</span>name SEPARATOR <span class="token string">','</span><span class="token punctuation">)</span> <span class="token keyword">as</span> name <span class="token keyword">from</span> test<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="动态新增-更新-数据">动态新增(更新)数据</h2>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- ====DM</span>
+
+<h2 id="动态新增-更新-数据"><a href="#动态新增-更新-数据" class="headerlink" title="动态新增(更新)数据"></a>动态新增(更新)数据</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- ====DM</span>
 <span class="token keyword">MERGE</span> <span class="token keyword">INTO</span> <span class="token operator">&lt;</span>表名<span class="token operator">></span> T1 <span class="token keyword">USING</span><span class="token punctuation">(</span>
 	<span class="token operator">&lt;</span>查询语句<span class="token operator">></span>
 <span class="token punctuation">)</span>T2 <span class="token keyword">ON</span> <span class="token punctuation">(</span>T2<span class="token punctuation">.</span><span class="token operator">&lt;</span>字段<span class="token operator">></span> <span class="token operator">=</span> T1<span class="token punctuation">.</span><span class="token operator">&lt;</span>字段<span class="token operator">></span><span class="token punctuation">)</span> 
@@ -431,8 +429,8 @@ T1<span class="token punctuation">.</span><span class="token operator">&lt;</spa
 <span class="token keyword">ON</span> <span class="token keyword">DUPLICATE</span> <span class="token keyword">KEY</span> <span class="token keyword">UPDATE</span> 
     <span class="token operator">&lt;</span>更新字段<span class="token number">1</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>更新字段<span class="token number">1</span><span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token operator">&lt;</span>更新字段<span class="token number">2</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>更新字段<span class="token number">2</span><span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="删除重复数据">删除重复数据</h2>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 查询表数据量</span>
+
+<h2 id="删除重复数据"><a href="#删除重复数据" class="headerlink" title="删除重复数据"></a>删除重复数据</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 查询表数据量</span>
 <span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">from</span> <span class="token operator">&lt;</span>表名<span class="token operator">></span>
 <span class="token comment">-- 查询去重后的数据量</span>
 <span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">from</span><span class="token punctuation">(</span>
@@ -460,8 +458,8 @@ rowid
 <span class="token operator">and</span> 
 rowid 
 <span class="token operator">not</span> <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token function">min</span><span class="token punctuation">(</span>rowid<span class="token punctuation">)</span> <span class="token keyword">from</span> <span class="token operator">&lt;</span>表名<span class="token operator">></span> <span class="token keyword">group</span> <span class="token keyword">by</span>  <span class="token operator">&lt;</span>字段<span class="token number">1</span><span class="token operator">></span><span class="token punctuation">,</span><span class="token operator">&lt;</span>字段<span class="token number">2</span><span class="token operator">></span> <span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">></span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="存储过程-事件">存储过程&amp;事件</h2>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- ====DM(达梦建议通过DM管理工具代理-计划任务实现)</span>
+
+<h2 id="存储过程-事件"><a href="#存储过程-事件" class="headerlink" title="存储过程&amp;事件"></a>存储过程&amp;事件</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- ====DM(达梦建议通过DM管理工具代理-计划任务实现)</span>
 <span class="token comment">-- ====mysql</span>
 <span class="token comment">-- ※※※ 存储过程</span>
 <span class="token keyword">drop</span> <span class="token keyword">procedure</span> <span class="token keyword">if</span> <span class="token keyword">exists</span> <span class="token operator">&lt;</span>pro_存储名称<span class="token operator">></span><span class="token punctuation">;</span>
@@ -502,8 +500,9 @@ rowid
 <span class="token keyword">ALTER</span> EVENT event_sync_cxpt_reg_threetype <span class="token keyword">ON</span> COMPLETION PRESERVE <span class="token keyword">ENABLE</span><span class="token punctuation">;</span>
 <span class="token comment">-- 查看当前事件</span>
 <span class="token keyword">SHOW</span> EVENTS<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="触发器">触发器</h2>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- ====DM</span>
+
+<h2 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- ====DM</span>
+<span class="token comment">-- 知识点: DM抛异常处理</span>
 <span class="token comment">-- 功能: 确保表中某字段不可重复</span>
 <span class="token keyword">create</span>  <span class="token operator">or</span> <span class="token keyword">replace</span> <span class="token keyword">trigger</span> <span class="token string">"模式名"</span><span class="token punctuation">.</span><span class="token string">"触发器名"</span>
 before <span class="token keyword">INSERT</span> 
@@ -514,7 +513,25 @@ referencing OLD <span class="token keyword">ROW</span> <span class="token keywor
 <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span><span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token number">1</span> <span class="token keyword">FROM</span> 表名 <span class="token keyword">WHERE</span> 字段名 <span class="token operator">=</span> :NEW<span class="token punctuation">.</span>字段名<span class="token punctuation">)</span>
 <span class="token keyword">THEN</span>  RAISE_APPLICATION_ERROR<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">20001</span><span class="token punctuation">,</span> <span class="token string">'字段已存在，不允许插入数据'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">END</span> <span class="token keyword">IF</span><span class="token punctuation">;</span>
-<span class="token keyword">END</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">END</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- ====DM</span>
+<span class="token comment">-- 知识点: 异常抓取</span>
+<span class="token comment">/***Manager***/</span><span class="token keyword">CREATE</span> <span class="token operator">OR</span> <span class="token keyword">REPLACE</span> <span class="token keyword">FUNCTION</span> <span class="token string">"DMSTAND"</span><span class="token punctuation">.</span><span class="token string">"fun_to_date"</span><span class="token punctuation">(</span><span class="token string">"date_str"</span> <span class="token operator">IN</span> <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">RETURN</span> <span class="token keyword">DATETIME</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>
+<span class="token keyword">AS</span>
+<span class="token keyword">BEGIN</span>
+	<span class="token comment">/*执行体*/</span>
+	<span class="token keyword">BEGIN</span>
+	<span class="token comment">-- 定义异常处理</span>
+    <span class="token keyword">return</span><span class="token punctuation">(</span>to_date<span class="token punctuation">(</span>date_str<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    EXCEPTION
+    	<span class="token keyword">WHEN</span> OTHERS <span class="token keyword">THEN</span>
+        <span class="token keyword">return</span><span class="token punctuation">(</span><span class="token boolean">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">END</span><span class="token punctuation">;</span>
+<span class="token keyword">END</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
