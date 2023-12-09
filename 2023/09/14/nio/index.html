@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Netty, SaddyFire">
-    <meta name="description" content="Netty笔记">
+    <meta name="keywords" content="NIO, SaddyFire">
+    <meta name="description" content="NIO笔记">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Netty | SaddyFire</title>
+    <title>NIO | SaddyFire</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -267,7 +267,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Netty</h1>
+                    <h1 class="description center-align post-title">NIO</h1>
                 </div>
             </div>
         </div>
@@ -299,6 +299,10 @@
                                 <span class="chip bg-color">NIO</span>
                             </a>
                         
+                            <a href="/tags/Netty/">
+                                <span class="chip bg-color">Netty</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -327,7 +331,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-10-29
+                    2023-12-09
                 </div>
                 
 
@@ -377,27 +381,27 @@
 <ol>
 <li>初始状态, 写模式(图1-1)</li>
 </ol>
-<p><img src="/2023/09/14/netty/image-20231021144519852.png" alt="图1-1"></p>
+<p><img src="/2023/09/14/nio/image-20231021144519852.png" alt="图1-1"></p>
 <ol start="2">
 <li>写入数据后, position为写入位置, limit&#x3D;capacity(图1-2)</li>
 </ol>
-<p><img src="/2023/09/14/netty/image-20231021144841728.png" alt="图1-2"></p>
+<p><img src="/2023/09/14/nio/image-20231021144841728.png" alt="图1-2"></p>
 <ol start="3">
 <li>flip转换模式后, postition切换为读取位置, limit切换为读取限制(图1-3)</li>
 </ol>
-<p><img src="/2023/09/14/netty/image-20231021145049802.png" alt="图1-3"></p>
+<p><img src="/2023/09/14/nio/image-20231021145049802.png" alt="图1-3"></p>
 <ol start="4">
 <li>读取4个字节后(图1-4)</li>
 </ol>
-<p><img src="/2023/09/14/netty/image-20231021145221000.png" alt="图1-4"></p>
+<p><img src="/2023/09/14/nio/image-20231021145221000.png" alt="图1-4"></p>
 <ol start="5">
 <li>clear动作, 清除数据, 重置为写模式(图1-5)</li>
 </ol>
-<p><img src="/2023/09/14/netty/image-20231021145402124.png" alt="图1-5"></p>
+<p><img src="/2023/09/14/nio/image-20231021145402124.png" alt="图1-5"></p>
 <ol start="6">
 <li>compact动作, 将未读完的向前压缩, 再重置为写模式(图1-6)</li>
 </ol>
-<p><img src="/2023/09/14/netty/image-20231021145507817.png" alt="图1-6"></p>
+<p><img src="/2023/09/14/nio/image-20231021145507817.png" alt="图1-6"></p>
 <h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><h4 id="分配空间"><a href="#分配空间" class="headerlink" title="分配空间"></a>分配空间</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ByteBuffer</span> buffer <span class="token operator">=</span> <span class="token class-name">ByteBuffer</span><span class="token punctuation">.</span><span class="token function">allocate</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// java.nio.HeapByteBuffer  - Java 堆内存(读写效率较低,受到GC的影响)</span>
 <span class="token class-name">ByteBuffer</span> buffer <span class="token operator">=</span> <span class="token class-name">ByteBuffer</span><span class="token punctuation">.</span><span class="token function">allocateDirect</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// java.nio.DirectByteBuffer  - 直接内存(读写效率高,少一次拷贝, 分配效率低, 使用不当会造成内存泄漏)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
@@ -483,7 +487,7 @@ buffer1<span class="token punctuation">.</span><span class="token function">put<
 </ul>
 </li>
 </ul>
-<p><img src="/2023/09/14/netty/image-20231029230052355.png" alt="Selector模型"></p>
+<p><img src="/../Netty/image-20231029230052355.png" alt="Selector模型"></p>
 <h3 id="处理Read事件demo"><a href="#处理Read事件demo" class="headerlink" title="处理Read事件demo"></a>处理Read事件demo</h3><ul>
 <li>服务端</li>
 </ul>
@@ -762,7 +766,7 @@ buffer1<span class="token punctuation">.</span><span class="token function">put<
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.saddyfire.cn/2023/09/14/netty/">https://www.saddyfire.cn/2023/09/14/netty/</a>
+                    <a href="https://www.saddyfire.cn/2023/09/14/nio/">https://www.saddyfire.cn/2023/09/14/nio/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -806,6 +810,10 @@ buffer1<span class="token punctuation">.</span><span class="token function">put<
                             
                                 <a href="/tags/NIO/">
                                     <span class="chip bg-color">NIO</span>
+                                </a>
+                            
+                                <a href="/tags/Netty/">
+                                    <span class="chip bg-color">Netty</span>
                                 </a>
                             
                         </div>
