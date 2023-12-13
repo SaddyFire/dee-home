@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2023-12-09T10:41:01.826Z</updated>
+  <updated>2023-12-13T14:39:11.995Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo-mindmap</title>
+    <link href="https://www.saddyfire.cn/2023/12/13/hexo-mindmap/"/>
+    <id>https://www.saddyfire.cn/2023/12/13/hexo-mindmap/</id>
+    <published>2023-12-13T13:30:43.000Z</published>
+    <updated>2023-12-13T14:39:11.995Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Hexo绘制思维导图&quot;&gt;&lt;a href=&quot;#Hexo绘制思维导图&quot; class=&quot;headerlink&quot; title=&quot;Hexo绘制思维导图&quot;&gt;&lt;/a&gt;Hexo绘制思维导图&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Hexo" scheme="https://www.saddyfire.cn/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JVM-字节码文件概述</title>
+    <link href="https://www.saddyfire.cn/2023/12/13/jvm-note/"/>
+    <id>https://www.saddyfire.cn/2023/12/13/jvm-note/</id>
+    <published>2023-12-13T13:24:35.000Z</published>
+    <updated>2023-12-13T14:50:32.018Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;字节码文件是跨平台的吗&quot;&gt;&lt;a href=&quot;#字节码文件是跨平台的吗&quot; class=&quot;headerlink&quot; title=&quot;字节码文件是跨平台的吗&quot;&gt;&lt;/a&gt;字节码文件是跨平台的吗&lt;/h4&gt;
+&lt;div class=&quot;markmap-container&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
+    
+  </entry>
   
   <entry>
     <title>mail-demo</title>
@@ -488,62 +539,6 @@ sequenceDiagram
     
     
     <category term="safe-s" scheme="https://www.saddyfire.cn/tags/safe-s/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前后端api交互安全</title>
-    <link href="https://www.saddyfire.cn/2023/04/16/api-safety/"/>
-    <id>https://www.saddyfire.cn/2023/04/16/api-safety/</id>
-    <published>2023-04-16T01:38:04.000Z</published>
-    <updated>2023-10-26T15:00:53.897Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;demo1&quot;&gt;&lt;a href=&quot;#demo1&quot; class=&quot;headerlink&quot; title=&quot;demo1&quot;&gt;&lt;/a&gt;demo1&lt;/h2&gt;&lt;div class=&quot;mermaid&quot;&gt;
-  sequenceDiagram
-	actor c as</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
-    
-    <category term="safe-s" scheme="https://www.saddyfire.cn/tags/safe-s/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nginx-ssl</title>
-    <link href="https://www.saddyfire.cn/2023/04/15/nginx-ssl/"/>
-    <id>https://www.saddyfire.cn/2023/04/15/nginx-ssl/</id>
-    <published>2023-04-15T15:32:16.000Z</published>
-    <updated>2023-10-26T15:01:01.164Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Nginx及SSL配置&quot;&gt;&lt;a href=&quot;#Nginx及SSL配置&quot; class=&quot;headerlink&quot; title=&quot;Nginx及SSL配置&quot;&gt;&lt;/a&gt;Nginx及SSL配置&lt;/h1&gt;&lt;h2 id=&quot;Nginx安装&quot;&gt;&lt;a href=&quot;#Nginx安装&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Linux-s" scheme="https://www.saddyfire.cn/tags/Linux-s/"/>
-    
-    <category term="Nginx" scheme="https://www.saddyfire.cn/tags/Nginx/"/>
     
   </entry>
   
