@@ -372,13 +372,15 @@
 <li>新项目上线，对各种JVM参数设置一脸茫然，直接默认吧然后就JJ了。</li>
 <li>每次面试之前都要重新背一遍JVM的一些原理概念性的东西，然而面试官却经常问你在实际项目中如何调优VM参数，如何解决GC、OOM等问题，一脸懵逼。</li>
 </ol>
-<p><img src="/2023/12/15/jvm-sgg1/0001.png"></p>
+<img src="../JVM-sgg1/0001.png" style="zoom:33%;" />
+
 <p>大部分Java开发人员，除了会在项目中使用到与Java平台相关的各种高精尖技术，对于Java技术的核心Java虚拟机了解甚少。</p>
 <h3 id="开发人员如何看待上层框架"><a href="#开发人员如何看待上层框架" class="headerlink" title="开发人员如何看待上层框架"></a>开发人员如何看待上层框架</h3><ol>
 <li>一些有一定工作经验的开发人员，打心眼儿里觉得SSM、微服务等上层技术才是重点，基础技术并不重要，这其实是一种本末倒置的“病态”。</li>
 <li>如果我们把核心类库的API比做数学公式的话，那么Java虚拟机的知识就好比公式的推导过程。</li>
 </ol>
-<p><img src="/2023/12/15/jvm-sgg1/0002.png"></p>
+<img src="../JVM-sgg1/0002.png" style="zoom:33%;" />
+
 <ul>
 <li>计算机系统体系对我们来说越来越远，在不了解底层实现方式的前提下，通过高级语言很容易编写程序代码。但事实上计算机并不认识高级语言。</li>
 </ul>
@@ -411,7 +413,8 @@
 <li>垃圾收集机制为我们打理了很多繁琐的工作，大大提高了开发的效率，但是，垃圾收集也不是万能的，懂得JVM内部的内存结构、工作机制，是设计高扩展性应用和诊断运行时问题的基础，也是Java工程师进阶的必备能力。</li>
 <li>C++语言需要程序员自己来分配内存和回收内存，对于高手来说可能更加舒服，但是对于普通开发者，如果技术实力不够，很容易造成内存泄漏。而Java全部交给JVM进行内存分配和回收，这也是一种趋势，减少程序员的工作量。</li>
 </ol>
-<p><img src="/2023/12/15/jvm-sgg1/0003.png"></p>
+<img src="../JVM-sgg1/0003.png" style="zoom:33%;" />
+
 <h3 id="什么人需要学JVM？"><a href="#什么人需要学JVM？" class="headerlink" title="什么人需要学JVM？"></a>什么人需要学JVM？</h3><ol>
 <li>拥有一定开发经验的Java开发人员，希望升职加薪</li>
 <li>软件设计师，架构师</li>
@@ -420,16 +423,23 @@
 </ol>
 <h3 id="推荐及参考书籍"><a href="#推荐及参考书籍" class="headerlink" title="推荐及参考书籍"></a>推荐及参考书籍</h3><p><strong>官方文档</strong></p>
 <p><strong>英文文档规范</strong>：<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/specs/index.html">https://docs.oracle.com/javase/specs/index.html</a></p>
-<p><img src="/2023/12/15/jvm-sgg1/0004.png"></p>
+<img src="../JVM-sgg1/0004.png" style="zoom:33%;" />
+
 <p><strong>中文书籍：</strong></p>
-<p><img src="/2023/12/15/jvm-sgg1/0005.png"></p>
+<img src="../JVM-sgg1/0005.png" style="zoom:33%;" />
+
 <blockquote>
 <p>周志明老师的这本书<strong>非常推荐看</strong>，不过只推荐看第三版，第三版较第二版更新了很多，个人觉得没必要再看第二版。</p>
 </blockquote>
-<p><img src="/2023/12/15/jvm-sgg1/0006.png"></p>
-<p><img src="/2023/12/15/jvm-sgg1/0007.png"></p>
+<img src="../JVM-sgg1/0006.png" style="zoom:33%;" />
+
+
+
+<img src="../JVM-sgg1/0007.png" style="zoom:33%;" />
+
 <h3 id="TIOBE排行榜"><a href="#TIOBE排行榜" class="headerlink" title="TIOBE排行榜"></a>TIOBE排行榜</h3><p><strong>TIOBE 排行榜</strong>：<a target="_blank" rel="noopener" href="https://www.tiobe.com/tiobe-index/">https://www.tiobe.com/tiobe-index/</a></p>
-<p><img src="/2023/12/15/jvm-sgg1/0008.png"></p>
+<img src="../JVM-sgg1/0008.png" style="zoom:33%;" />
+
 <ul>
 <li>世界上没有最好的编程语言，只有最适用于具体应用场景的编程语言。</li>
 <li>目前网上一直流传Java被python，go撼动Java第一的地位。学习者不需要太担心，Java强大的生态圈，也不是说是朝夕之间可以被撼动的。</li>
@@ -447,8 +457,12 @@
 </li>
 <li>作为一个社区，Java拥有全世界最多的技术拥护者和开源社区支持，有数不清的论坛和资料。从桌面应用软件、嵌入式开发到企业级应用、后台服务器、中间件，都可以看到Java的身影。其应用形式之复杂、参与人数之众多也令人咋舌。</li>
 </ol>
-<h3 id="Java-跨平台的语言"><a href="#Java-跨平台的语言" class="headerlink" title="Java-跨平台的语言"></a>Java-跨平台的语言</h3><p><img src="/2023/12/15/jvm-sgg1/0009.png"></p>
-<h3 id="JVM-跨语言的平台"><a href="#JVM-跨语言的平台" class="headerlink" title="JVM-跨语言的平台"></a>JVM-跨语言的平台</h3><p><img src="/2023/12/15/jvm-sgg1/0010.png"></p>
+<h3 id="Java-跨平台的语言"><a href="#Java-跨平台的语言" class="headerlink" title="Java-跨平台的语言"></a>Java-跨平台的语言</h3><img src="../JVM-sgg1/0009.png" style="zoom:33%;" />
+
+<h3 id="JVM-跨语言的平台"><a href="#JVM-跨语言的平台" class="headerlink" title="JVM-跨语言的平台"></a>JVM-跨语言的平台</h3><img src="../JVM-sgg1/0010.png" style="zoom:33%;" />
+
+
+
 <ol>
 <li>随着Java7的正式发布，Java虚拟机的设计者们通过JSR-292规范基本实现在Java虚拟机平台上运行非Java语言编写的程序。</li>
 <li>Java虚拟机根本不关心运行在其内部的程序到底是使用何种编程语言编写的，它只关心“字节码”文件。也就是说Java虚拟机拥有语言无关性，并不会单纯地与Java语言“终身绑定”，只要其他编程语言的编译结果满足并包含Java虚拟机的内部指令集、符号表以及其他的辅助信息，它就是一个有效的字节码文件，就能够被虚拟机所识别并装载运行。</li>
@@ -501,7 +515,8 @@
 <li><strong>同年，JDK11发布，LTS版本的JDK，发布革命性的ZGC，调整JDK授权许可</strong></li>
 <li>2019年，JDK12发布，加入RedHat领导开发的Shenandoah GC</li>
 </ul>
-<h3 id="Open-JDK和Oracle-JDK"><a href="#Open-JDK和Oracle-JDK" class="headerlink" title="Open JDK和Oracle JDK"></a>Open JDK和Oracle JDK</h3><p><img src="/2023/12/15/jvm-sgg1/0012.png"></p>
+<h3 id="Open-JDK和Oracle-JDK"><a href="#Open-JDK和Oracle-JDK" class="headerlink" title="Open JDK和Oracle JDK"></a>Open JDK和Oracle JDK</h3><img src="../JVM-sgg1/0012.png" style="zoom:33%;" />
+
 <ul>
 <li>在JDK11之前，Oracle JDK中还会存在一些Open JDK中没有的，闭源的功能。但在JDK11中，我们可以认为Open JDK和Oracle JDK代码实质上已经达到完全一致的程度了。</li>
 <li>主要的区别就是两者更新周期不一样</li>
@@ -532,14 +547,23 @@
 <li>自动垃圾回收功能</li>
 </ol>
 <h3 id="JVM的位置"><a href="#JVM的位置" class="headerlink" title="JVM的位置"></a>JVM的位置</h3><p>JVM是运行在操作系统之上的，它与硬件没有直接的交互</p>
-<p><img src="/2023/12/15/jvm-sgg1/0013.png"></p>
-<p><img src="/2023/12/15/jvm-sgg1/0014.png"></p>
+<img src="../JVM-sgg1/0013.png" style="zoom:33%;" />
+
+
+
+<img src="../JVM-sgg1/0014.png" style="zoom:33%;" />
+
+
+
 <h3 id="JVM的整体结构"><a href="#JVM的整体结构" class="headerlink" title="JVM的整体结构"></a>JVM的整体结构</h3><ol>
 <li>HotSpot VM是目前市面上高性能虚拟机的代表作之一。</li>
 <li>它采用解释器与即时编译器并存的架构。</li>
 <li>在今天，Java程序的运行性能早已脱胎换骨，已经达到了可以和C&#x2F;C++程序一较高下的地步。</li>
 </ol>
-<p><img src="/2023/12/15/jvm-sgg1/0015.png"></p>
+<img src="../JVM-sgg1/0015.png" style="zoom:50%;" />
+
+
+
 <h3 id="Java代码执行流程"><a href="#Java代码执行流程" class="headerlink" title="Java代码执行流程"></a>Java代码执行流程</h3><p>凡是能生成被Java虚拟机所能解释、运行的字节码文件，那么理论上我们就可以自己设计一套语言了</p>
 <p><img src="/2023/12/15/jvm-sgg1/0016.png"></p>
 <h3 id="JVM的架构模型"><a href="#JVM的架构模型" class="headerlink" title="JVM的架构模型"></a>JVM的架构模型</h3><p>Java编译器输入的指令流基本上是一种<strong>基于栈的指令集架构</strong>，另外一种指令集架构则是<strong>基于寄存器的指令集架构</strong>。具体来说：这两种架构之间的区别：</p>
