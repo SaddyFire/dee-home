@@ -291,12 +291,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/safe-s/">
-                                <span class="chip bg-color">safe-s</span>
-                            </a>
-                        
                             <a href="/tags/Java/">
                                 <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/safe-s/">
+                                <span class="chip bg-color">safe-s</span>
                             </a>
                         
                     </div>
@@ -369,7 +369,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="demo1"><a href="#demo1" class="headerlink" title="demo1"></a>demo1</h2><div class="mermaid">
+                <h2 id="demo1">demo1</h2>
+<div class="mermaid">
   sequenceDiagram
 	actor c as 客户端
 	participant f as 前端服务器
@@ -393,7 +394,6 @@
 	f ->> f: 加密: AESkey(data) => secretData
 	f ->> -b: 将加密数据发送给后端
 </div>
-
 
 <pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
   &lt;div&gt;
@@ -450,9 +450,6 @@ export default &#123;
   &#125;
 &#125;
 &lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>nio<span class="token punctuation">.</span>charset<span class="token punctuation">.</span></span><span class="token class-name">StandardCharsets</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>security<span class="token punctuation">.</span></span><span class="token class-name">KeyPair</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>security<span class="token punctuation">.</span></span><span class="token class-name">KeyPairGenerator</span></span><span class="token punctuation">;</span>
@@ -568,9 +565,9 @@ export default &#123;
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>plaintext<span class="token punctuation">,</span> <span class="token class-name">StandardCharsets</span><span class="token punctuation">.</span><span class="token constant">UTF_8</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 输出：Hello World!</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>上述代码使用了CryptoJS库和Bouncy Castle库实现了前后端数据加密。在这个示例中，前端使用AES算法对数据进行加密，然后使用RSA公钥加密AES密钥，将加密后的密钥和加密后的数据一起发送给后端。后端使用RSA私钥解密AES密钥，然后使用解密后的密钥对数据进行解密。同样，后端也可以使用AES算法对数据进行加密，然后使用RSA公钥加密AES密钥，将加密后的密钥和加密后的数据一起发送给前端。前端使用RSA私钥解密AES密钥，然后使用解密后的密钥对数据进行解密。</p>
-<h2 id="demo2"><a href="#demo2" class="headerlink" title="demo2"></a>demo2</h2><div class="mermaid">
+<h2 id="demo2">demo2</h2>
+<div class="mermaid">
   
 sequenceDiagram
 	actor a as 用户
@@ -588,9 +585,6 @@ sequenceDiagram
 	f -->> -a: 响应给用户
 
 </div>
-
-
-
 
 
                 
@@ -656,12 +650,12 @@ sequenceDiagram
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/safe-s/">
-                                    <span class="chip bg-color">safe-s</span>
-                                </a>
-                            
                                 <a href="/tags/Java/">
                                     <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/safe-s/">
+                                    <span class="chip bg-color">safe-s</span>
                                 </a>
                             
                         </div>
