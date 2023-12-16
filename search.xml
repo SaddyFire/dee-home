@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>ℹ️JVM-04-虚拟机栈</title>
+      <link href="/2023/12/16/jvm-sgg4/"/>
+      <url>/2023/12/16/jvm-sgg4/</url>
+      
+        <content type="html"><![CDATA[<h1 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h1><h2 id="1-虚拟机栈概述"><a href="#1-虚拟机栈概述" class="headerlink" title="1-虚拟机栈概述"></a>1-虚拟机栈概述</h2><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><ul><li><p>由于跨平台性的设计，Java的指令都是根据栈来设计的。不同平台CPU架构不同，所以不能设计为基于寄存器的【如果设计成基于寄存器的，耦合度高，性能会有所提升，因为可以对具体的CPU架构进行优化，但是跨平台性大大降低】。</p></li><li><p><strong>优点是跨平台，指令集小，编译器容易实现，缺点是性能下降，实现同样的功能需要更多的指令。</strong></p></li></ul><h3 id="内存中的栈与堆"><a href="#内存中的栈与堆" class="headerlink" title="内存中的栈与堆"></a>内存中的栈与堆</h3><p><strong>栈是运行时的单位，而堆是存储的单位。</strong></p><p>即：栈解决程序的运行问题，即程序如何执行，或者说如何处理数据。堆解决的是数据存储的问题，即数据怎么放，放在哪</p><p><img src="/../jvm-sgg4/001.png"></p><h3 id="虚拟机栈基本内容"><a href="#虚拟机栈基本内容" class="headerlink" title="虚拟机栈基本内容"></a>虚拟机栈基本内容</h3><h4 id="Java虚拟机栈是什么？"><a href="#Java虚拟机栈是什么？" class="headerlink" title="Java虚拟机栈是什么？"></a>Java虚拟机栈是什么？</h4><ul><li>Java虚拟机栈（Java Virtual Machine Stack），早期也叫Java栈。每个线程在创建时都会创建一个虚拟机栈，其内部保存一个个的栈帧（Stack Frame），<strong>对应着一次次的Java方法调用</strong>，栈是线程私有的</li></ul><p><img src="/../jvm-sgg4/002.png"></p><h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4><p>生命周期和线程一致，也就是线程结束了，该虚拟机栈也销毁了</p><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>主管Java程序的运行, 它保存方法的局部变量(8 种基本数据类型、对象的引用地址)、部分结果, 并参与方法的调用和返回.</p><ul><li>局部变量 vs 成员变量来说的（或属性）</li><li>基本数据类型变量 vs 引用类型变量（类、数组、接口）</li></ul><h2 id="2-栈的存储单位"><a href="#2-栈的存储单位" class="headerlink" title="2-栈的存储单位"></a>2-栈的存储单位</h2><h2 id="3-局部变量表"><a href="#3-局部变量表" class="headerlink" title="3-局部变量表"></a>3-局部变量表</h2><h2 id="4-操作数栈"><a href="#4-操作数栈" class="headerlink" title="4-操作数栈"></a>4-操作数栈</h2><h2 id="5-代码追踪"><a href="#5-代码追踪" class="headerlink" title="5-代码追踪"></a>5-代码追踪</h2><h2 id="6-栈顶缓存技术"><a href="#6-栈顶缓存技术" class="headerlink" title="6-栈顶缓存技术"></a>6-栈顶缓存技术</h2><h2 id="7-动态链接"><a href="#7-动态链接" class="headerlink" title="7-动态链接"></a>7-动态链接</h2><h2 id="8-方法的调用-解析与分派"><a href="#8-方法的调用-解析与分派" class="headerlink" title="8-方法的调用: 解析与分派"></a>8-方法的调用: 解析与分派</h2><h2 id="9-方法返回地址"><a href="#9-方法返回地址" class="headerlink" title="9-方法返回地址"></a>9-方法返回地址</h2><h2 id="10-一些附加信息"><a href="#10-一些附加信息" class="headerlink" title="10-一些附加信息"></a>10-一些附加信息</h2><h2 id="11-栈的相关面试题"><a href="#11-栈的相关面试题" class="headerlink" title="11-栈的相关面试题"></a>11-栈的相关面试题</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> program </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JVM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JVM-03-运行时数据区概述及程序计数器</title>
       <link href="/2023/12/16/jvm-sgg3/"/>
       <url>/2023/12/16/jvm-sgg3/</url>
@@ -669,11 +694,11 @@
             
             <tag> Java </tag>
             
+            <tag> Linux-s </tag>
+            
             <tag> Git </tag>
             
             <tag> Database </tag>
-            
-            <tag> Linux-s </tag>
             
         </tags>
       

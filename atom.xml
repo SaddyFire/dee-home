@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2023-12-16T13:23:31.907Z</updated>
+  <updated>2023-12-16T13:53:52.813Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ℹ️JVM-04-虚拟机栈</title>
+    <link href="https://www.saddyfire.cn/2023/12/16/jvm-sgg4/"/>
+    <id>https://www.saddyfire.cn/2023/12/16/jvm-sgg4/</id>
+    <published>2023-12-16T13:26:31.000Z</published>
+    <updated>2023-12-16T13:53:52.813Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;虚拟机栈&quot;&gt;&lt;a href=&quot;#虚拟机栈&quot; class=&quot;headerlink&quot; title=&quot;虚拟机栈&quot;&gt;&lt;/a&gt;虚拟机栈&lt;/h1&gt;&lt;h2 id=&quot;1-虚拟机栈概述&quot;&gt;&lt;a href=&quot;#1-虚拟机栈概述&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
+    
+  </entry>
   
   <entry>
     <title>JVM-03-运行时数据区概述及程序计数器</title>
@@ -509,31 +534,6 @@
     
     
     <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>dm-mysql</title>
-    <link href="https://www.saddyfire.cn/2023/07/16/dm-mysql/"/>
-    <id>https://www.saddyfire.cn/2023/07/16/dm-mysql/</id>
-    <published>2023-07-16T08:31:18.000Z</published>
-    <updated>2023-10-27T08:30:03.546Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;DM-mysql-通用语法-对比&quot;&gt;&lt;a href=&quot;#DM-mysql-通用语法-对比&quot; class=&quot;headerlink&quot; title=&quot;DM - mysql 通用语法&amp;#x2F;对比&quot;&gt;&lt;/a&gt;DM - mysql</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Database" scheme="https://www.saddyfire.cn/tags/Database/"/>
     
   </entry>
   
