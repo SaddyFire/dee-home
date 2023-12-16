@@ -334,7 +334,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    733
+                    731
                 </div>
                 
 
@@ -369,51 +369,46 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1>Nginx及SSL配置</h1>
-<h2 id="Nginx安装">Nginx安装</h2>
-<h3 id="编译流程">编译流程</h3>
-<ol>
-<li>
-<p>cd到nginx源码包下(可能在此之前要先tar -zxvf xxx)</p>
+                <h1 id="Nginx及SSL配置"><a href="#Nginx及SSL配置" class="headerlink" title="Nginx及SSL配置"></a>Nginx及SSL配置</h1><h2 id="Nginx安装"><a href="#Nginx安装" class="headerlink" title="Nginx安装"></a>Nginx安装</h2><h3 id="编译流程"><a href="#编译流程" class="headerlink" title="编译流程"></a>编译流程</h3><ol>
+<li><p>cd到nginx源码包下(可能在此之前要先tar -zxvf xxx)</p>
 </li>
-<li>
-<p>编译前配置</p>
+<li><p>编译前配置</p>
 <p><code>./configure --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module</code></p>
 </li>
-<li>
-<p>编译</p>
+<li><p>编译</p>
 <p><code>make</code></p>
 <p><code>make install</code></p>
 </li>
 </ol>
-<h3 id="编译中会遇到的依赖缺失">编译中会遇到的依赖缺失</h3>
-<p>gcc缺失</p>
+<h3 id="编译中会遇到的依赖缺失"><a href="#编译中会遇到的依赖缺失" class="headerlink" title="编译中会遇到的依赖缺失"></a>编译中会遇到的依赖缺失</h3><p>gcc缺失</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 报错提示</span>
 checking <span class="token keyword">for</span> OS
 + Linux <span class="token number">3.10</span>.0-693.el7.x86_64 x86_64
 checking <span class="token keyword">for</span> C compiler <span class="token punctuation">..</span>. not found
 ./configure: error: C compiler cc is not found<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><code>yum install -y gcc</code></p>
 <p>perl库缺失</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./configure: error: the HTTP rewrite module requires the PCRE library.
 You can either disable the module by using --without-http_rewrite_module
 option, or <span class="token function">install</span> the PCRE library into the system, or build the PCRE library
 statically from the <span class="token builtin class-name">source</span> with nginx by using --with-pcre<span class="token operator">=</span><span class="token operator">&lt;</span>path<span class="token operator">></span> option.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><code>yum install -y pcre pcre-devel</code></p>
 <p>zlib库缺失</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./configure: error: the HTTP <span class="token function">gzip</span> module requires the zlib library.
 You can either disable the module by using --without-http_gzip_module
 option, or <span class="token function">install</span> the zlib library into the system, or build the zlib library
 statically from the <span class="token builtin class-name">source</span> with nginx by using --with-zlib<span class="token operator">=</span><span class="token operator">&lt;</span>path<span class="token operator">></span> option.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><code>yum install -y zlib zlib-devel</code></p>
-<h3 id="启动Nginx">启动Nginx</h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># cd到编译后的目录下</span>
+<h3 id="启动Nginx"><a href="#启动Nginx" class="headerlink" title="启动Nginx"></a>启动Nginx</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># cd到编译后的目录下</span>
 ./nginx 启动
 ./nginx <span class="token parameter variable">-s</span> stop 快速停止
 ./nginx <span class="token parameter variable">-s</span> quit 优雅关闭，在退出前完成已经接受的连接请求
 ./nginx <span class="token parameter variable">-s</span> reload 重新加载配置<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="注册至服务">注册至服务</h3>
-<p>新建 <code>vi /usr/lib/systemd/system/nginx.service</code> 并添加如下配置</p>
+
+<h3 id="注册至服务"><a href="#注册至服务" class="headerlink" title="注册至服务"></a>注册至服务</h3><p>新建 <code>vi /usr/lib/systemd/system/nginx.service</code> 并添加如下配置</p>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties">[Unit]
 <span class="token key attr-name">Description</span><span class="token punctuation">=</span><span class="token value attr-value">nginx - web server</span>
 <span class="token key attr-name">After</span><span class="token punctuation">=</span><span class="token value attr-value">network.target remote-fs.target nss-lookup.target</span>
@@ -428,8 +423,8 @@ statically from the <span class="token builtin class-name">source</span> with ng
 <span class="token key attr-name">PrivateTmp</span><span class="token punctuation">=</span><span class="token value attr-value">true</span>
 [Install]
 <span class="token key attr-name">WantedBy</span><span class="token punctuation">=</span><span class="token value attr-value">multi-user.target</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="服务启动命令">服务启动命令</h3>
-<p>重新加载服务配置</p>
+
+<h3 id="服务启动命令"><a href="#服务启动命令" class="headerlink" title="服务启动命令"></a>服务启动命令</h3><p>重新加载服务配置</p>
 <p><code>systemctl daemon-reload</code></p>
 <p>启动服务</p>
 <p><code>systemctl start nginx.service</code></p>
@@ -449,18 +444,14 @@ firewall-cmd <span class="token parameter variable">--reload</span>
 firewall-cmd <span class="token parameter variable">--permanent</span> --add-rich-rule<span class="token operator">=</span><span class="token string">"rule family="</span>ipv4<span class="token string">" source address="</span><span class="token number">192.168</span>.123.100<span class="token string">" port protocol="</span>tcp<span class="token string">" port="</span><span class="token number">8080</span><span class="token string">" accept"</span>
 <span class="token comment"># 移除规则</span>
 firewall-cmd <span class="token parameter variable">--permanent</span> --remove-rich-rule<span class="token operator">=</span><span class="token string">"rule family="</span>ipv4<span class="token string">" source address="</span><span class="token number">192.168</span>.123.100<span class="token string">" port port="</span><span class="token number">8080</span><span class="token string">" protocol="</span>tcp<span class="token string">" accept"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="配置SSL">配置SSL</h2>
-<h3 id="SSL证书申请">SSL证书申请</h3>
-<p><img src="../nginx-ssl/20230426232049.png" alt=""></p>
+
+<h2 id="配置SSL"><a href="#配置SSL" class="headerlink" title="配置SSL"></a>配置SSL</h2><h3 id="SSL证书申请"><a href="#SSL证书申请" class="headerlink" title="SSL证书申请"></a>SSL证书申请</h3><p><img src="/2023/04/15/nginx-ssl/20230426232049.png"></p>
 <blockquote>
 <p>正常情况下会在解析中添加一条TXT记录, 如果没有则需手动添加</p>
 </blockquote>
-<h3 id="添加服务解析">添加服务解析</h3>
-<p><img src="../nginx-ssl/20230426232440.png" alt=""></p>
-<h3 id="证书下载">证书下载</h3>
-<p>根据服务器类型下载, 此处使用Nginx, 后将将公私钥放到nginx的conf目录下</p>
-<h3 id="Nginx配置">Nginx配置</h3>
-<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token comment"># HTTPS server</span>
+<h3 id="添加服务解析"><a href="#添加服务解析" class="headerlink" title="添加服务解析"></a>添加服务解析</h3><p><img src="/2023/04/15/nginx-ssl/20230426232440.png"></p>
+<h3 id="证书下载"><a href="#证书下载" class="headerlink" title="证书下载"></a>证书下载</h3><p>根据服务器类型下载, 此处使用Nginx, 后将将公私钥放到nginx的conf目录下</p>
+<h3 id="Nginx配置"><a href="#Nginx配置" class="headerlink" title="Nginx配置"></a>Nginx配置</h3><pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token comment"># HTTPS server</span>
 
 <span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">&#123;</span>
     <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">443</span> ssl</span><span class="token punctuation">;</span>
@@ -476,6 +467,7 @@ firewall-cmd <span class="token parameter variable">--permanent</span> --remove-
         <span class="token directive"><span class="token keyword">index</span>  index.html index.htm</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>另外nginx再添加重定向配置, 根据自己需要, 如果不用泛解析, 添加www和@ 这一步可以不要</p>
 <pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token comment"># 监听http</span>
 <span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">&#123;</span>
@@ -486,6 +478,7 @@ firewall-cmd <span class="token parameter variable">--permanent</span> --remove-
 	<span class="token directive"><span class="token keyword">return</span> <span class="token number">301</span> https://<span class="token variable">$server_name</span><span class="token variable">$request_uri</span></span><span class="token punctuation">;</span>
 
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>更新nginx配置即可</p>
 
                 
@@ -693,16 +686,16 @@ firewall-cmd <span class="token parameter variable">--permanent</span> --remove-
                         <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/Linux-s/">
-                        <span class="chip bg-color">Linux-s</span>
-                    </a>
-                    
                     <a href="/tags/Git/">
                         <span class="chip bg-color">Git</span>
                     </a>
                     
                     <a href="/tags/Database/">
                         <span class="chip bg-color">Database</span>
+                    </a>
+                    
+                    <a href="/tags/Linux-s/">
+                        <span class="chip bg-color">Linux-s</span>
                     </a>
                     
                 </div>

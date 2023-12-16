@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2023-12-15T15:04:30.371Z</updated>
+  <updated>2023-12-16T10:12:03.672Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -17,19 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>JVM与Java体系结构</title>
+    <title>JVM-01-类加载子系统</title>
+    <link href="https://www.saddyfire.cn/2023/12/16/jvm-sgg2/"/>
+    <id>https://www.saddyfire.cn/2023/12/16/jvm-sgg2/</id>
+    <published>2023-12-16T01:11:49.000Z</published>
+    <updated>2023-12-16T10:12:03.672Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;类加载子系统&quot;&gt;&lt;a href=&quot;#类加载子系统&quot; class=&quot;headerlink&quot; title=&quot;类加载子系统&quot;&gt;&lt;/a&gt;类加载子系统&lt;/h1&gt;&lt;h2 id=&quot;1-内存结构概述&quot;&gt;&lt;a href=&quot;#1-内存结构概述&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JVM-01-JVM与Java体系结构</title>
     <link href="https://www.saddyfire.cn/2023/12/15/jvm-sgg1/"/>
     <id>https://www.saddyfire.cn/2023/12/15/jvm-sgg1/</id>
     <published>2023-12-15T14:11:33.000Z</published>
-    <updated>2023-12-15T15:04:30.371Z</updated>
+    <updated>2023-12-16T01:18:04.666Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;第1章-JVM和Java体系架构&quot;&gt;第1章-JVM和Java体系架构&lt;/h2&gt;
-&lt;h3</summary>
+    <summary type="html">&lt;h2 id=&quot;JVM和Java体系架构&quot;&gt;&lt;a href=&quot;#JVM和Java体系架构&quot; class=&quot;headerlink&quot; title=&quot;JVM和Java体系架构&quot;&gt;&lt;/a&gt;JVM和Java体系架构&lt;/h2&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot;</summary>
         
       
     
@@ -54,8 +78,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;Hexo绘制思维导图&quot;&gt;Hexo绘制思维导图&lt;/h2&gt;
-&lt;p&gt;&lt;a</summary>
+    <summary type="html">&lt;h2 id=&quot;Hexo绘制思维导图&quot;&gt;&lt;a href=&quot;#Hexo绘制思维导图&quot; class=&quot;headerlink&quot; title=&quot;Hexo绘制思维导图&quot;&gt;&lt;/a&gt;Hexo绘制思维导图&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
         
       
     
@@ -80,10 +103,8 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;JVM-字节码文件概述&quot;&gt;JVM-字节码文件概述&lt;/h2&gt;
-
-&lt;div class=&quot;markmap-container&quot; style=&quot;height:height&quot;&gt;
-  &lt;svg</summary>
+    <summary type="html">&lt;h2 id=&quot;JVM-字节码文件概述&quot;&gt;&lt;a href=&quot;#JVM-字节码文件概述&quot; class=&quot;headerlink&quot; title=&quot;JVM-字节码文件概述&quot;&gt;&lt;/a&gt;JVM-字节码文件概述&lt;/h2&gt;
+&lt;div class=&quot;markmap-container&quot;</summary>
         
       
     
@@ -108,8 +129,7 @@
       
         
         
-    <summary type="html">&lt;h3 id=&quot;依赖&quot;&gt;依赖&lt;/h3&gt;
-&lt;pre class=&quot;line-numbers language-markup&quot; data-language=&quot;markup&quot;&gt;&lt;code class=&quot;language-markup&quot;&gt;&lt;span class=&quot;token</summary>
+    <summary type="html">&lt;h3 id=&quot;依赖&quot;&gt;&lt;a href=&quot;#依赖&quot; class=&quot;headerlink&quot; title=&quot;依赖&quot;&gt;&lt;/a&gt;依赖&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-markup&quot; data-language=&quot;markup&quot;&gt;&lt;code</summary>
         
       
     
@@ -136,9 +156,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;服务注册&lt;/h1&gt;
-&lt;h2 id=&quot;Linux&quot;&gt;Linux&lt;/h2&gt;
-&lt;h3</summary>
+    <summary type="html">&lt;h1 id=&quot;服务注册&quot;&gt;&lt;a href=&quot;#服务注册&quot; class=&quot;headerlink&quot; title=&quot;服务注册&quot;&gt;&lt;/a&gt;服务注册&lt;/h1&gt;&lt;h2 id=&quot;Linux&quot;&gt;&lt;a href=&quot;#Linux&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -165,11 +183,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;DM备份还原笔记&lt;/h1&gt;
-&lt;h2 id=&quot;还原&quot;&gt;还原&lt;/h2&gt;
-&lt;h3 id=&quot;备份文件拆分-Linux&quot;&gt;备份文件拆分(Linux)&lt;/h3&gt;
-&lt;p&gt;当库体积太大时, 需要对备份文件进行拆分&lt;/p&gt;
-&lt;pre class=&quot;line-numbers</summary>
+    <summary type="html">&lt;h1 id=&quot;DM备份还原笔记&quot;&gt;&lt;a href=&quot;#DM备份还原笔记&quot; class=&quot;headerlink&quot; title=&quot;DM备份还原笔记&quot;&gt;&lt;/a&gt;DM备份还原笔记&lt;/h1&gt;&lt;h2 id=&quot;还原&quot;&gt;&lt;a href=&quot;#还原&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -194,12 +208,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;ByteBuffer&quot;&gt;ByteBuffer&lt;/h2&gt;
-&lt;h3 id=&quot;结构&quot;&gt;结构&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;capacity 容量&lt;/li&gt;
-&lt;li&gt;position 写入(读取)位置&lt;/li&gt;
-&lt;li&gt;limit</summary>
+    <summary type="html">&lt;h2 id=&quot;ByteBuffer&quot;&gt;&lt;a href=&quot;#ByteBuffer&quot; class=&quot;headerlink&quot; title=&quot;ByteBuffer&quot;&gt;&lt;/a&gt;ByteBuffer&lt;/h2&gt;&lt;h3 id=&quot;结构&quot;&gt;&lt;a href=&quot;#结构&quot;</summary>
         
       
     
@@ -228,8 +237,7 @@
       
         
         
-    <summary type="html">&lt;h3 id=&quot;命令&quot;&gt;命令&lt;/h3&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token</summary>
+    <summary type="html">&lt;h3 id=&quot;命令&quot;&gt;&lt;a href=&quot;#命令&quot; class=&quot;headerlink&quot; title=&quot;命令&quot;&gt;&lt;/a&gt;命令&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
         
       
     
@@ -254,10 +262,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;Nginx日志分析&lt;/h1&gt;
-&lt;h2 id=&quot;linux-工具&quot;&gt;linux 工具&lt;/h2&gt;
-&lt;p&gt;获取前20的ip访问数量&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
+    <summary type="html">&lt;h1 id=&quot;Nginx日志分析&quot;&gt;&lt;a href=&quot;#Nginx日志分析&quot; class=&quot;headerlink&quot; title=&quot;Nginx日志分析&quot;&gt;&lt;/a&gt;Nginx日志分析&lt;/h1&gt;&lt;h2 id=&quot;linux-工具&quot;&gt;&lt;a href=&quot;#linux-工具&quot;</summary>
         
       
     
@@ -284,8 +289,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;系统安装与启动&quot;&gt;系统安装与启动&lt;/h2&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;wsl &lt;span</summary>
+    <summary type="html">&lt;h2 id=&quot;系统安装与启动&quot;&gt;&lt;a href=&quot;#系统安装与启动&quot; class=&quot;headerlink&quot; title=&quot;系统安装与启动&quot;&gt;&lt;/a&gt;系统安装与启动&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-bash&quot;</summary>
         
       
     
@@ -312,11 +316,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;云南Happy日记&lt;/h1&gt;
-&lt;h3 id=&quot;1️⃣大理篇&quot;&gt;1️⃣大理篇&lt;/h3&gt;
-&lt;p&gt;杭州✈昆明🚆大理🚕大理古镇附近🛖投宿&lt;/p&gt;
-&lt;h4 id=&quot;😋超级超级好吃的清蒸街&quot;&gt;😋超级超级好吃的清蒸街&lt;/h4&gt;
-&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;h1 id=&quot;云南Happy日记&quot;&gt;&lt;a href=&quot;#云南Happy日记&quot; class=&quot;headerlink&quot; title=&quot;云南Happy日记&quot;&gt;&lt;/a&gt;云南Happy日记&lt;/h1&gt;&lt;h3 id=&quot;1️⃣大理篇&quot;&gt;&lt;a href=&quot;#1️⃣大理篇&quot;</summary>
         
       
     
@@ -341,9 +341,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;el-table-column压缩单行&quot;&gt;el-table-column压缩单行&lt;/h2&gt;
-&lt;p&gt;div&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-markup&quot; data-language=&quot;markup&quot;&gt;&lt;code</summary>
+    <summary type="html">&lt;h2 id=&quot;el-table-column压缩单行&quot;&gt;&lt;a href=&quot;#el-table-column压缩单行&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -371,9 +369,7 @@
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;由于本demo是在原有服务进行拓展, 为减少耦合故新建模块&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;依赖及配置文件&quot;&gt;依赖及配置文件&lt;/h2&gt;
-&lt;h3 id=&quot;pom文件&quot;&gt;pom文件&lt;/h3&gt;
-&lt;pre</summary>
+&lt;h2 id=&quot;依赖及配置文件&quot;&gt;&lt;a href=&quot;#依赖及配置文件&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -398,9 +394,8 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;基础封装&quot;&gt;基础封装&lt;/h2&gt;
-&lt;p&gt;封装单个对象查询&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-java&quot; data-language=&quot;java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span</summary>
+    <summary type="html">&lt;h2 id=&quot;基础封装&quot;&gt;&lt;a href=&quot;#基础封装&quot; class=&quot;headerlink&quot; title=&quot;基础封装&quot;&gt;&lt;/a&gt;基础封装&lt;/h2&gt;&lt;p&gt;封装单个对象查询&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-java&quot;</summary>
         
       
     
@@ -427,8 +422,7 @@
       
         
         
-    <summary type="html">&lt;h3 id=&quot;proxy-pass-端口后紧跟&quot;&gt;&lt;code&gt;proxy_pass&lt;/code&gt; 端口后紧跟 &lt;code&gt;/&lt;/code&gt;&lt;/h3&gt;
-&lt;img src=&quot;../nginx-location/image-20230814221948781.png&quot;</summary>
+    <summary type="html">&lt;h3 id=&quot;proxy-pass-端口后紧跟&quot;&gt;&lt;a href=&quot;#proxy-pass-端口后紧跟&quot; class=&quot;headerlink&quot; title=&quot;proxy_pass 端口后紧跟 /&quot;&gt;&lt;/a&gt;&lt;code&gt;proxy_pass&lt;/code&gt; 端口后紧跟</summary>
         
       
     
@@ -455,15 +449,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;自定义线程池demo&lt;/h1&gt;
-&lt;h2 id=&quot;流程图&quot;&gt;流程图&lt;/h2&gt;
-&lt;div class=&quot;mermaid&quot;&gt;
-  
-graph LR
-	subgraph Thread Pool
-        t1[t1]
-        t2[t2]
-       </summary>
+    <summary type="html">&lt;h1 id=&quot;自定义线程池demo&quot;&gt;&lt;a href=&quot;#自定义线程池demo&quot; class=&quot;headerlink&quot; title=&quot;自定义线程池demo&quot;&gt;&lt;/a&gt;自定义线程池demo&lt;/h1&gt;&lt;h2 id=&quot;流程图&quot;&gt;&lt;a href=&quot;#流程图&quot;</summary>
         
       
     
@@ -488,13 +474,7 @@ graph LR
       
         
         
-    <summary type="html">&lt;h1&gt;自定义lambda用法&lt;/h1&gt;
-&lt;h2 id=&quot;基础用法&quot;&gt;基础用法&lt;/h2&gt;
-&lt;h3 id=&quot;supplier&quot;&gt;supplier&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;提供者: 无中生有  ()-&amp;gt;结果&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre</summary>
+    <summary type="html">&lt;h1 id=&quot;自定义lambda用法&quot;&gt;&lt;a href=&quot;#自定义lambda用法&quot; class=&quot;headerlink&quot; title=&quot;自定义lambda用法&quot;&gt;&lt;/a&gt;自定义lambda用法&lt;/h1&gt;&lt;h2 id=&quot;基础用法&quot;&gt;&lt;a href=&quot;#基础用法&quot;</summary>
         
       
     
@@ -519,10 +499,7 @@ graph LR
       
         
         
-    <summary type="html">&lt;h1&gt;DM - mysql 通用语法/对比&lt;/h1&gt;
-&lt;p&gt;由于达梦数据库语法更偏向oracle, 同时兼容部分mysql, 因此整理一些两者都通用语法. 同时对不通用的语法做些许对比&lt;/p&gt;
-&lt;h2 id=&quot;字符-数字&quot;&gt;字符/数字&lt;/h2&gt;
-&lt;pre</summary>
+    <summary type="html">&lt;h1 id=&quot;DM-mysql-通用语法-对比&quot;&gt;&lt;a href=&quot;#DM-mysql-通用语法-对比&quot; class=&quot;headerlink&quot; title=&quot;DM - mysql 通用语法&amp;#x2F;对比&quot;&gt;&lt;/a&gt;DM - mysql</summary>
         
       
     
@@ -547,12 +524,7 @@ graph LR
       
         
         
-    <summary type="html">&lt;h1&gt;element-ui 笔记&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;快速搜索:&lt;/p&gt;
-&lt;p&gt;选择框的映射写法 &amp;gt;&amp;gt;&amp;gt; flag_1&lt;/p&gt;
-&lt;p&gt;表单重置 &amp;gt;&amp;gt;&amp;gt; flag_2&lt;/p&gt;
-&lt;p&gt;分页 &amp;gt;&amp;gt;&amp;gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;element-ui-笔记&quot;&gt;&lt;a href=&quot;#element-ui-笔记&quot; class=&quot;headerlink&quot; title=&quot;element-ui 笔记&quot;&gt;&lt;/a&gt;element-ui</summary>
         
       
     
@@ -562,35 +534,6 @@ graph LR
     
     
     <category term="Vue" scheme="https://www.saddyfire.cn/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>cas</title>
-    <link href="https://www.saddyfire.cn/2023/05/20/cas/"/>
-    <id>https://www.saddyfire.cn/2023/05/20/cas/</id>
-    <published>2023-05-20T02:21:27.000Z</published>
-    <updated>2023-10-26T15:00:37.821Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;CAS之Atomic包&quot;&gt;CAS之Atomic包&lt;/h2&gt;
-&lt;h4 id=&quot;updateAndGet实现原理demo&quot;&gt;updateAndGet实现原理demo&lt;/h4&gt;
-&lt;pre class=&quot;line-numbers language-java&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
-    
-    <category term="JUC-s" scheme="https://www.saddyfire.cn/tags/JUC-s/"/>
     
   </entry>
   
