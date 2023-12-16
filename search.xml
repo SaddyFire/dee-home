@@ -536,9 +536,9 @@
       
         <tags>
             
-            <tag> JUC-s </tag>
-            
             <tag> Java </tag>
+            
+            <tag> JUC-s </tag>
             
         </tags>
       
@@ -644,11 +644,11 @@
             
             <tag> Java </tag>
             
+            <tag> Linux-s </tag>
+            
             <tag> Git </tag>
             
             <tag> Database </tag>
-            
-            <tag> Linux-s </tag>
             
         </tags>
       
