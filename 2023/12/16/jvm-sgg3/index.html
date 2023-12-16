@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="日常查询, SaddyFire">
-    <meta name="description" content="个人隐私咯😋😋😋">
+    <meta name="keywords" content="JVM-03-运行时数据区概述及程序计数器, SaddyFire">
+    <meta name="description" content="运行时数据区概述及程序计数器">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>日常查询 | SaddyFire</title>
+    <title>JVM-03-运行时数据区概述及程序计数器 | SaddyFire</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -249,7 +249,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '61503690505f84b144e6ac89124540a3eb8d22e77db76500984cfc50a1d8776e';
+        let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -262,12 +262,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/article/54.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">日常查询</h1>
+                    <h1 class="description center-align post-title">JVM-03-运行时数据区概述及程序计数器</h1>
                 </div>
             </div>
         </div>
@@ -291,20 +291,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
-                            </a>
-                        
-                            <a href="/tags/Git/">
-                                <span class="chip bg-color">Git</span>
-                            </a>
-                        
-                            <a href="/tags/Database/">
-                                <span class="chip bg-color">Database</span>
-                            </a>
-                        
-                            <a href="/tags/Linux-s/">
-                                <span class="chip bg-color">Linux-s</span>
+                            <a href="/tags/JVM/">
+                                <span class="chip bg-color">JVM</span>
                             </a>
                         
                     </div>
@@ -328,28 +316,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-04-14
+                    2023-12-16
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-10-26
+                    2023-12-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    740
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    6 分
                 </div>
                 
 
@@ -377,119 +365,100 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push <span class="token parameter variable">-u</span> origin dev-dee
-<span class="token function">git</span> branch <span class="token parameter variable">-D</span> 分支名  -- 强制删除分支
-<span class="token function">git</span> push origin <span class="token parameter variable">-d</span> 分支名  -- 强制删除远端分支
-
-<span class="token function">git</span> stash list  -- 查询暂存区
-<span class="token function">git</span> stash show <span class="token parameter variable">-p</span> 缓存id  -- 查询具体某个stash变更内容
-<span class="token function">git</span> stash push <span class="token parameter variable">-m</span> <span class="token string">'xxx'</span>  -- 暂存并取名
-<span class="token function">git</span> stash drop stash@<span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">&#125;</span>  -- 删除某一个暂存
-
-<span class="token function">npm</span> i <span class="token parameter variable">-g</span> git-br
-<span class="token function">git</span> br
-<span class="token function">git</span> config branch.develop.description 分支备注<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+                <h1 id="运行时数据区概述及线程"><a href="#运行时数据区概述及线程" class="headerlink" title="运行时数据区概述及线程"></a>运行时数据区概述及线程</h1><h2 id="1-运行时数据区结构"><a href="#1-运行时数据区结构" class="headerlink" title="1-运行时数据区结构"></a>1-运行时数据区结构</h2><p><img src="/../jvm-sgg3/001.png"></p>
+<p>当我们通过前面的：类的加载 –&gt; 验证 –&gt; 准备 –&gt; 解析 –&gt; 初始化，这几个阶段完成后，就会用到执行引擎对我们的类进行使用，同时执行引擎将会使用到我们运行时数据区</p>
+<p><img src="/../jvm-sgg3/002.png"></p>
+<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><ol>
+<li><p>内存是非常重要的系统资源，是硬盘和CPU的中间仓库及桥梁，承载着操作系统和应用程序的实时运行。JVM内存布局规定了Java在运行过程中内存申请、分配、管理的策略，保证了JVM的高效稳定运行。<strong>不同的JVM对于内存的划分方式和管理机制存在着部分差异</strong>。结合JVM虚拟机规范，来探讨一下经典的JVM内存布局。</p>
+</li>
+<li><p>我们通过磁盘或者网络IO得到的数据，都需要先加载到内存中，然后CPU从内存中获取数据进行读取，也就是说内存充当了CPU和磁盘之间的桥梁</p>
+</li>
+</ol>
+<p><img src="/../jvm-sgg3/004.png" alt="阿里巴巴手册JDK8"></p>
+<h3 id="线程间的内存空间"><a href="#线程间的内存空间" class="headerlink" title="线程间的内存空间"></a>线程间的内存空间</h3><p>Java虚拟机定义了若干种程序运行期间会使用到的运行时数据区：其中有一些会随着虚拟机启动而创建，随着虚拟机退出而销毁。另外一些则是与线程一一对应的，这些与线程对应的数据区域会随着线程开始和结束而创建和销毁。</p>
+<p>灰色的为单独线程私有的，红色的为多个线程共享的。即：</p>
 <ul>
-<li>删除git中.idea文件</li>
+<li>线程独有：独立包括程序计数器、栈、本地方法栈</li>
+<li>线程间共享：堆、堆外内存（永久代或元空间、代码缓存）</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-- <span class="token number">1</span>. 修改.gitignore文件
--- <span class="token number">2</span>. 删除本地缓存区.idea文件
-<span class="token function">git</span> <span class="token function">rm</span> <span class="token parameter variable">--cached</span> <span class="token parameter variable">-r</span> .idea
--- <span class="token number">3</span>. 推送
-<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">'delete .idea'</span>
-<span class="token function">git</span> push origin dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<img src="/../jvm-sgg3/005.png" style="zoom: 70%;" />
 
-<h2 id="DM"><a href="#DM" class="headerlink" title="DM"></a>DM</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 已经执行超过2s的活动SQL</span>
-<span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">from</span> <span class="token punctuation">(</span>
-	<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token punctuation">(</span>
-	<span class="token keyword">SELECT</span> sess_id<span class="token punctuation">,</span>
-	sql_text<span class="token punctuation">,</span>
-	datediff<span class="token punctuation">(</span>ss<span class="token punctuation">,</span>last_recv_time<span class="token punctuation">,</span>sysdate<span class="token punctuation">)</span> Y_EXETIME<span class="token punctuation">,</span>
-	SF_GET_SESSION_SQL<span class="token punctuation">(</span>SESS_ID<span class="token punctuation">)</span> fullsql<span class="token punctuation">,</span>
-	clnt_ip<span class="token punctuation">,</span>clnt_type<span class="token punctuation">,</span>create_time
-	<span class="token keyword">FROM</span> V$SESSIONS <span class="token keyword">WHERE</span> STATE<span class="token operator">=</span><span class="token string">'ACTIVE'</span><span class="token punctuation">)</span>
-	<span class="token keyword">where</span> Y_EXETIME<span class="token operator">>=</span><span class="token number">2</span> <span class="token keyword">order</span> <span class="token keyword">by</span> y_exetime <span class="token keyword">desc</span>
-<span class="token punctuation">)</span>
-
-<span class="token comment">-- 查询当前回滚剩余条数</span>
-<span class="token keyword">select</span> sess_id<span class="token punctuation">,</span>ins_cnt<span class="token operator">+</span>del_cnt<span class="token operator">+</span>upd_cnt<span class="token operator">+</span>upd_ins_cnt<span class="token punctuation">,</span>systimestamp <span class="token keyword">from</span> v$trx <span class="token keyword">where</span> ROLLBACK_FLAG<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-
-<span class="token comment">-- 查询具体报锁超时的表对应的会话锁，查询第一列用于杀掉对应SESSION</span>
-<span class="token keyword">select</span> <span class="token string">'sp_close_session('</span><span class="token operator">||</span>sess_id<span class="token operator">||</span><span class="token string">')'</span><span class="token punctuation">,</span><span class="token operator">*</span> <span class="token keyword">from</span> v$sessions <span class="token keyword">where</span> trx_id <span class="token operator">in</span> <span class="token punctuation">(</span>
-<span class="token keyword">select</span> trx_id <span class="token keyword">from</span> v$<span class="token keyword">lock</span> a<span class="token punctuation">,</span>SYSOBJECTS b <span class="token keyword">where</span> a<span class="token punctuation">.</span>table_id <span class="token operator">=</span> b<span class="token punctuation">.</span>id <span class="token operator">and</span> b<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'表名'</span> <span class="token operator">and</span> b<span class="token punctuation">.</span>SUBTYPE$<span class="token operator">=</span><span class="token string">'UTAB'</span> <span class="token operator">and</span> trx_id<span class="token operator">&lt;></span><span class="token number">0</span>
-<span class="token punctuation">)</span>
-
-<span class="token comment">-- 杀死会话</span>
-sp_close_session<span class="token punctuation">(</span><span class="token number">140170753999128</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">-- 统计当前阻塞的详情</span>
-<span class="token keyword">select</span> clnt_ip<span class="token punctuation">,</span>clnt_type<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">from</span> v$sessions <span class="token keyword">where</span> run_status <span class="token operator">=</span> <span class="token string">'idle'</span> <span class="token keyword">group</span> <span class="token keyword">by</span> clnt_ip<span class="token punctuation">,</span> clnt_type <span class="token keyword">order</span> <span class="token keyword">by</span> clnt_ip
-
-<span class="token comment">-- 统计表空间大小</span>
-<span class="token keyword">create</span> <span class="token keyword">table</span> table_count <span class="token punctuation">(</span>owner <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>table_name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>used_space_MB <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">declare</span>
-    <span class="token keyword">begin</span>
-        <span class="token keyword">for</span> rec <span class="token operator">in</span>
-        <span class="token punctuation">(</span><span class="token keyword">select</span> owner<span class="token punctuation">,</span> table_name <span class="token keyword">from</span> all_tables <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
-            <span class="token keyword">loop</span>
-            <span class="token keyword">insert</span> <span class="token keyword">into</span> table_count <span class="token keyword">select</span> rec<span class="token punctuation">.</span>owner<span class="token punctuation">,</span> rec<span class="token punctuation">.</span>table_name<span class="token punctuation">,</span>table_used_pages<span class="token punctuation">(</span>rec<span class="token punctuation">.</span>owner<span class="token punctuation">,</span> rec<span class="token punctuation">.</span>table_name<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>page<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">1024</span> <span class="token keyword">from</span> dual<span class="token punctuation">;</span>
-            <span class="token keyword">end</span> <span class="token keyword">loop</span><span class="token punctuation">;</span>
-	<span class="token keyword">end</span><span class="token punctuation">;</span>
-
-<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> table_count <span class="token keyword">order</span> <span class="token keyword">by</span> used_space_mb <span class="token keyword">desc</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="进程端口命令"><a href="#进程端口命令" class="headerlink" title="进程端口命令"></a>进程端口命令</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># linux</span>
-<span class="token function">lsof</span> <span class="token parameter variable">-i:80</span>  <span class="token comment"># 根据端口查看PID及应用名</span>
-<span class="token function">netstat</span> -ntulp<span class="token operator">|</span><span class="token function">grep</span> nginx  <span class="token comment"># 根据应用名查看端口</span>
-<span class="token function">top</span> <span class="token parameter variable">-Hp</span> pid  <span class="token comment"># 查看某个进程下所有子线程</span>
-
-<span class="token comment">#win</span>
-tasklist <span class="token operator">|</span> findstr xxx  <span class="token comment"># 查看进程 ps -ef</span>
-taskkill /T /F /PID <span class="token number">12345</span>  <span class="token comment"># 杀死进程 kill -9</span>
-<span class="token function">netstat</span> -ano<span class="token operator">|</span>findstr <span class="token number">80</span>  <span class="token comment"># 端口查看</span>
-
-<span class="token comment"># linux查找文件</span>
-<span class="token function">find</span> / <span class="token parameter variable">-iname</span> *abc*  <span class="token comment"># 全局搜索</span>
-<span class="token function">find</span> / <span class="token parameter variable">-type</span> d <span class="token parameter variable">-iname</span> *abc* <span class="token comment"># 搜索文件夹</span>
-<span class="token function">find</span> / <span class="token parameter variable">-size</span> +100M
-<span class="token function">find</span> / <span class="token parameter variable">-maxdepth</span> <span class="token number">1</span> <span class="token parameter variable">-iname</span> abc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="其他linux常用命令"><a href="#其他linux常用命令" class="headerlink" title="其他linux常用命令"></a>其他linux常用命令</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">journalctl <span class="token parameter variable">-u</span> <span class="token string">'服务名'</span> <span class="token parameter variable">-f</span> <span class="token parameter variable">-n</span> 行数
-<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> 解压  <span class="token function">gzip</span> extract verbose <span class="token function">file</span>
-<span class="token function">tar</span> <span class="token parameter variable">-zcvf</span> 压缩  <span class="token function">gzip</span> create <span class="token punctuation">..</span>.
-
-yum search <span class="token function">ifconfig</span>
-yum <span class="token function">install</span> net-tools
-yum info net-tools
-yum list jdk   查看安装过的包
-
-<span class="token function">cp</span> /dev/null nohup.out  <span class="token comment"># 不重启服务清空nohup文件</span>
-<span class="token function">chmod</span> <span class="token number">766</span> <span class="token operator">&lt;</span>name<span class="token operator">></span> <span class="token comment"># user,group,other r=4,w=2,x=1</span>
-<span class="token function">chown</span> <span class="token operator">&lt;</span>user<span class="token operator">></span>:<span class="token operator">&lt;</span>group<span class="token operator">></span> <span class="token operator">&lt;</span>name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 格式化日期</span>
-<span class="token class-name">String</span> now <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">String</span> now <span class="token operator">=</span> <span class="token class-name">DateFormatUtils</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// lang3包下的工具类</span>
-<span class="token class-name">String</span> now <span class="token operator">=</span> <span class="token class-name">DateTimeFormatter</span><span class="token punctuation">.</span><span class="token function">ofPattern</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">String</span> now <span class="token operator">=</span> <span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token class-name">DateTimeFormatter</span><span class="token punctuation">.</span><span class="token function">ofPattern</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 解析日期</span>
-<span class="token class-name">Date</span> parse <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"2023-12-12 12:12:12"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 要处理异常 Tue Dec 12 12:12:12 CST 2023</span>
-<span class="token class-name">LocalDateTime</span> parse <span class="token operator">=</span> <span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"2023-12-12 12:12:12"</span><span class="token punctuation">,</span> <span class="token class-name">DateTimeFormatter</span><span class="token punctuation">.</span><span class="token function">ofPattern</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 2023-12-12T12:12:12</span>
-
-<span class="token comment">// 相互转换</span>
-<span class="token comment">// 1.Date => LocalDateTime</span>
-<span class="token class-name">Date</span> date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">LocalDateTime</span> localDateTime <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">toInstant</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">atZone</span><span class="token punctuation">(</span><span class="token class-name">ZoneId</span><span class="token punctuation">.</span><span class="token function">systemDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLocalDateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 2.LocalDateTime => Date (不常用, 因此多写点备注)</span>
-<span class="token class-name">LocalDateTime</span> localDateTime <span class="token operator">=</span> <span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">Date</span> date <span class="token operator">=</span> <span class="token class-name">Date</span><span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>localDateTime
-                      <span class="token comment">// 时区的日期和时间(系统默认时区)</span>
-                      <span class="token punctuation">.</span><span class="token function">atZone</span><span class="token punctuation">(</span><span class="token class-name">ZoneId</span><span class="token punctuation">.</span><span class="token function">systemDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                      <span class="token comment">// 转为即使时间</span>
-                      <span class="token punctuation">.</span><span class="token function">toInstant</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-线程"><a href="#2-线程" class="headerlink" title="2-线程"></a>2-线程</h2><ul>
+<li><p>线程是一个程序里的运行单元。JVM允许一个应用有多个线程并行的执行</p>
+</li>
+<li><p><strong>在Hotspot JVM里，每个线程都与操作系统的本地线程直接映射</strong></p>
+<ul>
+<li>当一个Java线程准备好执行以后，此时一个操作系统的本地线程也同时创建。Java线程执行终止后，本地线程也会回收</li>
+</ul>
+</li>
+<li><p>操作系统负责将线程安排调度到任何一个可用的CPU上。一旦本地线程初始化成功，它就会调用Java线程中的run()方法</p>
+</li>
+</ul>
+<h3 id="JVM系统线程"><a href="#JVM系统线程" class="headerlink" title="JVM系统线程"></a>JVM系统线程</h3><ul>
+<li><p>如果你使用jconsole或者是任何一个调试工具，都能看到在后台有许多线程在运行。这些后台线程不包括调用<code>public static void main(String[])</code>的main线程以及所有这个main线程自己创建的线程。</p>
+</li>
+<li><p>这些主要的后台系统线程在Hotspot JVM里主要是以下几个：</p>
+<ul>
+<li><p><strong>虚拟机线程</strong>：这种线程的操作是需要JVM达到安全点才会出现。这些操作必须在不同的线程中发生的原因是他们都需要JVM达到安全点，这样堆才不会变化。这种线程的执行类型括”stop-the-world”的垃圾收集，线程栈收集，线程挂起以及偏向锁撤销</p>
+</li>
+<li><p><strong>周期任务线程</strong>：这种线程是时间周期事件的体现（比如中断），他们一般用于周期性操作的调度执行</p>
+</li>
+<li><p><strong>GC线程</strong>：这种线程对在JVM里不同种类的垃圾收集行为提供了支持</p>
+</li>
+<li><p><strong>编译线程</strong>：这种线程在运行时会将字节码编译成到本地代码</p>
+</li>
+<li><p><strong>信号调度线程</strong>：这种线程接收信号并发送给JVM，在它内部通过调用适当的方法进行处理</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="程序计数器-PC寄存器"><a href="#程序计数器-PC寄存器" class="headerlink" title="程序计数器(PC寄存器)"></a>程序计数器(PC寄存器)</h1><h2 id="PC-Register介绍"><a href="#PC-Register介绍" class="headerlink" title="PC Register介绍"></a>PC Register介绍</h2><p><img src="/../jvm-sgg3/006.png"></p>
+<p>JVM中的程序计数寄存器（Program Counter Register）中，Register的命名源于CPU的寄存器，<strong>寄存器存储指令相关的现场信息</strong>。CPU只有把数据装载到寄存器才能够运行。</p>
+<p>这里，并非是广义上所指的物理寄存器，或许将其翻译为PC计数器（或指令计数器）会更加贴切（也称为程序钩子），并且也不容易引起一些不必要的误会。<strong>JVM中的PC寄存器是对物理PC寄存器的一种抽象模拟</strong>。</p>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>PC寄存器用来存储指向下一条指令的地址，也即将要执行的指令代码。由执行引擎读取下一条指令，并执行该指令。</p>
+<p><img src="/../jvm-sgg3/007.png"></p>
+<ul>
+<li><p>它是一块很小的内存空间，几乎可以忽略不记。也是运行速度最快的存储区域。</p>
+</li>
+<li><p>在JVM规范中，每个线程都有它自己的程序计数器，是线程私有的，生命周期与线程的生命周期保持一致。</p>
+</li>
+<li><p>任何时间一个线程都只有一个方法在执行，也就是所谓的<strong>当前方法</strong>。程序计数器会存储当前线程正在执行的Java方法的JVM指令地址；或者，如果是在执行native方法，则是未指定值（undefned）。</p>
+</li>
+<li><p>它是<strong>程序控制流</strong>的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</p>
+</li>
+<li><p>字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令。</p>
+</li>
+<li><p>它是<strong>唯一一个</strong>在Java虚拟机规范中没有规定任何OutofMemoryError情况的区域。</p>
+</li>
+</ul>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><p><img src="/../jvm-sgg3/008.png" alt="PC寄存器举例"></p>
+<h2 id="两个常见问题"><a href="#两个常见问题" class="headerlink" title="两个常见问题"></a>两个常见问题</h2><p>使用PC寄存器存储字节码指令地址有什么用呢？</p>
+<p>为什么使用 PC 寄存器来记录当前线程的执行地址呢？</p>
+<blockquote>
+<p>因为CPU需要不停的切换各个线程，这时候切换回来以后，就得知道接着从哪开始继续执行</p>
+<p>JVM的字节码解释器就需要通过改变PC寄存器的值来明确下一条应该执行什么样的字节码指令</p>
+</blockquote>
+<p><img src="/../jvm-sgg3/009.png"></p>
+<p>PC寄存器为什么被设定为私有的？</p>
+<blockquote>
+<ul>
+<li><p>我们都知道所谓的多线程在一个特定的时间段内只会执行其中某一个线程的方法，CPU会不停地做任务切换，这样必然导致经常中断或恢复，如何保证分毫无差呢？<strong>为了能够准确地记录各个线程正在执行的当前字节码指令地址，最好的办法自然是为每一个线程都分配一个PC寄存器</strong>，这样一来各个线程之间便可以进行独立计算，从而不会出现相互干扰的情况。</p>
+</li>
+<li><p>由于CPU时间片轮限制，众多线程在并发执行过程中，任何一个确定的时刻，一个处理器或者多核处理器中的一个内核，只会执行某个线程中的一条指令。</p>
+</li>
+<li><p>这样必然导致经常中断或恢复，如何保证分毫无差呢？每个线程在创建后，都会产生自己的程序计数器和栈帧，程序计数器在各个线程之间互不影响。</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="CPU-时间片"><a href="#CPU-时间片" class="headerlink" title="CPU 时间片"></a>CPU 时间片</h2><ul>
+<li><p>CPU时间片即CPU分配给各个程序的时间，每个线程被分配一个时间段，称作它的时间片。</p>
+</li>
+<li><p>在宏观上：我们可以同时打开多个应用程序，每个程序并行不悖，同时运行。</p>
+</li>
+<li><p>但在微观上：由于只有一个CPU，一次只能处理程序要求的一部分，如何处理公平，一种方法就是引入时间片，<strong>每个程序轮流执行</strong>。</p>
+</li>
+</ul>
+<img src="/../jvm-sgg3/010.png" alt="并发与并行" style="zoom:33%;" />
 
 
 
@@ -519,7 +488,7 @@ yum list jdk   查看安装过的包
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.saddyfire.cn/2023/04/14/daily/">https://www.saddyfire.cn/2023/04/14/daily/</a>
+                    <a href="https://www.saddyfire.cn/2023/12/16/jvm-sgg3/">https://www.saddyfire.cn/2023/12/16/jvm-sgg3/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -530,7 +499,7 @@ yum list jdk   查看安装过的包
                 </span>
                 <span class="reprint-info">
                     本博客所有文章除特別声明外，均采用
-                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a>
                     许可协议。转载请注明来源
                     <a href="https://www.saddyfire.cn" target="_blank">👑Dee👑</a>
                     !
@@ -557,20 +526,8 @@ yum list jdk   查看安装过的包
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
-                                </a>
-                            
-                                <a href="/tags/Git/">
-                                    <span class="chip bg-color">Git</span>
-                                </a>
-                            
-                                <a href="/tags/Database/">
-                                    <span class="chip bg-color">Database</span>
-                                </a>
-                            
-                                <a href="/tags/Linux-s/">
-                                    <span class="chip bg-color">Linux-s</span>
+                                <a href="/tags/JVM/">
+                                    <span class="chip bg-color">JVM</span>
                                 </a>
                             
                         </div>
@@ -613,28 +570,29 @@ yum list jdk   查看安装过的包
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/04/15/nginx-ssl/">
+                <a href="/2023/12/16/jvm-sgg3/">
                     <div class="card-image">
                         
-                        <img src="/images/article/4.jpg" class="responsive-img" alt="nginx-ssl">
+                        <img src="/images/article/54.jpg" class="responsive-img" alt="JVM-03-运行时数据区概述及程序计数器">
                         
-                        <span class="card-title">nginx-ssl</span>
+                        <span class="card-title">JVM-03-运行时数据区概述及程序计数器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于Nginx的SSL配置
+                            运行时数据区概述及程序计数器
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -647,15 +605,12 @@ yum list jdk   查看安装过的包
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux-s/">
-                        <span class="chip bg-color">Linux-s</span>
-                    </a>
-                    
-                    <a href="/tags/Nginx/">
-                        <span class="chip bg-color">Nginx</span>
+                    <a href="/tags/JVM/">
+                        <span class="chip bg-color">JVM</span>
                     </a>
                     
                 </div>
@@ -669,23 +624,23 @@ yum list jdk   查看安装过的包
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/04/10/mermaid-note/">
+                <a href="/2023/12/16/jvm-sgg2/">
                     <div class="card-image">
                         
-                        <img src="/images/article/3.jpg" class="responsive-img" alt="mermaid-note">
+                        <img src="/images/article/53.jpg" class="responsive-img" alt="JVM-02-类加载子系统">
                         
-                        <span class="card-title">mermaid-note</span>
+                        <span class="card-title">JVM-02-类加载子系统</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            mermaid入门
+                            类加载子系统
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-16
                             </span>
                         <span class="publish-author">
                             
@@ -702,16 +657,8 @@ yum list jdk   查看安装过的包
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
-                    </a>
-                    
-                    <a href="/tags/Mermaid-s/">
-                        <span class="chip bg-color">Mermaid-s</span>
-                    </a>
-                    
-                    <a href="/tags/Markdown-s/">
-                        <span class="chip bg-color">Markdown-s</span>
+                    <a href="/tags/JVM/">
+                        <span class="chip bg-color">JVM</span>
                     </a>
                     
                 </div>
