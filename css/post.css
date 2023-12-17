@@ -39,7 +39,8 @@
 
 #toc-content {
     padding-bottom: 30px;
-    overflow: auto;
+    overflow: scroll;
+    height: calc(100vh - 250px);
 }
 
 #toc-content ol {
