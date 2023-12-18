@@ -9,12 +9,12 @@
 /* 滚动条 */
 
 ::-webkit-scrollbar-thumb {
-    background-color: #bb2b10;
+    background-color: #18bfd0;
     background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.4) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.4) 75%,transparent 75%,transparent);
     border-radius: 3em;
 }
 ::-webkit-scrollbar-track {
-    background-color: #cba1a1;
+    background-color: #666e73;
     border-radius: 3em;
 }
 ::-webkit-scrollbar {
@@ -281,7 +281,7 @@ mark {
     position: fixed;
     bottom: 0;
     z-index: 300;
-    background: linear-gradient(to right, #cc1212 0%, #672004 100%);
+    background: linear-gradient(to right, #2fb0e5 0%, #2ce0cb 100%);
     opacity: 0.8;
 }
 

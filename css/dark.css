@@ -1,3 +1,10 @@
+/*全局基础样式*/
+/* =========配置样式============
+    导航栏, 底部栏颜色  .bg-color .text-color
+    底部进度条  .progress-bar
+    蒙版特效  .bg-cover:after
+    滚动条  如下
+*/
 /*夜间适配*/
 .night .tip {
     filter: brightness(0.7);
@@ -99,7 +106,7 @@ body.DarkMode .bg-color {
     opacity:.8
 }
 body.DarkMode .progress-bar {
-    background: linear-gradient(to right, #bf7030 0%, #dfc60d 100%);
+    background: linear-gradient(to right, #2fb0e5 0%, #2ce0cb 100%);
 }
 body.DarkMode span.bg-color {
     background-image:linear-gradient(to right, #282c34 0, rgba(52,50,50,0.7) 100%)
