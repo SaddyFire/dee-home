@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2023-12-17T11:48:34.676Z</updated>
+  <updated>2023-12-18T14:55:38.835Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>🔖JVM-05-堆</title>
+    <link href="https://www.saddyfire.cn/2023/12/18/jvm-sgg5/"/>
+    <id>https://www.saddyfire.cn/2023/12/18/jvm-sgg5/</id>
+    <published>2023-12-18T11:56:45.000Z</published>
+    <updated>2023-12-18T14:55:38.835Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;堆&quot;&gt;&lt;a href=&quot;#堆&quot; class=&quot;headerlink&quot; title=&quot;堆&quot;&gt;&lt;/a&gt;堆&lt;/h1&gt;&lt;h2 id=&quot;1-堆的核心概述&quot;&gt;&lt;a href=&quot;#1-堆的核心概述&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
+    
+  </entry>
   
   <entry>
     <title>ℹ️JVM-04-虚拟机栈</title>
@@ -500,31 +525,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;自定义线程池demo&quot;&gt;&lt;a href=&quot;#自定义线程池demo&quot; class=&quot;headerlink&quot; title=&quot;自定义线程池demo&quot;&gt;&lt;/a&gt;自定义线程池demo&lt;/h1&gt;&lt;h2 id=&quot;流程图&quot;&gt;&lt;a href=&quot;#流程图&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>lambda</title>
-    <link href="https://www.saddyfire.cn/2023/08/05/lambda/"/>
-    <id>https://www.saddyfire.cn/2023/08/05/lambda/</id>
-    <published>2023-08-05T14:17:26.000Z</published>
-    <updated>2023-08-17T15:10:45.086Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;自定义lambda用法&quot;&gt;&lt;a href=&quot;#自定义lambda用法&quot; class=&quot;headerlink&quot; title=&quot;自定义lambda用法&quot;&gt;&lt;/a&gt;自定义lambda用法&lt;/h1&gt;&lt;h2 id=&quot;基础用法&quot;&gt;&lt;a href=&quot;#基础用法&quot;</summary>
         
       
     
