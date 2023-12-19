@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2023-12-19T08:28:25.912Z</updated>
+  <updated>2023-12-19T14:14:58.211Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JVM-06-方法区</title>
+    <link href="https://www.saddyfire.cn/2023/12/19/jvm-sgg6/"/>
+    <id>https://www.saddyfire.cn/2023/12/19/jvm-sgg6/</id>
+    <published>2023-12-19T13:57:44.000Z</published>
+    <updated>2023-12-19T14:14:58.211Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;方法区&quot;&gt;&lt;a href=&quot;#方法区&quot; class=&quot;headerlink&quot; title=&quot;方法区&quot;&gt;&lt;/a&gt;方法区&lt;/h1&gt;&lt;h2 id=&quot;1-栈、堆、方法区的交互关系&quot;&gt;&lt;a href=&quot;#1-栈、堆、方法区的交互关系&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo-matery主题优化</title>
@@ -508,33 +533,6 @@
     <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
     
     <category term="Nutz-s" scheme="https://www.saddyfire.cn/tags/Nutz-s/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nginx-location配置</title>
-    <link href="https://www.saddyfire.cn/2023/08/14/nginx-location/"/>
-    <id>https://www.saddyfire.cn/2023/08/14/nginx-location/</id>
-    <published>2023-08-14T14:11:16.000Z</published>
-    <updated>2023-10-26T15:00:29.081Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;proxy-pass-端口后紧跟&quot;&gt;&lt;a href=&quot;#proxy-pass-端口后紧跟&quot; class=&quot;headerlink&quot; title=&quot;proxy_pass 端口后紧跟 /&quot;&gt;&lt;/a&gt;&lt;code&gt;proxy_pass&lt;/code&gt; 端口后紧跟</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Linux-s" scheme="https://www.saddyfire.cn/tags/Linux-s/"/>
-    
-    <category term="Nginx" scheme="https://www.saddyfire.cn/tags/Nginx/"/>
     
   </entry>
   

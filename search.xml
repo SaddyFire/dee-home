@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>JVM-06-方法区</title>
+      <link href="/2023/12/19/jvm-sgg6/"/>
+      <url>/2023/12/19/jvm-sgg6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h1><h2 id="1-栈、堆、方法区的交互关系"><a href="#1-栈、堆、方法区的交互关系" class="headerlink" title="1-栈、堆、方法区的交互关系"></a>1-栈、堆、方法区的交互关系</h2><p><img src="/2023/12/19/jvm-sgg6/001.png" alt="运行时数据区结构图"></p><p><img src="/2023/12/19/jvm-sgg6/002.png" alt="线程共享与否的角度"></p><p><img src="/2023/12/19/jvm-sgg6/003.png" alt="三者间的相互关系"></p><h2 id="2-方法区的理解"><a href="#2-方法区的理解" class="headerlink" title="2-方法区的理解"></a>2-方法区的理解</h2><h2 id="3-设置方法区大小与OOM"><a href="#3-设置方法区大小与OOM" class="headerlink" title="3-设置方法区大小与OOM"></a>3-设置方法区大小与OOM</h2><h2 id="4-方法区的内部结构"><a href="#4-方法区的内部结构" class="headerlink" title="4-方法区的内部结构"></a>4-方法区的内部结构</h2><h2 id="5-方法区使用举例"><a href="#5-方法区使用举例" class="headerlink" title="5-方法区使用举例"></a>5-方法区使用举例</h2><h2 id="6-方法区演进细节"><a href="#6-方法区演进细节" class="headerlink" title="6-方法区演进细节"></a>6-方法区演进细节</h2><h2 id="7-方法区的垃圾回收"><a href="#7-方法区的垃圾回收" class="headerlink" title="7-方法区的垃圾回收"></a>7-方法区的垃圾回收</h2><h2 id="8-总结"><a href="#8-总结" class="headerlink" title="8-总结"></a>8-总结</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> program </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JVM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hexo-matery主题优化</title>
       <link href="/2023/12/19/hexo-update/"/>
       <url>/2023/12/19/hexo-update/</url>
@@ -742,13 +767,13 @@
       
         <tags>
             
-            <tag> Git </tag>
-            
-            <tag> Database </tag>
+            <tag> Java </tag>
             
             <tag> Linux-s </tag>
             
-            <tag> Java </tag>
+            <tag> Git </tag>
+            
+            <tag> Database </tag>
             
         </tags>
       
