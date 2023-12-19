@@ -365,45 +365,37 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="JVM-字节码文件概述">JVM-字节码文件概述</h2>
-
+                <h2 id="JVM-字节码文件概述"><a href="#JVM-字节码文件概述" class="headerlink" title="JVM-字节码文件概述"></a>JVM-字节码文件概述</h2>
 <div class="markmap-container" style="height:height">
   <svg data="{&quot;t&quot;:&quot;root&quot;,&quot;d&quot;:0,&quot;v&quot;:&quot;&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[1,2]},&quot;v&quot;:&quot;字节码文件是跨平台的吗&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[3,4],&quot;f&quot;:true},&quot;v&quot;:&quot;class文件里是什么?&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[5,6],&quot;f&quot;:true},&quot;v&quot;:&quot;能介绍下生成class文件的编译器吗&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[7,8],&quot;f&quot;:true},&quot;v&quot;:&quot;javac编译器的编译步骤&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[9,10],&quot;f&quot;:true},&quot;v&quot;:&quot;目前前端编译器的局限性&quot;}]},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[11,12]},&quot;v&quot;:&quot;&lt;a href=\&quot;#哪些类型对应有Class对象\&quot;&gt;哪些类型对应有Class对象? &lt;/a&gt;&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[13,14]},&quot;v&quot;:&quot;字节码指令&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[15,16],&quot;f&quot;:true},&quot;v&quot;:&quot;&lt;a href=\&quot;#什么是字节码指令\&quot;&gt;什么是字节码指令&lt;/a&gt;&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[16,17],&quot;f&quot;:true},&quot;v&quot;:&quot;&lt;a href=\&quot;\&quot;&gt;为什么要懂字节码指令? &lt;/a&gt;&quot;}]},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[18,19]},&quot;v&quot;:&quot;如何解读class文件&quot;}],&quot;p&quot;:{}}"></svg>
 </div>
 
-<h6 id="哪些类型对应有Class对象">哪些类型对应有Class对象</h6>
-<blockquote>
+
+
+
+<h6 id="哪些类型对应有Class对象"><a href="#哪些类型对应有Class对象" class="headerlink" title="哪些类型对应有Class对象"></a>哪些类型对应有Class对象</h6><blockquote>
 <ol>
-<li>
-<p>class:</p>
+<li><p>class:</p>
 <p>外部类, 成员(成员内部类, 静态内部类), 局部内部类, 匿名内部类</p>
 </li>
-<li>
-<p>interface: 接口</p>
+<li><p>interface: 接口</p>
 </li>
-<li>
-<p>[ ] : 数组</p>
+<li><p><input disabled="" type="checkbox"> 
+: 数组</p>
 </li>
-<li>
-<p>enum: 枚举</p>
+<li><p>enum: 枚举</p>
 </li>
-<li>
-<p>annotation: 注解@interface</p>
+<li><p>annotation: 注解@interface</p>
 </li>
-<li>
-<p>primitive type: 基本数据类型</p>
+<li><p>primitive type: 基本数据类型</p>
 </li>
-<li>
-<p>void</p>
+<li><p>void</p>
 </li>
 </ol>
 </blockquote>
-<h6 id="什么是字节码指令">什么是字节码指令</h6>
-<blockquote>
+<h6 id="什么是字节码指令"><a href="#什么是字节码指令" class="headerlink" title="什么是字节码指令"></a>什么是字节码指令</h6><blockquote>
 <p>什么是字节码指令(byte code)</p>
-<p>Java虚拟机的指令由<strong>一个字节</strong>长度的、代表着某种特定操作含义的<strong>操作码</strong>(opcode)<br>
-以及跟随其后的零至多个代表此操作所需参数的<strong>操作数</strong>(operand)所构成.<br>
-虚拟机中许多指令并不包含操作数, 只有一个操作码.</p>
+<p>Java虚拟机的指令由<strong>一个字节</strong>长度的、代表着某种特定操作含义的<strong>操作码</strong>(opcode)<br>以及跟随其后的零至多个代表此操作所需参数的<strong>操作数</strong>(operand)所构成.<br>虚拟机中许多指令并不包含操作数, 只有一个操作码.</p>
 </blockquote>
 
                 

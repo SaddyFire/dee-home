@@ -334,7 +334,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    189
+                    191
                 </div>
                 
 
@@ -369,56 +369,57 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="proxy-pass-端口后紧跟"><code>proxy_pass</code> 端口后紧跟 <code>/</code></h3>
-<img src="../nginx-location/image-20230814221948781.png" alt="P1" width="70%" />
+                <h3 id="proxy-pass-端口后紧跟"><a href="#proxy-pass-端口后紧跟" class="headerlink" title="proxy_pass 端口后紧跟 /"></a><code>proxy_pass</code> 端口后紧跟 <code>/</code></h3><img src="../nginx-location/image-20230814221948781.png" alt="P1" width="70%" />
+
 <img src="../nginx-location/image-20230814224425902.png"  alt="P2" width="70%" />
+
 <blockquote>
 <p><code>proxy_pass</code>有<code>/</code> 👆👆</p>
 <p><code>location</code> 只属于部分匹配, 不属于请求部分, 会在请求路径中删除</p>
 <ol>
-<li>代理路径 =&gt;替换=&gt; 监听路径 : <code>http://localhost:23323//api/server/user</code></li>
+<li>代理路径 &#x3D;&gt;替换&#x3D;&gt; 监听路径 : <code>http://localhost:23323//api/server/user</code></li>
 <li>删除location路径: <code>http://localhost:23323/server/user</code> (P1)  <code>http://localhost:23323//server/user</code>(P2)</li>
 </ol>
 </blockquote>
 <hr>
-<h3 id="proxy-pass-端口后不跟"><code>proxy_pass</code> 端口后不跟 <code>/</code></h3>
-<img src="../nginx-location/image-20230814224536607.png" width="70%" />
+<h3 id="proxy-pass-端口后不跟"><a href="#proxy-pass-端口后不跟" class="headerlink" title="proxy_pass 端口后不跟 /"></a><code>proxy_pass</code> 端口后不跟 <code>/</code></h3><img src="../nginx-location/image-20230814224536607.png" width="70%" />
+
 <img src="../nginx-location/image-20230814224604020.png" width="70%" />
+
 <blockquote>
 <p><code>proxy_pass</code>无 <code>/</code> 👆👆</p>
 <p><code>location</code> 不管带不带 <code>/</code></p>
 <p>都会将 <code>/api</code> 都添加至 <code>proxy_pass</code> 路径后, 并作为真实请求路径</p>
 </blockquote>
 <hr>
-<h3 id="proxy-pass-后还有路径"><code>proxy_pass</code> 后还有路径</h3>
-<img src="../nginx-location/image-20230814225040203.png" alt="P3" width="70%" />
+<h3 id="proxy-pass-后还有路径"><a href="#proxy-pass-后还有路径" class="headerlink" title="proxy_pass 后还有路径"></a><code>proxy_pass</code> 后还有路径</h3><img src="../nginx-location/image-20230814225040203.png" alt="P3" width="70%" />
+
 <img src="../nginx-location/image-20230814225243126.png" alt="P4" width="70%" />
+
 <blockquote>
 <p>与第一种情况一致👆👆</p>
 <ol>
-<li>
-<p>代理路径 替换 监听路径 : <code>http://localhost:23323/route//api/demo</code></p>
+<li><p>代理路径 替换 监听路径 : <code>http://localhost:23323/route//api/demo</code></p>
 </li>
-<li>
-<p>删除 location路径:</p>
+<li><p>删除 location路径:</p>
 </li>
 </ol>
-<p><code>http://localhost:23323/route/demo</code> (P3)</p>
-<p><code>http://localhost:23323/route//demo</code> (P4)</p>
+<p> <code>http://localhost:23323/route/demo</code> (P3) </p>
+<p> <code>http://localhost:23323/route//demo</code> (P4)</p>
 </blockquote>
 <img src="../nginx-location/image-20230814225957250.png" alt="P5" width="70%" />
+
 <img src="../nginx-location/image-20230814230221058.png" alt="P6" width="70%" />
+
 <blockquote>
 <p>与第一种情况一致👆👆</p>
 <ol>
-<li>
-<p>代理路径 替换 监听路径: <code>http://localhost:23323/route/api/demo</code></p>
+<li><p>代理路径 替换 监听路径: <code>http://localhost:23323/route/api/demo</code></p>
 </li>
-<li>
-<p>删除 location路径:</p>
+<li><p>删除 location路径:</p>
 </li>
 </ol>
-<p><code>http://localhost:23323/routedemo</code> (P5)</p>
+<p> <code>http://localhost:23323/routedemo</code> (P5)</p>
 <p><code>http://localhost:23323/route/demo</code> (P6)</p>
 </blockquote>
 

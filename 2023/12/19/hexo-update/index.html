@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo-mindmap, SaddyFire">
-    <meta name="description" content="Hexo绘制思维导图">
+    <meta name="keywords" content="hexo-matery主题优化, SaddyFire">
+    <meta name="description" content="hexo-matery区块优化,目录滚动条等调整">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>hexo-mindmap | SaddyFire</title>
+    <title>hexo-matery主题优化 | SaddyFire</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -262,12 +262,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/article/50.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/article/57.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hexo-mindmap</h1>
+                    <h1 class="description center-align post-title">hexo-matery主题优化</h1>
                 </div>
             </div>
         </div>
@@ -316,21 +316,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-12-13
+                    2023-12-19
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-13
+                    2023-12-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    63
+                    389
                 </div>
                 
 
@@ -365,25 +365,95 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Hexo绘制思维导图"><a href="#Hexo绘制思维导图" class="headerlink" title="Hexo绘制思维导图"></a>Hexo绘制思维导图</h2><p><a target="_blank" rel="noopener" href="https://github.com/MaxChang3/hexo-markmap/blob/main/README_HANS.md">hexo-markmap&#x2F;GitHub链接</a></p>
-<h4 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-markmap <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h2 id="目录滚动"><a href="#目录滚动" class="headerlink" title="目录滚动"></a>目录滚动</h2><blockquote>
+<p>默认情况下matery主题, 文章中当目录过多, 超出页面后便无法展示多余目录, 解决方案如下. (该方案取自github issues中, 只能做简单滚动)</p>
+</blockquote>
+<ol>
+<li><p>全局搜索<code>#toc-content &#123;</code> </p>
+<p>或者直接找到目录<code>/themes/xxx/source/css/post.css</code></p>
+</li>
+<li><p>更改如下代码</p>
+</li>
+</ol>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">#toc-content</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">padding-bottom</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
+    <span class="token property">overflow</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><pre class="line-numbers language-null" data-language="null"><code class="language-null">&#123;% markmap height [depth] %&#125;
-- markmap
-  - Demo
-    - [连接](http:&#x2F;&#x2F;localhost:4000&#x2F;2023&#x2F;12&#x2F;13&#x2F;hexo-mindmap&#x2F;)
-    - **inline** ~~text~~ *styles*
-    - multiline
-      content
-    - HTML code is quite long      
-  - Test
-&#123;% endmarkmap %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment">/*※※※※改成※※※※*/</span>
 
+<span class="token selector">#toc-content</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">padding-bottom</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
+    <span class="token property">overflow-y</span><span class="token punctuation">:</span> scroll<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>100vh - 250px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<div class="markmap-container" style="height:height">
-  <svg data="{&quot;t&quot;:&quot;root&quot;,&quot;d&quot;:0,&quot;v&quot;:&quot;&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[0,1]},&quot;v&quot;:&quot;markmap&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[1,2]},&quot;v&quot;:&quot;Demo&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[2,3]},&quot;v&quot;:&quot;&lt;a href=\&quot;http://localhost:4000/2023/12/13/hexo-mindmap/\&quot;&gt;链接&lt;/a&gt;&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[3,4]},&quot;v&quot;:&quot;&lt;strong&gt;inline&lt;/strong&gt; &lt;del&gt;text&lt;/del&gt; &lt;em&gt;styles&lt;/em&gt;&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[4,6]},&quot;v&quot;:&quot;multiline&lt;br&gt;\ncontent&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[6,7]},&quot;v&quot;:&quot;HTML code is quite long&quot;}]}]},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[7,8]},&quot;v&quot;:&quot;links&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[8,9]},&quot;v&quot;:&quot;&lt;strong&gt;inline&lt;/strong&gt; &lt;del&gt;text&lt;/del&gt; &lt;em&gt;styles&lt;/em&gt;&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[9,11]},&quot;v&quot;:&quot;multiline&lt;br&gt;\ntext&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[11,12]},&quot;v&quot;:&quot;&lt;code&gt;inline code&lt;/code&gt;&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[12,16]},&quot;v&quot;:&quot;&lt;pre class=\&quot;language-js\&quot;&gt;&lt;code class=\&quot;language-js\&quot;&gt;console&lt;span class=\&quot;token punctuation\&quot;&gt;.&lt;/span&gt;&lt;span class=\&quot;token function\&quot;&gt;log&lt;/span&gt;&lt;span class=\&quot;token punctuation\&quot;&gt;(&lt;/span&gt;&lt;span class=\&quot;token string\&quot;&gt;&#39;code block&#39;&lt;/span&gt;&lt;span class=\&quot;token punctuation\&quot;&gt;)&lt;/span&gt;&lt;span class=\&quot;token punctuation\&quot;&gt;;&lt;/span&gt;\nconsole&lt;span class=\&quot;token punctuation\&quot;&gt;.&lt;/span&gt;&lt;span class=\&quot;token function\&quot;&gt;log&lt;/span&gt;&lt;span class=\&quot;token punctuation\&quot;&gt;(&lt;/span&gt;&lt;span class=\&quot;token string\&quot;&gt;&#39;code block&#39;&lt;/span&gt;&lt;span class=\&quot;token punctuation\&quot;&gt;)&lt;/span&gt;&lt;span class=\&quot;token punctuation\&quot;&gt;;&lt;/span&gt;\n&lt;/code&gt;&lt;/pre&gt;\n&quot;}],&quot;p&quot;:{}}"></svg>
-</div>
+<h2 id="滚动条颜色调整"><a href="#滚动条颜色调整" class="headerlink" title="滚动条颜色调整"></a>滚动条颜色调整</h2><blockquote>
+<p>原滚动条颜色是暖红色调, 现改为冷蓝色调</p>
+</blockquote>
+<h3 id="主题文件"><a href="#主题文件" class="headerlink" title="主题文件"></a>主题文件</h3><p><code>/themes/xxx/source/css/post.css</code></p>
+<ul>
+<li>分别搜索</li>
+</ul>
+<p>​	<code>::-webkit-scrollbar-thumb</code></p>
+<p>​	<code>::-webkit-scrollbar-track</code></p>
+<ul>
+<li>改为: <code>background-color: #18bfd0;</code></li>
+</ul>
+<h3 id="暗色文件"><a href="#暗色文件" class="headerlink" title="暗色文件"></a>暗色文件</h3><p><code>/themes/xxx/source/css/dark.css</code></p>
+<ul>
+<li><p>搜索<code>body.DarkMode .progress-bar</code></p>
+</li>
+<li><p>改为 <code>background: linear-gradient(to right, #2fb0e5 0%, #2ce0cb 100%);</code></p>
+</li>
+</ul>
+<h2 id="区块颜色调整"><a href="#区块颜色调整" class="headerlink" title="区块颜色调整"></a>区块颜色调整</h2><blockquote>
+<p>区块由于在主题源码包中已经有相关定义, 因此需要针对源码包进行调整</p>
+</blockquote>
+<h3 id="源码文件"><a href="#源码文件" class="headerlink" title="源码文件"></a>源码文件</h3><p><code>themes/xxx/source/libs/materialize/materialize.min.css</code></p>
+<ul>
+<li><p>删除</p>
+<p><code>border-left:5px solid #ee6e73&#125;</code></p>
+</li>
+</ul>
+<h3 id="主题文件-1"><a href="#主题文件-1" class="headerlink" title="主题文件"></a>主题文件</h3><p><code>themes/xxx/source/css/matery.css</code></p>
+<ul>
+<li><p>搜索 <code>blockquote &#123;</code></p>
+</li>
+<li><p>改为</p>
+</li>
+</ul>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">blockquote</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">border-left</span><span class="token punctuation">:</span> 3px solid #67767c <span class="token important">!important</span><span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> 1rem 0.8rem 0.2rem 0.8rem<span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> #666<span class="token punctuation">;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span>94 163 157 / 10%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span> justify<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="夜间文件"><a href="#夜间文件" class="headerlink" title="夜间文件"></a>夜间文件</h3><p><code>themes/xxx/source/css/dark.css</code></p>
+<ul>
+<li>搜索 <code>body.DarkMode blockquote &#123;</code></li>
+<li>改为(此处色调未调整, 依旧是暖红色调</li>
+</ul>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">body.DarkMode blockquote</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> #666 <span class="token important">!important</span><span class="token punctuation">;</span>
+    <span class="token property">border-left</span><span class="token punctuation">:</span> 3px solid #d72f0f <span class="token important">!important</span><span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 0.6<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span> justify<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="目录颜色"><a href="#目录颜色" class="headerlink" title="目录颜色"></a>目录颜色</h2><h3 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h3><p><code>themes/xxx/source/css/post.css</code></p>
+<ul>
+<li><p>搜索<code>#toc-content .toc-link:hover &#123;</code></p>
+</li>
+<li><p>将悬停颜色改为 <code>color: #009cff;</code></p>
+</li>
+<li><p>搜索<code>#toc-content .is-active-link &#123;</code></p>
+</li>
+<li><p>将激活颜色改为 <code>color: #009cff</code></p>
+</li>
+</ul>
 
                 
             </div>
@@ -410,7 +480,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.saddyfire.cn/2023/12/13/hexo-mindmap/">https://www.saddyfire.cn/2023/12/13/hexo-mindmap/</a>
+                    <a href="https://www.saddyfire.cn/2023/12/19/hexo-update/">https://www.saddyfire.cn/2023/12/19/hexo-update/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -492,28 +562,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/12/15/jvm-sgg1/">
+                <a href="/2023/12/19/hexo-update/">
                     <div class="card-image">
                         
-                        <img src="/images/article/52.jpg" class="responsive-img" alt="JVM-01-JVM与Java体系结构">
+                        <img src="/images/article/57.jpg" class="responsive-img" alt="hexo-matery主题优化">
                         
-                        <span class="card-title">JVM-01-JVM与Java体系结构</span>
+                        <span class="card-title">hexo-matery主题优化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JVM与Java体系结构
+                            hexo-matery区块优化,目录滚动条等调整
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -526,11 +597,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JVM/">
-                        <span class="chip bg-color">JVM</span>
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
                     </a>
                     
                 </div>
@@ -544,23 +616,23 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/12/13/jvm-note/">
+                <a href="/2023/12/18/jvm-sgg5/">
                     <div class="card-image">
                         
-                        <img src="/images/article/51.jpg" class="responsive-img" alt="JVM-字节码文件概述">
+                        <img src="/images/article/56.jpg" class="responsive-img" alt="🔖JVM-05-堆">
                         
-                        <span class="card-title">JVM-字节码文件概述</span>
+                        <span class="card-title">🔖JVM-05-堆</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JVM-字节码文件概述
+                            堆
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-18
                             </span>
                         <span class="publish-author">
                             
@@ -1121,6 +1193,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/js/markmap.js"></script></body>
+</body>
 
 </html>

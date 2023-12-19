@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2023-12-19T04:02:39.317Z</updated>
+  <updated>2023-12-19T08:28:25.912Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo-matery主题优化</title>
+    <link href="https://www.saddyfire.cn/2023/12/19/hexo-update/"/>
+    <id>https://www.saddyfire.cn/2023/12/19/hexo-update/</id>
+    <published>2023-12-19T07:56:50.000Z</published>
+    <updated>2023-12-19T08:28:25.912Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;目录滚动&quot;&gt;&lt;a href=&quot;#目录滚动&quot; class=&quot;headerlink&quot; title=&quot;目录滚动&quot;&gt;&lt;/a&gt;目录滚动&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;默认情况下matery主题, 文章中当目录过多, 超出页面后便无法展示多余目录, 解决方案如下.</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Hexo" scheme="https://www.saddyfire.cn/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>🔖JVM-05-堆</title>
@@ -28,9 +54,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;堆&lt;/h1&gt;
-&lt;h2 id=&quot;1-堆的核心概述&quot;&gt;1-堆的核心概述&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;../jvm-sgg5/001.png&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;堆&quot;&gt;&lt;a href=&quot;#堆&quot; class=&quot;headerlink&quot; title=&quot;堆&quot;&gt;&lt;/a&gt;堆&lt;/h1&gt;&lt;h2 id=&quot;1-堆的核心概述&quot;&gt;&lt;a href=&quot;#1-堆的核心概述&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -55,9 +79,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;虚拟机栈&lt;/h1&gt;
-&lt;h2 id=&quot;1-虚拟机栈概述&quot;&gt;1-虚拟机栈概述&lt;/h2&gt;
-&lt;h3</summary>
+    <summary type="html">&lt;h1 id=&quot;虚拟机栈&quot;&gt;&lt;a href=&quot;#虚拟机栈&quot; class=&quot;headerlink&quot; title=&quot;虚拟机栈&quot;&gt;&lt;/a&gt;虚拟机栈&lt;/h1&gt;&lt;h2 id=&quot;1-虚拟机栈概述&quot;&gt;&lt;a href=&quot;#1-虚拟机栈概述&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -82,10 +104,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;运行时数据区概述及线程&lt;/h1&gt;
-&lt;h2 id=&quot;1-运行时数据区结构&quot;&gt;1-运行时数据区结构&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;../jvm-sgg3/001.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;当我们通过前面的：类的加载 --&amp;gt; 验证 --&amp;gt; 准备</summary>
+    <summary type="html">&lt;h1 id=&quot;运行时数据区概述及线程&quot;&gt;&lt;a href=&quot;#运行时数据区概述及线程&quot; class=&quot;headerlink&quot; title=&quot;运行时数据区概述及线程&quot;&gt;&lt;/a&gt;运行时数据区概述及线程&lt;/h1&gt;&lt;h2 id=&quot;1-运行时数据区结构&quot;&gt;&lt;a</summary>
         
       
     
@@ -110,12 +129,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;类加载子系统&lt;/h1&gt;
-&lt;h2 id=&quot;1-内存结构概述&quot;&gt;1-内存结构概述&lt;/h2&gt;
-&lt;p&gt;简图&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../jvm-sgg2/001.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;详图&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;h1 id=&quot;类加载子系统&quot;&gt;&lt;a href=&quot;#类加载子系统&quot; class=&quot;headerlink&quot; title=&quot;类加载子系统&quot;&gt;&lt;/a&gt;类加载子系统&lt;/h1&gt;&lt;h2 id=&quot;1-内存结构概述&quot;&gt;&lt;a href=&quot;#1-内存结构概述&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -140,11 +154,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;JVM和Java体系架构&quot;&gt;JVM和Java体系架构&lt;/h2&gt;
-&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;运行着的线上系统突然卡死，系统无法访问，甚至直接OOM！&lt;/li&gt;
-&lt;li&gt;想解决线上JVM</summary>
+    <summary type="html">&lt;h2 id=&quot;JVM和Java体系架构&quot;&gt;&lt;a href=&quot;#JVM和Java体系架构&quot; class=&quot;headerlink&quot; title=&quot;JVM和Java体系架构&quot;&gt;&lt;/a&gt;JVM和Java体系架构&lt;/h2&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot;</summary>
         
       
     
@@ -169,8 +179,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;Hexo绘制思维导图&quot;&gt;Hexo绘制思维导图&lt;/h2&gt;
-&lt;p&gt;&lt;a</summary>
+    <summary type="html">&lt;h2 id=&quot;Hexo绘制思维导图&quot;&gt;&lt;a href=&quot;#Hexo绘制思维导图&quot; class=&quot;headerlink&quot; title=&quot;Hexo绘制思维导图&quot;&gt;&lt;/a&gt;Hexo绘制思维导图&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
         
       
     
@@ -195,10 +204,8 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;JVM-字节码文件概述&quot;&gt;JVM-字节码文件概述&lt;/h2&gt;
-
-&lt;div class=&quot;markmap-container&quot; style=&quot;height:height&quot;&gt;
-  &lt;svg</summary>
+    <summary type="html">&lt;h2 id=&quot;JVM-字节码文件概述&quot;&gt;&lt;a href=&quot;#JVM-字节码文件概述&quot; class=&quot;headerlink&quot; title=&quot;JVM-字节码文件概述&quot;&gt;&lt;/a&gt;JVM-字节码文件概述&lt;/h2&gt;
+&lt;div class=&quot;markmap-container&quot;</summary>
         
       
     
@@ -223,8 +230,7 @@
       
         
         
-    <summary type="html">&lt;h3 id=&quot;依赖&quot;&gt;依赖&lt;/h3&gt;
-&lt;pre class=&quot;line-numbers language-markup&quot; data-language=&quot;markup&quot;&gt;&lt;code class=&quot;language-markup&quot;&gt;&lt;span class=&quot;token</summary>
+    <summary type="html">&lt;h3 id=&quot;依赖&quot;&gt;&lt;a href=&quot;#依赖&quot; class=&quot;headerlink&quot; title=&quot;依赖&quot;&gt;&lt;/a&gt;依赖&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-markup&quot; data-language=&quot;markup&quot;&gt;&lt;code</summary>
         
       
     
@@ -251,9 +257,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;服务注册&lt;/h1&gt;
-&lt;h2 id=&quot;Linux&quot;&gt;Linux&lt;/h2&gt;
-&lt;h3</summary>
+    <summary type="html">&lt;h1 id=&quot;服务注册&quot;&gt;&lt;a href=&quot;#服务注册&quot; class=&quot;headerlink&quot; title=&quot;服务注册&quot;&gt;&lt;/a&gt;服务注册&lt;/h1&gt;&lt;h2 id=&quot;Linux&quot;&gt;&lt;a href=&quot;#Linux&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -280,11 +284,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;DM备份还原笔记&lt;/h1&gt;
-&lt;h2 id=&quot;还原&quot;&gt;还原&lt;/h2&gt;
-&lt;h3 id=&quot;备份文件拆分-Linux&quot;&gt;备份文件拆分(Linux)&lt;/h3&gt;
-&lt;p&gt;当库体积太大时, 需要对备份文件进行拆分&lt;/p&gt;
-&lt;pre class=&quot;line-numbers</summary>
+    <summary type="html">&lt;h1 id=&quot;DM备份还原笔记&quot;&gt;&lt;a href=&quot;#DM备份还原笔记&quot; class=&quot;headerlink&quot; title=&quot;DM备份还原笔记&quot;&gt;&lt;/a&gt;DM备份还原笔记&lt;/h1&gt;&lt;h2 id=&quot;还原&quot;&gt;&lt;a href=&quot;#还原&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -309,12 +309,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;ByteBuffer&quot;&gt;ByteBuffer&lt;/h2&gt;
-&lt;h3 id=&quot;结构&quot;&gt;结构&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;capacity 容量&lt;/li&gt;
-&lt;li&gt;position 写入(读取)位置&lt;/li&gt;
-&lt;li&gt;limit</summary>
+    <summary type="html">&lt;h2 id=&quot;ByteBuffer&quot;&gt;&lt;a href=&quot;#ByteBuffer&quot; class=&quot;headerlink&quot; title=&quot;ByteBuffer&quot;&gt;&lt;/a&gt;ByteBuffer&lt;/h2&gt;&lt;h3 id=&quot;结构&quot;&gt;&lt;a href=&quot;#结构&quot;</summary>
         
       
     
@@ -343,8 +338,7 @@
       
         
         
-    <summary type="html">&lt;h3 id=&quot;命令&quot;&gt;命令&lt;/h3&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token</summary>
+    <summary type="html">&lt;h3 id=&quot;命令&quot;&gt;&lt;a href=&quot;#命令&quot; class=&quot;headerlink&quot; title=&quot;命令&quot;&gt;&lt;/a&gt;命令&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
         
       
     
@@ -369,10 +363,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;Nginx日志分析&lt;/h1&gt;
-&lt;h2 id=&quot;linux-工具&quot;&gt;linux 工具&lt;/h2&gt;
-&lt;p&gt;获取前20的ip访问数量&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
+    <summary type="html">&lt;h1 id=&quot;Nginx日志分析&quot;&gt;&lt;a href=&quot;#Nginx日志分析&quot; class=&quot;headerlink&quot; title=&quot;Nginx日志分析&quot;&gt;&lt;/a&gt;Nginx日志分析&lt;/h1&gt;&lt;h2 id=&quot;linux-工具&quot;&gt;&lt;a href=&quot;#linux-工具&quot;</summary>
         
       
     
@@ -399,8 +390,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;系统安装与启动&quot;&gt;系统安装与启动&lt;/h2&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;wsl &lt;span</summary>
+    <summary type="html">&lt;h2 id=&quot;系统安装与启动&quot;&gt;&lt;a href=&quot;#系统安装与启动&quot; class=&quot;headerlink&quot; title=&quot;系统安装与启动&quot;&gt;&lt;/a&gt;系统安装与启动&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-bash&quot;</summary>
         
       
     
@@ -427,11 +417,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;云南Happy日记&lt;/h1&gt;
-&lt;h3 id=&quot;1️⃣大理篇&quot;&gt;1️⃣大理篇&lt;/h3&gt;
-&lt;p&gt;杭州✈昆明🚆大理🚕大理古镇附近🛖投宿&lt;/p&gt;
-&lt;h4 id=&quot;😋超级超级好吃的清蒸街&quot;&gt;😋超级超级好吃的清蒸街&lt;/h4&gt;
-&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;h1 id=&quot;云南Happy日记&quot;&gt;&lt;a href=&quot;#云南Happy日记&quot; class=&quot;headerlink&quot; title=&quot;云南Happy日记&quot;&gt;&lt;/a&gt;云南Happy日记&lt;/h1&gt;&lt;h3 id=&quot;1️⃣大理篇&quot;&gt;&lt;a href=&quot;#1️⃣大理篇&quot;</summary>
         
       
     
@@ -456,9 +442,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;el-table-column压缩单行&quot;&gt;el-table-column压缩单行&lt;/h2&gt;
-&lt;p&gt;div&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-markup&quot; data-language=&quot;markup&quot;&gt;&lt;code</summary>
+    <summary type="html">&lt;h2 id=&quot;el-table-column压缩单行&quot;&gt;&lt;a href=&quot;#el-table-column压缩单行&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -486,9 +470,7 @@
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;由于本demo是在原有服务进行拓展, 为减少耦合故新建模块&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;依赖及配置文件&quot;&gt;依赖及配置文件&lt;/h2&gt;
-&lt;h3 id=&quot;pom文件&quot;&gt;pom文件&lt;/h3&gt;
-&lt;pre</summary>
+&lt;h2 id=&quot;依赖及配置文件&quot;&gt;&lt;a href=&quot;#依赖及配置文件&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -513,9 +495,8 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;基础封装&quot;&gt;基础封装&lt;/h2&gt;
-&lt;p&gt;封装单个对象查询&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-java&quot; data-language=&quot;java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span</summary>
+    <summary type="html">&lt;h2 id=&quot;基础封装&quot;&gt;&lt;a href=&quot;#基础封装&quot; class=&quot;headerlink&quot; title=&quot;基础封装&quot;&gt;&lt;/a&gt;基础封装&lt;/h2&gt;&lt;p&gt;封装单个对象查询&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-java&quot;</summary>
         
       
     
@@ -542,8 +523,7 @@
       
         
         
-    <summary type="html">&lt;h3 id=&quot;proxy-pass-端口后紧跟&quot;&gt;&lt;code&gt;proxy_pass&lt;/code&gt; 端口后紧跟 &lt;code&gt;/&lt;/code&gt;&lt;/h3&gt;
-&lt;img src=&quot;../nginx-location/image-20230814221948781.png&quot;</summary>
+    <summary type="html">&lt;h3 id=&quot;proxy-pass-端口后紧跟&quot;&gt;&lt;a href=&quot;#proxy-pass-端口后紧跟&quot; class=&quot;headerlink&quot; title=&quot;proxy_pass 端口后紧跟 /&quot;&gt;&lt;/a&gt;&lt;code&gt;proxy_pass&lt;/code&gt; 端口后紧跟</summary>
         
       
     
@@ -555,39 +535,6 @@
     <category term="Linux-s" scheme="https://www.saddyfire.cn/tags/Linux-s/"/>
     
     <category term="Nginx" scheme="https://www.saddyfire.cn/tags/Nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自定义线程池</title>
-    <link href="https://www.saddyfire.cn/2023/08/06/diy-thread-pool/"/>
-    <id>https://www.saddyfire.cn/2023/08/06/diy-thread-pool/</id>
-    <published>2023-08-06T07:00:44.000Z</published>
-    <updated>2023-09-05T12:36:13.843Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;自定义线程池demo&lt;/h1&gt;
-&lt;h2 id=&quot;流程图&quot;&gt;流程图&lt;/h2&gt;
-&lt;div class=&quot;mermaid&quot;&gt;
-  
-graph LR
-	subgraph Thread Pool
-        t1[t1]
-        t2[t2]
-       </summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
     
   </entry>
   
