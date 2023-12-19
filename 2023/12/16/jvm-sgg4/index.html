@@ -323,7 +323,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-17
+                    2023-12-19
                 </div>
                 
 
@@ -411,7 +411,7 @@
 <span class="token parameter variable">-Xss1048576</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="设置栈内存代销"><a href="#设置栈内存代销" class="headerlink" title="设置栈内存代销"></a>设置栈内存代销</h4><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/11/tools/java.html">Oracle官方文档</a></p>
-<p>使用参数 <strong>-Xss</strong> (MaxStackSize)选项来设置线程的最大栈空间，栈的大小直接决定了函数调用的最大可达深度。</p>
+<p>使用参数 <code>-Xss</code> (MaxStackSize)选项来设置线程的最大栈空间，栈的大小直接决定了函数调用的最大可达深度。</p>
 <h2 id="2-栈的存储单位"><a href="#2-栈的存储单位" class="headerlink" title="2-栈的存储单位"></a>2-栈的存储单位</h2><h3 id="栈中存储什么"><a href="#栈中存储什么" class="headerlink" title="栈中存储什么?"></a>栈中存储什么?</h3><ul>
 <li><p>每个线程都有自己的栈，栈中的数据都是以<strong>栈帧</strong>(Stack Frame)的格式存在</p>
 </li>
@@ -670,15 +670,15 @@
 <li>其他方法称为虚方法。</li>
 </ul>
 <h4 id="虚拟机中调用方法的指令"><a href="#虚拟机中调用方法的指令" class="headerlink" title="虚拟机中调用方法的指令"></a>虚拟机中调用方法的指令</h4><ul>
-<li><p><strong>普通指令：</strong></p>
+<li><p>**普通指令: **</p>
 <ol>
-<li><p>invokestatic：调用静态方法，解析阶段确定唯一方法版本</p>
+<li><p>invokestatic: 调用静态方法，解析阶段确定唯一方法版本</p>
 </li>
-<li><p>invokespecial：调用<code>&lt;init&gt;</code>方法、私有及父类方法，解析阶段确定唯一方法版本</p>
+<li><p>invokespecial: 调用<code>&lt;init&gt;</code>方法、私有及父类方法，解析阶段确定唯一方法版本</p>
 </li>
-<li><p>invokevirtual：调用所有虚方法</p>
+<li><p>invokevirtual: 调用所有虚方法</p>
 </li>
-<li><p>invokeinterface：调用接口方法</p>
+<li><p>invokeinterface: 调用接口方法</p>
 </li>
 </ol>
 </li>
@@ -722,7 +722,7 @@
 <p>动态语言和静态语言</p>
 <ul>
 <li>动态类型语言和静态类型语言两者的区别就在于<strong>对类型的检查是在编译期还是在运行期</strong>，满足前者就是静态类型语言，反之是动态类型语言。</li>
-<li>说的再直白一点就是，<strong>静态类型语言是判断变量自身的类型信息；动态类型语言是判断变量值的类型信息</strong>，变量没有类型信息，变量值才有类型信息，这是动态语言的一个重要特征。</li>
+<li>说的再直白一点就是，<strong>静态类型语言是判断变量自身的类型信息；动态类型语言是判断变量值的类型信息</strong>, 变量没有类型信息，变量值才有类型信息，这是动态语言的一个重要特征。</li>
 </ul>
 <pre class="line-numbers language-null" data-language="null"><code class="language-null">Java：String info &#x3D; &quot;mogu blog&quot;;     		(Java是静态类型语言的，会先编译就进行类型检查)
 JS：var name &#x3D; &quot;shkstart&quot;;    var name &#x3D; 10;	（运行时才进行检查）
@@ -1586,6 +1586,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
     
@@ -1621,11 +1629,6 @@ $(function () {
 
     <!--腾讯兔小巢-->
     
-    
-    <script type="text/javascript" color="0,0,255"
-        pointColor="0,0,255" opacity='0.7'
-        zIndex="-1" count="99"
-        src="/libs/background/canvas-nest.js"></script>
     
 
     

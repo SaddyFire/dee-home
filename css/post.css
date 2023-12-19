@@ -1,3 +1,8 @@
+/*样式说明*/
+/* =========配置样式============
+    目录鼠标悬停  #toc-content .toc-link:hover
+    目录激活后颜色  #toc-content .is-active-link
+*/
 #articleContent h1::before,
 #articleContent h2::before,
 #articleContent h3::before,
@@ -39,7 +44,7 @@
 
 #toc-content {
     padding-bottom: 30px;
-    overflow: scroll;
+    overflow-y: scroll;
     height: calc(100vh - 250px);
 }
 
@@ -52,7 +57,7 @@
 }
 
 #toc-content .toc-link:hover {
-    color: #cc1212;
+    color: #009cff;
     font-weight: 700;
     text-decoration: underline;
 }
@@ -67,7 +72,7 @@
 }
 
 #toc-content .is-active-link {
-    color: #cc1212;
+    color: #009cff;
 }
 
 #floating-toc-btn {

@@ -81,8 +81,9 @@ body.DarkMode .v[data-class="v"] .vinput, .v[data-class="v"] .veditor, .v[data-c
 }
 body.DarkMode blockquote {
     background-color: #666 !important;
-    border-left: 5px solid #cc1212 !important;
+    border-left: 3px solid #d72f0f !important;
     color: rgba(255, 255, 255, 0.6);
+    text-align: justify;
 }
 body.DarkMode .nav-menu li .sub-nav li a {
     color: rgba(255, 255, 255, 0.6) !important;

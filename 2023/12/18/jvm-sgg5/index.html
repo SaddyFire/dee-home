@@ -323,7 +323,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-18
+                    2023-12-19
                 </div>
                 
 
@@ -407,11 +407,11 @@
 <h2 id="2-设置堆内存大小与-OOM"><a href="#2-设置堆内存大小与-OOM" class="headerlink" title="2-设置堆内存大小与 OOM"></a>2-设置堆内存大小与 OOM</h2><ul>
 <li><p>Java堆区用于存储Java对象实例，那么堆的大小在JVM启动时就已经设定好了，大家可以通过选项”-Xms”和”-Xmx”来进行设置。</p>
 <ul>
-<li><strong>-Xms</strong>用于表示堆区的起始内存，等价于**-XX:InitialHeapSize**</li>
-<li><strong>-Xmx</strong>则用于表示堆区的最大内存，等价于**-XX:MaxHeapSize**</li>
+<li><code>-Xms</code>用于表示堆区的起始内存，等价于<code>-XX:InitialHeapSize</code></li>
+<li><code>-Xmx</code>则用于表示堆区的最大内存，等价于<code>-XX:MaxHeapSize</code></li>
 </ul>
 </li>
-<li><p>一旦堆区中的内存大小超过“-Xmx”所指定的最大内存时，将会抛出OutofMemoryError异常。</p>
+<li><p>一旦堆区中的内存大小超过<code>-Xmx</code>所指定的最大内存时，将会抛出OutofMemoryError异常。</p>
 </li>
 <li><p>通常会将-Xms和-Xmx两个参数配置相同的值, 其目的<strong>是为了能够在Java垃圾回收机制清理完堆区后不需要重新分隔计算的堆区的大小, 从而提高性能</strong></p>
 </li>
@@ -518,7 +518,7 @@ FGC: full GC的次数
 <p>补充: 但是通过<code>jstat -gc</code> 发现是6:1:1, 这是因为有个自适应策略, 通过 <code>-XX:-UseAdaptiveSizePolicy</code> 可关闭</p>
 </blockquote>
 <ul>
-<li><p>当然开发人员可以通过选项**-XX:SurvivorRatio**调整这个空间比例。比如<code>-XX:SurvivorRatio=8</code></p>
+<li><p>当然开发人员可以通过选项<code>-XX:SurvivorRatio</code>调整这个空间比例。比如<code>-XX:SurvivorRatio=8</code></p>
 </li>
 <li><p>几乎所有的Java对象都是在Eden区被new出来的。</p>
 </li>
@@ -1266,6 +1266,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
     
@@ -1301,11 +1309,6 @@ $(function () {
 
     <!--腾讯兔小巢-->
     
-    
-    <script type="text/javascript" color="0,0,255"
-        pointColor="0,0,255" opacity='0.7'
-        zIndex="-1" count="99"
-        src="/libs/background/canvas-nest.js"></script>
     
 
     
