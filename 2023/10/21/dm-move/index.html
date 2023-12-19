@@ -330,7 +330,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    187
+                    188
                 </div>
                 
 
@@ -365,20 +365,22 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="DM备份还原笔记"><a href="#DM备份还原笔记" class="headerlink" title="DM备份还原笔记"></a>DM备份还原笔记</h1><h2 id="还原"><a href="#还原" class="headerlink" title="还原"></a>还原</h2><h3 id="备份文件拆分-Linux"><a href="#备份文件拆分-Linux" class="headerlink" title="备份文件拆分(Linux)"></a>备份文件拆分(Linux)</h3><p>当库体积太大时, 需要对备份文件进行拆分</p>
+                <h1>DM备份还原笔记</h1>
+<h2 id="还原">还原</h2>
+<h3 id="备份文件拆分-Linux">备份文件拆分(Linux)</h3>
+<p>当库体积太大时, 需要对备份文件进行拆分</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># -b 输出文件大小</span>
 <span class="token comment"># -d 使用数字命名尾缀</span>
 <span class="token comment"># -a 尾椎的长度(默认2)</span>
 <span class="token function">split</span> <span class="token parameter variable">-b</span> 1G <span class="token parameter variable">-d</span> DB_DAMENG1_FULL_2023_09_23_01_00_22.bak DB_DAMENG1_FULL_2023_09_23_01_00_22.bak.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="合并备份文件并解压-Windows"><a href="#合并备份文件并解压-Windows" class="headerlink" title="合并备份文件并解压(Windows)"></a>合并备份文件并解压(Windows)</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">d:
+<h3 id="合并备份文件并解压-Windows">合并备份文件并解压(Windows)</h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">d:
 <span class="token builtin class-name">cd</span> dm
 copy /b DB_DAMENG1_FULL_2023_09_23_01_00_22.bak.* DB_DAMENG1_FULL_2023_09_23_01_00_22.bak<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>补充（Linux环境下打包后进行拆分）</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> <span class="token parameter variable">-zcvf</span> dmbak.tar.gz DB_DAMENG1_FULL_2023_09_16_01_00_53.bak <span class="token operator">|</span> <span class="token function">split</span> <span class="token parameter variable">-b</span> 1G <span class="token parameter variable">-d</span> <span class="token parameter variable">-a</span> <span class="token number">2</span> - dmbak.tar.gz.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="DM备份还原"><a href="#DM备份还原" class="headerlink" title="DM备份还原"></a>DM备份还原</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">backup database backupset <span class="token string">'/data/dmbak/BACKUP_FILE_01'</span><span class="token punctuation">;</span>
+<h3 id="DM备份还原">DM备份还原</h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">backup database backupset <span class="token string">'/data/dmbak/BACKUP_FILE_01'</span><span class="token punctuation">;</span>
 
 --还原
 ./dmrman <span class="token assign-left variable">CTLSTMT</span><span class="token operator">=</span><span class="token string">"RESTORE DATABASE '/data/dmdata/DAMENG1/dm.ini' FROM BACKUPSET '/data/dmbak/BACKUP_FILE_01'"</span>
@@ -387,13 +389,12 @@ copy /b DB_DAMENG1_FULL_2023_09_23_01_00_22.bak.* DB_DAMENG1_FULL_2023_09_23_01_
 --更新魔术
 ./dmrman <span class="token assign-left variable">CTLSTMT</span><span class="token operator">=</span><span class="token string">"RECOVER DATABASE '/data/dmdata/DAMENG1/dm.ini' UPDATE DB_MAGIC"</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 清理备份</span>
+<h2 id="备份">备份</h2>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 清理备份</span>
 SF_BAKSET_BACKUP_DIR_ADD<span class="token punctuation">(</span><span class="token string">'DISK'</span><span class="token punctuation">,</span><span class="token string">'/data/dmbak'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">CALL</span> SP_DB_BAKSET_REMOVE_BATCH<span class="token punctuation">(</span><span class="token string">'DISK'</span><span class="token punctuation">,</span>SYSDATE<span class="token operator">-</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p><img src="/2023/10/21/dm-move/image-20231023105654298.png" alt="全量备份"></p>
-<p><img src="/2023/10/21/dm-move/image-20231023105722948.png" alt="增量备份"></p>
+<p><img src="../dm-move/image-20231023105654298.png" alt="全量备份"></p>
+<p><img src="../dm-move/image-20231023105722948.png" alt="增量备份"></p>
 
                 
             </div>
@@ -1098,14 +1099,6 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
-     
-        <script type="text/javascript">
-            // 只在桌面版网页启用特效
-            var windowWidth = $(window).width();
-            if (windowWidth > 768) {
-                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
-            }
-        </script>
     
 
     

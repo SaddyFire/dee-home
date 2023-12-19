@@ -369,8 +369,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="第三方登录"><a href="#第三方登录" class="headerlink" title="第三方登录:"></a>第三方登录:</h1><p><em><code>vue-java</code>前后端交互流程<code>demo</code> (本篇以<code>gitee</code> 为例)</em></p>
-<h2 id="时序图"><a href="#时序图" class="headerlink" title="时序图"></a>时序图</h2><div class="mermaid">
+                <h1>第三方登录:</h1>
+<p><em><code>vue-java</code>前后端交互流程<code>demo</code> (本篇以<code>gitee</code> 为例)</em></p>
+<h2 id="时序图">时序图</h2>
+<div class="mermaid">
   sequenceDiagram
 	actor c as 客户端
 	participant f as 前端服务器
@@ -400,9 +402,10 @@
 	end
 </div>
 
-
-<h2 id="gitee"><a href="#gitee" class="headerlink" title="gitee"></a>gitee</h2><p><img src="/2023/04/10/th-login/20230413000620.png"></p>
-<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><ol>
+<h2 id="gitee">gitee</h2>
+<p><img src="../th-login/20230413000620.png" alt=""></p>
+<h2 id="代码示例">代码示例</h2>
+<ol>
 <li>前端打开新窗口, 并请求 <code>gitee</code></li>
 </ol>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">giteeHandleClick</span><span class="token punctuation">(</span><span class="token parameter">thirdpart</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -411,7 +414,6 @@
     <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">https://gitee.com/oauth/authorize?client_id=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>client_id<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">&amp;redirect_uri=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>redirect_uri<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">&amp;response_type=code</span><span class="token template-punctuation string">`</span></span>
     window<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> thirdpart<span class="token punctuation">,</span> <span class="token number">540</span><span class="token punctuation">,</span> <span class="token number">540</span><span class="token punctuation">)</span> <span class="token comment">// url,用户信息</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ol start="2">
 <li>后端接收<code>gitee</code> 所传<code>code</code> -&gt; 获取<code>access_token</code> -&gt; 获取用户信息 -&gt; 生成用户<code>token</code> 并返回给前端</li>
 </ol>
@@ -459,7 +461,6 @@
     <span class="token class-name">Map</span> body <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectMapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">readValue</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span><span class="token function">getBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">Map</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> body<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ol start="3">
 <li>前端监听到token信息, 写入用户Cookie</li>
 </ol>
@@ -470,9 +471,6 @@
     window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token string">'/'</span> <span class="token comment">// 浏览器跳转</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
 
                 
             </div>
@@ -1177,14 +1175,6 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
-     
-        <script type="text/javascript">
-            // 只在桌面版网页启用特效
-            var windowWidth = $(window).width();
-            if (windowWidth > 768) {
-                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
-            }
-        </script>
     
 
     
