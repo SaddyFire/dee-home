@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="jvm-sgg8, SaddyFire">
-    <meta name="description" content="jvm-sgg8">
+    <meta name="keywords" content="JVM-08-执行引擎, SaddyFire">
+    <meta name="description" content="执行引擎">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>jvm-sgg8 | SaddyFire</title>
+    <title>JVM-08-执行引擎 | SaddyFire</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -267,7 +267,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">jvm-sgg8</h1>
+                    <h1 class="description center-align post-title">JVM-08-执行引擎</h1>
                 </div>
             </div>
         </div>
@@ -360,39 +360,35 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1>执行引擎</h1>
-<p><img src="./../jvm-sgg8/image-20231222214407590.png" alt="Hotspot JVM"></p>
-<h2 id="1-执行引擎概述">1-执行引擎概述</h2>
-<p><img src="./../jvm-sgg8/image-20231222214725500.png" alt=""></p>
+                <h1 id="执行引擎"><a href="#执行引擎" class="headerlink" title="执行引擎"></a>执行引擎</h1><p><img src="/2023/12/22/jvm-sgg8/image-20231222214407590.png" alt="Hotspot JVM"></p>
+<h2 id="1-执行引擎概述"><a href="#1-执行引擎概述" class="headerlink" title="1-执行引擎概述"></a>1-执行引擎概述</h2><p><img src="/2023/12/22/jvm-sgg8/image-20231222214725500.png"></p>
 <ul>
 <li>执行引擎是Java虚拟机核心的组成部分之一。</li>
-<li>&quot;虚拟机&quot;是一个相对于&quot;物理机  &quot;的概念，这两种机器都有代码执行能力，其区别是物理机的执行引擎是直接建立在处理器、缓存、指令集和操作系统层面上的，而<strong>虚拟机的执行引擎则是由软件自行实现的</strong>，因此可以不受物理条件制约地定制指令集与执行引擎的结构体系，<strong>能够执行那些不被硬件直接支持的指令集格式</strong>。</li>
+<li>“虚拟机”是一个相对于”物理机  “的概念，这两种机器都有代码执行能力，其区别是物理机的执行引擎是直接建立在处理器、缓存、指令集和操作系统层面上的，而<strong>虚拟机的执行引擎则是由软件自行实现的</strong>，因此可以不受物理条件制约地定制指令集与执行引擎的结构体系，<strong>能够执行那些不被硬件直接支持的指令集格式</strong>。</li>
 <li>JVM的主要任务是负责<strong>装载字节码到其内部</strong>，但字节码并不能够直接运行在操作系统之上，因为字节码指令并非等价于本地机器指令，它内部包含的仅仅只是一些能够被JVM所识别的字节码指令、符号表，以及其他辅助信息。</li>
-<li>那么，如果想要让一个Java程序运行起来，执行引擎（Execution Engine）的任务就是<strong>将字节码指令解释/编译为对应平台上的本地机器指令才可以</strong>。简单来说，JVM中的执行引擎充当了将高级语言翻译为机器语言的译者。</li>
+<li>那么，如果想要让一个Java程序运行起来，执行引擎（Execution Engine）的任务就是<strong>将字节码指令解释&#x2F;编译为对应平台上的本地机器指令才可以</strong>。简单来说，JVM中的执行引擎充当了将高级语言翻译为机器语言的译者。</li>
 </ul>
-<p><img src="./../jvm-sgg8/image-20231222215051218.png" alt=""></p>
-<h3 id="执行引擎工作过程">执行引擎工作过程</h3>
-<ol>
+<p><img src="/2023/12/22/jvm-sgg8/image-20231222215051218.png"></p>
+<h3 id="执行引擎工作过程"><a href="#执行引擎工作过程" class="headerlink" title="执行引擎工作过程"></a>执行引擎工作过程</h3><ol>
 <li>执行引擎在执行的过程中究竟需要执行什么样的字节码指令完全依赖于PC寄存器。</li>
 <li>每当执行完一项指令操作后，PC寄存器就会更新下一条需要被执行的指令地址。</li>
 <li>当然方法在执行的过程中，执行引擎有可能会通过存储在局部变量表中的对象引用准确定位到存储在Java堆区中的对象实例信息，以及通过对象头中的元数据指针定位到目标对象的类型信息。</li>
 <li>从外观上来看，所有的Java虚拟机的执行引擎输入、处理、输出都是一致的：输入的是字节码二进制流，处理过程是字节码解析执行、即时编译的等效过程，输出的是执行过程。</li>
 </ol>
-<p><img src="./../jvm-sgg8/image-20231222215308603.png" alt=""></p>
-<h2 id="2-Java代码编译和执行过程">2-Java代码编译和执行过程</h2>
-<p>大部分的程序代码转换成物理机的目标代码或虚拟机能执行的指令集之前，都需要经过下图中的各个步骤：</p>
-<p><img src="./../jvm-sgg8/image-20231222215634884.png" alt=""></p>
+<p><img src="/2023/12/22/jvm-sgg8/image-20231222215308603.png"></p>
+<h2 id="2-Java代码编译和执行过程"><a href="#2-Java代码编译和执行过程" class="headerlink" title="2-Java代码编译和执行过程"></a>2-Java代码编译和执行过程</h2><p>大部分的程序代码转换成物理机的目标代码或虚拟机能执行的指令集之前，都需要经过下图中的各个步骤：</p>
+<p><img src="/2023/12/22/jvm-sgg8/image-20231222215634884.png"></p>
 <ul>
 <li>前面橙色部分是编译生成生成字节码文件的过程（javac编译器来完成，也就是前端编译器），和JVM没有关系。</li>
 <li>后面绿色（解释执行）和蓝色（即时编译）才是JVM需要考虑的过程</li>
 </ul>
 <p>javac编译器（前端编译器）流程图如下所示：</p>
-<p><img src="./../jvm-sgg8/image-20231222215830776.png" alt=""></p>
+<p><img src="/2023/12/22/jvm-sgg8/image-20231222215830776.png"></p>
 <p>Java字节码的执行是由JVM执行引擎来完成，流程图如下所示</p>
-<p><img src="./../jvm-sgg8/image-20231222215938424.png" alt=""></p>
+<p><img src="/2023/12/22/jvm-sgg8/image-20231222215938424.png"></p>
 <p><strong>问题: 什么是解释器？什么是JIT编译器？</strong></p>
 <ul>
-<li>解释器：当Java虚拟机启动时会根据预定义的规范<strong>对字节码采用逐行解释的方式执行</strong>，将每条字节码文件中的内容&quot;翻译&quot;为对应平台的本地机器指令执行。</li>
+<li>解释器：当Java虚拟机启动时会根据预定义的规范<strong>对字节码采用逐行解释的方式执行</strong>，将每条字节码文件中的内容”翻译”为对应平台的本地机器指令执行。</li>
 <li>JIT（Just In Time Compiler）编译器：就是虚拟机将源代码<strong>一次性直接</strong>编译成和本地机器平台相关的机器语言，<strong>但并不是马上执行</strong>。</li>
 </ul>
 <p><strong>为什么Java是半编译半解释型语言？</strong></p>
@@ -401,10 +397,7 @@
 <li>现在JVM在执行Java代码的时候，通常都会将解释执行与编译执行二者结合起来进行。</li>
 <li>JIT编译器将字节码翻译成本地代码后，就可以做一个缓存操作，存储在方法区的JIT代码缓存中（执行效率更高了），并且在翻译成本地代码的过程中可以做优化。</li>
 </ul>
-<h2 id="3-机器码、指令、汇编语言">3-机器码、指令、汇编语言</h2>
-<h2 id="4-解释器">4-解释器</h2>
-<h2 id="5-JIT编译器">5-JIT编译器</h2>
-
+<h2 id="3-机器码、指令、汇编语言"><a href="#3-机器码、指令、汇编语言" class="headerlink" title="3-机器码、指令、汇编语言"></a>3-机器码、指令、汇编语言</h2><h2 id="4-解释器"><a href="#4-解释器" class="headerlink" title="4-解释器"></a>4-解释器</h2><h2 id="5-JIT编译器"><a href="#5-JIT编译器" class="headerlink" title="5-JIT编译器"></a>5-JIT编译器</h2>
                 
             </div>
             <hr/>
@@ -520,15 +513,15 @@
                 <a href="/2023/12/22/jvm-sgg8/">
                     <div class="card-image">
                         
-                        <img src="/images/article/60.jpg" class="responsive-img" alt="jvm-sgg8">
+                        <img src="/images/article/60.jpg" class="responsive-img" alt="JVM-08-执行引擎">
                         
-                        <span class="card-title">jvm-sgg8</span>
+                        <span class="card-title">JVM-08-执行引擎</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            jvm-sgg8
+                            执行引擎
                         
                     </div>
                     <div class="publish-info">
