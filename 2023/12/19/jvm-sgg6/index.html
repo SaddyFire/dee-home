@@ -323,7 +323,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-21
+                    2023-12-22
                 </div>
                 
 
@@ -337,7 +337,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    19 分
+                    20 分
                 </div>
                 
 
@@ -702,8 +702,17 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>结论</strong></p>
-<p>三个对象的数据在内存中的地址都落在Eden区范围内，所以结论：<strong>只要是对象实例必然会在Java堆中分配</strong>。</p>
-<p>从《Java虚拟机规范》所定义的概念模型来看，所有Class相关的信息都应该存放在方法区之中，但方法区该如何实现，《Java虚拟机规范》并未做出规定，这就成了一件允许不同虚拟机自己灵活把握的事情。JDK7及其以后版本的HotSpot虚拟机选择把<strong>静态变量</strong>与<strong>类型</strong>在Java语言一端的映射Class对象存放在一起，<strong>存储于Java堆之中</strong></p>
+<ul>
+<li><p><code>staticObj</code> <strong>静态成员变量</strong>随着<code>Test</code> 的类信息存放在方法区, </p>
+</li>
+<li><p><code>instanceObj</code> <strong>成员变量</strong>随着<code>Teset</code> 的对象示例存放在Java堆, </p>
+</li>
+<li><p><code>localObject</code> <strong>方法变量</strong>则是存放在 <code>foo()</code> 方法栈的局部变量表中. </p>
+</li>
+<li><p>三个对象的数据在内存中的地址都落在Eden区范围内，所以结论：<strong>只要是对象实例必然会在Java堆中分配</strong>。</p>
+</li>
+</ul>
+<p>从《Java虚拟机规范》所定义的概念模型来看，所有Class相关的信息都应该存放在方法区之中，但方法区该如何实现，《Java虚拟机规范》并未做出规定，这就成了一件允许不同虚拟机自己灵活把握的事情。<strong>JDK7及其以后版本的HotSpot虚拟机选择把静态变量与类型在Java语言一端的映射Class对象存放在一起，存储于Java堆之中</strong></p>
 <h2 id="7-方法区的垃圾回收"><a href="#7-方法区的垃圾回收" class="headerlink" title="7-方法区的垃圾回收"></a>7-方法区的垃圾回收</h2><ul>
 <li><p>有些人认为方法区（如Hotspot虚拟机中的元空间或者永久代）是没有垃圾收集行为的，其实不然。《Java虚拟机规范》对方法区的约束是非常宽松的，提到过可以不要求虚拟机在方法区中实现垃圾收集。事实上也确实有未实现或未能完整实现方法区<strong>类型卸载</strong>的收集器存在（如JDK11时期的ZGC收集器就不支持类卸载）。</p>
 </li>
@@ -877,9 +886,9 @@
                 <a href="/2023/12/21/jvm-sgg7/">
                     <div class="card-image">
                         
-                        <img src="/images/article/59.jpg" class="responsive-img" alt="JVM-06-对象的实例化内存布局与访问定位">
+                        <img src="/images/article/59.jpg" class="responsive-img" alt="JVM-07-对象的实例化内存布局与访问定位">
                         
-                        <span class="card-title">JVM-06-对象的实例化内存布局与访问定位</span>
+                        <span class="card-title">JVM-07-对象的实例化内存布局与访问定位</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

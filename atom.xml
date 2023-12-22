@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2023-12-21T15:13:14.883Z</updated>
+  <updated>2023-12-22T02:08:23.047Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>JVM-06-对象的实例化内存布局与访问定位</title>
+    <title>JVM-07-对象的实例化内存布局与访问定位</title>
     <link href="https://www.saddyfire.cn/2023/12/21/jvm-sgg7/"/>
     <id>https://www.saddyfire.cn/2023/12/21/jvm-sgg7/</id>
     <published>2023-12-21T14:24:04.000Z</published>
-    <updated>2023-12-21T15:13:14.883Z</updated>
+    <updated>2023-12-22T02:08:23.047Z</updated>
     
     
       
@@ -46,7 +46,7 @@
     <link href="https://www.saddyfire.cn/2023/12/19/jvm-sgg6/"/>
     <id>https://www.saddyfire.cn/2023/12/19/jvm-sgg6/</id>
     <published>2023-12-19T13:57:44.000Z</published>
-    <updated>2023-12-21T14:19:57.406Z</updated>
+    <updated>2023-12-22T02:25:35.347Z</updated>
     
     
       
