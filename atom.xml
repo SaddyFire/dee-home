@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2023-12-22T05:34:50.613Z</updated>
+  <updated>2023-12-22T13:25:09.203Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="https://www.saddyfire.cn/2023/12/21/jvm-sgg7/"/>
     <id>https://www.saddyfire.cn/2023/12/21/jvm-sgg7/</id>
     <published>2023-12-21T14:24:04.000Z</published>
-    <updated>2023-12-22T05:34:50.613Z</updated>
+    <updated>2023-12-22T13:25:09.203Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;对象的实例化内存布局与访问定位&quot;&gt;&lt;a href=&quot;#对象的实例化内存布局与访问定位&quot; class=&quot;headerlink&quot; title=&quot;对象的实例化内存布局与访问定位&quot;&gt;&lt;/a&gt;对象的实例化内存布局与访问定位&lt;/h1&gt;&lt;h2 id=&quot;对象的实例化&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h1 id=&quot;对象的实例化内存布局与访问定位&quot;&gt;&lt;a href=&quot;#对象的实例化内存布局与访问定位&quot; class=&quot;headerlink&quot; title=&quot;对象的实例化内存布局与访问定位&quot;&gt;&lt;/a&gt;对象的实例化内存布局与访问定位&lt;/h1&gt;&lt;h2 id=&quot;1-对象的实例化&quot;&gt;&lt;a</summary>
         
       
     
@@ -36,6 +36,8 @@
     
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
+    
+    <category term="NIO" scheme="https://www.saddyfire.cn/tags/NIO/"/>
     
     <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
     

@@ -291,6 +291,10 @@
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/NIO/">
+                                <span class="chip bg-color">NIO</span>
+                            </a>
+                        
                             <a href="/tags/JVM/">
                                 <span class="chip bg-color">JVM</span>
                             </a>
@@ -330,14 +334,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    907
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    5 分
                 </div>
                 
 
@@ -360,7 +364,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="对象的实例化内存布局与访问定位"><a href="#对象的实例化内存布局与访问定位" class="headerlink" title="对象的实例化内存布局与访问定位"></a>对象的实例化内存布局与访问定位</h1><h2 id="对象的实例化"><a href="#对象的实例化" class="headerlink" title="对象的实例化"></a>对象的实例化</h2><ul>
+                <h1 id="对象的实例化内存布局与访问定位"><a href="#对象的实例化内存布局与访问定位" class="headerlink" title="对象的实例化内存布局与访问定位"></a>对象的实例化内存布局与访问定位</h1><h2 id="1-对象的实例化"><a href="#1-对象的实例化" class="headerlink" title="1-对象的实例化"></a>1-对象的实例化</h2><ul>
 <li>对象在JVM中是怎么存储的？</li>
 <li>对象头信息里面有哪些东西？</li>
 <li>Java对象头里有什么</li>
@@ -397,7 +401,121 @@
 <li>在Java程序的视角看来，初始化才正式开始。初始化成员变量，执行实例化代码块，调用类的构造方法，并把堆内对象的首地址赋值给引用变量</li>
 <li>因此一般来说（由字节码中跟随invokespecial指令所决定），new指令之后会接着就是执行init方法，把对象按照程序员的意愿进行初始化，这样一个真正可用的对象才算完成创建出来。</li>
 </ul>
-<h2 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h2><h2 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h2>
+<h2 id="2-对象的内存布局"><a href="#2-对象的内存布局" class="headerlink" title="2-对象的内存布局"></a>2-对象的内存布局</h2>
+<div class="markmap-container" style="height:height">
+  <svg data="{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[1,2]},&quot;v&quot;:&quot;内部布局&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[2,3]},&quot;v&quot;:&quot;对象头(Header)&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[3,4]},&quot;v&quot;:&quot;包含两部分&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[4,5]},&quot;v&quot;:&quot;运行时元数据(Mark Word)&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:10,&quot;p&quot;:{&quot;lines&quot;:[5,6]},&quot;v&quot;:&quot;哈希值(HashCode)&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:10,&quot;p&quot;:{&quot;lines&quot;:[6,7]},&quot;v&quot;:&quot;GC分代年龄&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:10,&quot;p&quot;:{&quot;lines&quot;:[7,8]},&quot;v&quot;:&quot;锁状态标志&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:10,&quot;p&quot;:{&quot;lines&quot;:[8,9]},&quot;v&quot;:&quot;线程持有的锁&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:10,&quot;p&quot;:{&quot;lines&quot;:[9,10]},&quot;v&quot;:&quot;偏向线程ID&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:10,&quot;p&quot;:{&quot;lines&quot;:[10,11]},&quot;v&quot;:&quot;偏向时间戳&quot;}]},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[11,12]},&quot;v&quot;:&quot;类型指针&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:10,&quot;p&quot;:{&quot;lines&quot;:[12,13]},&quot;v&quot;:&quot;指向类元数据InstanceKlass, 确定该对象所属的类型&quot;}]}]},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[13,14]},&quot;v&quot;:&quot;说明: 如果是数组, 还需记录数组的长度&quot;}]},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[14,15]},&quot;v&quot;:&quot;实例数据(Instance Data)&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[15,16]},&quot;v&quot;:&quot;说明&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[16,17]},&quot;v&quot;:&quot;它是对象真正存储的有效信息, 包括程序代码中定义的各种类型的字段(包括从父类继承下来的和本身拥有的字段)&quot;}]},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[17,18]},&quot;v&quot;:&quot;规则&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[18,19]},&quot;v&quot;:&quot;相同宽度的字段总是被分配在一起&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[19,20]},&quot;v&quot;:&quot;父类中定义的变量会出现在子类之前&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[20,21]},&quot;v&quot;:&quot;如果CompactFields参数为true(默认为true): 子类的宅变量可能插入到父类变量的空隙&quot;}]}]},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[21,22]},&quot;v&quot;:&quot;对齐填充(Padding)&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[22,23]},&quot;v&quot;:&quot;不是必须的, 也没特别含义, 仅仅起到占位符的作用&quot;}]},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[23,24]},&quot;v&quot;:&quot;小结&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[24,25]},&quot;v&quot;:&quot;&lt;a href=\&quot;#内存布局图\&quot;&gt;内存布局图&lt;/a&gt;&quot;}]}]}"></svg>
+</div>
+
+
+<p>代码示例</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Customer</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> id <span class="token operator">=</span> <span class="token number">1001</span><span class="token punctuation">;</span>
+    <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+    <span class="token class-name">Account</span> acct<span class="token punctuation">;</span>
+
+    <span class="token punctuation">&#123;</span>
+        name <span class="token operator">=</span> <span class="token string">"匿名客户"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Customer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        acct <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Account</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Customer</span> cust <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Customer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Account</span> <span class="token punctuation">&#123;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h6 id=""><a href="#" class="headerlink" title=""></a><img src="/2023/12/21/jvm-sgg7/image-20231222200603079.png" alt="内存布局图"></h6><h2 id="3-对象的访问定位"><a href="#3-对象的访问定位" class="headerlink" title="3-对象的访问定位"></a>3-对象的访问定位</h2><blockquote>
+<p>JVM是如何通过栈帧中的对象引用访问到其内部的对象实例呢？</p>
+</blockquote>
+
+<div class="markmap-container" style="height:height">
+  <svg data="{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[1,2]},&quot;v&quot;:&quot;对象访问定位&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[2,3]},&quot;v&quot;:&quot;&lt;a href=\&quot;#对象访问定位\&quot;&gt;图示&lt;/a&gt;&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[3,4]},&quot;v&quot;:&quot;常见对象的目的是为了使用它&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[4,5]},&quot;v&quot;:&quot;JVM是如何通过栈帧中的对象引用访问到其他内部的对象实例的呢?&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[5,6]},&quot;v&quot;:&quot;定位, 通过栈上reference访问&quot;}]},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[6,7]},&quot;v&quot;:&quot;对象访问主要有两种方式&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[7,8]},&quot;v&quot;:&quot;访问句柄&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[8,9]},&quot;v&quot;:&quot;&lt;a href=\&quot;#访问句柄\&quot;&gt;图示&lt;/a&gt;&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[9,10]},&quot;v&quot;:&quot;实 现&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[10,11]},&quot;v&quot;:&quot;好处&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:10,&quot;p&quot;:{&quot;lines&quot;:[11,12]},&quot;v&quot;:&quot;reference中存储稳定句柄地址，对象被移动（垃圾收集时移动对象很普遍）时只会改变句柄中实例数据指针即可，reference本身不需要被修改&quot;}]}]},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[12,13]},&quot;v&quot;:&quot;直接指针(Hotspot采用)&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[13,14]},&quot;v&quot;:&quot;&lt;a href=\&quot;#直接指针\&quot;&gt;图示&lt;/a&gt;&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[14,15]},&quot;v&quot;:&quot;实现&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[15,16]},&quot;v&quot;:&quot;好处&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:10,&quot;p&quot;:{&quot;lines&quot;:[16,17]},&quot;v&quot;:&quot;直接指针是局部变量表中的引用，直接指向堆中的实例，在对象实例中有类型指针，指向的是方法区中的对象类型数据&quot;}]}]}]}]}"></svg>
+</div>
+
+
+<h6 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="/2023/12/21/jvm-sgg7/image-20231222203611227.png" alt="对象访问定位"></h6><h6 id="-2"><a href="#-2" class="headerlink" title=""></a><img src="/2023/12/21/jvm-sgg7/image-20231222204209752.png" alt="访问句柄"></h6><h6 id="-3"><a href="#-3" class="headerlink" title=""></a><img src="/2023/12/21/jvm-sgg7/image-20231222204438850.png" alt="直接指针"></h6><h1 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="直接内存-1"><a href="#直接内存-1" class="headerlink" title="直接内存"></a>直接内存</h3><p><strong>(Direct Memory)</strong></p>
+<ul>
+<li><p>不是虚拟机运行时数据区的一部分，也不是《Java虚拟机规范》中定义的内存区域。</p>
+</li>
+<li><p>直接内存是在Java堆外的、直接向系统申请的内存区间。</p>
+</li>
+<li><p>来源于NIO，通过存在堆中的DirectByteBuffer操作Native内存</p>
+</li>
+<li><p>通常，访问直接内存的速度会优于Java堆。即读写性能高。</p>
+<ul>
+<li>因此出于性能考虑，读写频繁的场合可能会考虑使用直接内存。</li>
+<li>Java的NIO库允许Java程序使用直接内存，用于数据缓冲区</li>
+</ul>
+</li>
+</ul>
+<h3 id="NIO-与-BIO"><a href="#NIO-与-BIO" class="headerlink" title="NIO 与 BIO"></a>NIO 与 BIO</h3><p><strong>非直接缓存区(BIO)</strong></p>
+<ul>
+<li>读写文件, 需要与磁盘交互, 需要由用户态切换到内核态. 在内核态时, 需要内存如下图的操作</li>
+<li>使用IO, 这里需要两份内存存储重复数据, 效率低</li>
+</ul>
+<p><img src="/2023/12/21/jvm-sgg7/image-20231222210605746.png"></p>
+<p><strong>直接缓冲区(NIO)</strong></p>
+<ul>
+<li>使用NIO时, 如下图. 操作系统划出的直接缓存区可以被Java代码直接访问, 只有一份. NIO适合堆大文件的读写操作</li>
+</ul>
+<p><img src="/2023/12/21/jvm-sgg7/image-20231222211252472.png"></p>
+<h3 id="直接内存与OOM"><a href="#直接内存与OOM" class="headerlink" title="直接内存与OOM"></a>直接内存与OOM</h3><ul>
+<li><p>直接内存也可能导致OutofMemoryError异常</p>
+</li>
+<li><p>由于直接内存在Java堆外，因此它的大小不会直接受限于-Xmx指定的最大堆大小，但是系统内存是有限的，Java堆和直接内存的总和依然受限于操作系统能给出的最大内存。</p>
+</li>
+<li><p>直接内存的缺点为：</p>
+<ul>
+<li>分配回收成本较高</li>
+<li>不受JVM内存回收管理</li>
+</ul>
+</li>
+<li><p>直接内存大小可以通过MaxDirectMemorySize设置</p>
+</li>
+<li><p>如果不指定，默认与堆的最大值-Xmx参数值一致</p>
+</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * 本地内存的OOM:  OutOfMemoryError: Direct buffer memory
+ *
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BufferTest2</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token constant">BUFFER</span> <span class="token operator">=</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">20</span><span class="token punctuation">;</span><span class="token comment">//20MB</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ByteBuffer</span><span class="token punctuation">></span></span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                <span class="token class-name">ByteBuffer</span> byteBuffer <span class="token operator">=</span> <span class="token class-name">ByteBuffer</span><span class="token punctuation">.</span><span class="token function">allocateDirect</span><span class="token punctuation">(</span><span class="token constant">BUFFER</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>byteBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                count<span class="token operator">++</span><span class="token punctuation">;</span>
+                <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+                    <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">finally</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+
+
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/2023/12/21/jvm-sgg7/image-20231222212504204.png"></p>
+<p><strong>简单理解</strong></p>
+<p>Java process memory &#x3D; Java heap + native memory</p>
+
                 
             </div>
             <hr/>
@@ -460,6 +578,10 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
+                            
+                                <a href="/tags/NIO/">
+                                    <span class="chip bg-color">NIO</span>
+                                </a>
                             
                                 <a href="/tags/JVM/">
                                     <span class="chip bg-color">JVM</span>
@@ -543,6 +665,10 @@
 
                 
                 <div class="card-action article-tags">
+                    
+                    <a href="/tags/NIO/">
+                        <span class="chip bg-color">NIO</span>
+                    </a>
                     
                     <a href="/tags/JVM/">
                         <span class="chip bg-color">JVM</span>
