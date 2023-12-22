@@ -73,12 +73,16 @@ body.DarkMode .markmap-container svg g div,
 body.DarkMode .read .bg-cover .description {
     color: rgba(255, 255, 255, 0.6); /*.85为透明度，可依据需求修改*/
 }
+.markmap-container svg {
+    border: 1px dotted #1a97a8;
+}
 body.DarkMode .fArticleTitle, body.DarkMode .fArticleAuthor, body.DarkMode .fArticleUpdate {
     color: rgba(255, 255, 255, 0.6) !important;
 }
 body.DarkMode .v[data-class="v"] .vinput, .v[data-class="v"] .veditor, .v[data-class="v"] p, .v[data-class="v"] pre code, .v[data-class="v"] .status-bar {
     color: rgba(255, 255, 255, 0.6);
 }
+
 body.DarkMode blockquote {
     background-color: #666 !important;
     border-left: 3px solid #d72f0f !important;
