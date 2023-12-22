@@ -299,9 +299,9 @@
       
         <tags>
             
-            <tag> Linux-s </tag>
+            <tag> Linux </tag>
             
-            <tag> Windows-s </tag>
+            <tag> Windows </tag>
             
         </tags>
       
@@ -380,7 +380,7 @@
       
         <tags>
             
-            <tag> Linux-s </tag>
+            <tag> Linux </tag>
             
         </tags>
       
@@ -405,7 +405,7 @@
       
         <tags>
             
-            <tag> Windows-s </tag>
+            <tag> Windows </tag>
             
             <tag> Nginx </tag>
             
@@ -432,7 +432,7 @@
       
         <tags>
             
-            <tag> Linux-s </tag>
+            <tag> Linux </tag>
             
             <tag> WSL </tag>
             
@@ -561,7 +561,7 @@
       
         <tags>
             
-            <tag> Linux-s </tag>
+            <tag> Linux </tag>
             
             <tag> Nginx </tag>
             
@@ -715,7 +715,7 @@
       
         <tags>
             
-            <tag> safe-s </tag>
+            <tag> safe </tag>
             
         </tags>
       
@@ -740,9 +740,9 @@
       
         <tags>
             
-            <tag> Java </tag>
+            <tag> safe </tag>
             
-            <tag> safe-s </tag>
+            <tag> Java </tag>
             
         </tags>
       
@@ -767,7 +767,7 @@
       
         <tags>
             
-            <tag> Linux-s </tag>
+            <tag> Linux </tag>
             
             <tag> Nginx </tag>
             
@@ -796,11 +796,11 @@
             
             <tag> Java </tag>
             
-            <tag> Linux-s </tag>
-            
             <tag> Git </tag>
             
             <tag> Database </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
