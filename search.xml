@@ -434,7 +434,7 @@
             
             <tag> Linux-s </tag>
             
-            <tag> WSL-s </tag>
+            <tag> WSL </tag>
             
         </tags>
       
@@ -740,9 +740,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> safe-s </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -798,9 +798,9 @@
             
             <tag> Linux-s </tag>
             
-            <tag> Database </tag>
-            
             <tag> Git </tag>
+            
+            <tag> Database </tag>
             
         </tags>
       
