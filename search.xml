@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>JVM-10-垃圾回收概述和相关算法</title>
+      <link href="/2023/12/24/jvm-sgg10/"/>
+      <url>/2023/12/24/jvm-sgg10/</url>
+      
+        <content type="html"><![CDATA[<h1 id="垃圾回收概述和相关算法"><a href="#垃圾回收概述和相关算法" class="headerlink" title="垃圾回收概述和相关算法"></a>垃圾回收概述和相关算法</h1><img src="./../jvm-sgg10/image-20231224183056294.png" style="zoom: 50%;" /><img src="./../jvm-sgg10/image-20231224184307909.png" style="zoom: 50%;" /><ul><li><p>垃圾收集，不是Java语言的伴生产物。早在1960年，第一门开始使用内存动态分配和垃圾收集技术的Lisp语言诞生。</p></li><li><p>关于垃圾收集有三个经典问题：</p><ul><li>哪些内存需要回收？</li><li>什么时候回收？</li><li>如何回收？</li></ul></li><li><p>垃圾收集机制是Java的招牌能力，<strong>极大地提高了开发效率</strong>。如今，垃圾收集几乎成为现代语言的标配，即使经过如此长时间的发展，Java的垃圾收集机制仍然在不断的演进中，不同大小的设备、不同特征的应用场景，对垃圾收集提出了新的挑战，这当然也是<strong>面试的热点</strong>。</p></li></ul><p><strong>常见面试题</strong></p><ul><li>你知道哪几种垃圾回收器，各自的优缺点，重点讲一下CMS和G1？</li><li>JVM GC算法有哪些，目前的JDK版本采用什么回收算法？</li><li>G1回收器讲下回收过程GC是什么？为什么要有GC？</li><li>GC的两种判定方法？CMS收集器与G1收集器的特点</li><li>说一下GC算法，分代回收说下</li><li>垃圾收集策略和算法</li><li>JVM GC原理，JVM怎么回收内存</li><li>CMS特点，垃圾回收算法有哪些？各自的优缺点，他们共同的缺点是什么？</li><li>Java的垃圾回收器都有哪些，说下G1的应用场景，平时你是如何搭配使用垃圾回收器的</li><li>你知道哪几种垃圾收集器，各自的优缺点，重点讲下CMS和G1，</li><li>包括原理，流程，优缺点。垃圾回收算法的实现原理</li><li>讲一讲垃圾回收算法。</li><li>什么情况下触发垃圾回收？</li><li>如何选择合适的垃圾收集算法？</li><li>JVM有哪三种垃圾回收器？</li><li>常见的垃圾回收器算法有哪些，各有什么优劣？</li><li>System.gc()和Runtime.gc()会做什么事情？</li><li>Java GC机制？GC Roots有哪些？</li><li>Java对象的回收方式，回收算法。</li><li>CMS和G1了解么，CMS解决什么问题，说一下回收的过程。</li><li>CMS回收停顿了几次，为什么要停顿两次?</li></ul><h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1-概述"></a>1-概述</h2><p><strong>什么是垃圾</strong></p><ul><li>垃圾是指<strong>在运行程序中没有任何指针指向的对象</strong>，这个对象就是需要被回收的垃圾。</li><li>外文：An object is considered garbage when it can no longer be reached from any pointer in the running program.</li><li>如果不及时对内存中的垃圾进行清理，那么，这些垃圾对象所占的内存空间会一直保留到应用程序结束，被保留的空间无法被其他对象使用。甚至可能<strong>导致内存溢出</strong>。</li></ul><p><strong>为什么需要GC</strong></p><ul><li><p>对于高级语言来说，一个基本认知是如果不进行垃圾回收，<strong>内存迟早都会被消耗完</strong>，因为不断地分配内存空间而不进行回收，就好像不停地生产生活垃圾而从来不打扫一样。</p></li><li><p>除了释放没用的对象，垃圾回收也可以清除内存里的记录碎片。碎片整理将所占用的堆内存移到堆的一端，<strong>以便JVM将整理出的内存分配给新的对象</strong>。</p></li><li><p>随着应用程序所应付的业务越来越庞大、复杂，用户越来越多，<strong>没有GC就不能保证应用程序的正常进行</strong>。而经常造成STW的GC又跟不上实际的需求，所以才会不断地尝试对GC进行优化。</p></li></ul><p><strong>早期垃圾回收</strong></p><ul><li>在早期的C&#x2F;C++时代，垃圾回收基本上是手工进行的。开发人员可以使用new关键字进行内存申请，并使用delete关键字进行内存释放。比如以下代码：</li></ul><pre class="line-numbers language-c" data-language="c"><code class="language-c">MibBridge <span class="token operator">*</span> pBridge<span class="token operator">=</span> new <span class="token function">cmBaseGroupBridge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//如果注册失败，使用Delete释放该对象所占内存区域</span><span class="token keyword">if</span><span class="token punctuation">(</span>pBridge<span class="token operator">-></span><span class="token function">Register</span><span class="token punctuation">(</span>kDestroy<span class="token punctuation">)</span><span class="token operator">!=</span>NO ERROR<span class="token punctuation">)</span>    delete pBridge<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><ul><li>这种方式可以灵活控制内存释放的时间，但是会给开发人员带来<strong>频繁申请和释放内存的管理负担</strong>。倘若有一处内存区间由于程序员编码的问题忘记被回收，那么就会产生<strong>内存泄漏</strong>，垃圾对象永远无法被清除，随着系统运行时间的不断增长，垃圾对象所耗内存可能持续上升，直到出现内存溢出并造成<strong>应用程序崩溃</strong>。</li><li>有了垃圾回收机制后，上述代码极有可能变成这样</li></ul><pre class="line-numbers language-c" data-language="c"><code class="language-c">MibBridge <span class="token operator">*</span> pBridge<span class="token operator">=</span>new <span class="token function">cmBaseGroupBridge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>pBridge<span class="token operator">-></span><span class="token function">Register</span><span class="token punctuation">(</span>kDestroy<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><ul><li>现在，除了Java以外，C#、Python、Ruby等语言都使用了自动垃圾回收的思想，也是未来发展趋势，可以说这种自动化的内存分配和来及回收方式已经成为了现代开发语言必备的标准。</li></ul><p><strong>Java垃圾回收机制</strong></p><p><strong>官网介绍</strong>：<a href="https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/toc.html">https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/toc.html</a></p><ul><li><p>自动内存管理，无需开发人员手动参与内存的分配与回收，这样<strong>降低内存泄漏和内存溢出的风险</strong></p><ul><li>没有垃圾回收器，java也会和cpp一样，各种悬垂指针，野指针，泄露问题让你头疼不已。</li></ul></li><li><p>自动内存管理机制，将程序员从繁重的内存管理中释放出来，可以<strong>更专心地专注于业务开发</strong></p></li></ul><p><strong>自动内存管理的担忧</strong></p><ul><li>对于Java开发人员而言，自动内存管理就像是一个黑匣子，如果过度依赖于”自动”，那么这将会是一场灾难，最严重的就会<strong>弱化Java开发人员在程序出现内存溢出时定位问题和解决问题的能力</strong>。</li><li>此时，了解JVM的自动内存分配和内存回收原理就显得非常重要，只有在真正了解JVM是如何管理内存后，我们才能够在遇见OutofMemoryError时，快速地根据错误异常日志定位问题和解决问题。</li><li>当需要排查各种内存溢出、内存泄漏问题时，当垃圾收集成为系统达到更高并发量的瓶颈时，我们就必须对这些“自动化”的技术<strong>实施必要的监控和调节</strong>。</li></ul><p><strong>关心区域</strong></p><ul><li><p>垃圾收集器可以对年轻代回收，也可以对老年代回收，甚至是全栈和方法区的回收，</p><ul><li>其中，<strong>Java堆是垃圾收集器的工作重点</strong></li></ul></li><li><p>从次数上讲：</p><ul><li><p>频繁收集Young区</p></li><li><p>较少收集Old区</p></li><li><p>基本不收集Perm区（元空间）</p></li></ul></li></ul><h2 id="2-标记阶段-引用基数算法"><a href="#2-标记阶段-引用基数算法" class="headerlink" title="2-标记阶段: 引用基数算法"></a>2-标记阶段: 引用基数算法</h2><h3 id="对象存活判断"><a href="#对象存活判断" class="headerlink" title="对象存活判断"></a>对象存活判断</h3><ul><li>在堆里存放着几乎所有的Java对象实例，在GC执行垃圾回收之前，首先<strong>需要区分出内存中哪些是存活对象，哪些是已经死亡的对象。</strong>只有被标记为己经死亡的对象，GC才会在执行垃圾回收时，释放掉其所占用的内存空间，因此这个过程我们可以称为<strong>垃圾标记阶段</strong>。</li><li>那么在JVM中究竟是如何标记一个死亡对象呢？简单来说，当一个对象已经不再被任何的存活对象继续引用时，就可以宣判为已经死亡。</li><li>判断对象存活一般有两种方式：<strong>引用计数算法</strong>和<strong>可达性分析算法</strong>。</li></ul><h3 id="方式一-引用计数算法"><a href="#方式一-引用计数算法" class="headerlink" title="方式一: 引用计数算法"></a>方式一: 引用计数算法</h3><ul><li><p>引用计数算法（Reference Counting）比较简单，对每个对象保存一个整型的<strong>引用计数器属性。用于记录对象被引用的情况</strong>。</p></li><li><p>对于一个对象A，只要有任何一个对象引用了A，则A的引用计数器就加1；当引用失效时，引用计数器就减1。只要对象A的引用计数器的值为0，即表示对象A不可能再被使用，可进行回收。</p></li><li><p>优点：<strong>实现简单，垃圾对象便于辨识；判定效率高，回收没有延迟性</strong>。</p></li><li><p>缺点：</p><ul><li><p>它需要单独的字段存储计数器，这样的做法增加了<strong>存储空间的开销</strong>。</p></li><li><p>每次赋值都需要更新计数器，伴随着加法和减法操作，这增加了<strong>时间开销</strong>。</p></li><li><p>引用计数器有一个严重的问题，即<strong>无法处理循环引用</strong>的情况。这是一条<strong>致命缺陷</strong>，导致在Java的垃圾回收器中没有使用这类算法。</p></li></ul></li></ul><p><img src="/2023/12/24/jvm-sgg10/image-20231224192541616.png" alt="循环引用"></p><p><strong>小结</strong></p><ul><li>引用计数算法，是很多语言的资源回收选择，例如因人工智能而更加火热的Python，它更是同时支持引用计数和垃圾收集机制。</li><li>具体哪种最优是要看场景的，业界有大规模实践中仅保留引用计数机制，以提高吞吐量的尝试。</li><li>Java并没有选择引用计数，是因为其存在一个基本的难题，也就是很难处理循环引用关系。</li><li>Python如何解决循环引用？<ul><li>手动解除：很好理解，就是在合适的时机，解除引用关系。</li><li>使用弱引用weakref，weakref是Python提供的标准库，旨在解决循环引用。</li></ul></li></ul><h2 id="3-标记阶段-可达性分析算法"><a href="#3-标记阶段-可达性分析算法" class="headerlink" title="3-标记阶段: 可达性分析算法"></a>3-标记阶段: 可达性分析算法</h2><blockquote><p>根搜索算法、追踪性垃圾收集</p></blockquote><ul><li>相对于引用计数算法而言，可达性分析算法不仅同样具备实现简单和执行高效等特点，更重要的是该算法可以有效地<strong>解决在引用计数算法中循环引用的问题，防止内存泄漏的发生</strong>。</li><li>相较于引用计数算法，这里的可达性分析就是Java、C#选择的。这种类型的垃圾收集通常也叫作<strong>追踪性垃圾收集</strong>（Tracing Garbage Collection）</li></ul><h3 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h3><ul><li>所谓”GCRoots”根集合就是一组必须活跃的引用</li><li>其基本思路如下：</li></ul><ol><li>可达性分析算法是以根对象集合（GCRoots）为起始点，按照从上至下的方式<strong>搜索被根对象集合所连接的目标对象是否可达。</strong></li><li>使用可达性分析算法后，内存中的存活对象都会被根对象集合直接或间接连接着，搜索所走过的路径称为<strong>引用链</strong>（Reference Chain）</li><li>如果目标对象没有任何引用链相连，则是不可达的，就意味着该对象己经死亡，可以标记为垃圾对象。</li><li>在可达性分析算法中，只有能够被根对象集合直接或者间接连接的对象才是存活对象。</li></ol><p><img src="/2023/12/24/jvm-sgg10/image-20231224193322411.png"></p><h3 id="GC-Roots"><a href="#GC-Roots" class="headerlink" title="GC Roots"></a>GC Roots</h3><p><strong>在Java 语言中, GC Roots 包括一下几类元素(面试)</strong></p><ul><li>虚拟机栈中引用的对象<ul><li>比如：各个线程被调用的方法中使用到的参数、局部变量等。</li></ul></li><li>本地方法栈内JNI（通常说的本地方法）引用的对象</li><li>方法区中类静态属性引用的对象<ul><li>比如：Java类的引用类型静态变量</li></ul></li><li>方法区中常量引用的对象<ul><li>比如：字符串常量池（StringTable）里的引用</li></ul></li><li>所有被同步锁synchronized持有的对象</li><li>Java虚拟机内部的引用。<ul><li>基本数据类型对应的Class对象，一些常驻的异常对象（如：NullPointerException、OutofMemoryError），系统类加载器。</li></ul></li><li>反映java虚拟机内部情况的JMXBean、JVMTI中注册的回调、本地代码缓存等。</li></ul><h2 id="4-对象的finalization机制"><a href="#4-对象的finalization机制" class="headerlink" title="4-对象的finalization机制"></a>4-对象的finalization机制</h2><h2 id="5-MAT与JProfiler的GC-Roots溯源"><a href="#5-MAT与JProfiler的GC-Roots溯源" class="headerlink" title="5-MAT与JProfiler的GC Roots溯源"></a>5-MAT与JProfiler的GC Roots溯源</h2><h2 id="6-清除阶段-标记-清除算法"><a href="#6-清除阶段-标记-清除算法" class="headerlink" title="6-清除阶段: 标记-清除算法"></a>6-清除阶段: 标记-清除算法</h2><h2 id="7-清除阶段-复制算法"><a href="#7-清除阶段-复制算法" class="headerlink" title="7-清除阶段: 复制算法"></a>7-清除阶段: 复制算法</h2><h2 id="8-清除阶段-标记-压缩算法"><a href="#8-清除阶段-标记-压缩算法" class="headerlink" title="8-清除阶段: 标记-压缩算法"></a>8-清除阶段: 标记-压缩算法</h2><h2 id="9-小结"><a href="#9-小结" class="headerlink" title="9-小结"></a>9-小结</h2><h2 id="10-分代收集算法"><a href="#10-分代收集算法" class="headerlink" title="10-分代收集算法"></a>10-分代收集算法</h2><h2 id="11-增量收集算法、分区算法"><a href="#11-增量收集算法、分区算法" class="headerlink" title="11-增量收集算法、分区算法"></a>11-增量收集算法、分区算法</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> program </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JVM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JVM-09-StringTable</title>
       <link href="/2023/12/23/jvm-sgg9/"/>
       <url>/2023/12/23/jvm-sgg9/</url>
@@ -738,9 +763,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> JUC </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -790,9 +815,9 @@
       
         <tags>
             
-            <tag> safe </tag>
-            
             <tag> Java </tag>
+            
+            <tag> safe </tag>
             
         </tags>
       
