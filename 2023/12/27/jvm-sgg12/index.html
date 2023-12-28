@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="jvm-sgg12, SaddyFire">
-    <meta name="description" content="jvm-sgg12">
+    <meta name="keywords" content="JVM-12-垃圾回收器, SaddyFire">
+    <meta name="description" content="垃圾回收器">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>jvm-sgg12 | SaddyFire</title>
+    <title>JVM-12-垃圾回收器 | SaddyFire</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -267,7 +267,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">jvm-sgg12</h1>
+                    <h1 class="description center-align post-title">JVM-12-垃圾回收器</h1>
                 </div>
             </div>
         </div>
@@ -323,21 +323,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-27
+                    2023-12-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    162
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    9 分
                 </div>
                 
 
@@ -368,7 +368,162 @@
 <li><p>从不同角度分析垃圾收集器，可以将GC分为不同的类型。</p>
 </li>
 </ul>
-<h2 id="不同的垃圾回收器概述"><a href="#不同的垃圾回收器概述" class="headerlink" title="不同的垃圾回收器概述"></a>不同的垃圾回收器概述</h2><h2 id="Serial-回收器：串行回收"><a href="#Serial-回收器：串行回收" class="headerlink" title="Serial 回收器：串行回收"></a>Serial 回收器：串行回收</h2><h2 id="ParNew-回收器：并行回收"><a href="#ParNew-回收器：并行回收" class="headerlink" title="ParNew 回收器：并行回收"></a>ParNew 回收器：并行回收</h2><h2 id="Parallel-回收器：吞吐量优先"><a href="#Parallel-回收器：吞吐量优先" class="headerlink" title="Parallel 回收器：吞吐量优先"></a>Parallel 回收器：吞吐量优先</h2><h2 id="CMS-回收器：低延迟"><a href="#CMS-回收器：低延迟" class="headerlink" title="CMS 回收器：低延迟"></a>CMS 回收器：低延迟</h2><h2 id="G1-回收器：区域化分代式"><a href="#G1-回收器：区域化分代式" class="headerlink" title="G1 回收器：区域化分代式"></a>G1 回收器：区域化分代式</h2><h2 id="垃圾回收器总结"><a href="#垃圾回收器总结" class="headerlink" title="垃圾回收器总结"></a>垃圾回收器总结</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+<p><strong>Java不同版本新特性</strong></p>
+<ul>
+<li>语法层面：Lambda表达式、switch、自动拆箱装箱、enum、泛型</li>
+<li>API层面：Stream API、新的日期时间、Optional、String、集合框架</li>
+<li>底层优化：JVM优化、GC的变化、元空间、静态域、字符串常量池等</li>
+</ul>
+<h3 id="垃圾回收器分类"><a href="#垃圾回收器分类" class="headerlink" title="垃圾回收器分类"></a>垃圾回收器分类</h3><p><strong>按线程数分（垃圾回收线程数），可以分为串行垃圾回收器和并行垃圾回收器。</strong></p>
+<p><img src="/2023/12/27/jvm-sgg12/image-20231228202447472.png"></p>
+<ul>
+<li><p>串行回收指的是在同一时间段内只允许有一个CPU用于执行垃圾回收操作，此时工作线程被暂停，直至垃圾收集工作结束。</p>
+<ul>
+<li><p>在诸如单CPU处理器或者较小的应用内存等硬件平台不是特别优越的场合，串行回收器的性能表现可以超过并行回收器和并发回收器。所以，<strong>串行回收默认被应用在客户端的Client模式下的JVM中</strong></p>
+</li>
+<li><p>在并发能力比较强的CPU上，并行回收器产生的停顿时间要短于串行回收器</p>
+</li>
+</ul>
+</li>
+<li><p>和串行回收相反，并行收集可以运用多个CPU同时执行垃圾回收，因此提升了应用的吞吐量，不过并行回收仍然与串行回收一样，采用独占式，使用了”Stop-the-Worl”机制。</p>
+</li>
+</ul>
+<p><strong>按照<em>工作模式</em>分，可以分为并发式垃圾回收器和独占式垃圾回收器</strong></p>
+<ul>
+<li>并发式垃圾回收器与应用程序线程交替工作，以尽可能减少应用程序的停顿时间。</li>
+<li>独占式垃圾回收器（Stop the World）一旦运行，就停止应用程序中的所有用户线程，直到垃圾回收过程完全结束。</li>
+</ul>
+<p><img src="/2023/12/27/jvm-sgg12/image-20231228202849855.png"></p>
+<p><strong>按<em>碎片处理方式</em>分，可分为压缩式垃圾回收器和非压缩式垃圾回收器。</strong></p>
+<ul>
+<li>压缩式垃圾回收器会在回收完成后，对存活对象进行压缩整理，消除回收后的碎片。<ul>
+<li>再分配对象空间使用: 指针碰撞</li>
+</ul>
+</li>
+<li>非压缩式的垃圾回收器不进行这步操作，<ul>
+<li>分配对象空间使用: 空闲列表</li>
+</ul>
+</li>
+</ul>
+<p><strong>按<em>工作的内存区间</em>分，又可分为年轻代垃圾回收器和老年代垃圾回收器。</strong></p>
+<h3 id="评估-GC-的性能指标"><a href="#评估-GC-的性能指标" class="headerlink" title="评估 GC 的性能指标"></a>评估 GC 的性能指标</h3><ul>
+<li><p><strong>吞吐量：运行用户代码的时间占总运行时间的比例</strong></p>
+<ul>
+<li>（总运行时间 &#x3D; 程序的运行时间 + 内存回收的时间）a&#x2F;(a+b)</li>
+</ul>
+</li>
+<li><p>垃圾收集开销：吞吐量的补数，垃圾收集所用时间与总运行时间的比例。b&#x2F;(a+b)</p>
+</li>
+<li><p><strong>暂停时间：执行垃圾收集时，程序的工作线程被暂停的时间。</strong></p>
+</li>
+<li><p>收集频率：相对于应用程序的执行，收集操作发生的频率。</p>
+</li>
+<li><p><strong>内存占用：Java堆区所占的内存大小。</strong></p>
+</li>
+<li><p>快速：一个对象从诞生到被回收所经历的时间。</p>
+</li>
+<li><p>&lt;吞吐量、暂停时间、内存占用&gt;这三者共同构成一个“不可能三角”。三者总体的表现会随着技术进步而越来越好。一款优秀的收集器通常最多同时满足其中的两项。</p>
+</li>
+<li><p>这三项里，暂停时间的重要性日益凸显。因为随着硬件发展，内存占用多些越来越能容忍，硬件性能的提升也有助于降低收集器运行时对应用程序的影响，即提高了吞吐量。而内存的扩大，对延迟反而带来负面效果。</p>
+</li>
+<li><p>简单来说，主要抓住两点：</p>
+<ul>
+<li>吞吐量</li>
+<li>暂停时间</li>
+</ul>
+</li>
+</ul>
+<h3 id="吞吐量-throughput"><a href="#吞吐量-throughput" class="headerlink" title="吞吐量(throughput)"></a>吞吐量(throughput)</h3><ul>
+<li>吞吐量就是CPU用于运行用户代码的时间与CPU总消耗时间的比值，即吞吐量&#x3D;运行用户代码时间 &#x2F;（运行用户代码时间+垃圾收集时间）<ul>
+<li>比如：虚拟机总共运行了100分钟，其中垃圾收集花掉1分钟，那吞吐量就是99%。</li>
+</ul>
+</li>
+<li>这种情况下，应用程序能容忍较高的暂停时间，因此，高吞吐量的应用程序有更长的时间基准，快速响应是不必考虑的</li>
+<li>吞吐量优先，意味着在单位时间内，STW的时间最短：0.2+0.2&#x3D;0.4</li>
+</ul>
+<p><img src="/2023/12/27/jvm-sgg12/image-20231228204813437.png"></p>
+<h3 id="暂停时间（pause-time）"><a href="#暂停时间（pause-time）" class="headerlink" title="暂停时间（pause time）"></a>暂停时间（pause time）</h3><ul>
+<li>“暂停时间”是指一个时间段内应用程序线程暂停，让GC线程执行的状态。<ul>
+<li>例如，GC期间100毫秒的暂停时间意味着在这100毫秒期间内没有应用程序线程是活动的</li>
+</ul>
+</li>
+<li>暂停时间优先，意味着尽可能让单次STW的时间最短：0.1+0.1 + 0.1+ 0.1+ 0.1&#x3D;0.5，但是总的GC时间可能会长</li>
+</ul>
+<p><img src="/2023/12/27/jvm-sgg12/image-20231228204946960.png"></p>
+<h3 id="吞吐量-vs-暂停时间"><a href="#吞吐量-vs-暂停时间" class="headerlink" title="吞吐量 vs 暂停时间"></a>吞吐量 vs 暂停时间</h3><ul>
+<li><p><strong>高吞吐量较好</strong>因为这会让应用程序的最终用户感觉只有应用程序线程在做“生产性”工作。直觉上，吞吐量越高程序运行越快。</p>
+</li>
+<li><p>低暂停时间（低延迟）较好，是从最终用户的角度来看，不管是GC还是其他原因导致一个应用被挂起始终是不好的。这取决于应用程序的类型，有时候甚至短暂的200毫秒暂停都可能打断终端用户体验。因此，具有较低的暂停时间是非常重要的，特别是对于一个交互式应用程序（就是和用户交互比较多的场景）。</p>
+</li>
+<li><p>不幸的是”高吞吐量”和”低暂停时间”是一对相互竞争的目标（矛盾）。</p>
+<ul>
+<li>因为如果选择以吞吐量优先，那么<strong>必然需要降低内存回收的执行频率</strong>，但是这样会导致GC需要更长的暂停时间来执行内存回收。</li>
+<li>相反的，如果选择以低延迟优先为原则，那么为了降低每次执行内存回收时的暂停时间，也只能频繁地执行内存回收，但这又引起了年轻代内存的缩减和导致程序吞吐量的下降。</li>
+</ul>
+</li>
+<li><p>在设计（或使用）GC算法时，我们必须确定我们的目标：一个GC算法只可能针对两个目标之一（即只专注于较大吞吐量或最小暂停时间），或尝试找到一个二者的折衷。</p>
+</li>
+<li><p>现在标准：<strong>在最大吞吐量优先的情况下，降低停顿时间</strong></p>
+</li>
+</ul>
+<h2 id="不同的垃圾回收器概述"><a href="#不同的垃圾回收器概述" class="headerlink" title="不同的垃圾回收器概述"></a>不同的垃圾回收器概述</h2><ul>
+<li>垃圾收集机制是Java的招牌能力，极大地提高了开发效率。这当然也是面试的热点。</li>
+<li>那么，Java常见的垃圾收集器有哪些？(面试)</li>
+</ul>
+<h3 id="垃圾收集器发展史"><a href="#垃圾收集器发展史" class="headerlink" title="垃圾收集器发展史"></a>垃圾收集器发展史</h3><p>有了虚拟机，就一定需要收集垃圾的机制，这就是Garbage Collection，对应的产品我们称为Garbage Collector。</p>
+<ul>
+<li>1999年随JDK1.3.1一起来的是串行方式的Serial GC，它是第一款GC。ParNew垃圾收集器是Serial收集器的多线程版本</li>
+<li>2002年2月26日，Parallel GC和Concurrent Mark Sweep GC跟随JDK1.4.2一起发布·</li>
+<li>Parallel GC在JDK6之后成为HotSpot默认GC。</li>
+<li>2012年，在JDK1.7u4版本中，G1可用。</li>
+<li>2017年，JDK9中G1变成默认的垃圾收集器，以替代CMS。</li>
+<li>2018年3月，JDK10中G1垃圾回收器的并行完整垃圾回收，实现并行性来改善最坏情况下的延迟。</li>
+<li>2018年9月，JDK11发布。引入Epsilon 垃圾回收器，又被称为 “No-Op(无操作)“ 回收器。同时，引入ZGC：可伸缩的低延迟垃圾回收器（Experimental）</li>
+<li>2019年3月，JDK12发布。增强G1，自动返回未用堆内存给操作系统。同时，引入Shenandoah GC：低停顿时间的GC（Experimental）。</li>
+<li>2019年9月，JDK13发布。增强ZGC，自动返回未用堆内存给操作系统。</li>
+<li>2020年3月，JDK14发布。删除CMS垃圾回收器。扩展ZGC在macOS和Windows上的应用</li>
+</ul>
+<h3 id="7款经典的垃圾收集器"><a href="#7款经典的垃圾收集器" class="headerlink" title="7款经典的垃圾收集器"></a>7款经典的垃圾收集器</h3><ul>
+<li>串行回收器：Serial、Serial old</li>
+<li>并行回收器：ParNew、Parallel Scavenge、Parallel old</li>
+<li>并发回收器：CMS、G1</li>
+</ul>
+<p><img src="/2023/12/27/jvm-sgg12/image-20231228210058640.png"></p>
+<p><img src="/2023/12/27/jvm-sgg12/image-20231228210155372.png" alt="7款经典回收器与垃圾分代之间的关系"></p>
+<ul>
+<li><p>新生代收集器：Serial、ParNew、Parallel Scavenge；</p>
+</li>
+<li><p>老年代收集器：Serial old、Parallel old、CMS；</p>
+</li>
+<li><p>整堆收集器：G1；</p>
+</li>
+</ul>
+<p><img src="/2023/12/27/jvm-sgg12/image-20231228210348873.png" alt="垃圾回收器的组合关系"></p>
+<ol>
+<li>两个收集器间有连线，表明它们可以搭配使用：<ul>
+<li>Serial&#x2F;Serial old</li>
+<li>Serial&#x2F;CMS    （JDK9废弃）</li>
+<li>ParNew&#x2F;Serial Old （JDK9废弃）</li>
+<li>ParNew&#x2F;CMS</li>
+<li>Parallel Scavenge&#x2F;Serial Old  （预计废弃）</li>
+<li>Parallel Scavenge&#x2F;Parallel Old</li>
+<li>G1</li>
+</ul>
+</li>
+<li>其中Serial Old作为CMS出现”Concurrent Mode Failure”失败的后备预案。</li>
+<li>（红色虚线）由于维护和兼容性测试的成本，在JDK 8时将Serial+CMS、ParNew+Serial Old这两个组合声明为废弃（JEP173），并在JDK9中完全取消了这些组合的支持（JEP214），即：移除。</li>
+<li>（绿色虚线）JDK14中：弃用Parallel Scavenge和Serial Old GC组合（JEP366）</li>
+<li>（青色虚线）JDK14中：删除CMS垃圾回收器（JEP363）</li>
+</ol>
+<ul>
+<li>为什么要有很多收集器，一个不够吗？因为Java的使用场景很多，移动端，服务器等。所以就需要针对不同的场景，提供不同的垃圾收集器，提高垃圾收集的性能。</li>
+<li>虽然我们会对各个收集器进行比较，但并非为了挑选一个最好的收集器出来。没有一种放之四海皆准、任何场景下都适用的完美收集器存在，更加没有万能的收集器。所以<strong>我们选择的只是对具体应用最合适的收集器</strong>。</li>
+</ul>
+<h3 id="查看默认垃圾收集器"><a href="#查看默认垃圾收集器" class="headerlink" title="查看默认垃圾收集器"></a>查看默认垃圾收集器</h3><ul>
+<li><code>-XX:+PrintCommandLineFlags</code>：查看命令行相关参数（包含使用的垃圾收集器）</li>
+<li>使用命令行指令：<code>jinfo -flag</code> 相关垃圾回收器参数 进程ID</li>
+</ul>
+<h2 id="Serial-回收器：串行回收"><a href="#Serial-回收器：串行回收" class="headerlink" title="Serial 回收器：串行回收"></a>Serial 回收器：串行回收</h2><h2 id="ParNew-回收器：并行回收"><a href="#ParNew-回收器：并行回收" class="headerlink" title="ParNew 回收器：并行回收"></a>ParNew 回收器：并行回收</h2><h2 id="Parallel-回收器：吞吐量优先"><a href="#Parallel-回收器：吞吐量优先" class="headerlink" title="Parallel 回收器：吞吐量优先"></a>Parallel 回收器：吞吐量优先</h2><h2 id="CMS-回收器：低延迟"><a href="#CMS-回收器：低延迟" class="headerlink" title="CMS 回收器：低延迟"></a>CMS 回收器：低延迟</h2><h2 id="G1-回收器：区域化分代式"><a href="#G1-回收器：区域化分代式" class="headerlink" title="G1 回收器：区域化分代式"></a>G1 回收器：区域化分代式</h2><h2 id="垃圾回收器总结"><a href="#垃圾回收器总结" class="headerlink" title="垃圾回收器总结"></a>垃圾回收器总结</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2>
                 
             </div>
             <hr/>
@@ -484,15 +639,15 @@
                 <a href="/2023/12/27/jvm-sgg12/">
                     <div class="card-image">
                         
-                        <img src="/images/article/44.jpg" class="responsive-img" alt="jvm-sgg12">
+                        <img src="/images/article/44.jpg" class="responsive-img" alt="JVM-12-垃圾回收器">
                         
-                        <span class="card-title">jvm-sgg12</span>
+                        <span class="card-title">JVM-12-垃圾回收器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            jvm-sgg12
+                            垃圾回收器
                         
                     </div>
                     <div class="publish-info">

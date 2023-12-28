@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2023-12-27T15:17:54.841Z</updated>
+  <updated>2023-12-28T13:10:52.659Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>jvm-sgg12</title>
+    <title>JVM-12-垃圾回收器</title>
     <link href="https://www.saddyfire.cn/2023/12/27/jvm-sgg12/"/>
     <id>https://www.saddyfire.cn/2023/12/27/jvm-sgg12/</id>
     <published>2023-12-27T15:13:03.000Z</published>
-    <updated>2023-12-27T15:17:54.841Z</updated>
+    <updated>2023-12-28T13:10:52.659Z</updated>
     
     
       
