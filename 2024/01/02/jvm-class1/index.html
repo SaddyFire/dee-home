@@ -323,21 +323,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-01-04
+                    2024-01-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.1k
+                    11.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    33 分
+                    42 分
                 </div>
                 
 
@@ -1429,14 +1429,467 @@
 </tbody></table>
 <p><img src="/2024/01/02/jvm-class1/image-20240104233558080.png" alt="字节码解析"></p>
 <h3 id="属性表集合"><a href="#属性表集合" class="headerlink" title="属性表集合"></a>属性表集合</h3><p><strong>属性表集合(attributes)</strong></p>
-<p>方法表集合之后的属性表集合，<strong>指的是Class文件所携带的辅助信息</strong>，比如该Class文件的源文件的名称。以及任何带有RetentionPolicy.CLASS或者RetentionPolicy.RUNTIME的注解。这类信息通常被用于Java虚拟机的验证和运行，以及Java程序的调试，<strong>一般无须深入了解</strong>。</p>
+<p>方法表集合之后的属性表集合，<strong>指的是Class文件所携带的辅助信息</strong>，比如该Class文件的源文件的名称。以及任何带有RetentionPolicy.CLASS 或者 RetentionPolicy.RUNTIME 的注解。这类信息通常被用于 Java 虚拟机的验证和运行，以及 Java 程序的调试，<strong>一般无须深入了解</strong>。</p>
 <p>此外，字段表、方法表都可以有自己的属性表。用于描述某些场景专有的信息。</p>
-<p>属性表集合的限制没有那么严格，不再要求各个属性表具有严格的顺序，并且只要不与己有的属性名重复，任何人实现的编译器<br>都可以向属性表中写入自己定义的属性信息，但Java虚拟机运行时会忽略掉它不认识的属性。</p>
+<p>属性表集合的限制没有那么严格，不再要求各个属性表具有严格的顺序，并且只要不与已有的属性名重复，任何人实现的编译器<br>都可以向属性表中写入自己定义的属性信息，但 Java 虚拟机运行时会忽略掉它不认识的属性。</p>
 <h4 id="attributes-count-属性计数器"><a href="#attributes-count-属性计数器" class="headerlink" title="attributes_count (属性计数器)"></a>attributes_count (属性计数器)</h4><p>attributes_count 的值表示当前 Class 文件属性表的成员个数. 属性表中每一项都是一个attribute_info结构</p>
+<h4 id="attributes-属性表"><a href="#attributes-属性表" class="headerlink" title="attributes [ ] (属性表)"></a>attributes [ ] (属性表)</h4><p>属性表的每个项的值必须是attribute_info结构, 属性表的结构比较灵活, 各种不同的属性只要满足以下结构即可.</p>
+<ul>
+<li>属性的通用格式</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>名称</th>
+<th>数量</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>u2</td>
+<td>attribute_name_index</td>
+<td>1</td>
+<td>属性名索引</td>
+</tr>
+<tr>
+<td>u4</td>
+<td>attribute_length</td>
+<td>1</td>
+<td>属性长度</td>
+</tr>
+<tr>
+<td>u1</td>
+<td>info</td>
+<td>attribute_length</td>
+<td>属性表</td>
+</tr>
+</tbody></table>
+<ul>
+<li>属性类型</li>
+</ul>
+<p>属性表实际上可以有很多类型, 上面看到的Code属性只是其中一种, Java8里面定义了23中属性.</p>
+<p>下面这些事虚拟机中预定义的属性:</p>
+<table>
+<thead>
+<tr>
+<th>属性名称</th>
+<th>使用位置</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Code</td>
+<td>方法表</td>
+<td>Java代码编译成的字节码指令</td>
+</tr>
+<tr>
+<td>ConstantValue</td>
+<td>字段表</td>
+<td>final关键字定义的常量池</td>
+</tr>
+<tr>
+<td>Deprecated</td>
+<td>类、方法、字段表</td>
+<td>被声明为deprecated的方法和字段</td>
+</tr>
+<tr>
+<td>Exceptions</td>
+<td>方法表</td>
+<td>方法抛出的异常</td>
+</tr>
+<tr>
+<td>EnclosingMethod</td>
+<td>类文件</td>
+<td>仅当一个类为局部类或者匿名类是才能拥有这个属性, 这个属性用于标识这个类所在的外圈方法</td>
+</tr>
+<tr>
+<td>InnerClass</td>
+<td>类文件</td>
+<td>内部类列表</td>
+</tr>
+<tr>
+<td>LineNumberTable</td>
+<td>Code属性</td>
+<td>Java源码的行号与字节码指令的对应关系</td>
+</tr>
+<tr>
+<td>LocalVariableTable</td>
+<td>Code属性</td>
+<td>方法的局部变量描述</td>
+</tr>
+<tr>
+<td>StackMapTable</td>
+<td>Code属性</td>
+<td>JDK1.6中新增的属性, 供新的类型检查检验器检查和处理目标方法的局部变量和操作数有所需要的类是否匹配</td>
+</tr>
+<tr>
+<td>Signature</td>
+<td>类、方法表、字段表</td>
+<td>用于支持泛型情况下的方法签名</td>
+</tr>
+<tr>
+<td>SourceFile</td>
+<td>类文件</td>
+<td>记录源文件名称</td>
+</tr>
+<tr>
+<td>SourceDebugExtension</td>
+<td>类文件</td>
+<td>用于存储额外的调试信息</td>
+</tr>
+<tr>
+<td>Synthetic</td>
+<td>类、方法表、字段表</td>
+<td>标志方法或字段为编译器自动生成的</td>
+</tr>
+<tr>
+<td>LocalVariableTypeTable</td>
+<td>类</td>
+<td>使用特征签名代替描述符, 是为了引入泛型语法之后能描述泛型参数化类型而添加</td>
+</tr>
+<tr>
+<td>RuntimeVisibleAnnotations</td>
+<td>类、方法表、字段表</td>
+<td>为动态注解提供支持</td>
+</tr>
+<tr>
+<td>RuntimeInvisibleAnotations</td>
+<td>类、方法表、字段表</td>
+<td>用于指明哪些注解是运行时不可见的</td>
+</tr>
+<tr>
+<td>RuntimeVisibleParameterAnnotation</td>
+<td>方法表</td>
+<td>作用与RuntimeVisibleAnnotations属性类似, 只不过作用对象为方法</td>
+</tr>
+<tr>
+<td>RuntimeInvisibleParameterAnnotation</td>
+<td>方法表</td>
+<td>作用与RuntimeInvisibleAnotations属性类似, 作用对象哪个为方法参数</td>
+</tr>
+<tr>
+<td>AnnotationDefault</td>
+<td>方法表</td>
+<td>用于记录注解类元素的默认值</td>
+</tr>
+<tr>
+<td>BootstrapMethods</td>
+<td>类文件</td>
+<td>用于保存invokeddynamic指令引用的引导方式限定符</td>
+</tr>
+</tbody></table>
+<p>部分属性详解</p>
+<ol>
+<li>ConstantValue 属性<br>ConstantValue 属性表示一个常量字段的值, 位于 field_info 结构的属性表中</li>
+</ol>
+<pre class="line-numbers language-null" data-language="null"><code class="language-null">ConstantValue_attribute &#123;
+	u2 attribute_name_index;
+	u4 attribute_length;
+	u2 constantvalue_index; &#x2F;&#x2F; 字段值在常量池中的索引, 常量池在该索引处的项给出该属性表示的常量值 (例如, 值是long型的, 在常量池中便是 CONSTANT_Long)
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="2">
+<li>Deprecated 属性<br>Deprecated 属性是在 JDK1.1 为了支持注解中的关键词<code>@deprecated</code> 而引入的</li>
+</ol>
+<pre class="line-numbers language-null" data-language="null"><code class="language-null">Deprecated_attribute &#123;
+	u2 attribute_name_index;
+	u4 attribute_length;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="3">
+<li><p>Code 属性<br>Code 属性就是存放方法体里面的代码. 但是, 并非所有方法表都有 Code 属性. 像接口或者抽象方法, 他们没有具体的方法体, 因此也就不会有 Code 属性了.</p>
+<p>Code 属性表的结构, 如下图:</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>名称</th>
+<th>数量</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>u2</td>
+<td>attrubute_name_index</td>
+<td>1</td>
+<td>属性名索引</td>
+</tr>
+<tr>
+<td>u4</td>
+<td>attribute_length</td>
+<td>1</td>
+<td>属性长度</td>
+</tr>
+<tr>
+<td>u2</td>
+<td>max_stack</td>
+<td>1</td>
+<td>操作数栈深度的最大值</td>
+</tr>
+<tr>
+<td>u2</td>
+<td>max_locals</td>
+<td>1</td>
+<td>局部变量表所需的存续空间</td>
+</tr>
+<tr>
+<td>u4</td>
+<td>code_length</td>
+<td>1</td>
+<td>字节码指令的长度</td>
+</tr>
+<tr>
+<td>u1</td>
+<td>code</td>
+<td>code_length</td>
+<td>存储字节码指令</td>
+</tr>
+<tr>
+<td>u2</td>
+<td>exception_table_length</td>
+<td>1</td>
+<td>异常表长度</td>
+</tr>
+<tr>
+<td>exception_info</td>
+<td>exception_table</td>
+<td>exception_length</td>
+<td>异常表</td>
+</tr>
+<tr>
+<td>u2</td>
+<td>attributes_count</td>
+<td>1</td>
+<td>属性集合计数器</td>
+</tr>
+<tr>
+<td>attribute_info</td>
+<td>attributes</td>
+<td>attributes_count</td>
+<td>属性集合</td>
+</tr>
+</tbody></table>
+<p>可以看到: Code 属性表的前两项跟属性表是一致的, 即 Code 属性表遵循属性表的结构, 后面那些则是他自己定义的结构</p>
+<ol start="4">
+<li><p>InnerClasses 属性<br>为了方便说明特别定义一个表示类或接口的 Class 格式为 C 。如果 C 的常量池中包含某个CONSTANT_Class_info成员，且这个成员所表示的类或接口不属于任何一个包，那么 C 的 ClassFile 结构的属性表中就必须含有对应的 InnerClasses 属性。InnerClasses 属性是在 JDK1.1 中为了支持内部类和内部接口而引入的，位于ClassFile结构的属性表。</p>
+</li>
+<li><p>LineNumberTable 属性</p>
+<p>LineNumberTable 属性是可选变长属性, 位于 Code 结构的属性表</p>
+<p>LineNumberTable 属性是**用来描述 Java 源码行号与字节码行号之间的对应关系. **这个属性可以用来在调试的时候定位代码执行行的行数</p>
+<ul>
+<li><p>start_pc, 即字节码行号; line_number, 即 Java 源代码行号</p>
+<p> 在 Code 属性的属性表中, LineNumberTable 属性可以按照认意顺序出现, 此外, 多个LineNumberTable 属性可以共同表示一个行号在源文件中表示的内容, 即 LineNumberTable 属性不需要与源文件的行一一对应</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>​	LineNuberTable属性表结构</p>
+<pre class="line-numbers language-null" data-language="null"><code class="language-null">LineNumberTable_attribute &#123;
+	u2 attribute_name_inex;
+	u4 attribute_length;
+	u2 line_number_table_length:
+	&#123;
+		u2 start_pc;
+		u2 line_number;
+	&#125; line_number_table[line_number_table_length]
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="6">
+<li><p>LocalVariableTable 属性</p>
+<p>LocalVariableTable 是可选变长属性, 位于 Code 属性的属性表中. 它被调试器<strong>用于确定方法在执行过程中局部变量的而信息</strong></p>
+<p>在 Code 属性的属性表中, LocalVariableTable 属性可以按照任意顺序出现. Code 属性中的每个局部变量最多只能有一个 LocalVariableTable 属性</p>
+<ul>
+<li><code>start pc + length</code> 表示这个变量在字节码中的生命周期起始和结束的偏移位置 (this声明周期从头 0 到结尾 10)</li>
+<li>index 就是这个变量在局部变量表中的槽位 (槽位可复用)</li>
+<li>name 就是变量名称</li>
+<li>Descriptor 表示局部变量类型描述</li>
+</ul>
+<p>LocalVariabletable 属性表结构:</p>
+</li>
+</ol>
+<pre class="line-numbers language-null" data-language="null"><code class="language-null">LocalVariabletable_atribute &#123;
+	u2 attribute_name_index;
+	u4 attribute_length;
+	u2 local_variable_table_length:
+	&#123;
+		u2 start_pc;
+		u2 length;
+		u2 name_index;
+		u2 descriptor_index;
+		u2 index;
+	&#125; local_variable_table[local_variable_table_length];
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="7">
+<li><p>Signature 属性</p>
+<p>Signature 属性是可选的定长属性, 位于 ClassFile, field_info 或 method_info 结构的属性表中. 在 Java 语言中, 任何类、接口、初始化方法或成员的泛型签名如果包含了类型变量 (Type Variables) 或参数化类型 (Parameterized Types), 则 Signature 属性会为它记录泛型签名信息.</p>
+</li>
+<li><p>SourceFile 属性</p>
+<p>SourceFile 属性结构</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>名称</th>
+<th>数量</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>u2</td>
+<td>attribute_name_index</td>
+<td>1</td>
+<td>属性名索引</td>
+</tr>
+<tr>
+<td>u4</td>
+<td>attribute_length</td>
+<td>1</td>
+<td>属性长度</td>
+</tr>
+<tr>
+<td>u2</td>
+<td>sourcefile_index</td>
+<td>1</td>
+<td>源文件索引</td>
+</tr>
+</tbody></table>
+<ol start="9">
+<li><p>其他属性</p>
+<p>Java 虚拟机中预定义的属性有20多个, 这里不一一介绍, 通过上面几个属性的介绍, 只要领会其精髓, 其他属性的解读也是易如反掌</p>
+</li>
+</ol>
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>本章主要介绍了c1ass文件的基本格式。</p>
 <p>随着Java平台的不断发展，在将来，c1ass文件的内容也一定会做进一步的扩充，但是其基本的格式和结构不会做重大调整。</p>
 <p>从Java虚拟机的角度看，通过Class文件，可以让更多的计算机语言支持Java虚拟机平台。因此，Class文件结构不仅仅<br>是Java虚拟机的执行入口，更是Java生态圈的基础和核心。</p>
-<h2 id="04-使用javap指令解析Class文件"><a href="#04-使用javap指令解析Class文件" class="headerlink" title="04-使用javap指令解析Class文件"></a>04-使用javap指令解析Class文件</h2>
+<h2 id="04-使用javap指令解析Class文件"><a href="#04-使用javap指令解析Class文件" class="headerlink" title="04-使用javap指令解析Class文件"></a>04-使用javap指令解析Class文件</h2><p><strong>解析字节码的作用</strong></p>
+<ul>
+<li><p>通过反编译生成的字节码文件，我们可以深入的了解jva代码的工作机制。但是，自己分析类文件结构太麻烦了！除了使用第三方的jclasslib 工具之外，oracle 官方也提供了工具：javap。</p>
+</li>
+<li><p>javap 是 jdk 自带的反解析工具。它的作用就是根据 class 字节码文件，反解析出当前类对应的 code 区（字节码指令）局部变量表、异常表和代码行偏移量映射表、常量池等信息。</p>
+</li>
+<li><p>通过局部变量表，我们可以查看局部变量的作用域范围、所在槽位等信息，甚至可以看到槽位复用等信息。</p>
+</li>
+</ul>
+<p><strong><code>javac -g</code> 操作</strong></p>
+<ul>
+<li><p>解析字节码文件得到的信息中，有些信息（如局部变量表、指令和代码行偏移量映射表、常量池中方法的参数名称等<br>等)需要在使用 javac 编译成 class 文件时，指定参数才能输出。</p>
+</li>
+<li><p>比如，你直接 javac xx.java，就不会在生成对应的局部变量表等信息，如果你使用 <code>javac -g xx.java</code> 就可以生成<br>所有相关信息了。如果你使用的 eclipse 或 IDEA，则默认情况下，eclipse、IDEA在编译时会帮你生成局部变量表、指令和代码行移量映射表等信息的。</p>
+</li>
+</ul>
+<p><strong>javap 的用法</strong></p>
+<p><code>javap &lt;option&gt; &lt;classes&gt;</code></p>
+<p>其中, classes 就是要反编译的class文件.</p>
+<p>参数介绍:</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-version</td>
+<td>版本信息, 其实是当前 javap 所在 jdk 的版本信息, 不是 class 在哪个 jdk 下生成的</td>
+</tr>
+<tr>
+<td>-public</td>
+<td>仅显示公共类和成员</td>
+</tr>
+<tr>
+<td>-protected</td>
+<td>显示受保护的&#x2F;公共类和成员</td>
+</tr>
+<tr>
+<td>-p -private (常用)</td>
+<td>显示所有类和成员</td>
+</tr>
+<tr>
+<td>-package</td>
+<td>显示程序包&#x2F;受保护的&#x2F;公共类 和成员(默认)</td>
+</tr>
+<tr>
+<td>-sysinfo</td>
+<td>显示正在处理的类的系统信息(路径, 大小, 日期, MD5 散列, 源文件名)</td>
+</tr>
+<tr>
+<td>-constants</td>
+<td>显示静态最终常量</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>输出内部类型签名</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>输出行号和本地变量表</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>对代码进行反汇编</td>
+</tr>
+<tr>
+<td>-v -verbose (常用)</td>
+<td>输出附加信息(包括行号、本地变量表、反汇编等详细信息)</td>
+</tr>
+</tbody></table>
+<p><strong>代码举例</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JavapTest</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> num<span class="token punctuation">;</span>
+    <span class="token keyword">boolean</span> flag<span class="token punctuation">;</span>
+    <span class="token keyword">protected</span>  <span class="token keyword">char</span> gender<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> info<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token constant">COUNTS</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">static</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">String</span> url <span class="token operator">=</span> <span class="token string">"www.saddyfire.cn"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token punctuation">&#123;</span>
+        info <span class="token operator">=</span> <span class="token string">"java"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token class-name">JavapTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">private</span> <span class="token class-name">JavapTest</span><span class="token punctuation">(</span><span class="token keyword">boolean</span> flag<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>flag <span class="token operator">=</span> flag<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">methodPrivate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">int</span> <span class="token function">getNum</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> num <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">protected</span> <span class="token keyword">char</span> <span class="token function">showGender</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> gender<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">showInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>info <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/2024/01/02/jvm-class1/image-20240105232801444.png" alt="javap说明-1"></p>
+<p><img src="/2024/01/02/jvm-class1/image-20240105232949979.png" alt="javap说明-2"></p>
+<p><img src="/2024/01/02/jvm-class1/image-20240105233645915.png" alt="javap说明-3"></p>
+<p><strong>总结</strong></p>
+<ol>
+<li>通过javapt命令可以查看一个java类反汇编得到的Class.文件版本号、常量池、访问标识、变量表、指令代码行号表等等信息。不显示类索引、父类索引、接口索引集合、<code>&lt;c1iTit&gt;()</code>、<code>&lt;init&gt;()</code> 等结构</li>
+<li>通过对前面例子代码反汇编文件的简单分析，可以发现，一个方法的执行通常会涉及下面几块内存的操作：<ol>
+<li>java栈中：局部变量表、操作数栈。</li>
+<li>java堆。通过对象的地址引用去操作。</li>
+<li>常量池。</li>
+<li>其他如帧数据区、方法区的剩余部分等情况，测试中没有显示出来，这里说明一下。</li>
+</ol>
+</li>
+<li>平常，我们比较关注的是 java 类中每个方法的反汇编中的指令操作过程，这些指令都是顺序执行的，可以参考官方文<br>档查看每个指令的含义，很简单：<br><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-6.html">https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-6.html</a></li>
+</ol>
+
                 
             </div>
             <hr/>
@@ -1544,29 +1997,28 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/01/02/jvm-class1/">
+                <a href="/2024/01/05/jvm-class2/">
                     <div class="card-image">
                         
-                        <img src="/images/article/45.jpg" class="responsive-img" alt="JVM-Class-01-class文件结构">
+                        <img src="/images/article/46.jpg" class="responsive-img" alt="JVM-Class-02-字节码指令集与解析举例">
                         
-                        <span class="card-title">JVM-Class-01-class文件结构</span>
+                        <span class="card-title">JVM-Class-02-字节码指令集与解析举例</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            class文件结构
+                            字节码指令集与解析举例
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-02
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-05
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1579,7 +2031,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
