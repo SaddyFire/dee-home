@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2024-01-06T15:49:32.971Z</updated>
+  <updated>2024-01-06T16:09:18.267Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JVM-Class-03-类的加载过程详解</title>
+    <link href="https://www.saddyfire.cn/2024/01/06/jvm-class3/"/>
+    <id>https://www.saddyfire.cn/2024/01/06/jvm-class3/</id>
+    <published>2024-01-06T15:53:27.000Z</published>
+    <updated>2024-01-06T16:09:18.267Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;类的加载过程详解&lt;/h1&gt;
+&lt;h2 id=&quot;01-概述&quot;&gt;01-概述&lt;/h2&gt;
+&lt;p&gt;在 Java 中数据类型分为基本数据类型和引用数据类型。&lt;strong&gt;基本数据类型由虚拟机预先定义，引用数据类型则需要进行类的加载。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;按照 Java</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
+    
+  </entry>
   
   <entry>
     <title>JVM-Class-02-字节码指令集与解析举例</title>
@@ -28,7 +56,11 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;字节码指令集与解析举例&quot;&gt;&lt;a href=&quot;#字节码指令集与解析举例&quot; class=&quot;headerlink&quot; title=&quot;字节码指令集与解析举例&quot;&gt;&lt;/a&gt;字节码指令集与解析举例&lt;/h1&gt;&lt;h2 id=&quot;01-概述&quot;&gt;&lt;a href=&quot;#01-概述&quot;</summary>
+    <summary type="html">&lt;h1&gt;字节码指令集与解析举例&lt;/h1&gt;
+&lt;h2 id=&quot;01-概述&quot;&gt;01-概述&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Java 字节码对于虚拟机，就好像汇编语言对于计算机，属于基本执行指令。&lt;/li&gt;
+&lt;li&gt;Java</summary>
         
       
     
@@ -53,7 +85,10 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Class文件结构&quot;&gt;&lt;a href=&quot;#Class文件结构&quot; class=&quot;headerlink&quot; title=&quot;Class文件结构&quot;&gt;&lt;/a&gt;Class文件结构&lt;/h1&gt;&lt;h2 id=&quot;01-概述&quot;&gt;&lt;a href=&quot;#01-概述&quot;</summary>
+    <summary type="html">&lt;h1&gt;Class文件结构&lt;/h1&gt;
+&lt;h2 id=&quot;01-概述&quot;&gt;01-概述&lt;/h2&gt;
+&lt;h3 id=&quot;字节码文件的跨平台性&quot;&gt;字节码文件的跨平台性&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;1. Java语言:</summary>
         
       
     
@@ -78,7 +113,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;垃圾回收器&quot;&gt;&lt;a href=&quot;#垃圾回收器&quot; class=&quot;headerlink&quot; title=&quot;垃圾回收器&quot;&gt;&lt;/a&gt;垃圾回收器&lt;/h1&gt;&lt;h2 id=&quot;GC-分类与性能指标&quot;&gt;&lt;a href=&quot;#GC-分类与性能指标&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;垃圾回收器&lt;/h1&gt;
+&lt;h2 id=&quot;GC-分类与性能指标&quot;&gt;GC</summary>
         
       
     
@@ -103,7 +139,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;垃圾回收相关概念&quot;&gt;&lt;a href=&quot;#垃圾回收相关概念&quot; class=&quot;headerlink&quot; title=&quot;垃圾回收相关概念&quot;&gt;&lt;/a&gt;垃圾回收相关概念&lt;/h1&gt;&lt;h2 id=&quot;1-System-gc-的理解&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h1&gt;垃圾回收相关概念&lt;/h1&gt;
+&lt;h2</summary>
         
       
     
@@ -128,7 +165,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;垃圾回收概述和相关算法&quot;&gt;&lt;a href=&quot;#垃圾回收概述和相关算法&quot; class=&quot;headerlink&quot; title=&quot;垃圾回收概述和相关算法&quot;&gt;&lt;/a&gt;垃圾回收概述和相关算法&lt;/h1&gt;&lt;img</summary>
+    <summary type="html">&lt;h1&gt;垃圾回收概述和相关算法&lt;/h1&gt;
+&lt;img src=&quot;./../jvm-sgg10/image-20231224183056294.png&quot; style=&quot;zoom: 50%;&quot; /&gt;
+&lt;img</summary>
         
       
     
@@ -153,7 +192,12 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;StringTable&quot;&gt;&lt;a href=&quot;#StringTable&quot; class=&quot;headerlink&quot; title=&quot;StringTable&quot;&gt;&lt;/a&gt;StringTable&lt;/h1&gt;&lt;h2 id=&quot;1-String的基本特性&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h1&gt;StringTable&lt;/h1&gt;
+&lt;h2 id=&quot;1-String的基本特性&quot;&gt;1-String的基本特性&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;String：字符串，使用一对 “” 引起来表示&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;line-numbers</summary>
         
       
     
@@ -178,7 +222,10 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;执行引擎&quot;&gt;&lt;a href=&quot;#执行引擎&quot; class=&quot;headerlink&quot; title=&quot;执行引擎&quot;&gt;&lt;/a&gt;执行引擎&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/2023/12/22/jvm-sgg8/image-20231222214407590.png&quot;</summary>
+    <summary type="html">&lt;h1&gt;执行引擎&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;./../jvm-sgg8/image-20231222214407590.png&quot; alt=&quot;Hotspot JVM&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;1-执行引擎概述&quot;&gt;1-执行引擎概述&lt;/h2&gt;
+&lt;p&gt;&lt;img</summary>
         
       
     
@@ -203,7 +250,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;对象的实例化内存布局与访问定位&quot;&gt;&lt;a href=&quot;#对象的实例化内存布局与访问定位&quot; class=&quot;headerlink&quot; title=&quot;对象的实例化内存布局与访问定位&quot;&gt;&lt;/a&gt;对象的实例化内存布局与访问定位&lt;/h1&gt;&lt;h2 id=&quot;1-对象的实例化&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h1&gt;对象的实例化内存布局与访问定位&lt;/h1&gt;
+&lt;h2</summary>
         
       
     
@@ -230,7 +278,10 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;方法区&quot;&gt;&lt;a href=&quot;#方法区&quot; class=&quot;headerlink&quot; title=&quot;方法区&quot;&gt;&lt;/a&gt;方法区&lt;/h1&gt;&lt;h2 id=&quot;1-栈、堆、方法区的交互关系&quot;&gt;&lt;a href=&quot;#1-栈、堆、方法区的交互关系&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;方法区&lt;/h1&gt;
+&lt;h2 id=&quot;1-栈、堆、方法区的交互关系&quot;&gt;1-栈、堆、方法区的交互关系&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;../jvm-sgg6/001.png&quot; alt=&quot;运行时数据区结构图&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
         
       
     
@@ -255,8 +306,9 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;目录滚动&quot;&gt;&lt;a href=&quot;#目录滚动&quot; class=&quot;headerlink&quot; title=&quot;目录滚动&quot;&gt;&lt;/a&gt;目录滚动&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;默认情况下matery主题, 文章中当目录过多, 超出页面后便无法展示多余目录, 解决方案如下.</summary>
+    <summary type="html">&lt;h2 id=&quot;目录滚动&quot;&gt;目录滚动&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;默认情况下matery主题, 文章中当目录过多, 超出页面后便无法展示多余目录, 解决方案如下. (该方案取自github issues中,</summary>
         
       
     
@@ -281,7 +333,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;堆&quot;&gt;&lt;a href=&quot;#堆&quot; class=&quot;headerlink&quot; title=&quot;堆&quot;&gt;&lt;/a&gt;堆&lt;/h1&gt;&lt;h2 id=&quot;1-堆的核心概述&quot;&gt;&lt;a href=&quot;#1-堆的核心概述&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;堆&lt;/h1&gt;
+&lt;h2 id=&quot;1-堆的核心概述&quot;&gt;1-堆的核心概述&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;../jvm-sgg5/001.png&quot;</summary>
         
       
     
@@ -306,7 +360,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;虚拟机栈&quot;&gt;&lt;a href=&quot;#虚拟机栈&quot; class=&quot;headerlink&quot; title=&quot;虚拟机栈&quot;&gt;&lt;/a&gt;虚拟机栈&lt;/h1&gt;&lt;h2 id=&quot;1-虚拟机栈概述&quot;&gt;&lt;a href=&quot;#1-虚拟机栈概述&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;虚拟机栈&lt;/h1&gt;
+&lt;h2 id=&quot;1-虚拟机栈概述&quot;&gt;1-虚拟机栈概述&lt;/h2&gt;
+&lt;h3</summary>
         
       
     
@@ -331,7 +387,10 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;运行时数据区概述及线程&quot;&gt;&lt;a href=&quot;#运行时数据区概述及线程&quot; class=&quot;headerlink&quot; title=&quot;运行时数据区概述及线程&quot;&gt;&lt;/a&gt;运行时数据区概述及线程&lt;/h1&gt;&lt;h2 id=&quot;1-运行时数据区结构&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h1&gt;运行时数据区概述及线程&lt;/h1&gt;
+&lt;h2 id=&quot;1-运行时数据区结构&quot;&gt;1-运行时数据区结构&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;../jvm-sgg3/001.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;当我们通过前面的：类的加载 --&amp;gt; 验证 --&amp;gt; 准备</summary>
         
       
     
@@ -356,7 +415,12 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;类加载子系统&quot;&gt;&lt;a href=&quot;#类加载子系统&quot; class=&quot;headerlink&quot; title=&quot;类加载子系统&quot;&gt;&lt;/a&gt;类加载子系统&lt;/h1&gt;&lt;h2 id=&quot;1-内存结构概述&quot;&gt;&lt;a href=&quot;#1-内存结构概述&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;类加载子系统&lt;/h1&gt;
+&lt;h2 id=&quot;1-内存结构概述&quot;&gt;1-内存结构概述&lt;/h2&gt;
+&lt;p&gt;简图&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../jvm-sgg2/001.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;详图&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
         
       
     
@@ -381,7 +445,11 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;JVM和Java体系架构&quot;&gt;&lt;a href=&quot;#JVM和Java体系架构&quot; class=&quot;headerlink&quot; title=&quot;JVM和Java体系架构&quot;&gt;&lt;/a&gt;JVM和Java体系架构&lt;/h2&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;JVM和Java体系架构&quot;&gt;JVM和Java体系架构&lt;/h2&gt;
+&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;运行着的线上系统突然卡死，系统无法访问，甚至直接OOM！&lt;/li&gt;
+&lt;li&gt;想解决线上JVM</summary>
         
       
     
@@ -406,7 +474,8 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;Hexo绘制思维导图&quot;&gt;&lt;a href=&quot;#Hexo绘制思维导图&quot; class=&quot;headerlink&quot; title=&quot;Hexo绘制思维导图&quot;&gt;&lt;/a&gt;Hexo绘制思维导图&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
+    <summary type="html">&lt;h2 id=&quot;Hexo绘制思维导图&quot;&gt;Hexo绘制思维导图&lt;/h2&gt;
+&lt;p&gt;&lt;a</summary>
         
       
     
@@ -431,8 +500,10 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;JVM-字节码文件概述&quot;&gt;&lt;a href=&quot;#JVM-字节码文件概述&quot; class=&quot;headerlink&quot; title=&quot;JVM-字节码文件概述&quot;&gt;&lt;/a&gt;JVM-字节码文件概述&lt;/h2&gt;
-&lt;div class=&quot;markmap-container&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;JVM-字节码文件概述&quot;&gt;JVM-字节码文件概述&lt;/h2&gt;
+
+&lt;div class=&quot;markmap-container&quot; style=&quot;height:height&quot;&gt;
+  &lt;svg</summary>
         
       
     
@@ -457,7 +528,8 @@
       
         
         
-    <summary type="html">&lt;h3 id=&quot;依赖&quot;&gt;&lt;a href=&quot;#依赖&quot; class=&quot;headerlink&quot; title=&quot;依赖&quot;&gt;&lt;/a&gt;依赖&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-markup&quot; data-language=&quot;markup&quot;&gt;&lt;code</summary>
+    <summary type="html">&lt;h3 id=&quot;依赖&quot;&gt;依赖&lt;/h3&gt;
+&lt;pre class=&quot;line-numbers language-markup&quot; data-language=&quot;markup&quot;&gt;&lt;code class=&quot;language-markup&quot;&gt;&lt;span class=&quot;token</summary>
         
       
     
@@ -484,7 +556,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;服务注册&quot;&gt;&lt;a href=&quot;#服务注册&quot; class=&quot;headerlink&quot; title=&quot;服务注册&quot;&gt;&lt;/a&gt;服务注册&lt;/h1&gt;&lt;h2 id=&quot;Linux&quot;&gt;&lt;a href=&quot;#Linux&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;服务注册&lt;/h1&gt;
+&lt;h2 id=&quot;Linux&quot;&gt;Linux&lt;/h2&gt;
+&lt;h3</summary>
         
       
     
@@ -496,31 +570,6 @@
     <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
     
     <category term="Windows" scheme="https://www.saddyfire.cn/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DM备份还原笔记</title>
-    <link href="https://www.saddyfire.cn/2023/10/21/dm-move/"/>
-    <id>https://www.saddyfire.cn/2023/10/21/dm-move/</id>
-    <published>2023-10-21T15:22:26.000Z</published>
-    <updated>2023-10-23T02:57:32.068Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;DM备份还原笔记&quot;&gt;&lt;a href=&quot;#DM备份还原笔记&quot; class=&quot;headerlink&quot; title=&quot;DM备份还原笔记&quot;&gt;&lt;/a&gt;DM备份还原笔记&lt;/h1&gt;&lt;h2 id=&quot;还原&quot;&gt;&lt;a href=&quot;#还原&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Database" scheme="https://www.saddyfire.cn/tags/Database/"/>
     
   </entry>
   

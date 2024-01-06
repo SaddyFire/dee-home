@@ -368,18 +368,18 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="mermaid入门-基于hexo"><a href="#mermaid入门-基于hexo" class="headerlink" title="mermaid入门(基于hexo)"></a>mermaid入门(基于hexo)</h1><p>基于hexo的前置说明</p>
+                <h1>mermaid入门(基于hexo)</h1>
+<p>基于hexo的前置说明</p>
 <pre class="line-numbers language-none"><code class="language-none">hexo默认markdown渲染引擎为 hexo-renderer-markdown
 可以更换hexo-renderer-markdown-it, 可选项更多, github地址如下
 https:&#x2F;&#x2F;github.com&#x2F;hexojs&#x2F;hexo-renderer-markdown-it<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p><code>hexo-renderer-markdown-it</code> 及 <code>meraid</code> 插件安装命令</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> un hexo-renderer-marked <span class="token parameter variable">--save</span>
 <span class="token function">npm</span> i hexo-renderer-markdown-it <span class="token parameter variable">--save</span>
 <span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">--save</span> hexo-tag-mermaid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <hr>
-<h2 id="一、流程图-graph"><a href="#一、流程图-graph" class="headerlink" title="一、流程图(graph)"></a>一、流程图(graph)</h2><div class="mermaid">
+<h2 id="一、流程图-graph">一、流程图(graph)</h2>
+<div class="mermaid">
      graph TD
        A --> B
        A --> C
@@ -394,13 +394,15 @@ style C fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5
         style B fill:#f9f,stroke:#333,stroke-width:4px %% 样式
    		style C fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5 %% 样式
 &#123;% endmermaid %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="方向"><a href="#方向" class="headerlink" title="方向"></a>方向</h3><ul>
-<li>TB&#x2F;TD - top bottom&#x2F;down</li>
-<li>BT - bottom&#x2F;top</li>
+<h3 id="方向">方向</h3>
+<ul>
+<li>TB/TD - top bottom/down</li>
+<li>BT - bottom/top</li>
 <li>LR - left right</li>
 <li>RL - right left</li>
 </ul>
-<h3 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h3><div class="mermaid">
+<h3 id="节点">节点</h3>
+<div class="mermaid">
   graph LR;
 	B[直角]
 	C(圆角)
@@ -419,13 +421,12 @@ style C fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5
 	K --> L --> M --> N
 </div>
 
-
 <pre class="line-numbers language-null" data-language="null"><code class="language-null">graph LR;
 	直角[] ---&gt; 圆角(()) ---&gt; 圆形D(()) ---&gt; 不对称&gt;]
 	菱形&#123;&#125; ---&gt; 椭圆形([]) ---&gt; 圆柱[()] ---&gt; 双杠[[]] ---&gt; 六边形&#123;&#123;&#125;&#125;
 	平行1[\\] ---&gt; 平行2[&#x2F;&#x2F;] ---&gt; 梯形1[\&#x2F;] ---&gt; 梯形2[&#x2F;\]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="连线"><a href="#连线" class="headerlink" title="连线"></a>连线</h3><ul>
+<h3 id="连线">连线</h3>
+<ul>
 <li>实线</li>
 </ul>
 <div class="mermaid">
@@ -433,11 +434,9 @@ style C fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5
 	A --> B --- C -- 文字 --- D -- 文字 --> E
 </div>
 
-
 <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token comment">%% A(有箭头,无文字) -> B(无箭头，无文字) -> C(有箭头，文字) -> D(有箭头,文字)</span>
 <span class="token keyword">graph</span> LR
 	A <span class="token arrow operator">--></span> B <span class="token arrow operator">---</span> C <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">文字</span> <span class="token arrow operator">---</span></span> D <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">文字</span> <span class="token arrow operator">--></span></span> E<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li>虚线</li>
 </ul>
@@ -446,11 +445,9 @@ style C fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5
 	A -.-> B -.文字.-> C
 </div>
 
-
 <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token comment">%% A(有箭头,无文字) -> B(有箭头，无有文字) </span>
 <span class="token keyword">graph</span> LR
 	A <span class="token arrow operator">-.-></span> B <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">-.</span><span class="token label property">文字</span><span class="token arrow operator">.-></span></span> C<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li>大箭头</li>
 </ul>
@@ -459,12 +456,11 @@ style C fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5
 	A ==> B == 文字 ==> C
 </div>
 
-
 <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token comment">%% A(大箭头,无文字) -> B(大箭头,有文字)</span>
 <span class="token keyword">graph</span> LR
 	A <span class="token arrow operator">==></span> B <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">==</span> <span class="token label property">文字</span> <span class="token arrow operator">==></span></span> C<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="子图"><a href="#子图" class="headerlink" title="子图"></a>子图</h3><div class="mermaid">
+<h3 id="子图">子图</h3>
+<div class="mermaid">
   graph TB
     subgraph one
     a1-->a2
@@ -478,7 +474,6 @@ style C fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5
     c1-->a2
 </div>
 
-
 <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> TB
     <span class="token keyword">subgraph</span> one
     a1<span class="token arrow operator">--></span>a2
@@ -490,8 +485,9 @@ style C fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5
     c1<span class="token arrow operator">--></span>c2
     <span class="token keyword">end</span>
     c1<span class="token arrow operator">--></span>a2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="二、时序图-sequenceDiagram"><a href="#二、时序图-sequenceDiagram" class="headerlink" title="二、时序图(sequenceDiagram)"></a>二、时序图(sequenceDiagram)</h2><h3 id="参与者-participant"><a href="#参与者-participant" class="headerlink" title="参与者(participant)"></a>参与者(participant)</h3><div class="mermaid">
+<h2 id="二、时序图-sequenceDiagram">二、时序图(sequenceDiagram)</h2>
+<h3 id="参与者-participant">参与者(participant)</h3>
+<div class="mermaid">
   
 sequenceDiagram
 	dee ->> xian: I'm hungry
@@ -499,11 +495,9 @@ sequenceDiagram
 
 </div>
 
-
 <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
 	dee <span class="token arrow operator">->></span> xian<span class="token operator">:</span> I'm hungry
 	xian <span class="token arrow operator">-->></span> dee<span class="token operator">:</span> Me too<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <blockquote>
 <p>注: 如果希望自定义参与者顺序, 使用<code>participant</code>关键字</p>
 </blockquote>
@@ -517,14 +511,13 @@ sequenceDiagram
 
 </div>
 
-
 <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
 	<span class="token keyword">participant</span> xian
 	<span class="token keyword">participant</span> dee
 	dee <span class="token arrow operator">->></span> xian<span class="token operator">:</span> I'm hungry
 	xian <span class="token arrow operator">-->></span> dee<span class="token operator">:</span> Me too<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="别名-as"><a href="#别名-as" class="headerlink" title="别名(as)"></a>别名(as)</h3><div class="mermaid">
+<h3 id="别名-as">别名(as)</h3>
+<div class="mermaid">
   
 sequenceDiagram
 	participant A as xian
@@ -534,14 +527,13 @@ sequenceDiagram
 
 </div>
 
-
 <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
 	<span class="token keyword">participant</span> A as xian
 	<span class="token keyword">participant</span> D as dee
 	A <span class="token arrow operator">--></span> D<span class="token operator">:</span> How are you
 	D <span class="token arrow operator">-->></span> A<span class="token operator">:</span> Fine<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="连线-1"><a href="#连线-1" class="headerlink" title="连线"></a>连线</h3><div class="mermaid">
+<h3 id="连线-2">连线</h3>
+<div class="mermaid">
   
 sequenceDiagram
 	A -> B: 无箭头实线
@@ -553,7 +545,6 @@ sequenceDiagram
 
 </div>
 
-
 <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
 	A <span class="token arrow operator">-></span> B<span class="token operator">:</span> 无箭头实线
 	A <span class="token arrow operator">--></span> B<span class="token operator">:</span> 无箭头虚线
@@ -561,8 +552,8 @@ sequenceDiagram
 	A <span class="token arrow operator">-->></span> B<span class="token operator">:</span> 有箭头虚线
 	A -X B<span class="token operator">:</span> 有箭头x实线
 	A <span class="token arrow operator">--</span>X B<span class="token operator">:</span> 有箭头x虚线<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="控制焦点"><a href="#控制焦点" class="headerlink" title="控制焦点(+-)"></a>控制焦点(+-)</h3><div class="mermaid">
+<h3 id="控制焦点-±">控制焦点(±)</h3>
+<div class="mermaid">
   
 sequenceDiagram
 	dee ->>+ xian: Let's Fighting!
@@ -571,12 +562,10 @@ sequenceDiagram
 
 </div>
 
-
 <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
 	dee <span class="token arrow operator">->></span>+ xian<span class="token operator">:</span> Let's Fighting!
 	<span class="token comment">%% +表示激活角色</span>
 	xian <span class="token arrow operator">-->></span>- dee<span class="token operator">:</span> Grate!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>焦点嵌套</strong></p>
 <div class="mermaid">
   
@@ -588,14 +577,13 @@ sequenceDiagram
 
 </div>
 
-
 <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
 	xian <span class="token arrow operator">->></span>+ dee<span class="token operator">:</span> Let's Shopping!
     xian <span class="token arrow operator">->></span>+ dee<span class="token operator">:</span> Can you hear me?
     dee <span class="token arrow operator">-->></span>- xian<span class="token operator">:</span> I can hear you.
     dee <span class="token arrow operator">-->></span>- xian<span class="token operator">:</span> But I'm tired.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="备注-Note"><a href="#备注-Note" class="headerlink" title="备注(Note)"></a>备注(Note)</h3><p>Note [ right of | left of | over ] [Actor]</p>
+<h3 id="备注-Note">备注(Note)</h3>
+<p>Note [ right of | left of | over ] [Actor]</p>
 <div class="mermaid">
   
 sequenceDiagram
@@ -604,11 +592,9 @@ sequenceDiagram
 
 </div>
 
-
 <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
 	<span class="token keyword">participant</span> A
 	<span class="token keyword">Note right of</span> A<span class="token operator">:</span> I'm note<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>over用法</p>
 <div class="mermaid">
   
@@ -621,15 +607,14 @@ sequenceDiagram
 
 </div>
 
-
 <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
 	<span class="token keyword">participant</span> A as dee
 	<span class="token keyword">participant</span> B as xian
 	A <span class="token arrow operator">->></span> B<span class="token operator">:</span> Let 's shopping
 	<span class="token keyword">Note over</span> B<span class="token operator">:</span> I don't want to
 	<span class="token keyword">Note over</span> A,B<span class="token operator">:</span> Just 20 min<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="循环-loop"><a href="#循环-loop" class="headerlink" title="循环(loop)"></a>循环(loop)</h3><div class="mermaid">
+<h3 id="循环-loop">循环(loop)</h3>
+<div class="mermaid">
   
 sequenceDiagram
 	xian ->> dee: let's shopping
@@ -641,7 +626,6 @@ sequenceDiagram
 
 </div>
 
-
 <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
 	xian <span class="token arrow operator">->></span> dee<span class="token operator">:</span> let's shopping
 	<span class="token comment">%% loop 后</span>
@@ -649,8 +633,8 @@ sequenceDiagram
 		dee <span class="token arrow operator">--></span> xian<span class="token operator">:</span> let me see see
 	<span class="token keyword">end</span>
 	dee <span class="token arrow operator">-->></span> xian<span class="token operator">:</span> ok<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><div class="mermaid">
+<h3 id="选择">选择</h3>
+<div class="mermaid">
   
 sequenceDiagram
 	dee ->> xian: What do you want to drink
@@ -665,7 +649,6 @@ sequenceDiagram
 
 </div>
 
-
 <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
 	dee <span class="token arrow operator">->></span> xian<span class="token operator">:</span> What do you want to drink
 	<span class="token keyword">alt</span> summer
@@ -676,8 +659,8 @@ sequenceDiagram
 	<span class="token keyword">opt</span> all the time
 		xian <span class="token arrow operator">-->></span> dee<span class="token operator">:</span> milk tea is ok
 	<span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="色块"><a href="#色块" class="headerlink" title="色块"></a>色块</h3><div class="mermaid">
+<h3 id="色块">色块</h3>
+<div class="mermaid">
   sequenceDiagram
 	actor a as client
 	participant b as server
@@ -691,7 +674,6 @@ sequenceDiagram
 	end
 </div>
 
-
 <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
 	actor a as client
 	<span class="token keyword">participant</span> b as server
@@ -703,8 +685,8 @@ sequenceDiagram
 		a <span class="token arrow operator">->></span> +b<span class="token operator">:</span> quest
 		b <span class="token arrow operator">->></span> -a<span class="token operator">:</span> response
 	<span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="三、类图-classDiagram"><a href="#三、类图-classDiagram" class="headerlink" title="三、类图(classDiagram)"></a>三、类图(classDiagram)</h2><div class="mermaid">
+<h2 id="三、类图-classDiagram">三、类图(classDiagram)</h2>
+<div class="mermaid">
   
 classDiagram
 class Person {
@@ -743,7 +725,6 @@ Grade o-- Student: 聚合(整体与部分的关系, 部分可以离开整体单�
 
 </div>
 
-
 <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">classDiagram</span>
 <span class="token keyword">class</span> Person <span class="token punctuation">&#123;</span>
 	+String name // public
@@ -778,7 +759,6 @@ Tool <span class="token arrow operator">&lt;|..</span> Pen<span class="token ope
 Pen <span class="token arrow operator">&lt;..</span> Student<span class="token operator">:</span> 依赖
 Person <span class="token arrow operator">*--</span> Eye<span class="token operator">:</span> 组合<span class="token text string">(整体与部分的关系, 部分不能离开整体单独存在)</span>
 Grade <span class="token arrow operator">o--</span> Student<span class="token operator">:</span> 聚合<span class="token text string">(整体与部分的关系, 部分可以离开整体单独存在)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 
                 
             </div>
@@ -937,16 +917,16 @@ Grade <span class="token arrow operator">o--</span> Student<span class="token op
                         <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
                     <a href="/tags/Git/">
                         <span class="chip bg-color">Git</span>
                     </a>
                     
                     <a href="/tags/Database/">
                         <span class="chip bg-color">Database</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
