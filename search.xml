@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>JVM-Tuning-02-JVM监控及诊断工具-命令篇</title>
+      <link href="/2024/01/07/jvm-tuning2/"/>
+      <url>/2024/01/07/jvm-tuning2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="JVM监控及诊断工具-命令篇"><a href="#JVM监控及诊断工具-命令篇" class="headerlink" title="JVM监控及诊断工具-命令篇"></a>JVM监控及诊断工具-命令篇</h1><h2 id="01-工具概述"><a href="#01-工具概述" class="headerlink" title="01-工具概述"></a>01-工具概述</h2><p>使用上一章命令行工具或组合能帮您获取目标]aVa应用性能相关的基础信息，但它们存在下列局限：</p><ol><li>无法获取方法级别的分析数据，如方法间的调用关系、各方法的调用次数和调用时间<br>等（这对定位应用性能瓶颈至关重要）。</li><li>要求用户登录到目标Java应用所在的宿主机上，使用起来不是很方便。</li><li>分析数据通过终端输出，结果展示不够直观。</li></ol><p>为此，JDK 提供了一些内存泄漏的分析工具，如 jconsole, jvisualvm 等，用于辅助开发人员定位问题，但是这些工具很多时候并不足以满足快速定位的需求。所以这里我们介绍的工具相对多一些、丰富一些。</p><p><strong>图形化综合诊断工具</strong></p><ul><li><p>JDK自带的工具</p><ul><li>jconsole: JDK 自带的可视化监控工具。查看Java应用程序的运行概况、监控堆信。<br>息、永久区（或元空间）使用情况、类加载情况等。</li><li>Visual VM: Visual VM 是一个工具，它提供了一个可视界面，用于查看 Java 虚拟机上运行的基于Java技术的应用程序的详细信息。</li><li>JMC: Java Mission Control, 内置 Java Flight Recorder。能够以极低的性能开销收集 Java 虚拟机的性能数据。</li></ul></li><li><p>第三方工具</p><ul><li><p>MAT: MAT(Memory Analyzer Tool) 是基于 Eclipse 的内存分析工具，是一个快速、功能丰富的 Java heap 分析工具，它可以帮助我们查找内存泄漏和减少内存消耗。</p><blockquote><p>Eclipse的插件形式</p></blockquote></li><li><p>JProfiler: 商业软件，需要付费。功能强大。</p><blockquote><p>与 VisualVM 类似</p></blockquote></li><li><p>Arthas: Alibaba 开源的 Java 诊断工具。</p></li><li><p>Btrace: Java 运行时追踪工具. 可以在不停机的情况下, 跟踪指定的方法调用、构造函数调用和系统内存等信息。</p></li></ul></li></ul><h2 id="02-JConsole"><a href="#02-JConsole" class="headerlink" title="02-JConsole"></a>02-JConsole</h2><h2 id="03-Visual-VM"><a href="#03-Visual-VM" class="headerlink" title="03-Visual VM"></a>03-Visual VM</h2><blockquote></blockquote><h2 id="04-Eclipse-MAT"><a href="#04-Eclipse-MAT" class="headerlink" title="04-Eclipse MAT"></a>04-Eclipse MAT</h2><h2 id="05-JProfiler"><a href="#05-JProfiler" class="headerlink" title="05-JProfiler"></a>05-JProfiler</h2><h2 id="06-JProfiler"><a href="#06-JProfiler" class="headerlink" title="06-JProfiler"></a>06-JProfiler</h2><h2 id="07-Java-Mission-Control"><a href="#07-Java-Mission-Control" class="headerlink" title="07-Java Mission Control"></a>07-Java Mission Control</h2><h2 id="08-其他工具"><a href="#08-其他工具" class="headerlink" title="08-其他工具"></a>08-其他工具</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> program </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JVM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JVM-Tuning-01-JVM性能调优概述及监控诊断工具</title>
       <link href="/2024/01/07/jvm-tuning1/"/>
       <url>/2024/01/07/jvm-tuning1/</url>
@@ -917,9 +942,9 @@
       
         <tags>
             
-            <tag> JUC </tag>
-            
             <tag> Java </tag>
+            
+            <tag> JUC </tag>
             
         </tags>
       
@@ -1025,11 +1050,11 @@
             
             <tag> Java </tag>
             
+            <tag> Linux </tag>
+            
             <tag> Git </tag>
             
             <tag> Database </tag>
-            
-            <tag> Linux </tag>
             
         </tags>
       

@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="mermaid-note, SaddyFire">
-    <meta name="description" content="mermaid入门">
+    <meta name="keywords" content="JVM-Tuning-02-JVM监控及诊断工具-命令篇, SaddyFire">
+    <meta name="description" content="JVM监控及诊断工具-命令篇">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>mermaid-note | SaddyFire</title>
+    <title>JVM-Tuning-02-JVM监控及诊断工具-命令篇 | SaddyFire</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -262,12 +262,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/article/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/article/49.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">mermaid-note</h1>
+                    <h1 class="description center-align post-title">JVM-Tuning-02-JVM监控及诊断工具-命令篇</h1>
                 </div>
             </div>
         </div>
@@ -291,16 +291,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Mermaid/">
-                                <span class="chip bg-color">Mermaid</span>
-                            </a>
-                        
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
-                            </a>
-                        
-                            <a href="/tags/Markdown/">
-                                <span class="chip bg-color">Markdown</span>
+                            <a href="/tags/JVM/">
+                                <span class="chip bg-color">JVM</span>
                             </a>
                         
                     </div>
@@ -324,28 +316,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-04-10
+                    2024-01-07
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-22
+                    2024-01-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    514
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    1 分
                 </div>
                 
 
@@ -368,418 +360,44 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="mermaid入门-基于hexo"><a href="#mermaid入门-基于hexo" class="headerlink" title="mermaid入门(基于hexo)"></a>mermaid入门(基于hexo)</h1><p>基于hexo的前置说明</p>
-<pre class="line-numbers language-none"><code class="language-none">hexo默认markdown渲染引擎为 hexo-renderer-markdown
-可以更换hexo-renderer-markdown-it, 可选项更多, github地址如下
-https:&#x2F;&#x2F;github.com&#x2F;hexojs&#x2F;hexo-renderer-markdown-it<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p><code>hexo-renderer-markdown-it</code> 及 <code>meraid</code> 插件安装命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> un hexo-renderer-marked <span class="token parameter variable">--save</span>
-<span class="token function">npm</span> i hexo-renderer-markdown-it <span class="token parameter variable">--save</span>
-<span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">--save</span> hexo-tag-mermaid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<hr>
-<h2 id="一、流程图-graph"><a href="#一、流程图-graph" class="headerlink" title="一、流程图(graph)"></a>一、流程图(graph)</h2><div class="mermaid">
-     graph TD
-       A --> B
-       A --> C
-       style B fill:#f9f,stroke:#333,stroke-width:4px
-style C fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5
-</div>
-
-<pre class="line-numbers language-none"><code class="language-none">&#123;% mermaid %&#125;
-    graph TD
-        A --&gt; B
-        A --&gt; C
-        style B fill:#f9f,stroke:#333,stroke-width:4px %% 样式
-   		style C fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5 %% 样式
-&#123;% endmermaid %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="方向"><a href="#方向" class="headerlink" title="方向"></a>方向</h3><ul>
-<li>TB&#x2F;TD - top bottom&#x2F;down</li>
-<li>BT - bottom&#x2F;top</li>
-<li>LR - left right</li>
-<li>RL - right left</li>
-</ul>
-<h3 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h3><div class="mermaid">
-  graph LR;
-	B[直角]
-	C(圆角)
-	D((圆形))
-	E>不对称]
-	F{菱形}
-	G([椭圆形])
-	H[(圆柱)]
-	I[[双杠]]
-	K[\平行1\]
-	L[/平行2/]
-	M[\梯形1/]
-	N[/梯形2\]
-	B --> C --> D --> E
-	F --> G --> H --> I
-	K --> L --> M --> N
-</div>
-
-
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">graph LR;
-	直角[] ---&gt; 圆角(()) ---&gt; 圆形D(()) ---&gt; 不对称&gt;]
-	菱形&#123;&#125; ---&gt; 椭圆形([]) ---&gt; 圆柱[()] ---&gt; 双杠[[]] ---&gt; 六边形&#123;&#123;&#125;&#125;
-	平行1[\\] ---&gt; 平行2[&#x2F;&#x2F;] ---&gt; 梯形1[\&#x2F;] ---&gt; 梯形2[&#x2F;\]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="连线"><a href="#连线" class="headerlink" title="连线"></a>连线</h3><ul>
-<li>实线</li>
-</ul>
-<div class="mermaid">
-  graph LR
-	A --> B --- C -- 文字 --- D -- 文字 --> E
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token comment">%% A(有箭头,无文字) -> B(无箭头，无文字) -> C(有箭头，文字) -> D(有箭头,文字)</span>
-<span class="token keyword">graph</span> LR
-	A <span class="token arrow operator">--></span> B <span class="token arrow operator">---</span> C <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">文字</span> <span class="token arrow operator">---</span></span> D <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">文字</span> <span class="token arrow operator">--></span></span> E<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+                <h1 id="JVM监控及诊断工具-命令篇"><a href="#JVM监控及诊断工具-命令篇" class="headerlink" title="JVM监控及诊断工具-命令篇"></a>JVM监控及诊断工具-命令篇</h1><h2 id="01-工具概述"><a href="#01-工具概述" class="headerlink" title="01-工具概述"></a>01-工具概述</h2><p>使用上一章命令行工具或组合能帮您获取目标]aVa应用性能相关的基础信息，但它们存在下列局限：</p>
+<ol>
+<li>无法获取方法级别的分析数据，如方法间的调用关系、各方法的调用次数和调用时间<br>等（这对定位应用性能瓶颈至关重要）。</li>
+<li>要求用户登录到目标Java应用所在的宿主机上，使用起来不是很方便。</li>
+<li>分析数据通过终端输出，结果展示不够直观。</li>
+</ol>
+<p>为此，JDK 提供了一些内存泄漏的分析工具，如 jconsole, jvisualvm 等，用于辅助开发人员定位问题，但是这些工具很多时候并不足以满足快速定位的需求。所以这里我们介绍的工具相对多一些、丰富一些。</p>
+<p><strong>图形化综合诊断工具</strong></p>
 <ul>
-<li>虚线</li>
-</ul>
-<div class="mermaid">
-  graph LR;
-	A -.-> B -.文字.-> C
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token comment">%% A(有箭头,无文字) -> B(有箭头，无有文字) </span>
-<span class="token keyword">graph</span> LR
-	A <span class="token arrow operator">-.-></span> B <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">-.</span><span class="token label property">文字</span><span class="token arrow operator">.-></span></span> C<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+<li><p>JDK自带的工具</p>
 <ul>
-<li>大箭头</li>
+<li>jconsole: JDK 自带的可视化监控工具。查看Java应用程序的运行概况、监控堆信。<br>息、永久区（或元空间）使用情况、类加载情况等。</li>
+<li>Visual VM: Visual VM 是一个工具，它提供了一个可视界面，用于查看 Java 虚拟机上运行的基于Java技术的应用程序的详细信息。</li>
+<li>JMC: Java Mission Control, 内置 Java Flight Recorder。能够以极低的性能开销收集 Java 虚拟机的性能数据。</li>
 </ul>
-<div class="mermaid">
-  graph LR
-	A ==> B == 文字 ==> C
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token comment">%% A(大箭头,无文字) -> B(大箭头,有文字)</span>
-<span class="token keyword">graph</span> LR
-	A <span class="token arrow operator">==></span> B <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">==</span> <span class="token label property">文字</span> <span class="token arrow operator">==></span></span> C<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="子图"><a href="#子图" class="headerlink" title="子图"></a>子图</h3><div class="mermaid">
-  graph TB
-    subgraph one
-    a1-->a2
-    end
-    subgraph two
-    b1-->b2
-    end
-    subgraph three
-    c1-->c2
-    end
-    c1-->a2
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> TB
-    <span class="token keyword">subgraph</span> one
-    a1<span class="token arrow operator">--></span>a2
-    <span class="token keyword">end</span>
-    <span class="token keyword">subgraph</span> two
-    b1<span class="token arrow operator">--></span>b2
-    <span class="token keyword">end</span>
-    <span class="token keyword">subgraph</span> three
-    c1<span class="token arrow operator">--></span>c2
-    <span class="token keyword">end</span>
-    c1<span class="token arrow operator">--></span>a2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="二、时序图-sequenceDiagram"><a href="#二、时序图-sequenceDiagram" class="headerlink" title="二、时序图(sequenceDiagram)"></a>二、时序图(sequenceDiagram)</h2><h3 id="参与者-participant"><a href="#参与者-participant" class="headerlink" title="参与者(participant)"></a>参与者(participant)</h3><div class="mermaid">
-  
-sequenceDiagram
-	dee ->> xian: I'm hungry
-	xian -->> dee: Me too
-
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	dee <span class="token arrow operator">->></span> xian<span class="token operator">:</span> I'm hungry
-	xian <span class="token arrow operator">-->></span> dee<span class="token operator">:</span> Me too<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+</li>
+<li><p>第三方工具</p>
+<ul>
+<li><p>MAT: MAT(Memory Analyzer Tool) 是基于 Eclipse 的内存分析工具，是一个快速、功能丰富的 Java heap 分析工具，它可以帮助我们查找内存泄漏和减少内存消耗。</p>
 <blockquote>
-<p>注: 如果希望自定义参与者顺序, 使用<code>participant</code>关键字</p>
+<p>Eclipse的插件形式</p>
 </blockquote>
-<div class="mermaid">
-  
-sequenceDiagram
-	participant xian
-	participant dee
-	dee ->> xian: I'm hungry
-	xian -->> dee: Me too
-
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	<span class="token keyword">participant</span> xian
-	<span class="token keyword">participant</span> dee
-	dee <span class="token arrow operator">->></span> xian<span class="token operator">:</span> I'm hungry
-	xian <span class="token arrow operator">-->></span> dee<span class="token operator">:</span> Me too<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="别名-as"><a href="#别名-as" class="headerlink" title="别名(as)"></a>别名(as)</h3><div class="mermaid">
-  
-sequenceDiagram
-	participant A as xian
-	participant D as dee
-	A ->> D: How are you
-	D -->> A: Fine
-
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	<span class="token keyword">participant</span> A as xian
-	<span class="token keyword">participant</span> D as dee
-	A <span class="token arrow operator">--></span> D<span class="token operator">:</span> How are you
-	D <span class="token arrow operator">-->></span> A<span class="token operator">:</span> Fine<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="连线-1"><a href="#连线-1" class="headerlink" title="连线"></a>连线</h3><div class="mermaid">
-  
-sequenceDiagram
-	A -> B: 无箭头实线
-	A --> B: 无箭头虚线
-	A ->> B: 有箭头实线
-	A -->> B: 有箭头虚线
-	A -X B: 有箭头x实线
-	A --X B: 有箭头x虚线
-
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	A <span class="token arrow operator">-></span> B<span class="token operator">:</span> 无箭头实线
-	A <span class="token arrow operator">--></span> B<span class="token operator">:</span> 无箭头虚线
-	A <span class="token arrow operator">->></span> B<span class="token operator">:</span> 有箭头实线
-	A <span class="token arrow operator">-->></span> B<span class="token operator">:</span> 有箭头虚线
-	A -X B<span class="token operator">:</span> 有箭头x实线
-	A <span class="token arrow operator">--</span>X B<span class="token operator">:</span> 有箭头x虚线<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="控制焦点"><a href="#控制焦点" class="headerlink" title="控制焦点(+-)"></a>控制焦点(+-)</h3><div class="mermaid">
-  
-sequenceDiagram
-	dee ->>+ xian: Let's Fighting!
-	%% +表示激活角色
-	xian -->>- dee: Grate!
-
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	dee <span class="token arrow operator">->></span>+ xian<span class="token operator">:</span> Let's Fighting!
-	<span class="token comment">%% +表示激活角色</span>
-	xian <span class="token arrow operator">-->></span>- dee<span class="token operator">:</span> Grate!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><strong>焦点嵌套</strong></p>
-<div class="mermaid">
-  
-sequenceDiagram
-	xian ->>+ dee: Let's Shopping!
-    xian ->>+ dee: Can you hear me?
-    dee -->>- xian: I can hear you.
-    dee -->>- xian: But I'm tired.
-
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	xian <span class="token arrow operator">->></span>+ dee<span class="token operator">:</span> Let's Shopping!
-    xian <span class="token arrow operator">->></span>+ dee<span class="token operator">:</span> Can you hear me?
-    dee <span class="token arrow operator">-->></span>- xian<span class="token operator">:</span> I can hear you.
-    dee <span class="token arrow operator">-->></span>- xian<span class="token operator">:</span> But I'm tired.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="备注-Note"><a href="#备注-Note" class="headerlink" title="备注(Note)"></a>备注(Note)</h3><p>Note [ right of | left of | over ] [Actor]</p>
-<div class="mermaid">
-  
-sequenceDiagram
-	participant A
-	Note right of A: I'm note
-
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	<span class="token keyword">participant</span> A
-	<span class="token keyword">Note right of</span> A<span class="token operator">:</span> I'm note<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>over用法</p>
-<div class="mermaid">
-  
-sequenceDiagram
-	participant A as dee
-	participant B as xian
-	A ->> B: Let 's shopping
-	Note over B: I don't want to
-	Note over A,B: Just 20 min
-
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	<span class="token keyword">participant</span> A as dee
-	<span class="token keyword">participant</span> B as xian
-	A <span class="token arrow operator">->></span> B<span class="token operator">:</span> Let 's shopping
-	<span class="token keyword">Note over</span> B<span class="token operator">:</span> I don't want to
-	<span class="token keyword">Note over</span> A,B<span class="token operator">:</span> Just 20 min<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="循环-loop"><a href="#循环-loop" class="headerlink" title="循环(loop)"></a>循环(loop)</h3><div class="mermaid">
-  
-sequenceDiagram
-	xian ->> dee: let's shopping
-	%% loop 后
-	loop 20 min
-		dee --> xian: let me see see
-	end
-	dee -->> xian: ok
-
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	xian <span class="token arrow operator">->></span> dee<span class="token operator">:</span> let's shopping
-	<span class="token comment">%% loop 后</span>
-	<span class="token keyword">loop</span> 20 min
-		dee <span class="token arrow operator">--></span> xian<span class="token operator">:</span> let me see see
-	<span class="token keyword">end</span>
-	dee <span class="token arrow operator">-->></span> xian<span class="token operator">:</span> ok<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><div class="mermaid">
-  
-sequenceDiagram
-	dee ->> xian: What do you want to drink
-	alt summer
-		xian -->> dee: ice cream
-	else winter
-		xian -->> dee: tea
-	end
-	opt all the time
-		xian -->> dee: milk tea is ok
-	end
-
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	dee <span class="token arrow operator">->></span> xian<span class="token operator">:</span> What do you want to drink
-	<span class="token keyword">alt</span> summer
-		xian <span class="token arrow operator">-->></span> dee<span class="token operator">:</span> ice cream
-	<span class="token keyword">else</span> winter
-		xian <span class="token arrow operator">-->></span> dee<span class="token operator">:</span> tea
-	<span class="token keyword">end</span>
-	<span class="token keyword">opt</span> all the time
-		xian <span class="token arrow operator">-->></span> dee<span class="token operator">:</span> milk tea is ok
-	<span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="色块"><a href="#色块" class="headerlink" title="色块"></a>色块</h3><div class="mermaid">
-  sequenceDiagram
-	actor a as client
-	participant b as server
-	rect rgb(213, 235, 225)
-        a ->> +b: quest
-        b -->> -a: response
-	end
-	rect rgb(192, 214, 149)
-		a ->> +b: quest
-		b ->> -a: response
-	end
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	actor a as client
-	<span class="token keyword">participant</span> b as server
-	<span class="token keyword">rect</span> rgb<span class="token text string">(213, 235, 225)</span>
-        a <span class="token arrow operator">->></span> +b<span class="token operator">:</span> quest
-        b <span class="token arrow operator">-->></span> -a<span class="token operator">:</span> response
-	<span class="token keyword">end</span>
-	<span class="token keyword">rect</span> rgb<span class="token text string">(192, 214, 149)</span>
-		a <span class="token arrow operator">->></span> +b<span class="token operator">:</span> quest
-		b <span class="token arrow operator">->></span> -a<span class="token operator">:</span> response
-	<span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="三、类图-classDiagram"><a href="#三、类图-classDiagram" class="headerlink" title="三、类图(classDiagram)"></a>三、类图(classDiagram)</h2><div class="mermaid">
-  
-classDiagram
-class Person {
-	+String name // public
-	-int age // private
-	+save() void
-	+eat(food) void
-	+breathe(air) void
-}
-class Student~Primary~ {
-	-String studentNo
-	+doHomework(pen) Homework
-}
-class Tool {
-	+String function
-	+use() void
-}
-class Pen {
-	+use() void
-}
-class Air {
-	+String O2
-}
-class Eye {
-	+String eyes
-}
-class Grade {
-	+Student students
-}
-Air <.. Person: 依赖(一个需要另一个的协助)
-Person <|-- Student: 继承
-Tool <|.. Pen: 实现
-Pen <.. Student: 依赖
-Person *-- Eye: 组合(整体与部分的关系, 部分不能离开整体单独存在)
-Grade o-- Student: 聚合(整体与部分的关系, 部分可以离开整体单独存在)
-
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">classDiagram</span>
-<span class="token keyword">class</span> Person <span class="token punctuation">&#123;</span>
-	+String name // public
-	-int age // private
-	+save<span class="token punctuation">(</span><span class="token punctuation">)</span> void
-	+eat<span class="token text string">(food)</span> void
-	+breathe<span class="token text string">(air)</span> void
-<span class="token punctuation">&#125;</span>
-<span class="token keyword">class</span> Student~Primary~ <span class="token punctuation">&#123;</span>
-	-String studentNo
-	+doHomework<span class="token text string">(pen)</span> Homework
-<span class="token punctuation">&#125;</span>
-<span class="token keyword">class</span> Tool <span class="token punctuation">&#123;</span>
-	+String function
-	+use<span class="token punctuation">(</span><span class="token punctuation">)</span> void
-<span class="token punctuation">&#125;</span>
-<span class="token keyword">class</span> Pen <span class="token punctuation">&#123;</span>
-	+use<span class="token punctuation">(</span><span class="token punctuation">)</span> void
-<span class="token punctuation">&#125;</span>
-<span class="token keyword">class</span> Air <span class="token punctuation">&#123;</span>
-	+String O2
-<span class="token punctuation">&#125;</span>
-<span class="token keyword">class</span> Eye <span class="token punctuation">&#123;</span>
-	+String eyes
-<span class="token punctuation">&#125;</span>
-<span class="token keyword">class</span> Grade <span class="token punctuation">&#123;</span>
-	+Student students
-<span class="token punctuation">&#125;</span>
-Air <span class="token arrow operator">&lt;..</span> Person<span class="token operator">:</span> 依赖<span class="token text string">(一个需要另一个的协助)</span>
-Person <span class="token arrow operator">&lt;|--</span> Student<span class="token operator">:</span> 继承
-Tool <span class="token arrow operator">&lt;|..</span> Pen<span class="token operator">:</span> 实现
-Pen <span class="token arrow operator">&lt;..</span> Student<span class="token operator">:</span> 依赖
-Person <span class="token arrow operator">*--</span> Eye<span class="token operator">:</span> 组合<span class="token text string">(整体与部分的关系, 部分不能离开整体单独存在)</span>
-Grade <span class="token arrow operator">o--</span> Student<span class="token operator">:</span> 聚合<span class="token text string">(整体与部分的关系, 部分可以离开整体单独存在)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+</li>
+<li><p>JProfiler: 商业软件，需要付费。功能强大。</p>
+<blockquote>
+<p>与 VisualVM 类似</p>
+</blockquote>
+</li>
+<li><p>Arthas: Alibaba 开源的 Java 诊断工具。</p>
+</li>
+<li><p>Btrace: Java 运行时追踪工具. 可以在不停机的情况下, 跟踪指定的方法调用、构造函数调用和系统内存等信息。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="02-JConsole"><a href="#02-JConsole" class="headerlink" title="02-JConsole"></a>02-JConsole</h2><h2 id="03-Visual-VM"><a href="#03-Visual-VM" class="headerlink" title="03-Visual VM"></a>03-Visual VM</h2><blockquote>
+</blockquote>
+<h2 id="04-Eclipse-MAT"><a href="#04-Eclipse-MAT" class="headerlink" title="04-Eclipse MAT"></a>04-Eclipse MAT</h2><h2 id="05-JProfiler"><a href="#05-JProfiler" class="headerlink" title="05-JProfiler"></a>05-JProfiler</h2><h2 id="06-JProfiler"><a href="#06-JProfiler" class="headerlink" title="06-JProfiler"></a>06-JProfiler</h2><h2 id="07-Java-Mission-Control"><a href="#07-Java-Mission-Control" class="headerlink" title="07-Java Mission Control"></a>07-Java Mission Control</h2><h2 id="08-其他工具"><a href="#08-其他工具" class="headerlink" title="08-其他工具"></a>08-其他工具</h2>
                 
             </div>
             <hr/>
@@ -805,7 +423,7 @@ Grade <span class="token arrow operator">o--</span> Student<span class="token op
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.saddyfire.cn/2023/04/10/mermaid-note/">https://www.saddyfire.cn/2023/04/10/mermaid-note/</a>
+                    <a href="https://www.saddyfire.cn/2024/01/07/jvm-tuning2/">https://www.saddyfire.cn/2024/01/07/jvm-tuning2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -816,7 +434,7 @@ Grade <span class="token arrow operator">o--</span> Student<span class="token op
                 </span>
                 <span class="reprint-info">
                     本博客所有文章除特別声明外，均采用
-                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a>
                     许可协议。转载请注明来源
                     <a href="https://www.saddyfire.cn" target="_blank">👑Dee👑</a>
                     !
@@ -843,16 +461,8 @@ Grade <span class="token arrow operator">o--</span> Student<span class="token op
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Mermaid/">
-                                    <span class="chip bg-color">Mermaid</span>
-                                </a>
-                            
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
-                                </a>
-                            
-                                <a href="/tags/Markdown/">
-                                    <span class="chip bg-color">Markdown</span>
+                                <a href="/tags/JVM/">
+                                    <span class="chip bg-color">JVM</span>
                                 </a>
                             
                         </div>
@@ -895,29 +505,29 @@ Grade <span class="token arrow operator">o--</span> Student<span class="token op
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/04/14/daily/">
+                <a href="/2024/01/07/jvm-tuning2/">
                     <div class="card-image">
                         
+                        <img src="/images/article/49.jpg" class="responsive-img" alt="JVM-Tuning-02-JVM监控及诊断工具-命令篇">
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="日常查询">
-                        
-                        <span class="card-title">日常查询</span>
+                        <span class="card-title">JVM-Tuning-02-JVM监控及诊断工具-命令篇</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            个人隐私咯😋😋😋
+                            JVM监控及诊断工具-命令篇
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -930,23 +540,12 @@ Grade <span class="token arrow operator">o--</span> Student<span class="token op
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
-                    <a href="/tags/Git/">
-                        <span class="chip bg-color">Git</span>
-                    </a>
-                    
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
+                    <a href="/tags/JVM/">
+                        <span class="chip bg-color">JVM</span>
                     </a>
                     
                 </div>
@@ -960,23 +559,23 @@ Grade <span class="token arrow operator">o--</span> Student<span class="token op
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/04/10/th-login/">
+                <a href="/2024/01/07/jvm-tuning1/">
                     <div class="card-image">
                         
-                        <img src="/images/article/2.jpg" class="responsive-img" alt="th-login">
+                        <img src="/images/article/48.jpg" class="responsive-img" alt="JVM-Tuning-01-JVM性能调优概述及监控诊断工具">
                         
-                        <span class="card-title">th-login</span>
+                        <span class="card-title">JVM-Tuning-01-JVM性能调优概述及监控诊断工具</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            第三方登录流程
+                            JVM性能调优概述及监控诊断工具
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-07
                             </span>
                         <span class="publish-author">
                             
@@ -993,12 +592,8 @@ Grade <span class="token arrow operator">o--</span> Student<span class="token op
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                    <a href="/tags/Vue/">
-                        <span class="chip bg-color">Vue</span>
+                    <a href="/tags/JVM/">
+                        <span class="chip bg-color">JVM</span>
                     </a>
                     
                 </div>

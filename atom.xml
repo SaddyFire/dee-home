@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2024-01-07T15:26:30.028Z</updated>
+  <updated>2024-01-07T15:42:15.722Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JVM-Tuning-02-JVM监控及诊断工具-命令篇</title>
+    <link href="https://www.saddyfire.cn/2024/01/07/jvm-tuning2/"/>
+    <id>https://www.saddyfire.cn/2024/01/07/jvm-tuning2/</id>
+    <published>2024-01-07T15:30:30.000Z</published>
+    <updated>2024-01-07T15:42:15.722Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;JVM监控及诊断工具-命令篇&quot;&gt;&lt;a href=&quot;#JVM监控及诊断工具-命令篇&quot; class=&quot;headerlink&quot; title=&quot;JVM监控及诊断工具-命令篇&quot;&gt;&lt;/a&gt;JVM监控及诊断工具-命令篇&lt;/h1&gt;&lt;h2 id=&quot;01-工具概述&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
+    
+  </entry>
   
   <entry>
     <title>JVM-Tuning-01-JVM性能调优概述及监控诊断工具</title>
@@ -492,33 +517,6 @@
     
     
     <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mail-demo</title>
-    <link href="https://www.saddyfire.cn/2023/12/09/mail-demo/"/>
-    <id>https://www.saddyfire.cn/2023/12/09/mail-demo/</id>
-    <published>2023-12-09T10:15:23.000Z</published>
-    <updated>2023-12-09T10:41:01.826Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;依赖&quot;&gt;&lt;a href=&quot;#依赖&quot; class=&quot;headerlink&quot; title=&quot;依赖&quot;&gt;&lt;/a&gt;依赖&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-markup&quot; data-language=&quot;markup&quot;&gt;&lt;code</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
-    
-    <category term="SpringBoot" scheme="https://www.saddyfire.cn/tags/SpringBoot/"/>
     
   </entry>
   
