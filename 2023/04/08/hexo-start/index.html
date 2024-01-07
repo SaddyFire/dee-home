@@ -360,8 +360,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="开始">开始</h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> hexo-cli  <span class="token comment"># 安装hexo</span>
+                <h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> hexo-cli  <span class="token comment"># 安装hexo</span>
 hexo init myBlog  <span class="token comment"># 初始化服务 如果报错在 隐私和安全->开发者选项->Powershell打开策略</span>
 <span class="token comment"># 进入服务文件夹</span>
 hexo s  <span class="token comment"># 启动预览服务(hexo server)</span>
@@ -369,23 +368,18 @@ hexo new <span class="token punctuation">[</span>layout<span class="token punctu
 hexo g  <span class="token comment"># 生成网页(hexo generate)</span>
 hexo server <span class="token parameter variable">-p</span> <span class="token number">5000</span>  <span class="token comment"># 指定端口</span>
 hexo new page <span class="token string">"pagename"</span>  <span class="token comment"># 新建文件夹</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="配置">配置</h2>
-<h3 id="主题下载">主题下载</h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/blinkfox/hexo-theme-matery.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="主配置文件">主配置文件</h3>
-<p><code>_config.yml</code></p>
+
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="主题下载"><a href="#主题下载" class="headerlink" title="主题下载"></a>主题下载</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/blinkfox/hexo-theme-matery.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="主配置文件"><a href="#主配置文件" class="headerlink" title="主配置文件"></a>主配置文件</h3><p><code>_config.yml</code> </p>
 <ul>
-<li>
-<p>主题修改</p>
+<li><p>主题修改</p>
 </li>
-<li>
-<p><code>url</code> 修改( 如：<a target="_blank" rel="noopener" href="http://xxx.github.io">http://xxx.github.io</a>)</p>
+<li><p><code>url</code> 修改( 如：<a target="_blank" rel="noopener" href="http://xxx.github.io/">http://xxx.github.io</a>)</p>
 </li>
-<li>
-<p><code>per_page</code> 修改为6的倍数</p>
+<li><p><code>per_page</code> 修改为6的倍数</p>
 </li>
-<li>
-<p><code>language</code> 设置中文</p>
+<li><p><code>language</code> 设置中文</p>
 </li>
 </ul>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">theme</span><span class="token punctuation">:</span> hexo<span class="token punctuation">-</span>theme<span class="token punctuation">-</span>matery
@@ -398,8 +392,8 @@ hexo new page <span class="token string">"pagename"</span>  <span class="token c
   <span class="token key atrule">order_by</span><span class="token punctuation">:</span> <span class="token punctuation">-</span>date
 
 <span class="token key atrule">language</span><span class="token punctuation">:</span> zh<span class="token punctuation">-</span>CN<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="高亮代码">高亮代码</h3>
-<p>根目录<code>_config.yml</code></p>
+
+<h3 id="高亮代码"><a href="#高亮代码" class="headerlink" title="高亮代码"></a>高亮代码</h3><p>根目录<code>_config.yml</code> </p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">highlight</span><span class="token punctuation">:</span>
   <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
   <span class="token key atrule">line_number</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
@@ -412,6 +406,7 @@ hexo new page <span class="token string">"pagename"</span>  <span class="token c
   <span class="token key atrule">preprocess</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
   <span class="token key atrule">line_number</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
   <span class="token key atrule">tab_replace</span><span class="token punctuation">:</span> <span class="token string">''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>代码样式下载<a target="_blank" rel="noopener" href="https://prismjs.com/download.html">prismjs下载页面</a></p>
 <p>然后将css文件取名为<code>prism.min.css</code>, 替换<code>themes/hexo-theme-matery/source/libs/prism/prism.min.css</code> 文件</p>
 <p><code>代码语言</code> 标签隐藏, 在<code>prism.min.css</code>文件新增配置</p>
@@ -419,10 +414,12 @@ hexo new page <span class="token string">"pagename"</span>  <span class="token c
 <span class="token selector">.code_lang</span> <span class="token punctuation">&#123;</span>
     <span class="token property">visibility</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="导航栏文件夹配置">导航栏文件夹配置</h3>
-<h4 id="新建-categories-页">新建 categories 页</h4>
-<p><code>categories</code>页是用来展示所有分类的页面, 新建命令</p>
+
+
+
+<h3 id="导航栏文件夹配置"><a href="#导航栏文件夹配置" class="headerlink" title="导航栏文件夹配置"></a>导航栏文件夹配置</h3><h4 id="新建-categories-页"><a href="#新建-categories-页" class="headerlink" title="新建 categories 页"></a>新建 categories 页</h4><p><code>categories</code>页是用来展示所有分类的页面, 新建命令</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page <span class="token string">"categories"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>编辑页面文件<code>/source/categories/index.md</code></p>
 <pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
 <span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> categories
@@ -430,9 +427,10 @@ hexo new page <span class="token string">"pagename"</span>  <span class="token c
 <span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">"categories"</span>
 <span class="token key atrule">layout</span><span class="token punctuation">:</span> <span class="token string">"categories"</span></span>
 <span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="新建标签-tags-页">新建标签 tags 页</h4>
-<p><code>tags</code> 页是用来展示所有标签的页面, 新建命令</p>
+
+<h4 id="新建标签-tags-页"><a href="#新建标签-tags-页" class="headerlink" title="新建标签 tags 页"></a>新建标签 tags 页</h4><p><code>tags</code> 页是用来展示所有标签的页面, 新建命令</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page <span class="token string">"tags"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>编辑页面文件 <code>/source/tags/index.md</code></p>
 <pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
 <span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> tags
@@ -440,9 +438,10 @@ hexo new page <span class="token string">"pagename"</span>  <span class="token c
 <span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">"tags"</span>
 <span class="token key atrule">layout</span><span class="token punctuation">:</span> <span class="token string">"tags"</span></span>
 <span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="新建关于我-about-页">新建关于我 about 页</h4>
-<p><code>about</code> 页是用来展示<strong>关于我和我的博客</strong>信息的页面</p>
+
+<h4 id="新建关于我-about-页"><a href="#新建关于我-about-页" class="headerlink" title="新建关于我 about 页"></a>新建关于我 about 页</h4><p><code>about</code> 页是用来展示<strong>关于我和我的博客</strong>信息的页面</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page <span class="token string">"about"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>编辑页面文件 <code>/source/about/index.md</code></p>
 <pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
 <span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> about
@@ -450,9 +449,10 @@ hexo new page <span class="token string">"pagename"</span>  <span class="token c
 <span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">"about"</span>
 <span class="token key atrule">layout</span><span class="token punctuation">:</span> <span class="token string">"about"</span></span>
 <span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="新建-404-页">新建 404 页</h4>
-<p>新建命令</p>
+
+<h4 id="新建-404-页"><a href="#新建-404-页" class="headerlink" title="新建 404 页"></a>新建 404 页</h4><p>新建命令</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page <span class="token number">404</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>编辑页面文件 <code>/source/404/index.md</code></p>
 <pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
 <span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> <span class="token number">404</span>
@@ -461,27 +461,30 @@ hexo new page <span class="token string">"pagename"</span>  <span class="token c
 <span class="token key atrule">layout</span><span class="token punctuation">:</span> <span class="token string">"404"</span>
 <span class="token key atrule">description</span><span class="token punctuation">:</span> <span class="token string">"Oops～，我崩溃了！找不到你想要的页面 :("</span></span>
 <span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="搜索">搜索</h3>
-<p>安装插件</p>
+
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><p>安装插件</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-generator-search <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>根目录下的 <code>_config.yml</code> 文件新增配置</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">search</span><span class="token punctuation">:</span>
   <span class="token key atrule">path</span><span class="token punctuation">:</span> search.xml
   <span class="token key atrule">field</span><span class="token punctuation">:</span> post<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="中文链接转拼音-建议安装">中文链接转拼音(建议安装)</h3>
-<p>如果文章名称是中文的，那么 Hexo 默认生成的永久链接也会有中文，这样不利于 <code>SEO</code>，且 <code>gitment</code> 评论对中文链接也不支持。我们可以用 <a target="_blank" rel="noopener" href="https://github.com/viko16/hexo-permalink-pinyin">hexo-permalink-pinyin</a> Hexo 插件使在生成文章时生成中文拼音的永久链接。</p>
+
+<h3 id="中文链接转拼音-建议安装"><a href="#中文链接转拼音-建议安装" class="headerlink" title="中文链接转拼音(建议安装)"></a>中文链接转拼音(建议安装)</h3><p>如果文章名称是中文的，那么 Hexo 默认生成的永久链接也会有中文，这样不利于 <code>SEO</code>，且 <code>gitment</code> 评论对中文链接也不支持。我们可以用 <a target="_blank" rel="noopener" href="https://github.com/viko16/hexo-permalink-pinyin">hexo-permalink-pinyin</a> Hexo 插件使在生成文章时生成中文拼音的永久链接。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> i hexo-permalink-pinyin <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>根目录下的 <code>_config.yml</code> 文件新增配置</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">permalink_pinyin</span><span class="token punctuation">:</span>
   <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
   <span class="token key atrule">separator</span><span class="token punctuation">:</span> <span class="token string">'-'</span> <span class="token comment"># default: '-'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p><strong>注</strong>：除了此插件外，<a target="_blank" rel="noopener" href="https://github.com/rozbo/hexo-abbrlink">hexo-abbrlink</a> 插件也可以生成非中文的链接。</p>
 </blockquote>
-<h3 id="文章字数统计插件（建议安装）">文章字数统计插件（建议安装）</h3>
-<p>如果想要在文章中显示文章字数、阅读时长信息，可以安装 <a target="_blank" rel="noopener" href="https://github.com/willin/hexo-wordcount">hexo-wordcount</a>插件。</p>
+<h3 id="文章字数统计插件（建议安装）"><a href="#文章字数统计插件（建议安装）" class="headerlink" title="文章字数统计插件（建议安装）"></a>文章字数统计插件（建议安装）</h3><p>如果想要在文章中显示文章字数、阅读时长信息，可以安装 <a target="_blank" rel="noopener" href="https://github.com/willin/hexo-wordcount">hexo-wordcount</a>插件。</p>
 <p>安装命令如下：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> i <span class="token parameter variable">--save</span> hexo-wordcount<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>然后只需在本主题下的 <code>_config.yml</code> 文件中，将各个文章字数相关的配置激活即可：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">postInfo</span><span class="token punctuation">:</span>
   <span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
@@ -490,22 +493,22 @@ hexo new page <span class="token string">"pagename"</span>  <span class="token c
   <span class="token key atrule">totalCount</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 设置站点文章总字数统计为 true.</span>
   <span class="token key atrule">min2read</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 阅读时长.</span>
   <span class="token key atrule">readCount</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 阅读次数.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="修改页脚">修改页脚</h3>
-<p>页脚信息可能需要做定制化修改，而且它不便于做成配置信息，所以可能需要你自己去再修改和加工。修改的地方在主题文件的 <code>/layout/_partial/footer.ejs</code> 文件中，包括站点、使用的主题、访问量等。</p>
-<h3 id="添加中文繁简转换">添加中文繁简转换</h3>
-<p>在主题的 <code>_config.yml</code> 文件中，开启 translate 为 enable。</p>
+
+<h3 id="修改页脚"><a href="#修改页脚" class="headerlink" title="修改页脚"></a>修改页脚</h3><p>页脚信息可能需要做定制化修改，而且它不便于做成配置信息，所以可能需要你自己去再修改和加工。修改的地方在主题文件的 <code>/layout/_partial/footer.ejs</code> 文件中，包括站点、使用的主题、访问量等。</p>
+<h3 id="添加中文繁简转换"><a href="#添加中文繁简转换" class="headerlink" title="添加中文繁简转换"></a>添加中文繁简转换</h3><p>在主题的 <code>_config.yml</code> 文件中，开启 translate 为 enable。</p>
 <blockquote>
 <p>开启中文繁简转换如下修改。默认不开启。 实例演示： <a target="_blank" rel="noopener" href="https://blog.17lai.site/">繁简转换</a> 底下 footer 栏</p>
 </blockquote>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">translate</span><span class="token punctuation">:</span>
   <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="修改社交链接">修改社交链接</h3>
-<p>在主题的 <code>_config.yml</code> 文件中，默认支持 <code>QQ</code>、<code>GitHub</code> 和邮箱等的配置，你可以在主题文件的 <code>/layout/_partial/social-link.ejs</code> 文件中，新增、修改你需要的社交链接地址，增加链接可参考如下代码：</p>
+
+<h3 id="修改社交链接"><a href="#修改社交链接" class="headerlink" title="修改社交链接"></a>修改社交链接</h3><p>在主题的 <code>_config.yml</code> 文件中，默认支持 <code>QQ</code>、<code>GitHub</code> 和邮箱等的配置，你可以在主题文件的 <code>/layout/_partial/social-link.ejs</code> 文件中，新增、修改你需要的社交链接地址，增加链接可参考如下代码：</p>
 <pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs"><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token keyword">if</span> <span class="token punctuation">(</span>theme<span class="token punctuation">.</span>socialLink<span class="token punctuation">.</span>github<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> </span><span class="token delimiter punctuation">%></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%=</span><span class="token language-javascript"> theme<span class="token punctuation">.</span>socialLink<span class="token punctuation">.</span>github </span><span class="token delimiter punctuation">%></span></span><span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tooltipped<span class="token punctuation">"</span></span> <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_blank<span class="token punctuation">"</span></span> <span class="token attr-name">data-tooltip</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>访问我的GitHub<span class="token punctuation">"</span></span> <span class="token attr-name">data-position</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>top<span class="token punctuation">"</span></span> <span class="token attr-name">data-delay</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>fab fa-github<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
 <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token punctuation">&#125;</span> </span><span class="token delimiter punctuation">%></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>其中，社交图标（如：<code>fa-github</code>）你可以在 <a target="_blank" rel="noopener" href="https://fontawesome.com/icons">Font Awesome</a> 中搜索找到。以下是常用社交图标的标识，供你参考：</p>
 <ul>
 <li>Facebook: <code>fab fa-facebook</code></li>
@@ -520,112 +523,92 @@ hexo new page <span class="token string">"pagename"</span>  <span class="token c
 <li>QQ: <code>fab fa-qq</code></li>
 <li>Zhihu: <code>fab fa-zhihu</code></li>
 </ul>
-<h3 id="本地图片链接配置">本地图片链接配置</h3>
-<p>此处以<code>Typora</code>搭配使用</p>
+<h3 id="本地图片链接配置"><a href="#本地图片链接配置" class="headerlink" title="本地图片链接配置"></a>本地图片链接配置</h3><p>此处以<code>Typora</code>搭配使用</p>
 <p><code>Typora</code>图像设置</p>
-<p><img src="../hexo-start/image-20230817224426509.png" alt=""></p>
+<p><img src="/2023/04/08/hexo-start/image-20230817224426509.png"></p>
 <p><code>hexo</code>插件</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">npm i hexo<span class="token operator">-</span>renderer<span class="token operator">-</span>marked<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><code>_config</code>添加配置</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">marked</span><span class="token punctuation">:</span>
   <span class="token key atrule">prependRoot</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
   <span class="token key atrule">postAsset</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>文章标签添加, 使用Typora引用方式</p>
 <pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">typora-root-url: &#123;&#123; title &#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="部署">部署</h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo d  <span class="token comment"># 一键部署(hexo deploy)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo d  <span class="token comment"># 一键部署(hexo deploy)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>部署前, <code>_config.yml</code>配置参数</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
   <span class="token key atrule">type</span><span class="token punctuation">:</span> git
   <span class="token key atrule">repo</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//github.com/xxx/xxx.git  <span class="token comment"># github仓库发布地址</span>
   <span class="token key atrule">branch</span><span class="token punctuation">:</span> gh<span class="token punctuation">-</span>pages  <span class="token comment"># 发布分支</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="GitHub-Pages">GitHub Pages</h3>
-<ol>
-<li>
-<p>关联仓库与源码</p>
+
+<h3 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h3><ol>
+<li><p>关联仓库与源码</p>
 </li>
-<li>
-<p>将<code>publish/</code> 加入<code>.ignore</code></p>
+<li><p>将<code>publish/</code> 加入<code>.ignore</code></p>
 </li>
-<li>
-<p><code>node --version</code> 查看node版本</p>
+<li><p><code>node --version</code> 查看node版本</p>
 </li>
-<li>
-<p>创建文件 <code>.github/workflows/pages.yml</code></p>
+<li><p>创建文件 <code>.github/workflows/pages.yml</code></p>
 </li>
-<li>
-<p>GitHub - Pages设置</p>
-<p><img src="../hexo-start/image-20230411230502386.png" alt=""></p>
+<li><p>GitHub - Pages设置</p>
+<p><img src="/2023/04/08/hexo-start/image-20230411230502386.png"></p>
 </li>
 </ol>
-<h3 id="Vercel-加速">Vercel 加速</h3>
-<ol>
-<li>
-<p>绑定GitHub项目</p>
+<h3 id="Vercel-加速"><a href="#Vercel-加速" class="headerlink" title="Vercel 加速"></a>Vercel 加速</h3><ol>
+<li><p>绑定GitHub项目</p>
 </li>
-<li>
-<p>Domain设置</p>
-<p><img src="../hexo-start/image-20230411231718823.png" alt=""></p>
+<li><p>Domain设置</p>
+<p><img src="/2023/04/08/hexo-start/image-20230411231718823.png"></p>
 </li>
-<li>
-<p>阿里云添加域名解析</p>
-<p><img src="../hexo-start/image-20230411232320594.png" alt=""></p>
+<li><p>阿里云添加域名解析</p>
+<p><img src="/2023/04/08/hexo-start/image-20230411232320594.png"></p>
 </li>
 </ol>
 <p>参考自:</p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://blog.17lai.site/posts/5311b619/#vercel-%E9%83%A8%E7%BD%B2">基于Hexo的matery主题搭建博客增强部署篇4 | 夜法之书 (17lai.site)</a></p>
 </blockquote>
-<h3 id="图床设置">图床设置</h3>
-<p><strong>七牛云+阿里云+Typora</strong></p>
+<h3 id="图床设置"><a href="#图床设置" class="headerlink" title="图床设置"></a>图床设置</h3><p><strong>七牛云+阿里云+Typora</strong></p>
 <ol>
-<li>
-<p>七牛云对象存储 - 新建空间 - 域名配置</p>
-<p><img src="../hexo-start/image-20230411233037391.png" alt=""></p>
+<li><p>七牛云对象存储 - 新建空间 - 域名配置</p>
+<p><img src="/2023/04/08/hexo-start/image-20230411233037391.png"></p>
 </li>
-<li>
-<p>阿里云添加域名解析<br>
-<img src="../hexo-start/image-20230411233857926.png" alt=""></p>
+<li><p>阿里云添加域名解析<br><img src="/2023/04/08/hexo-start/image-20230411233857926.png"></p>
 </li>
-<li>
-<p>picgo的下载与配置</p>
-<p><a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/zh/">PicGo 下载链接</a></p>
-<p><img src="../hexo-start/image-20230411234958488.png" alt=""></p>
+<li><p>picgo的下载与配置</p>
+<p> <a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/zh/">PicGo 下载链接</a></p>
+<p><img src="/2023/04/08/hexo-start/image-20230411234958488.png"></p>
 <p><a target="_blank" rel="noopener" href="https://developer.qiniu.com/kodo/1671/region-endpoint-fq">存储区域_文档地址</a></p>
-<p><img src="../hexo-start/image-20230412001114983.png" alt=""></p>
+<p><img src="/2023/04/08/hexo-start/image-20230412001114983.png"></p>
 </li>
-<li>
-<p>Typora图片设置</p>
-<p><img src="../hexo-start/1220230412005659.png" alt=""></p>
+<li><p>Typora图片设置</p>
+<p><img src="/2023/04/08/hexo-start/1220230412005659.png"></p>
 <p>此时点击验证图片上传选项测试是否可以配置成功. 但是由于默认情况下PicGo会将图片都放在一个目录下, 因此需要安装前缀插件</p>
 <p>在插件设置中搜索<code>super-prefix</code> 下载插件</p>
-<p><img src="../hexo-start/1220230412005940.png" alt=""></p>
+<p><img src="/2023/04/08/hexo-start/1220230412005940.png"></p>
 <p>配置插件后重启, 再次测试上传目录</p>
-<p><img src="../hexo-start/20230412011022.png" alt=""></p>
+<p><img src="/2023/04/08/hexo-start/20230412011022.png"></p>
 </li>
 </ol>
-<h3 id="图床SSL配置">图床SSL配置</h3>
-<p>由于网站是https服务, 图床的链接是http, 因此页面部署后请求图片url会将http升级为https而导致图片无法加载, 因此要在七牛云配置SSL证书</p>
+<h3 id="图床SSL配置"><a href="#图床SSL配置" class="headerlink" title="图床SSL配置"></a>图床SSL配置</h3><p>由于网站是https服务, 图床的链接是http, 因此页面部署后请求图片url会将http升级为https而导致图片无法加载, 因此要在七牛云配置SSL证书</p>
 <ol>
-<li>
-<p>阿里云证书申请</p>
+<li><p>阿里云证书申请</p>
 <img src="../hexo-start/20230412233520.png" />
 </li>
-<li>
-<p>添加域名解析, 下载证书</p>
-<p><img src="../hexo-start/20230412233728.png" alt=""></p>
+<li><p>添加域名解析, 下载证书</p>
+<p><img src="/2023/04/08/hexo-start/20230412233728.png"></p>
 </li>
-<li>
-<p>七牛云上传证书(SSL证书 - 上传自有证书), 部署证书</p>
-<p><img src="../hexo-start/20230412234416.png" alt=""></p>
+<li><p>七牛云上传证书(SSL证书 - 上传自有证书), 部署证书</p>
+<p><img src="/2023/04/08/hexo-start/20230412234416.png"></p>
 </li>
 </ol>
-<h2 id="自定义主题">自定义主题</h2>
-<blockquote>
+<h2 id="自定义主题"><a href="#自定义主题" class="headerlink" title="自定义主题"></a>自定义主题</h2><blockquote>
 <p>本章节均搬运自其他文章、博客并加以整合成自己样式, 在此仅作为参考</p>
 </blockquote>
-<h3 id="修改导航栏颜色、蒙版等">修改导航栏颜色、蒙版等</h3>
-<p>文件<code>themes/hexo-theme-matery/source/css/matery.css</code></p>
+<h3 id="修改导航栏颜色、蒙版等"><a href="#修改导航栏颜色、蒙版等" class="headerlink" title="修改导航栏颜色、蒙版等"></a>修改导航栏颜色、蒙版等</h3><p>文件<code>themes/hexo-theme-matery/source/css/matery.css</code></p>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token comment">/*导航栏, 底部栏颜色*/</span>
 <span class="token selector">.bg-color</span> <span class="token punctuation">&#123;</span>
     <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>to right<span class="token punctuation">,</span> #2b2d30 0%<span class="token punctuation">,</span> #2b2d30 100%<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -677,6 +660,7 @@ hexo new page <span class="token string">"pagename"</span>  <span class="token c
     <span class="token property">width</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span>
     <span class="token property">height</span><span class="token punctuation">:</span> 15px<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>改完导航栏后继续更改其他组件绿色</p>
 <p>全局替换 <code>#429b83</code> 为 <code>#cc1212</code></p>
 <p>浅绿 <code>#4cbf30</code> 为 <code>#2b2d30</code></p>
@@ -686,8 +670,7 @@ hexo new page <span class="token string">"pagename"</span>  <span class="token c
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/cungudafa/article/details/106278206">hexo（matery）背景、滚动条优化+增加点击跳评论_首页+色_cungudafa的博客</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/chendeqiang/p/12861726.html">hexo-matery主题改造笔记 - 多弗朗强哥</a></p>
 </blockquote>
-<h3 id="副标题引用一言及打字机样式">副标题引用一言及打字机样式</h3>
-<p>全局搜索<code>span id=&quot;subtitle&quot;</code> 可定位到打字机代码 <code>themes/hexo-theme-matery/layout/_partial/bg-cover-content.ejs</code></p>
+<h3 id="副标题引用一言及打字机样式"><a href="#副标题引用一言及打字机样式" class="headerlink" title="副标题引用一言及打字机样式"></a>副标题引用一言及打字机样式</h3><p>全局搜索<code>span id=&quot;subtitle&quot;</code> 可定位到打字机代码 <code>themes/hexo-theme-matery/layout/_partial/bg-cover-content.ejs</code></p>
 <p>新增逻辑如下:</p>
 <pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs"><span class="token comment">&lt;!-- 一言 --></span>
 <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token keyword">if</span> <span class="token punctuation">(</span>theme<span class="token punctuation">.</span>hitokoto<span class="token punctuation">.</span>enable<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> </span><span class="token delimiter punctuation">%></span></span>
@@ -729,6 +712,7 @@ hexo new page <span class="token string">"pagename"</span>  <span class="token c
     <span class="token function">hitokoto</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> </span><span class="token delimiter punctuation">%></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>主题配置<code>themes/hexo-theme-matery/_config.yml</code> 添加打字机配置</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 一言</span>
 <span class="token key atrule">hitokoto</span><span class="token punctuation">:</span>
@@ -738,7 +722,8 @@ hexo new page <span class="token string">"pagename"</span>  <span class="token c
   <span class="token key atrule">startDelay</span><span class="token punctuation">:</span> <span class="token number">300</span> <span class="token comment"># 开始延迟</span>
   <span class="token key atrule">typeSpeed</span><span class="token punctuation">:</span> <span class="token number">130</span> <span class="token comment"># 打字速度</span>
   <span class="token key atrule">backSpeed</span><span class="token punctuation">:</span> <span class="token number">50</span> <span class="token comment"># 删除速度</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>搬运自:</p>
+
+<p>搬运自: </p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://dreamruins.gitee.io/tutorials/443376935.html#vcomments">Matery主题自定义(五)为一言和文章标题添加打字机效果</a></p>
 </blockquote>
@@ -757,8 +742,8 @@ uglifyjs fetch.js <span class="token parameter variable">-o</span> fetch.min.js 
 <span class="token operator">&lt;</span>script <span class="token assign-left variable">src</span><span class="token operator">=</span><span class="token string">"/js/typed.min.js"</span><span class="token operator">></span><span class="token operator">&lt;</span>/script<span class="token operator">></span>
 <span class="token operator">&lt;</span>script <span class="token assign-left variable">src</span><span class="token operator">=</span><span class="token string">"/js/bluebird.min.js"</span><span class="token operator">></span><span class="token operator">&lt;</span>/script<span class="token operator">></span>
 <span class="token operator">&lt;</span>script <span class="token assign-left variable">src</span><span class="token operator">=</span><span class="token string">"/js/fetch.min.js"</span><span class="token operator">></span><span class="token operator">&lt;</span>/script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="自动切换黑夜模式">自动切换黑夜模式</h3>
-<p>如果用户手动点击切换则不再进行自动切换</p>
+
+<h3 id="自动切换黑夜模式"><a href="#自动切换黑夜模式" class="headerlink" title="自动切换黑夜模式"></a>自动切换黑夜模式</h3><p>如果用户手动点击切换则不再进行自动切换</p>
 <p>切换按钮添加逻辑: <code>themes/hexo-theme-matery/layout/_widget/day-night.ejs</code></p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">switchNightMode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'&lt;div class="Cuteen_DarkSky">&lt;div class="Cuteen_DarkPlanet">&lt;/div>&lt;/div>'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">appendTo</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'body'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -776,7 +761,8 @@ uglifyjs fetch.js <span class="token parameter variable">-o</span> fetch.min.js 
         <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">2e3</span><span class="token punctuation">)</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>在 <code>themes/hexo-theme-matery/layout/layout.ejs</code> 代码<code>&lt;%- partial('_widget/day-night') %&gt;</code> 下面(可选)添加</p>
+
+<p>在 <code>themes/hexo-theme-matery/layout/layout.ejs</code> 代码<code>&lt;%- partial(&#39;_widget/day-night&#39;) %&gt;</code> 下面(可选)添加</p>
 <pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
     <span class="token comment">//自动切换夜间模式</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'manualDark'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
@@ -798,14 +784,13 @@ uglifyjs fetch.js <span class="token parameter variable">-o</span> fetch.min.js 
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>参考自:</p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://dreamruins.gitee.io/tutorials/1121281946">Matery主题自定义(一)黑夜模式</a></p>
 </blockquote>
-<h3 id="页面加载动画">页面加载动画</h3>
-<ol>
-<li>
-<p>结构代码</p>
+<h3 id="页面加载动画"><a href="#页面加载动画" class="headerlink" title="页面加载动画"></a>页面加载动画</h3><ol>
+<li><p>结构代码</p>
 <p>新建<code>themes/hexo-theme-matery/layout/_widget/loading.ejs</code>文件</p>
 <pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs"><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token keyword">if</span> <span class="token punctuation">(</span>theme<span class="token punctuation">.</span>preloader<span class="token punctuation">.</span>enable<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> </span><span class="token delimiter punctuation">%></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>loading-box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -830,8 +815,7 @@ uglifyjs fetch.js <span class="token parameter variable">-o</span> fetch.min.js 
     </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token punctuation">&#125;</span> </span><span class="token delimiter punctuation">%></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li>
-<p>样式代码</p>
+<li><p>样式代码</p>
 <p>新建<code>themes/hexo-theme-matery/source/css/loading.css</code> 文件</p>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">#loading-box .loading-left-bg,
 #loading-box .loading-right-bg</span> <span class="token punctuation">&#123;</span>
@@ -944,28 +928,24 @@ uglifyjs fetch.js <span class="token parameter variable">-o</span> fetch.min.js 
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li>
-<p>将加载动画添加至页面</p>
+<li><p>将加载动画添加至页面</p>
 <p>找到 <code>themes&gt;hexo-theme-matery&gt;layout&gt;_partial&gt;head.ejs</code> 文件，这个文件专门用来引入样式文件和配置网页信息</p>
 <p>在 <code>&lt;head&gt;</code> 标签中引入 <strong>loading.css</strong> 文件</p>
 <pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> theme<span class="token punctuation">.</span>jsDelivr<span class="token punctuation">.</span>url </span><span class="token delimiter punctuation">%></span></span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">url_for</span><span class="token punctuation">(</span><span class="token string">'/css/loading.css'</span><span class="token punctuation">)</span> </span><span class="token delimiter punctuation">%></span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>引入样式文件后，引入结构文件 <strong>loading.ejs</strong>，插入在<code>themes&gt;hexo-theme-matery&gt;layout&gt;layout.ejs</code> <code>&lt;body&gt;</code> 标签下第一行就行了</p>
 <pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs"><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">partial</span><span class="token punctuation">(</span><span class="token string">'_widget/loading'</span><span class="token punctuation">)</span> </span><span class="token delimiter punctuation">%></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
-<li>
-<p>主题配置中<code>_config.yml</code> 添加配置</p>
+<li><p>主题配置中<code>_config.yml</code> 添加配置</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 是否开启页面加载动画</span>
 <span class="token key atrule">preloader</span><span class="token punctuation">:</span>
-  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ol>
-<p>搬运自:</p>
+<p>搬运自: </p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://dreamruins.gitee.io/tutorials/1793947201.html">Matery主题自定义(六)页面加载动画)</a></p>
 </blockquote>
-<h2 id="文章-Front-matter-介绍">文章 Front-matter 介绍</h2>
-<h3 id="Front-matter-选项详解">Front-matter 选项详解</h3>
-<p><code>Front-matter</code> 选项中的所有内容均为<strong>非必填</strong>的。但我仍然建议至少填写 <code>title</code> 和 <code>date</code> 的值。</p>
+<h2 id="文章-Front-matter-介绍"><a href="#文章-Front-matter-介绍" class="headerlink" title="文章 Front-matter 介绍"></a>文章 Front-matter 介绍</h2><h3 id="Front-matter-选项详解"><a href="#Front-matter-选项详解" class="headerlink" title="Front-matter 选项详解"></a>Front-matter 选项详解</h3><p><code>Front-matter</code> 选项中的所有内容均为<strong>非必填</strong>的。但我仍然建议至少填写 <code>title</code> 和 <code>date</code> 的值。</p>
 <table>
 <thead>
 <tr>
@@ -974,8 +954,7 @@ uglifyjs fetch.js <span class="token parameter variable">-o</span> fetch.min.js 
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>title</td>
 <td><code>Markdown</code> 的文件标题</td>
 <td>文章标题，强烈建议填写此选项</td>
@@ -1055,8 +1034,7 @@ uglifyjs fetch.js <span class="token parameter variable">-o</span> fetch.min.js 
 <td>cc_by</td>
 <td>文章转载规则， 可以是 cc_by, cc_by_nd, cc_by_sa, cc_by_nc, cc_by_nc_nd, cc_by_nc_sa, cc0, noreprint 或 pay 中的一个</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <blockquote>
 <p><strong>注意</strong>:</p>
 <ol>
@@ -1067,13 +1045,12 @@ uglifyjs fetch.js <span class="token parameter variable">-o</span> fetch.min.js 
 </ol>
 </blockquote>
 <p>以下为文章的 <code>Front-matter</code> 示例。</p>
-<h3 id="最简示例">最简示例</h3>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
+<h3 id="最简示例"><a href="#最简示例" class="headerlink" title="最简示例"></a>最简示例</h3><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
 <span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> typora<span class="token punctuation">-</span>vue<span class="token punctuation">-</span>theme主题介绍
 <span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2018-09-07 09:25:00</span></span>
 <span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="最全示例">最全示例</h3>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
+
+<h3 id="最全示例"><a href="#最全示例" class="headerlink" title="最全示例"></a>最全示例</h3><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
 <span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> typora<span class="token punctuation">-</span>vue<span class="token punctuation">-</span>theme主题介绍
 <span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2018-09-07 09:25:00</span>
 <span class="token key atrule">tags</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Typora<span class="token punctuation">,</span> Markdown<span class="token punctuation">]</span>

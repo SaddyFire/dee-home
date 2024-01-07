@@ -368,9 +368,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="ByteBuffer">ByteBuffer</h2>
-<h3 id="结构">结构</h3>
-<ul>
+                <h2 id="ByteBuffer"><a href="#ByteBuffer" class="headerlink" title="ByteBuffer"></a>ByteBuffer</h2><h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><ul>
 <li>capacity 容量</li>
 <li>position 写入(读取)位置</li>
 <li>limit 写入(读取)限制</li>
@@ -378,40 +376,38 @@
 <ol>
 <li>初始状态, 写模式(图1-1)</li>
 </ol>
-<p><img src="../Nio/image-20231021144519852.png" alt="图1-1"></p>
+<p><img src="/2023/09/14/nio/image-20231021144519852.png" alt="图1-1"></p>
 <ol start="2">
-<li>写入数据后, position为写入位置, limit=capacity(图1-2)</li>
+<li>写入数据后, position为写入位置, limit&#x3D;capacity(图1-2)</li>
 </ol>
-<p><img src="../Nio/image-20231021144841728.png" alt="图1-2"></p>
+<p><img src="/2023/09/14/nio/image-20231021144841728.png" alt="图1-2"></p>
 <ol start="3">
 <li>flip转换模式后, postition切换为读取位置, limit切换为读取限制(图1-3)</li>
 </ol>
-<p><img src="../Nio/image-20231021145049802.png" alt="图1-3"></p>
+<p><img src="/2023/09/14/nio/image-20231021145049802.png" alt="图1-3"></p>
 <ol start="4">
 <li>读取4个字节后(图1-4)</li>
 </ol>
-<p><img src="../Nio/image-20231021145221000.png" alt="图1-4"></p>
+<p><img src="/2023/09/14/nio/image-20231021145221000.png" alt="图1-4"></p>
 <ol start="5">
 <li>clear动作, 清除数据, 重置为写模式(图1-5)</li>
 </ol>
-<p><img src="../Nio/image-20231021145402124.png" alt="图1-5"></p>
+<p><img src="/2023/09/14/nio/image-20231021145402124.png" alt="图1-5"></p>
 <ol start="6">
 <li>compact动作, 将未读完的向前压缩, 再重置为写模式(图1-6)</li>
 </ol>
-<p><img src="../Nio/image-20231021145507817.png" alt="图1-6"></p>
-<h3 id="常用方法">常用方法</h3>
-<h4 id="分配空间">分配空间</h4>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ByteBuffer</span> buffer <span class="token operator">=</span> <span class="token class-name">ByteBuffer</span><span class="token punctuation">.</span><span class="token function">allocate</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// java.nio.HeapByteBuffer  - Java 堆内存(读写效率较低,受到GC的影响)</span>
+<p><img src="/2023/09/14/nio/image-20231021145507817.png" alt="图1-6"></p>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><h4 id="分配空间"><a href="#分配空间" class="headerlink" title="分配空间"></a>分配空间</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ByteBuffer</span> buffer <span class="token operator">=</span> <span class="token class-name">ByteBuffer</span><span class="token punctuation">.</span><span class="token function">allocate</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// java.nio.HeapByteBuffer  - Java 堆内存(读写效率较低,受到GC的影响)</span>
 <span class="token class-name">ByteBuffer</span> buffer <span class="token operator">=</span> <span class="token class-name">ByteBuffer</span><span class="token punctuation">.</span><span class="token function">allocateDirect</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// java.nio.DirectByteBuffer  - 直接内存(读写效率高,少一次拷贝, 分配效率低, 使用不当会造成内存泄漏)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4 id="写入数据">写入数据</h4>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">try</span> <span class="token punctuation">(</span><span class="token class-name">FileChannel</span> channel <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span><span class="token string">"1.txt"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getChannel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+<h4 id="写入数据"><a href="#写入数据" class="headerlink" title="写入数据"></a>写入数据</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">try</span> <span class="token punctuation">(</span><span class="token class-name">FileChannel</span> channel <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span><span class="token string">"1.txt"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getChannel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// channel的读取</span>
 	<span class="token keyword">int</span> readBytes <span class="token operator">=</span> channel<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 <span class="token comment">// 或者buffer自己的方法</span>
 buffer<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">byte</span><span class="token punctuation">)</span><span class="token number">127</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="读取数据">读取数据</h4>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">buffer<span class="token punctuation">.</span><span class="token function">flip</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 切换至读模式</span>
+
+<h4 id="读取数据"><a href="#读取数据" class="headerlink" title="读取数据"></a>读取数据</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">buffer<span class="token punctuation">.</span><span class="token function">flip</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 切换至读模式</span>
 <span class="token keyword">byte</span> b <span class="token operator">=</span> buffer<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// 或者channel的方法</span>
 <span class="token keyword">int</span> writeByte <span class="token operator">=</span> channel<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -419,8 +415,8 @@ buffer<span class="token punctuation">.</span><span class="token function">put</
 <span class="token comment">// get方法会让position读指针向后走</span>
 buffer<span class="token punctuation">.</span><span class="token function">rewind</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 将position重置</span>
 buffer<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 获取索引内容, 不会移动读指针</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="字符串转为ByteBuffer">字符串转为ByteBuffer</h4>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 1. 字符串转为 ByteBuffer</span>
+
+<h4 id="字符串转为ByteBuffer"><a href="#字符串转为ByteBuffer" class="headerlink" title="字符串转为ByteBuffer"></a>字符串转为ByteBuffer</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 1. 字符串转为 ByteBuffer</span>
 <span class="token class-name">ByteBuffer</span> buffer1 <span class="token operator">=</span> <span class="token class-name">ByteBuffer</span><span class="token punctuation">.</span><span class="token function">allocate</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 buffer1<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -436,8 +432,8 @@ buffer1<span class="token punctuation">.</span><span class="token function">put<
 
 
 <span class="token comment">// 5. </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="黏包、分包demo">黏包、分包demo</h3>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>nio<span class="token punctuation">.</span></span><span class="token class-name">ByteBuffer</span></span><span class="token punctuation">;</span>
+
+<h3 id="黏包、分包demo"><a href="#黏包、分包demo" class="headerlink" title="黏包、分包demo"></a>黏包、分包demo</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>nio<span class="token punctuation">.</span></span><span class="token class-name">ByteBuffer</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>nio<span class="token punctuation">.</span>charset<span class="token punctuation">.</span></span><span class="token class-name">StandardCharsets</span></span><span class="token punctuation">;</span>
 
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestByteBufferExamDee</span> <span class="token punctuation">&#123;</span>
@@ -470,26 +466,24 @@ buffer1<span class="token punctuation">.</span><span class="token function">put<
         source<span class="token punctuation">.</span><span class="token function">compact</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="网络编程">网络编程</h2>
-<h3 id="多路复用">多路复用</h3>
-<p>单线程可以配合 Selector 完成对多个 Channel 可读写事件的监控，这称之为多路复用</p>
+
+
+
+<h2 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h2><h3 id="多路复用"><a href="#多路复用" class="headerlink" title="多路复用"></a>多路复用</h3><p>单线程可以配合 Selector 完成对多个 Channel 可读写事件的监控，这称之为多路复用</p>
 <ul>
 <li>多路复用仅针对网络 IO、普通文件 IO 没法利用多路复用</li>
-<li>如果不用 Selector 的非阻塞模式，线程大部分时间都在做无用功，而 Selector 能够保证
-<ul>
+<li>如果不用 Selector 的非阻塞模式，线程大部分时间都在做无用功，而 Selector 能够保证<ul>
 <li>有可连接事件时才去连接</li>
 <li>有可读事件才去读取</li>
-<li>有可写事件才去写入
-<ul>
+<li>有可写事件才去写入<ul>
 <li>限于网络传输能力，Channel 未必时时可写，一旦 Channel 可写，会触发 Selector 的可写事件</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<p><img src="../Nio/image-20231029230052355.png" alt="Selector模型"></p>
-<h3 id="处理Read事件demo">处理Read事件demo</h3>
-<ul>
+<p><img src="/2023/09/14/nio/image-20231029230052355.png" alt="Selector模型"></p>
+<h3 id="处理Read事件demo"><a href="#处理Read事件demo" class="headerlink" title="处理Read事件demo"></a>处理Read事件demo</h3><ul>
 <li>服务端</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span></span><span class="token punctuation">;</span>
@@ -603,6 +597,7 @@ buffer1<span class="token punctuation">.</span><span class="token function">put<
         source<span class="token punctuation">.</span><span class="token function">compact</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>客户端</li>
 </ul>
@@ -624,8 +619,8 @@ buffer1<span class="token punctuation">.</span><span class="token function">put<
 <span class="token comment">//        sc.close();</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="处理Write事件demo">处理Write事件demo</h3>
-<ul>
+
+<h3 id="处理Write事件demo"><a href="#处理Write事件demo" class="headerlink" title="处理Write事件demo"></a>处理Write事件demo</h3><ul>
 <li>服务端</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span></span><span class="token punctuation">;</span>
@@ -699,6 +694,7 @@ buffer1<span class="token punctuation">.</span><span class="token function">put<
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>客户端</li>
 </ul>
@@ -724,11 +720,10 @@ buffer1<span class="token punctuation">.</span><span class="token function">put<
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="selector不阻塞情况">selector不阻塞情况</h3>
-<blockquote>
+
+<h3 id="selector不阻塞情况"><a href="#selector不阻塞情况" class="headerlink" title="selector不阻塞情况"></a>selector不阻塞情况</h3><blockquote>
 <ul>
-<li>事件发生时
-<ul>
+<li>事件发生时<ul>
 <li>客户端发起连接请求，会触发 accept 事件</li>
 <li>客户端发送数据过来，客户端正常、异常关闭时，都会触发 read 事件，另外如果发送的数据大于 buffer 缓冲区，会触发多次读取事件</li>
 <li>channel 可写，会触发 write 事件</li>
