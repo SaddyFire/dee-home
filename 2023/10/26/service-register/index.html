@@ -364,12 +364,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="服务注册"><a href="#服务注册" class="headerlink" title="服务注册"></a>服务注册</h1><h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="服务文件路径"><a href="#服务文件路径" class="headerlink" title="服务文件路径"></a>服务文件路径</h3><ul>
-<li>&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;</li>
-<li>&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;</li>
+                <h1>服务注册</h1>
+<h2 id="Linux">Linux</h2>
+<h3 id="服务文件路径">服务文件路径</h3>
+<ul>
+<li>/lib/systemd/system/</li>
+<li>/usr/lib/systemd/system/</li>
 </ul>
-<p> <code>systemctl daemon-reload</code></p>
-<h3 id="Nginx案例"><a href="#Nginx案例" class="headerlink" title="Nginx案例"></a>Nginx案例</h3><h4 id="配置文件-nginx-service"><a href="#配置文件-nginx-service" class="headerlink" title="配置文件 nginx.service"></a>配置文件 nginx.service</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>Unit<span class="token punctuation">]</span>
+<p><code>systemctl daemon-reload</code></p>
+<h3 id="Nginx案例">Nginx案例</h3>
+<h4 id="配置文件-nginx-service">配置文件 nginx.service</h4>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>Unit<span class="token punctuation">]</span>
 <span class="token assign-left variable">Description</span><span class="token operator">=</span>nginx - web server
 <span class="token assign-left variable">After</span><span class="token operator">=</span>network.target remote-fs.target nss-lookup.target
 <span class="token punctuation">[</span>Service<span class="token punctuation">]</span>
@@ -383,8 +388,8 @@
 <span class="token assign-left variable">PrivateTmp</span><span class="token operator">=</span>true
 <span class="token punctuation">[</span>Install<span class="token punctuation">]</span>
 <span class="token assign-left variable">WantedBy</span><span class="token operator">=</span>multi-user.target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="注册脚本-参考"><a href="#注册脚本-参考" class="headerlink" title="注册脚本(参考)"></a>注册脚本(参考)</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<h4 id="注册脚本-参考">注册脚本(参考)</h4>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
 <span class="token comment">## -bash: ./initdee.sh: /bin/bash^M: bad interpreter: No such file or directory</span>
 <span class="token comment">## vim或者vi的命令模式下, 输入命令 set ff=unix 即可解决换行问题</span>
 
@@ -415,8 +420,8 @@
 systemctl daemon-reload
 systemctl <span class="token builtin class-name">enable</span> nginx.service
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="Redis案例"><a href="#Redis案例" class="headerlink" title="Redis案例"></a>Redis案例</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<h3 id="Redis案例">Redis案例</h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
 <span class="token comment">## -bash: ./initdee.sh: /bin/bash^M: bad interpreter: No such file or directory</span>
 <span class="token comment">## vim或者vi的命令模式下, 输入命令 set ff=unix 即可解决换行问题</span>
 
@@ -448,22 +453,22 @@ systemctl <span class="token builtin class-name">enable</span> redis.service
 
 <span class="token builtin class-name">cd</span> ~
 <span class="token builtin class-name">unset</span> redisdir<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="Java项目案例-动态注册"><a href="#Java项目案例-动态注册" class="headerlink" title="Java项目案例(动态注册)"></a>Java项目案例(动态注册)</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<h3 id="Java项目案例-动态注册">Java项目案例(动态注册)</h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
 <span class="token comment">## -bash: ./initdee.sh: /bin/bash^M: bad interpreter: No such file or directory</span>
 <span class="token comment">## vim或者vi的命令模式下, 输入命令 set ff=unix 即可解决换行问题</span>
 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>本案例采取winsw, 并且通过<code>bat</code>脚本进行服务的管理. 也可以通过服务管理器进行管理</p>
-<h3 id="所需文件"><a href="#所需文件" class="headerlink" title="所需文件"></a>所需文件</h3><ol>
+<h2 id="Windows">Windows</h2>
+<p>本案例采取winsw, 并且通过<code>bat</code>脚本进行服务的管理. 也可以通过服务管理器进行管理</p>
+<h3 id="所需文件">所需文件</h3>
+<ol>
 <li><code>winsw.exe</code> 启动文件</li>
 <li><code>winsw.xml</code> 配置文件</li>
 </ol>
-<h3 id="java-项目案例"><a href="#java-项目案例" class="headerlink" title="java 项目案例"></a>java 项目案例</h3><h4 id="注册服务"><a href="#注册服务" class="headerlink" title="注册服务"></a>注册服务</h4><pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
+<h3 id="java-项目案例">java 项目案例</h3>
+<h4 id="注册服务">注册服务</h4>
+<pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
 
 echo -----------------------
 echo Sentinel 一键安装程序
@@ -478,8 +483,8 @@ winsw install
 echo Sentinel安装完成
 
 pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
+<h4 id="启动服务">启动服务</h4>
+<pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
 
 echo -----------------------
 echo Sentinel 一键启动程序
@@ -488,8 +493,8 @@ echo -----------------------
 net start Sentinel
 
 pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="关闭服务"><a href="#关闭服务" class="headerlink" title="关闭服务"></a>关闭服务</h4><pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
+<h4 id="关闭服务">关闭服务</h4>
+<pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
 
 echo -----------------------
 echo Sentinel 一键关闭
@@ -499,8 +504,8 @@ echo -----------------------
 net stop Sentinel
 
 pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="卸载服务"><a href="#卸载服务" class="headerlink" title="卸载服务"></a>卸载服务</h4><pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
+<h4 id="卸载服务">卸载服务</h4>
+<pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
 
 echo -----------------------
 echo saddyfire Sentinel 一键卸载程序
@@ -515,8 +520,8 @@ winsw uninstall
 echo Sentinel卸载完成
 
 pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="配置文件-xml"><a href="#配置文件-xml" class="headerlink" title="配置文件 xml"></a>配置文件 xml</h4><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>service</span><span class="token punctuation">></span></span>
+<h4 id="配置文件-xml">配置文件 xml</h4>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>service</span><span class="token punctuation">></span></span>
   <span class="token comment">&lt;!-- 指定在Windows系统内部使用的识别服务的ID。在系统中安装的所有服务中，这必须是唯一的，它应该完全由字母数字字符组成 --></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">></span></span>Sentinel<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">></span></span>
    <span class="token comment">&lt;!-- 服务的简短名称，它可以包含空格和其他字符。尽量简短，就像“id”一样，在系统的所有服务名称中，也要保持唯一 --></span>
@@ -534,8 +539,9 @@ pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
   <span class="token comment">&lt;!-- 日志输出位置 --></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logmode</span><span class="token punctuation">></span></span>rotate<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>logmode</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>service</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="nacos服务案例"><a href="#nacos服务案例" class="headerlink" title="nacos服务案例"></a>nacos服务案例</h3><h4 id="服务注册-1"><a href="#服务注册-1" class="headerlink" title="服务注册"></a>服务注册</h4><pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
+<h3 id="nacos服务案例">nacos服务案例</h3>
+<h4 id="服务注册">服务注册</h4>
+<pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
 
 echo -----------------------
 echo nacos 一键安装程序
@@ -557,8 +563,8 @@ winsw install
 echo saddyfire安装完成
 
 pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="启动服务-1"><a href="#启动服务-1" class="headerlink" title="启动服务"></a>启动服务</h4><pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
+<h4 id="启动服务-2">启动服务</h4>
+<pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
 
 echo -----------------------
 echo saddyfire 666 一键启动程序
@@ -567,8 +573,8 @@ echo -----------------------
 net start Nacos
 
 pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="关闭服务-1"><a href="#关闭服务-1" class="headerlink" title="关闭服务"></a>关闭服务</h4><pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
+<h4 id="关闭服务-2">关闭服务</h4>
+<pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
 
 echo -----------------------
 echo saddyfire 666 一键关闭
@@ -578,8 +584,8 @@ echo -----------------------
 net stop Nacos
 
 pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="卸载服务-1"><a href="#卸载服务-1" class="headerlink" title="卸载服务"></a>卸载服务</h4><pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
+<h4 id="卸载服务-2">卸载服务</h4>
+<pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
 
 echo -----------------------
 echo saddyfire 666 一键卸载程序
@@ -594,8 +600,8 @@ winsw uninstall
 echo Nacos卸载完成
 
 pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="配置文件-xml-1"><a href="#配置文件-xml-1" class="headerlink" title="配置文件 xml"></a>配置文件 xml</h4><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>service</span><span class="token punctuation">></span></span>
+<h4 id="配置文件-xml-2">配置文件 xml</h4>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>service</span><span class="token punctuation">></span></span>
 	<span class="token comment">&lt;!-- 指定在Windows系统内部使用的识别服务的ID。在系统中安装的所有服务中，这必须是唯一的，它应该完全由字母数字字符组成 --></span>
 	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">></span></span>Nacos<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">></span></span>
 	<span class="token comment">&lt;!-- 服务的简短名称，它可以包含空格和其他字符。尽量简短，就像“id”一样，在系统的所有服务名称中，也要保持唯一 --></span>
@@ -607,12 +613,11 @@ pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 	<span class="token comment">&lt;!-- 日志输出位置 --></span>
 	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logmode</span><span class="token punctuation">></span></span>rotate<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>logmode</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>service</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="PS-普通命令启动Nacos"><a href="#PS-普通命令启动Nacos" class="headerlink" title="PS: 普通命令启动Nacos"></a>PS: 普通命令启动Nacos</h4><pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
+<h4 id="PS-普通命令启动Nacos">PS: 普通命令启动Nacos</h4>
+<pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">@echo off
 :: 此处为nacos位置
 start cmd &#x2F;k &quot;cd &#x2F;d D:\develop\nacos-server-1.4.1\nacos\bin\ &amp;&amp; startup.cmd -m standalone&quot;
 exit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 
                 
             </div>
