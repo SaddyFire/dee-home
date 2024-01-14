@@ -323,21 +323,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-01-09
+                    2024-01-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    6 分
                 </div>
                 
 
@@ -360,67 +360,49 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1>JVM监控及诊断工具-命令篇</h1>
-<h2 id="01-工具概述">01-工具概述</h2>
-<p>使用上一章命令行工具或组合能帮您获取目标]aVa应用性能相关的基础信息，但它们存在下列局限：</p>
+                <h1 id="JVM监控及诊断工具-命令篇"><a href="#JVM监控及诊断工具-命令篇" class="headerlink" title="JVM监控及诊断工具-命令篇"></a>JVM监控及诊断工具-命令篇</h1><h2 id="01-工具概述"><a href="#01-工具概述" class="headerlink" title="01-工具概述"></a>01-工具概述</h2><p>使用上一章命令行工具或组合能帮您获取目标]aVa应用性能相关的基础信息，但它们存在下列局限：</p>
 <ol>
-<li>无法获取方法级别的分析数据，如方法间的调用关系、各方法的调用次数和调用时间<br>
-等（这对定位应用性能瓶颈至关重要）。</li>
+<li>无法获取方法级别的分析数据，如方法间的调用关系、各方法的调用次数和调用时间<br>等（这对定位应用性能瓶颈至关重要）。</li>
 <li>要求用户登录到目标Java应用所在的宿主机上，使用起来不是很方便。</li>
 <li>分析数据通过终端输出，结果展示不够直观。</li>
 </ol>
 <p>为此，JDK 提供了一些内存泄漏的分析工具，如 jconsole, jvisualvm 等，用于辅助开发人员定位问题，但是这些工具很多时候并不足以满足快速定位的需求。所以这里我们介绍的工具相对多一些、丰富一些。</p>
 <p><strong>图形化综合诊断工具</strong></p>
 <ul>
-<li>
-<p>JDK自带的工具</p>
+<li><p>JDK自带的工具</p>
 <ul>
-<li>jconsole: JDK 自带的可视化监控工具。查看Java应用程序的运行概况、监控堆信。<br>
-息、永久区（或元空间）使用情况、类加载情况等。</li>
+<li>jconsole: JDK 自带的可视化监控工具。查看Java应用程序的运行概况、监控堆信。<br>息、永久区（或元空间）使用情况、类加载情况等。</li>
 <li>Visual VM: Visual VM 是一个工具，它提供了一个可视界面，用于查看 Java 虚拟机上运行的基于Java技术的应用程序的详细信息。</li>
 <li>JMC: Java Mission Control, 内置 Java Flight Recorder。能够以极低的性能开销收集 Java 虚拟机的性能数据。</li>
 </ul>
 </li>
-<li>
-<p>第三方工具</p>
+<li><p>第三方工具</p>
 <ul>
-<li>
-<p>MAT: MAT(Memory Analyzer Tool) 是基于 Eclipse 的内存分析工具，是一个快速、功能丰富的 Java heap 分析工具，它可以帮助我们查找内存泄漏和减少内存消耗。</p>
+<li><p>MAT: MAT(Memory Analyzer Tool) 是基于 Eclipse 的内存分析工具，是一个快速、功能丰富的 Java heap 分析工具，它可以帮助我们查找内存泄漏和减少内存消耗。</p>
 <blockquote>
 <p>Eclipse的插件形式</p>
 </blockquote>
 </li>
-<li>
-<p>JProfiler: 商业软件，需要付费。功能强大。</p>
+<li><p>JProfiler: 商业软件，需要付费。功能强大。</p>
 <blockquote>
 <p>与 VisualVM 类似</p>
 </blockquote>
 </li>
-<li>
-<p>Arthas: Alibaba 开源的 Java 诊断工具。</p>
+<li><p>Arthas: Alibaba 开源的 Java 诊断工具。</p>
 </li>
-<li>
-<p>Btrace: Java 运行时追踪工具. 可以在不停机的情况下, 跟踪指定的方法调用、构造函数调用和系统内存等信息。</p>
+<li><p>Btrace: Java 运行时追踪工具. 可以在不停机的情况下, 跟踪指定的方法调用、构造函数调用和系统内存等信息。</p>
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="02-JConsole">02-JConsole</h2>
-<p><img src="./../jvm-tuning2/image-20240108221409666.png" alt="概览"></p>
-<p><img src="./../jvm-tuning2/image-20240108221430344.png" alt="内存"></p>
-<p><img src="./../jvm-tuning2/image-20240108221631164.png" alt="检测死锁"></p>
-<p><img src="./../jvm-tuning2/image-20240108221658907.png" alt="VM 概要"></p>
-<h2 id="03-Visual-VM">03-Visual VM</h2>
-<h3 id="插件的安装">插件的安装</h3>
-<ul>
-<li>Visual VM 的一大特点是支持插件扩展，并且插件安装非常方便。我们既可以通过离线下载插件文件 *.nbm, 然后在 Plugin 对话框的己下载页面下，添加己下载的插件。也可以在可用插件页面下，在线安装插件。（这里建议安装上：VisualGC)<br>
-插件地址：<a target="_blank" rel="noopener" href="https://visualvm.github.io/pluginscenters.html">https://visualvm.github.io/pluginscenters.html</a></li>
+<h2 id="02-JConsole"><a href="#02-JConsole" class="headerlink" title="02-JConsole"></a>02-JConsole</h2><p><img src="/2024/01/07/jvm-tuning2/image-20240108221409666.png" alt="概览"></p>
+<p><img src="/2024/01/07/jvm-tuning2/image-20240108221430344.png" alt="内存"></p>
+<p><img src="/2024/01/07/jvm-tuning2/image-20240108221631164.png" alt="检测死锁"></p>
+<p><img src="/2024/01/07/jvm-tuning2/image-20240108221658907.png" alt="VM 概要"></p>
+<h2 id="03-Visual-VM"><a href="#03-Visual-VM" class="headerlink" title="03-Visual VM"></a>03-Visual VM</h2><h3 id="插件的安装"><a href="#插件的安装" class="headerlink" title="插件的安装"></a>插件的安装</h3><ul>
+<li>Visual VM 的一大特点是支持插件扩展，并且插件安装非常方便。我们既可以通过离线下载插件文件 *.nbm, 然后在 Plugin 对话框的己下载页面下，添加己下载的插件。也可以在可用插件页面下，在线安装插件。（这里建议安装上：VisualGC)<br>插件地址：<a target="_blank" rel="noopener" href="https://visualvm.github.io/pluginscenters.html">https://visualvm.github.io/pluginscenters.html</a></li>
 </ul>
-<h3 id="1-生成-读取堆内存快照">1-生成/读取堆内存快照</h3>
-<h2 id="04-Eclipse-MAT">04-Eclipse MAT</h2>
-<h3 id="获取堆dump文件">获取堆dump文件</h3>
-<p>MAT可以分析heap dump文件。在进行内存分析时，只要获得了反映当前设备内存映像的nprof文件，通过MAT打开就可以直观地看到当前的内存信息。<br>
-一般说来，这些内存信息包含：</p>
+<h3 id="1-生成-读取堆内存快照"><a href="#1-生成-读取堆内存快照" class="headerlink" title="1-生成&#x2F;读取堆内存快照"></a>1-生成&#x2F;读取堆内存快照</h3><h2 id="04-Eclipse-MAT"><a href="#04-Eclipse-MAT" class="headerlink" title="04-Eclipse MAT"></a>04-Eclipse MAT</h2><h3 id="获取堆dump文件"><a href="#获取堆dump文件" class="headerlink" title="获取堆dump文件"></a>获取堆dump文件</h3><p>MAT可以分析heap dump文件。在进行内存分析时，只要获得了反映当前设备内存映像的nprof文件，通过MAT打开就可以直观地看到当前的内存信息。<br>一般说来，这些内存信息包含：</p>
 <ul>
 <li>所有的对象信息，包括对象实例、成员变量、存储于栈中的基本类型值和存储于堆中的其他对象的引用值。</li>
 <li>所有的类信息，包括classloader、类名称、父类、静态变量等</li>
@@ -429,11 +411,9 @@
 </ul>
 <p><strong>获取堆dump文件</strong></p>
 <ol>
-<li>
-<p>通过前一章介绍的jmap工具生成，可以生成任意一个java进程的dump文件：</p>
+<li><p>通过前一章介绍的jmap工具生成，可以生成任意一个java进程的dump文件：</p>
 </li>
-<li>
-<p>通过配置JVM参数生成。</p>
+<li><p>通过配置JVM参数生成。</p>
 <ul>
 <li>选项 <code>-XX:+HeapDumpOnOutOfMemoryError</code> 或 <code>-XX:+HeapDumpBeforeFullGC</code></li>
 <li>选项 <code>-XX:HeapDumpPath</code> 所代表的含义就是当程序出现 OutofMemory 时，将会在相应的目录下生成一份 dump 文件。如果不指定选项 <code>-XX:HeapDumpPath</code> 则在当前目录下生成 dump 文件。</li>
@@ -442,20 +422,67 @@
 </ol>
 <p>对比：考虑到生产环境中几乎不可能在线对其进行分析，大都是采用离线分析，因此使用 jmap + MAT 工具是最常见的组合。</p>
 <ol start="3">
-<li>
-<p>使用 VisualVM 可以导出堆 ump 文件。</p>
+<li><p>使用 VisualVM 可以导出堆 ump 文件。</p>
 </li>
-<li>
-<p>使用 MAT 即可打开一个已有的堆快照, 也可以通过 MAT 直接从活动 Java 程序中导出堆快照。</p>
+<li><p>使用 MAT 即可打开一个已有的堆快照, 也可以通过 MAT 直接从活动 Java 程序中导出堆快照。</p>
 <p>该功能将借助 jps 列出当前正在运行的 Java 进程, 以供选择并获取快照。</p>
 </li>
 </ol>
-<h3 id="分析堆dump文件">分析堆dump文件</h3>
-<h2 id="05-JProfiler">05-JProfiler</h2>
-<h2 id="06-JProfiler">06-JProfiler</h2>
-<h2 id="07-Java-Mission-Control">07-Java Mission Control</h2>
-<h2 id="08-其他工具">08-其他工具</h2>
+<h3 id="分析堆dump文件"><a href="#分析堆dump文件" class="headerlink" title="分析堆dump文件"></a>分析堆dump文件</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p><img src="/2024/01/07/jvm-tuning2/image-20240114213029332.png"></p>
+<p><img src="/2024/01/07/jvm-tuning2/image-20240114214331241.png"></p>
+<h4 id="Histogram"><a href="#Histogram" class="headerlink" title="Histogram"></a>Histogram</h4><p><img src="/2024/01/07/jvm-tuning2/image-20240114215411645.png"></p>
+<h4 id="thread-overview"><a href="#thread-overview" class="headerlink" title="thread_overview"></a>thread_overview</h4><p><img src="/2024/01/07/jvm-tuning2/image-20240114220539571.png" alt="获得湘湖引用的关系"></p>
+<h4 id="深堆与浅堆"><a href="#深堆与浅堆" class="headerlink" title="深堆与浅堆"></a>深堆与浅堆</h4><p><strong>浅堆(Shallow Heap)</strong> 是指一个对象所消耗的内存。在 32 位系统中，一个对象引用会占据 4 个字节，一个 int 类型会占据 4 个字节，long 型变量会占据 8 个字节，每个对象头需要占用 8 个字节。根据堆快照格式不同，对象的大小可能会向 8 字节进行对齐。</p>
+<p>以 String 为例：2 个 int 值共占 8 字节，对象引用占用 4 字节，对象头 8 字节，合计 20 字节，向 8 字节对齐，故占 24 字节。(jdk7中)</p>
+<table>
+<thead>
+<tr>
+<th>String对象空间</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int</td>
+<td>hash32</td>
+<td>0</td>
+</tr>
+<tr>
+<td>int</td>
+<td>hash</td>
+<td>0</td>
+</tr>
+<tr>
+<td>ref</td>
+<td>value</td>
+<td>C:\Users\Administrat</td>
+</tr>
+</tbody></table>
+<p>这 24 字节为 String 对象的浅堆大小. 它与 String 的 value 实际取值无关, 无论字符串长度如何, 浅堆大小始终是 24 字节</p>
+<p><strong>保留集(Retained Set):</strong><br>对象 A 的保留集指当对象 A 被拉垃圾回收后，可以被释放的所有的对象集合（包括对象 A 本身），即对象 A 的保留集可以被认为是<strong>只能通过</strong>对象 A 被直接或间接访问到的所有对象的集合。通俗地说，就是指仅被对象A所持有的对象的集合。</p>
+<img src="./../jvm-tuning2/image-20240114222017532.png" style="zoom: 50%;" />
 
+<p><strong>深堆(Retained Heap):</strong><br>深堆是指对象的保留集中所有的对象的浅堆大小之和。</p>
+<p>注意：浅堆指对象本身占用的内存，不包括其内部引用对象的大小。一个对象的深堆指只能通过该对象访问到的（直接或间接）所有对象的浅堆之和，即对象被回收后，可以释放的真实空间。</p>
+<p><strong>对象的实际大小</strong></p>
+<p>另外一个常用的概念是对象的实际大小。这里，对象的实际大小定义为一个对象所能触及的所有对象的浅堆大小之和，也就是通常意义上我们说的对象大小。与深堆相比，似乎这个在日常开发中更为直观和被人接受，<strong>但实际上，这个概念和垃圾回收无关。</strong></p>
+<p>下图显示了一个简单的对象引用关系图，对象 A 引用了 C 和 D, 对象 B 引用了 C 和 E。那么对象 A 的浅堆大小只是 A 本身，不含 C 和 D,而 A 的实际大小为A、C、D三者之和。而 A 的深堆大小为 A 与 D 之和，由于对象 C 还可以通过对象 B 访问到，因此不在对象 A 的深堆范围内。</p>
+<p><img src="/2024/01/07/jvm-tuning2/image-20240114222337156.png"></p>
+<blockquote>
+<p>A 的浅堆大小只有它自己, A 的深堆大小则是 A + D, A 对象的实际大小是 A + C + D</p>
+</blockquote>
+<p><strong>看图理解 Retained Size</strong></p>
+<p><img src="/2024/01/07/jvm-tuning2/image-20240114222649031.png"></p>
+<blockquote>
+<p>上图中, GC Roots 直接引用了 A 和 B 两个对象</p>
+<p>A 对象的 Retained Size&#x3D;A 对象的 Shallow Size</p>
+<p>B 对象的 Retained Size&#x3D;B 对象的 Shallow Size + C 对象的 Shallow Size</p>
+<p>这里部包括 D 对象, 因为 D 对象被 GC Roots 直接引用</p>
+<p>如果 GC Roots 不引用 D 对象呢?</p>
+</blockquote>
+<p><img src="/2024/01/07/jvm-tuning2/image-20240114222937490.png" alt="此时B的深堆和实际大小是一样的"></p>
+<p><strong>案例分析 StudentTrace</strong></p>
+<h2 id="05-JProfiler"><a href="#05-JProfiler" class="headerlink" title="05-JProfiler"></a>05-JProfiler</h2><h2 id="06-JProfiler"><a href="#06-JProfiler" class="headerlink" title="06-JProfiler"></a>06-JProfiler</h2><h2 id="07-Java-Mission-Control"><a href="#07-Java-Mission-Control" class="headerlink" title="07-Java Mission Control"></a>07-Java Mission Control</h2><h2 id="08-其他工具"><a href="#08-其他工具" class="headerlink" title="08-其他工具"></a>08-其他工具</h2>
                 
             </div>
             <hr/>
