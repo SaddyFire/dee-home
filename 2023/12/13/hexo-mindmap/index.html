@@ -360,10 +360,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Hexo绘制思维导图"><a href="#Hexo绘制思维导图" class="headerlink" title="Hexo绘制思维导图"></a>Hexo绘制思维导图</h2><p><a target="_blank" rel="noopener" href="https://github.com/MaxChang3/hexo-markmap/blob/main/README_HANS.md">hexo-markmap&#x2F;GitHub链接</a></p>
-<h4 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-markmap <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><pre class="line-numbers language-null" data-language="null"><code class="language-null">&#123;% markmap height [depth] %&#125;
+                <h2 id="Hexo绘制思维导图">Hexo绘制思维导图</h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/MaxChang3/hexo-markmap/blob/main/README_HANS.md">hexo-markmap/GitHub链接</a></p>
+<h4 id="插件安装">插件安装</h4>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-markmap <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="使用方式">使用方式</h4>
+<pre class="line-numbers language-null" data-language="null"><code class="language-null">&#123;% markmap height [depth] %&#125;
 - markmap
   - Demo
     - [链接](http:&#x2F;&#x2F;localhost:4000&#x2F;2023&#x2F;12&#x2F;13&#x2F;hexo-mindmap&#x2F;)
@@ -379,13 +381,13 @@
 - &#96;inline code&#96;
 &#123;% endmarkmap %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
 <div class="markmap-container" style="height:height">
   <svg data="{&quot;t&quot;:&quot;root&quot;,&quot;d&quot;:0,&quot;v&quot;:&quot;&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[0,1]},&quot;v&quot;:&quot;markmap&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[1,2]},&quot;v&quot;:&quot;Demo&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[2,3]},&quot;v&quot;:&quot;&lt;a href=\&quot;http://localhost:4000/2023/12/13/hexo-mindmap/\&quot;&gt;链接&lt;/a&gt;&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[3,4]},&quot;v&quot;:&quot;&lt;strong&gt;inline&lt;/strong&gt; &lt;del&gt;text&lt;/del&gt; &lt;em&gt;styles&lt;/em&gt;&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[4,6]},&quot;v&quot;:&quot;multiline&lt;br&gt;\ncontent&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[6,7]},&quot;v&quot;:&quot;HTML code is quite long&quot;}]}]},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[7,8]},&quot;v&quot;:&quot;links&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[8,9]},&quot;v&quot;:&quot;&lt;strong&gt;inline&lt;/strong&gt; &lt;del&gt;text&lt;/del&gt; &lt;em&gt;styles&lt;/em&gt;&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[9,11]},&quot;v&quot;:&quot;multiline&lt;br&gt;\ntext&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[11,12]},&quot;v&quot;:&quot;&lt;code&gt;inline code&lt;/code&gt;&quot;}],&quot;p&quot;:{}}"></svg>
 </div>
 
-
-<h6 id="标签链接"><a href="#标签链接" class="headerlink" title="标签链接"></a><strong>标签链接</strong></h6><h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><p>由于此主题是无边界的, 有时候想滚动页面, 结果进入脑图就会进行放大缩小, 因此给脑图增加边界</p>
+<h6 id="标签链接"><strong>标签链接</strong></h6>
+<h4 id="优化">优化</h4>
+<p>由于此主题是无边界的, 有时候想滚动页面, 结果进入脑图就会进行放大缩小, 因此给脑图增加边界</p>
 <ol>
 <li>全局搜索<code>.markmap-container svg</code> 位置在 <code>themes/xxx/source/css/dark.css</code></li>
 <li>在该文件添加如下</li>
@@ -393,22 +395,21 @@
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.markmap-container svg</span> <span class="token punctuation">&#123;</span>
     <span class="token property">border</span><span class="token punctuation">:</span> 1px dotted #1a97a8<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="Hexo实现链接跳转"><a href="#Hexo实现链接跳转" class="headerlink" title="Hexo实现链接跳转"></a>Hexo实现链接跳转</h2><h4 id="当前文章锚点跳转"><a href="#当前文章锚点跳转" class="headerlink" title="当前文章锚点跳转"></a>当前文章锚点跳转</h4><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">[自定义文本](#标签链接)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<h2 id="Hexo实现链接跳转">Hexo实现链接跳转</h2>
+<h4 id="当前文章锚点跳转">当前文章锚点跳转</h4>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">[自定义文本](#标签链接)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><a href="#%E6%A0%87%E7%AD%BE%E9%93%BE%E6%8E%A5">自定义文本</a></p>
-<h4 id="站内文章跳转"><a href="#站内文章跳转" class="headerlink" title="站内文章跳转"></a>站内文章跳转</h4><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/tag-plugins#%E5%BC%95%E7%94%A8%E6%96%87%E7%AB%A0">官网方式</a></p>
+<h4 id="站内文章跳转">站内文章跳转</h4>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/tag-plugins#%E5%BC%95%E7%94%A8%E6%96%87%E7%AB%A0">官网方式</a></p>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&#123;% post_link filename [title] [escape] %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h4 id="站内文章标题跳转"><a href="#站内文章标题跳转" class="headerlink" title="站内文章标题跳转"></a>站内文章标题跳转</h4><pre class="line-numbers language-htnl" data-language="htnl"><code class="language-htnl">&lt;a href&#x3D;&quot;&#123;% post_path filename(不要后缀) %&#125;#章节名&quot;&gt;escape&lt;&#x2F;a&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<h4 id="站内文章标题跳转">站内文章标题跳转</h4>
+<pre class="line-numbers language-htnl" data-language="htnl"><code class="language-htnl">&lt;a href&#x3D;&quot;&#123;% post_path filename(不要后缀) %&#125;#章节名&quot;&gt;escape&lt;&#x2F;a&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>注意</p>
 <p><code>#章节名</code>处英文字母要全小写，空格要转换为<code>-</code></p>
 </blockquote>
-<h6 id="我是一个标签"><a href="#我是一个标签" class="headerlink" title="我是一个标签"></a>我是一个标签</h6>
+<h6 id="我是一个标签">我是一个标签</h6>
+
                 
             </div>
             <hr/>
