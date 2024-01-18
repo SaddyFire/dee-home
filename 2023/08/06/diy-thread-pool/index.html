@@ -364,9 +364,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1>自定义线程池demo</h1>
-<h2 id="流程图">流程图</h2>
-<div class="mermaid">
+                <h1 id="自定义线程池demo"><a href="#自定义线程池demo" class="headerlink" title="自定义线程池demo"></a>自定义线程池demo</h1><h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><div class="mermaid">
   
 graph LR
 	subgraph Thread Pool
@@ -390,6 +388,7 @@ graph LR
 
 </div>
 
+
 <blockquote>
 <p>角色说明:</p>
 <p>Blocking Queue: 阻塞队列, main线程负责将任务提交到阻塞队列中, 用于存储任务</p>
@@ -398,8 +397,7 @@ graph LR
 <p>t: 线程对象, 用来执行每个任务</p>
 <p>worker: 此处将每个线程比作工人</p>
 </blockquote>
-<h2 id="类图说明">类图说明</h2>
-<div class="mermaid">
+<h2 id="类图说明"><a href="#类图说明" class="headerlink" title="类图说明"></a>类图说明</h2><div class="mermaid">
   
 classDiagram
 class BlockingQueue~T~ {
@@ -430,9 +428,8 @@ ThreadPool o-- Worker: 聚合
 
 </div>
 
-<h2 id="代码部分">代码部分</h2>
-<h3 id="阻塞队列">阻塞队列</h3>
-<p>阻塞队列核心功能是阻塞获取(线程池使用)和推入待执行任务(main线程使用)</p>
+
+<h2 id="代码部分"><a href="#代码部分" class="headerlink" title="代码部分"></a>代码部分</h2><h3 id="阻塞队列"><a href="#阻塞队列" class="headerlink" title="阻塞队列"></a>阻塞队列</h3><p>阻塞队列核心功能是阻塞获取(线程池使用)和推入待执行任务(main线程使用)</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayDeque</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Deque</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span></span><span class="token class-name">TimeUnit</span></span><span class="token punctuation">;</span>
@@ -510,8 +507,8 @@ ThreadPool o-- Worker: 聚合
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="线程池">线程池</h3>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span></span><span class="token punctuation">;</span>
+
+<h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">HashSet</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span></span><span class="token class-name">TimeUnit</span></span><span class="token punctuation">;</span>
 
@@ -595,8 +592,8 @@ ThreadPool o-- Worker: 聚合
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="测试类">测试类</h3>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+
+<h3 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
 <span class="token keyword">class</span> <span class="token class-name">TestPool</span><span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">ThreadPool</span> threadPool <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreadPool</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">,</span> <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span><span class="token constant">MILLISECONDS</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -609,9 +606,8 @@ ThreadPool o-- Worker: 聚合
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1>线程池工作流程</h1>
-<h2 id="JDK自带">JDK自带</h2>
-<div class="mermaid">
+
+<h1 id="线程池工作流程"><a href="#线程池工作流程" class="headerlink" title="线程池工作流程"></a>线程池工作流程</h1><h2 id="JDK自带"><a href="#JDK自带" class="headerlink" title="JDK自带"></a>JDK自带</h2><div class="mermaid">
   graph LR;
 	c([添加任务])
 	q2(线程数 < coreSize)
@@ -628,6 +624,7 @@ ThreadPool o-- Worker: 聚合
 	q4 --是--> a3
 </div>
 
+
 <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> LR<span class="token punctuation">;</span>
 	c<span class="token text string">(添加任务)</span>
 	q2<span class="token text string">&#123;&#123;线程数 &lt; coreSize&#125;&#125;</span>
@@ -642,9 +639,8 @@ ThreadPool o-- Worker: 聚合
 	q2 <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span><span class="token label property">是</span><span class="token arrow operator">--></span></span> a1
 	q3 <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span><span class="token label property">否</span><span class="token arrow operator">--></span></span> a2
 	q4 <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span><span class="token label property">是</span><span class="token arrow operator">--></span></span> a3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Tomcat-NIO-EndPoint">Tomcat NIO EndPoint</h2>
-<h3 id="全流程">全流程</h3>
-<div class="mermaid">
+
+<h2 id="Tomcat-NIO-EndPoint"><a href="#Tomcat-NIO-EndPoint" class="headerlink" title="Tomcat NIO EndPoint"></a>Tomcat NIO EndPoint</h2><h3 id="全流程"><a href="#全流程" class="headerlink" title="全流程"></a>全流程</h3><div class="mermaid">
   
 graph LR;
 	ll(LimitLatch) --> a(acceptor)
@@ -664,15 +660,15 @@ graph LR;
 
 </div>
 
+
 <ul>
 <li>LimitLatch 用来限流, 可以控制最大连接个数, 类似 JUC 中的 Semphore</li>
 <li>Acceptor只负责[接收新的 socket 连接]</li>
-<li>Poller 只负责监听 socket channel 是否有 [可读的 I/O 事件]</li>
+<li>Poller 只负责监听 socket channel 是否有 [可读的 I&#x2F;O 事件]</li>
 <li>一旦可读, 封装一个任务对象(socketProcessor), 提交给 Executor 线程池处理</li>
 <li>Executor 线程池中的工作线程最终负责 [处理请求]</li>
 </ul>
-<h3 id="网络层流程">网络层流程</h3>
-<div class="mermaid">
+<h3 id="网络层流程"><a href="#网络层流程" class="headerlink" title="网络层流程"></a>网络层流程</h3><div class="mermaid">
   
 graph LR;
 	c([添加任务])
@@ -686,6 +682,7 @@ graph LR;
 
 </div>
 
+
 <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> LR<span class="token punctuation">;</span>
 	c<span class="token text string">(添加任务)</span>
 	q1<span class="token text string">&#123;&#123;任务数 &lt; coreSize&#125;&#125;</span>
@@ -695,6 +692,7 @@ graph LR;
 	c <span class="token arrow operator">--></span> q1 <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span><span class="token label property">是</span><span class="token arrow operator">--></span></span> a1
 	q1 <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span><span class="token label property">否</span><span class="token arrow operator">--></span></span> q2 <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span><span class="token label property">否</span><span class="token arrow operator">--></span></span> a1
 	q2 <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span><span class="token label property">是</span><span class="token arrow operator">--></span></span> a2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>

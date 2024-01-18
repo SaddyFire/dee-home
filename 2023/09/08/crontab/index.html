@@ -360,8 +360,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="命令">命令</h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">crontab</span> <span class="token parameter variable">-l</span>  <span class="token comment"># 查看定时任务</span>
+                <h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">crontab</span> <span class="token parameter variable">-l</span>  <span class="token comment"># 查看定时任务</span>
 <span class="token function">crontab</span> <span class="token parameter variable">-e</span>  <span class="token comment"># 编辑定时任务</span>
 cron表达式 + 执行的命令 <span class="token comment"># 定时格式</span>
 <span class="token comment">#### 常用cron表达式(ps: linux没有秒)</span>
@@ -373,13 +372,14 @@ cron表达式 + 执行的命令 <span class="token comment"># 定时格式</span
 <span class="token number">1</span> * * * *  <span class="token comment"># 每小时第一分执行</span>
 <span class="token number">30</span> <span class="token number">6</span> */10 * * <span class="token comment"># 从1日开始每隔10天的6:30执行</span>
 <span class="token number">0</span> <span class="token number">0</span> <span class="token number">1</span> <span class="token number">1</span> * <span class="token comment"># 每年执行一次(因为月,日,时,分都已指定,因此可以确定是每年)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="一些清理命令">一些清理命令</h3>
-<ul>
+
+<h3 id="一些清理命令"><a href="#一些清理命令" class="headerlink" title="一些清理命令"></a>一些清理命令</h3><ul>
 <li>删除目标文件夹下的文件</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">find</span> /tmp <span class="token parameter variable">-name</span> <span class="token string">"*.jpg"</span> <span class="token parameter variable">-type</span> f <span class="token parameter variable">-delete</span>  <span class="token comment"># 查询/tmp文件夹下的所有"*.jpg"的文件并删除</span>
 <span class="token function">find</span> /logs/ <span class="token parameter variable">-type</span> f <span class="token parameter variable">-mmin</span> +30 <span class="token parameter variable">-name</span> <span class="token string">'*'</span> <span class="token parameter variable">-exec</span> <span class="token function">rm</span> <span class="token parameter variable">-rf</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> <span class="token punctuation">\</span>  <span class="token comment"># 查询/logs/文件夹下修改时间是30分钟之外的所有文件并删除 </span>
 <span class="token builtin class-name">echo</span> <span class="token variable"><span class="token variable">`</span><span class="token function">date</span> +<span class="token string">"%Y-%m-%d %H:%M:%S"</span><span class="token variable">`</span></span> <span class="token operator">>></span> /logs/clear.out <span class="token comment"># 输出当前时间到清理日志中</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>

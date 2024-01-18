@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="mermaid-note, SaddyFire">
-    <meta name="description" content="mermaid入门">
+    <meta name="keywords" content="JVM参数, SaddyFire">
+    <meta name="description" content="JVM参数">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>mermaid-note | SaddyFire</title>
+    <title>JVM参数 | SaddyFire</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -262,12 +262,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/article/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/article/62.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">mermaid-note</h1>
+                    <h1 class="description center-align post-title">JVM参数</h1>
                 </div>
             </div>
         </div>
@@ -291,16 +291,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Mermaid/">
-                                <span class="chip bg-color">Mermaid</span>
-                            </a>
-                        
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
-                            </a>
-                        
-                            <a href="/tags/Markdown/">
-                                <span class="chip bg-color">Markdown</span>
+                            <a href="/tags/JVM/">
+                                <span class="chip bg-color">JVM</span>
                             </a>
                         
                     </div>
@@ -324,28 +316,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-04-10
+                    2024-01-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-22
+                    2024-01-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    2.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    9 分
                 </div>
                 
 
@@ -368,418 +360,233 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="mermaid入门-基于hexo"><a href="#mermaid入门-基于hexo" class="headerlink" title="mermaid入门(基于hexo)"></a>mermaid入门(基于hexo)</h1><p>基于hexo的前置说明</p>
-<pre class="line-numbers language-none"><code class="language-none">hexo默认markdown渲染引擎为 hexo-renderer-markdown
-可以更换hexo-renderer-markdown-it, 可选项更多, github地址如下
-https:&#x2F;&#x2F;github.com&#x2F;hexojs&#x2F;hexo-renderer-markdown-it<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+                <h1 id="JVM参数"><a href="#JVM参数" class="headerlink" title="JVM参数"></a>JVM参数</h1><h2 id="01-JVM参数选项类型"><a href="#01-JVM参数选项类型" class="headerlink" title="01-JVM参数选项类型"></a>01-JVM参数选项类型</h2><h3 id="X参数选项"><a href="#X参数选项" class="headerlink" title="-X参数选项"></a>-X参数选项</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-Xms<span class="token operator">&lt;</span>size<span class="token operator">></span>        设置初始 Java 堆大小, 等价于-XX:InitialHeapSize
+-Xmx<span class="token operator">&lt;</span>size<span class="token operator">></span>        设置最大 Java 堆大小, 等价于-XX:MaxHeapSize
+-Xss<span class="token operator">&lt;</span>size<span class="token operator">></span>        设置 Java 线程堆栈大小, 等价于-XX:ThreadStackSize<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><code>hexo-renderer-markdown-it</code> 及 <code>meraid</code> 插件安装命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> un hexo-renderer-marked <span class="token parameter variable">--save</span>
-<span class="token function">npm</span> i hexo-renderer-markdown-it <span class="token parameter variable">--save</span>
-<span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">--save</span> hexo-tag-mermaid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="XX参数选项"><a href="#XX参数选项" class="headerlink" title="-XX参数选项"></a>-XX参数选项</h3><p>Boolean类型格式</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-XX:+<span class="token operator">&lt;</span>option<span class="token operator">></span> 表示启用option属性
+-XX:-<span class="token operator">&lt;</span>option<span class="token operator">></span> 表示禁用option属性
 
-<hr>
-<h2 id="一、流程图-graph"><a href="#一、流程图-graph" class="headerlink" title="一、流程图(graph)"></a>一、流程图(graph)</h2><div class="mermaid">
-     graph TD
-       A --> B
-       A --> C
-       style B fill:#f9f,stroke:#333,stroke-width:4px
-style C fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5
-</div>
+<span class="token parameter variable">-XX:+UseParallelGC</span>  选择垃圾回收器行为并行收集器
+<span class="token parameter variable">-XX:+UseG1GC</span>  表示启用G1收集器
+<span class="token parameter variable">-XX:+UseAdaptiveSizePolicy</span>  自动选择年轻代区大小和相应的Survivor区比例<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-none"><code class="language-none">&#123;% mermaid %&#125;
-    graph TD
-        A --&gt; B
-        A --&gt; C
-        style B fill:#f9f,stroke:#333,stroke-width:4px %% 样式
-   		style C fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5 %% 样式
-&#123;% endmermaid %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="方向"><a href="#方向" class="headerlink" title="方向"></a>方向</h3><ul>
-<li>TB&#x2F;TD - top bottom&#x2F;down</li>
-<li>BT - bottom&#x2F;top</li>
-<li>LR - left right</li>
-<li>RL - right left</li>
+<p>非 Boolean 类型格式(key-value类型)</p>
+<ul>
+<li>子类型1: 数值型格式 <code>-XX&lt;option&gt;=&lt;number&gt;</code></li>
 </ul>
-<h3 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h3><div class="mermaid">
-  graph LR;
-	B[直角]
-	C(圆角)
-	D((圆形))
-	E>不对称]
-	F{菱形}
-	G([椭圆形])
-	H[(圆柱)]
-	I[[双杠]]
-	K[\平行1\]
-	L[/平行2/]
-	M[\梯形1/]
-	N[/梯形2\]
-	B --> C --> D --> E
-	F --> G --> H --> I
-	K --> L --> M --> N
-</div>
-
-
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">graph LR;
-	直角[] ---&gt; 圆角(()) ---&gt; 圆形D(()) ---&gt; 不对称&gt;]
-	菱形&#123;&#125; ---&gt; 椭圆形([]) ---&gt; 圆柱[()] ---&gt; 双杠[[]] ---&gt; 六边形&#123;&#123;&#125;&#125;
-	平行1[\\] ---&gt; 平行2[&#x2F;&#x2F;] ---&gt; 梯形1[\&#x2F;] ---&gt; 梯形2[&#x2F;\]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="连线"><a href="#连线" class="headerlink" title="连线"></a>连线</h3><ul>
-<li>实线</li>
-</ul>
-<div class="mermaid">
-  graph LR
-	A --> B --- C -- 文字 --- D -- 文字 --> E
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token comment">%% A(有箭头,无文字) -> B(无箭头，无文字) -> C(有箭头，文字) -> D(有箭头,文字)</span>
-<span class="token keyword">graph</span> LR
-	A <span class="token arrow operator">--></span> B <span class="token arrow operator">---</span> C <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">文字</span> <span class="token arrow operator">---</span></span> D <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">文字</span> <span class="token arrow operator">--></span></span> E<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-XX:NewSize-1024m  表示设置新生代初始大小为1024m
+<span class="token parameter variable">-XX:MaxGCPauseMillis</span><span class="token operator">=</span><span class="token number">500</span>  表示设置GC停顿时间：500毫秒
+<span class="token parameter variable">-XX:GCTimeRatio</span><span class="token operator">=</span><span class="token number">19</span>  表示设置吞吐量
+<span class="token parameter variable">-XX:NewRatio</span><span class="token operator">=</span><span class="token number">2</span>  表示新生代与老年代的比例<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>虚线</li>
+<li>子类型2: 非数值型格式 <code>-XX:&lt;name&gt;=&lt;string&gt;</code></li>
 </ul>
-<div class="mermaid">
-  graph LR;
-	A -.-> B -.文字.-> C
-</div>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-XX:HeapDumpPath</span><span class="token operator">=</span>/usr/local/heapdump.hprof  用来指定 heap 转存文件的存储路径。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<p>特别的</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-XX:+PrintFlagsFinal</span>
+输出所有参数的默认值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token comment">%% A(有箭头,无文字) -> B(有箭头，无有文字) </span>
-<span class="token keyword">graph</span> LR
-	A <span class="token arrow operator">-.-></span> B <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">-.</span><span class="token label property">文字</span><span class="token arrow operator">.-></span></span> C<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="02-添加JVM参数选项"><a href="#02-添加JVM参数选项" class="headerlink" title="02-添加JVM参数选项"></a>02-添加JVM参数选项</h2><p>程序运行过程中</p>
+<ul>
+<li>使用 <code>jinfo -flag &lt;name&gt;=&lt;value&gt; &lt;pid&gt;</code> 设置非 Boolean 类型参数</li>
+<li>使用 <code>jinfo -flag [+|-]&lt;name&gt; &lt;pid&gt;</code> 设置Boolean 类型参数</li>
+</ul>
+<h2 id="03-常用的JVM参数选项"><a href="#03-常用的JVM参数选项" class="headerlink" title="03-常用的JVM参数选项"></a>03-常用的JVM参数选项</h2><h3 id="打印设置的XX选项及值"><a href="#打印设置的XX选项及值" class="headerlink" title="打印设置的XX选项及值"></a>打印设置的XX选项及值</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-XX:+PrintCommandLineFlags</span>  可以让在程序运行前打印出用户手动设置或者 JVM 自动设置的 XX 选项
+<span class="token parameter variable">-XX:+PrintFlagsInitial</span>  表示打印出所有 XX 选项的默认值
+XX:+PrintFlagsFinal  👍表示打印出 XX 选项在运行程序时生效的值
+<span class="token parameter variable">-XX:+PrintVMOptions</span>  打印 JVM 的参数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="堆、栈、方法区等内存大小设置"><a href="#堆、栈、方法区等内存大小设置" class="headerlink" title="堆、栈、方法区等内存大小设置"></a>堆、栈、方法区等内存大小设置</h3><p>栈</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-Xss128k</span>  设置每个线程的栈大小为128k<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>堆内存</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-Xms3550m</span>  等价于-XX:InitialHeapSize,设置 JVM 初始堆内存为3550M
+<span class="token parameter variable">-Xmx3550m</span>  等价于-XX:MaxHeapSize,设置 JVM 最大堆内存为3550M
+<span class="token parameter variable">-Xmn2g</span>  设置年轻代大小为2G, 官方推荐配置为整个堆大小的3/8
+<span class="token parameter variable">-XX:NewSize</span><span class="token operator">=</span>1024m  设置年轻代初始值为1024M
+<span class="token parameter variable">-XX:MaxNewSize</span><span class="token operator">=</span>1024m  设置年轻代最大值为1024M
+<span class="token parameter variable">-XX:SurvivorRatio</span><span class="token operator">=</span><span class="token number">8</span>  设置年轻代中 Eden 区与一个 Survivorl 区的比值，默认为8
+<span class="token parameter variable">-XX:+UseAdaptiveSizePolicy</span>  自动选择各区大小比例
+<span class="token parameter variable">-XX:NewRatio</span><span class="token operator">=</span><span class="token number">4</span>  设置老年代与年轻代（包括1个Eden和2个Survivorl区）的比值
+<span class="token parameter variable">-XX:PretenureSizeThreadshold</span><span class="token operator">=</span><span class="token number">1024</span>  设置让大于此阈值的对象直接分配在老年代，单位为字节  只对Serial、ParNewl收集器有效<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>方法区</p>
+<ul>
+<li>永久代</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">XX:PermSize<span class="token operator">=</span>256m  设置永久代初始值为256M
+<span class="token parameter variable">-XX:MaxPermSize</span><span class="token operator">=</span>256m  设置永久代最大值为256M<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <ul>
-<li>大箭头</li>
+<li>元空间</li>
 </ul>
-<div class="mermaid">
-  graph LR
-	A ==> B == 文字 ==> C
-</div>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-XX:MetaspaceSize</span>  初始空间大小
+<span class="token parameter variable">-XX:MaxMetaspaceSize</span>  最大空间，默认没有限制
+<span class="token parameter variable">-XX:+UseCompressedOops</span>  压缩对象指针
+<span class="token parameter variable">-XX:+UseCompressedClassPointers</span>  压缩类指针
+<span class="token parameter variable">-XX:CompressedClassSpaceSize</span>  设置Klass Metaspace的大小，默认1G<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p>直接内存</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-XX:MaxDirectMemorySize</span> 指定DirectMemory容量，若未指定，则默认与Java堆最大值一样<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token comment">%% A(大箭头,无文字) -> B(大箭头,有文字)</span>
-<span class="token keyword">graph</span> LR
-	A <span class="token arrow operator">==></span> B <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">==</span> <span class="token label property">文字</span> <span class="token arrow operator">==></span></span> C<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="子图"><a href="#子图" class="headerlink" title="子图"></a>子图</h3><div class="mermaid">
-  graph TB
-    subgraph one
-    a1-->a2
-    end
-    subgraph two
-    b1-->b2
-    end
-    subgraph three
-    c1-->c2
-    end
-    c1-->a2
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> TB
-    <span class="token keyword">subgraph</span> one
-    a1<span class="token arrow operator">--></span>a2
-    <span class="token keyword">end</span>
-    <span class="token keyword">subgraph</span> two
-    b1<span class="token arrow operator">--></span>b2
-    <span class="token keyword">end</span>
-    <span class="token keyword">subgraph</span> three
-    c1<span class="token arrow operator">--></span>c2
-    <span class="token keyword">end</span>
-    c1<span class="token arrow operator">--></span>a2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="二、时序图-sequenceDiagram"><a href="#二、时序图-sequenceDiagram" class="headerlink" title="二、时序图(sequenceDiagram)"></a>二、时序图(sequenceDiagram)</h2><h3 id="参与者-participant"><a href="#参与者-participant" class="headerlink" title="参与者(participant)"></a>参与者(participant)</h3><div class="mermaid">
-  
-sequenceDiagram
-	dee ->> xian: I'm hungry
-	xian -->> dee: Me too
-
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	dee <span class="token arrow operator">->></span> xian<span class="token operator">:</span> I'm hungry
-	xian <span class="token arrow operator">-->></span> dee<span class="token operator">:</span> Me too<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="OutofMemory相关的选项"><a href="#OutofMemory相关的选项" class="headerlink" title="OutofMemory相关的选项"></a>OutofMemory相关的选项</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-XX:+HeapDumpOnOutOfMemoryError</span>  表示在内存出现OOM的时候，把Heap转存<span class="token punctuation">(</span>Dump<span class="token punctuation">)</span>到文件以便后续分析
+<span class="token parameter variable">-XX:+HeapDumpBeforeFullGC</span>  表示在出现FulIGC之前，生成Heap转储文件
+<span class="token parameter variable">-XX:HeapDumpPath</span><span class="token operator">=</span><span class="token operator">&lt;</span>path<span class="token operator">></span>  指定heap转存文件的存储路径
+<span class="token parameter variable">-XX:OnOutofMemoryError</span>  指定一个可行性程序或者脚本的路径，当发生OOM的时候，去执行这个脚本<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
-<p>注: 如果希望自定义参与者顺序, 使用<code>participant</code>关键字</p>
+<p>对 OnOutOfMemoryError 的运维处理<br>以部署在 linux 系统 &#x2F;opt&#x2F;Server 目录下的 Server.jar 为例</p>
+<ol>
+<li><p>在 run.sh 启动脚本中添加 jvm 参数：</p>
+<p>-XX:OnOutofMemoryError&#x3D;&#x2F;opt&#x2F;Server&#x2F;restart.sh</p>
+</li>
+<li><p>restart.sh脚本</p>
+</li>
+</ol>
 </blockquote>
-<div class="mermaid">
-  
-sequenceDiagram
-	participant xian
-	participant dee
-	dee ->> xian: I'm hungry
-	xian -->> dee: Me too
+<p>linux 环境：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token assign-left variable">pid</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">ps</span> -ef<span class="token operator">|</span><span class="token function">grep</span> Server.jar<span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'&#123;if($8=="java")&#123;print $2&#125;&#125;'</span><span class="token variable">)</span></span>
+<span class="token function">kill</span> <span class="token parameter variable">-9</span> <span class="token variable">$pid</span>
+<span class="token builtin class-name">cd</span> /opt/Server/<span class="token punctuation">;</span><span class="token function">sh</span> run.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-</div>
+<p>Windows 环境：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">echo</span> off
+wmic process where <span class="token assign-left variable">Name</span><span class="token operator">=</span><span class="token string">'java.exe'</span>delete
+<span class="token builtin class-name">cd</span> D:<span class="token punctuation">\</span>Server
+start run.bat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="垃圾收集器相关选项"><a href="#垃圾收集器相关选项" class="headerlink" title="垃圾收集器相关选项"></a>垃圾收集器相关选项</h3><ul>
+<li>查看默认垃圾回收器</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-XX:PrintCommandLineFlags</span>	查看命令行相关参数<span class="token punctuation">(</span>包含使用的垃圾收集器<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	<span class="token keyword">participant</span> xian
-	<span class="token keyword">participant</span> dee
-	dee <span class="token arrow operator">->></span> xian<span class="token operator">:</span> I'm hungry
-	xian <span class="token arrow operator">-->></span> dee<span class="token operator">:</span> Me too<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>Serial 回收器</li>
+</ul>
+<p>Serial 收集器作为 HotSpot 中 Client 模式下的默认新生代垃圾收集器。SerialOld 是运行在 Client 模式下默认的老年代的垃圾回收器。</p>
+<p>-XX:+UseSerialGC</p>
+<p>指定年轻代和老年代都使用串行收集器。等价于新生代用 Seria GC, 且老年代用Serial Old GC。可以获得最高的单线程收集效率。</p>
+<ul>
+<li>ParNew 回收器</li>
+</ul>
+<p>-XX:+UseParNewGC</p>
+<p>手动指定使用 ParNew 收集器执行内存回收任务。它表示年轻代使用并行收集器，不影响老年代。</p>
+<p>-XX:ParallelGCThreads&#x3D;N</p>
+<p>限制线程数量，默认开启和 CPU 数据相同的线程数。</p>
+<ul>
+<li>Parallel 回收器</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-XX:+UseParallelGC</span>	手动指定年轻代使用 Parallel 并行收集器执行内存回收任务。
 
-<h3 id="别名-as"><a href="#别名-as" class="headerlink" title="别名(as)"></a>别名(as)</h3><div class="mermaid">
-  
-sequenceDiagram
-	participant A as xian
-	participant D as dee
-	A ->> D: How are you
-	D -->> A: Fine
+<span class="token parameter variable">-XX:+UseParallelOldGC</span>	手动指定老年代都是使用并行回收收集器。
+	分别适用于新生代和老年代。默认jdk8是开的。
+	上面两个参数，默认开启一个，另一个也会被开启。（互相激活）
 
-</div>
+<span class="token parameter variable">-XX:ParallelGCThreads</span>	设置年轻代并行收集器的线程数。一般地，最好与 CPU 数量相等，以避免过多的线程数影响垃圾收集性能。
+	在默认情沉下，当 CPU 数量小于 <span class="token number">8</span> 个，ParallelGCThreads 的值等于 CPU 数量。
+	当 CPU 数量大于 <span class="token number">8</span> 个，ParallelGCThreads 的值等于 <span class="token number">3</span>+<span class="token punctuation">[</span><span class="token number">5</span>*CPU_Count<span class="token punctuation">]</span>/8<span class="token punctuation">]</span>。
 
+<span class="token parameter variable">-XX:MaxGCPauseMillis</span> 设置垃圾收集器最大停顿时间（即STW的时间）。单位是毫秒。
+	为了尽可能地把停顿时间控制在 MaxGCPauseMills 以内，收集器在工作时会调整 Java 堆大小或者其他一些参数。
+	对于用户来讲，停顿时间越短体验越好。但是在服务器端，我们注重高并发，整体的吞吐量
+	所以服务器端适合 Parallel,进行控制。
+	该参数使用需谨慎。
 
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	<span class="token keyword">participant</span> A as xian
-	<span class="token keyword">participant</span> D as dee
-	A <span class="token arrow operator">--></span> D<span class="token operator">:</span> How are you
-	D <span class="token arrow operator">-->></span> A<span class="token operator">:</span> Fine<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token parameter variable">-XX:GCTimeRatio</span>	垃圾收集时间占总时间的比例<span class="token punctuation">(</span><span class="token operator">=</span><span class="token number">1</span>/<span class="token punctuation">(</span>N+1<span class="token punctuation">))</span>。用于衡量吞吐量的大小。
+	取值范围（0, <span class="token number">100</span>）。默认值99，也就是垃圾回收时间不超过1%。
+	与前一个 <span class="token parameter variable">-X:MaxGCPauseMillis</span> 参数有一定矛盾性。暂停时间越长，Radio 参数就容易超过设定的比例。
 
-<h3 id="连线-1"><a href="#连线-1" class="headerlink" title="连线"></a>连线</h3><div class="mermaid">
-  
-sequenceDiagram
-	A -> B: 无箭头实线
-	A --> B: 无箭头虚线
-	A ->> B: 有箭头实线
-	A -->> B: 有箭头虚线
-	A -X B: 有箭头x实线
-	A --X B: 有箭头x虚线
+<span class="token parameter variable">-XX:+UseAdaptivesizePolicy</span>	设置 Parallel Scavengel 收集器具有自适应调节策略<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-</div>
+<ul>
+<li>CMS 回收器</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-XX:+UseConcMarkSweepGC</span>	手动指定使用 CMS 收集器执行内存回收任务。
+	开启该参数后会自动将 <span class="token parameter variable">-XX:+UseParNewGC</span> 打开。即: ParNew<span class="token punctuation">(</span>Young区用<span class="token punctuation">)</span> + CMS<span class="token punctuation">(</span>Old区用<span class="token punctuation">)</span> + Serial Old 的组合。
 
+<span class="token parameter variable">-XX:CMSInitiatingOccupanyFraction</span> 设置堆内存使用率的阈值，一旦达到该阈值，便开始进行回收。
+	JDK5及以前版本的默认值为68，即当老年代的空间使用率达到 <span class="token number">68</span>% 时，会执行一次 CMS 回收。
+	JDK6及以上版本默认值为92%
+	如果内存增长缓慢，则可以设置一个稍大的值，大的阈值可以有效降低 CMS 的触发频率，减少老年代回收的次数可以较为明显地改善应用程序性能。反之，如果应用程序内存使用率增长很快，则应该降低这个阈值，以避免频繁触发老年代串行收集器。因此通过该选项便可以有效降低 Full GC 的执行次数。
 
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	A <span class="token arrow operator">-></span> B<span class="token operator">:</span> 无箭头实线
-	A <span class="token arrow operator">--></span> B<span class="token operator">:</span> 无箭头虚线
-	A <span class="token arrow operator">->></span> B<span class="token operator">:</span> 有箭头实线
-	A <span class="token arrow operator">-->></span> B<span class="token operator">:</span> 有箭头虚线
-	A -X B<span class="token operator">:</span> 有箭头x实线
-	A <span class="token arrow operator">--</span>X B<span class="token operator">:</span> 有箭头x虚线<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token parameter variable">-XX:+UseCMSCompactAtFullCollection</span>	用于指定在执行完 Full GC 后对内存空间进行压缩整理，以此避免内存碎片的产生。不过由于内存压缩整理过程无法并发执行，所带来的问题就是停顿时间变得更长了。
 
-<h3 id="控制焦点"><a href="#控制焦点" class="headerlink" title="控制焦点(+-)"></a>控制焦点(+-)</h3><div class="mermaid">
-  
-sequenceDiagram
-	dee ->>+ xian: Let's Fighting!
-	%% +表示激活角色
-	xian -->>- dee: Grate!
+<span class="token parameter variable">-XX:CMSFullGCsBeforeCompaction</span>	设置在执行多少次 Full GC 后对内存空间进行压缩整理。
 
-</div>
+<span class="token parameter variable">-XX:ParallelCMSThreads</span>	设置 CMS 的线程数量。
+	CMS 默认启动的线程数是<span class="token punctuation">(</span>ParallelGCThreads+3<span class="token punctuation">)</span>/4, ParallelGCThreads 是年轻代并行收集器的线程数。当 CPU 资源比较紧张时，受到 CMS 收集器线程的影响，应用程序的性能在垃圾回收阶段可能会非常糟糕<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<ul>
+<li>G1 回收器</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-XX:+UseG1GC</span>
+手动指定使用 G1 收集器执行内存回收任务。
 
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	dee <span class="token arrow operator">->></span>+ xian<span class="token operator">:</span> Let's Fighting!
-	<span class="token comment">%% +表示激活角色</span>
-	xian <span class="token arrow operator">-->></span>- dee<span class="token operator">:</span> Grate!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token parameter variable">-XX:G1HeapRegionSize</span>
+设置每个 Region 的大小。值是2的幂，范围是1MB到32MB之间，目标是根据最小的 Java 堆大小划分出约2048个区域。默认是堆内存的1/2000。
 
-<p><strong>焦点嵌套</strong></p>
-<div class="mermaid">
-  
-sequenceDiagram
-	xian ->>+ dee: Let's Shopping!
-    xian ->>+ dee: Can you hear me?
-    dee -->>- xian: I can hear you.
-    dee -->>- xian: But I'm tired.
+<span class="token parameter variable">-XX:MaxGCPauseMillis</span>
+设置期望达到的最大GC停顿时间指标<span class="token punctuation">(</span>JVM会尽力实现，但不保证达到<span class="token punctuation">)</span>。默认值是200ms
 
-</div>
+<span class="token parameter variable">-XX:ParallelGCThread</span>
+设置 STW 时 GC 线程数的值。最多设置为8
 
+<span class="token parameter variable">-XX:ConcGCThreads</span>
+设置并发标记的线程数。将n设置为并行垃圾回收线程数<span class="token punctuation">(</span>Parallel GCThreads<span class="token punctuation">)</span>的1/4左右。
 
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	xian <span class="token arrow operator">->></span>+ dee<span class="token operator">:</span> Let's Shopping!
-    xian <span class="token arrow operator">->></span>+ dee<span class="token operator">:</span> Can you hear me?
-    dee <span class="token arrow operator">-->></span>- xian<span class="token operator">:</span> I can hear you.
-    dee <span class="token arrow operator">-->></span>- xian<span class="token operator">:</span> But I'm tired.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token parameter variable">-XX:InitiatingHeapOccupancyPercent</span>
+设置触发并发GC周期的Java堆占用率阈值。超过此值，就触发GC。默认值是45。
 
-<h3 id="备注-Note"><a href="#备注-Note" class="headerlink" title="备注(Note)"></a>备注(Note)</h3><p>Note [ right of | left of | over ] [Actor]</p>
-<div class="mermaid">
-  
-sequenceDiagram
-	participant A
-	Note right of A: I'm note
+<span class="token parameter variable">-XX:G1NewSizePercent</span>  <span class="token parameter variable">-XX:G1MaxNewSizePercent</span>
+新生代占用整个堆内存的最小百分比（默认5%）、最大百分比（默认6%）
 
-</div>
+<span class="token parameter variable">-XX:G1ReservePercent</span><span class="token operator">=</span><span class="token number">10</span>
+保留内存区域，防止to space<span class="token punctuation">(</span>Survivor中的to区<span class="token punctuation">)</span>溢出<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p>如何选择</p>
+<ul>
+<li>优先调整堆的大小让 JVM 自适应完成。</li>
+<li>如果内存小于 100M, 使用串行收集器</li>
+<li>如果是单核、单机程序，并且没有停顿时间的要求，串行收集器</li>
+<li>如果是多 CPU、需要高吞吐量、允许停顿时间超过1秒，选择并行或者 JVM 自己选择</li>
+<li>如果是多 CPU、追求低停顿时间，需快速响应（比如延迟不能超过1秒，如互联网应用）,使用并发收集器。官方推荐 G1, 性能高。现在互联网的项目，基本都是使用G1。</li>
+</ul>
+<blockquote>
+<p>特别说明：</p>
+<ol>
+<li>没有最好的收集器，更没有万能的收集</li>
+<li>调优永远是针对特定场景、特定需求，不存在一劳永逸的收集器</li>
+</ol>
+</blockquote>
+<h3 id="GC日志相关选项"><a href="#GC日志相关选项" class="headerlink" title="GC日志相关选项"></a>GC日志相关选项</h3><h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-verbose:gc</span>
+输出 gc 日志信息，默认输出到标准输出
 
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	<span class="token keyword">participant</span> A
-	<span class="token keyword">Note right of</span> A<span class="token operator">:</span> I'm note<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token parameter variable">-XX:+PrintGC</span>
+等同于 -verbose:gc, 表示打开简化的GC日志
 
-<p>over用法</p>
-<div class="mermaid">
-  
-sequenceDiagram
-	participant A as dee
-	participant B as xian
-	A ->> B: Let 's shopping
-	Note over B: I don't want to
-	Note over A,B: Just 20 min
+<span class="token parameter variable">-XX:+PrintGCDetails</span>
+在发生垃圾回收时打印内存回收详细的日志，并在进程退出时输出当前内存各区域分配情况
 
-</div>
+<span class="token parameter variable">-XX:+PrintGCTimeStamps</span>
+输出GC发生时的时间戳
 
+<span class="token parameter variable">-XX:+PrintGCDateStamps</span>
+输出GC发生时的时间戳（以日期的形式，如2013-05-04T21:53:59.234+0800<span class="token punctuation">)</span>
 
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	<span class="token keyword">participant</span> A as dee
-	<span class="token keyword">participant</span> B as xian
-	A <span class="token arrow operator">->></span> B<span class="token operator">:</span> Let 's shopping
-	<span class="token keyword">Note over</span> B<span class="token operator">:</span> I don't want to
-	<span class="token keyword">Note over</span> A,B<span class="token operator">:</span> Just 20 min<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token parameter variable">-XX:+PrintHeapAtGC</span>
+每一次 GC 前和 GC 后，都打印堆信息
 
-<h3 id="循环-loop"><a href="#循环-loop" class="headerlink" title="循环(loop)"></a>循环(loop)</h3><div class="mermaid">
-  
-sequenceDiagram
-	xian ->> dee: let's shopping
-	%% loop 后
-	loop 20 min
-		dee --> xian: let me see see
-	end
-	dee -->> xian: ok
-
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	xian <span class="token arrow operator">->></span> dee<span class="token operator">:</span> let's shopping
-	<span class="token comment">%% loop 后</span>
-	<span class="token keyword">loop</span> 20 min
-		dee <span class="token arrow operator">--></span> xian<span class="token operator">:</span> let me see see
-	<span class="token keyword">end</span>
-	dee <span class="token arrow operator">-->></span> xian<span class="token operator">:</span> ok<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><div class="mermaid">
-  
-sequenceDiagram
-	dee ->> xian: What do you want to drink
-	alt summer
-		xian -->> dee: ice cream
-	else winter
-		xian -->> dee: tea
-	end
-	opt all the time
-		xian -->> dee: milk tea is ok
-	end
-
-</div>
+-Xloggc:<span class="token operator">&lt;</span>file<span class="token operator">></span>
+把GC日志写入到一个文件中去，而不是打印到标准输出中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	dee <span class="token arrow operator">->></span> xian<span class="token operator">:</span> What do you want to drink
-	<span class="token keyword">alt</span> summer
-		xian <span class="token arrow operator">-->></span> dee<span class="token operator">:</span> ice cream
-	<span class="token keyword">else</span> winter
-		xian <span class="token arrow operator">-->></span> dee<span class="token operator">:</span> tea
-	<span class="token keyword">end</span>
-	<span class="token keyword">opt</span> all the time
-		xian <span class="token arrow operator">-->></span> dee<span class="token operator">:</span> milk tea is ok
-	<span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="色块"><a href="#色块" class="headerlink" title="色块"></a>色块</h3><div class="mermaid">
-  sequenceDiagram
-	actor a as client
-	participant b as server
-	rect rgb(213, 235, 225)
-        a ->> +b: quest
-        b -->> -a: response
-	end
-	rect rgb(192, 214, 149)
-		a ->> +b: quest
-		b ->> -a: response
-	end
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
-	actor a as client
-	<span class="token keyword">participant</span> b as server
-	<span class="token keyword">rect</span> rgb<span class="token text string">(213, 235, 225)</span>
-        a <span class="token arrow operator">->></span> +b<span class="token operator">:</span> quest
-        b <span class="token arrow operator">-->></span> -a<span class="token operator">:</span> response
-	<span class="token keyword">end</span>
-	<span class="token keyword">rect</span> rgb<span class="token text string">(192, 214, 149)</span>
-		a <span class="token arrow operator">->></span> +b<span class="token operator">:</span> quest
-		b <span class="token arrow operator">->></span> -a<span class="token operator">:</span> response
-	<span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="三、类图-classDiagram"><a href="#三、类图-classDiagram" class="headerlink" title="三、类图(classDiagram)"></a>三、类图(classDiagram)</h2><div class="mermaid">
-  
-classDiagram
-class Person {
-	+String name // public
-	-int age // private
-	+save() void
-	+eat(food) void
-	+breathe(air) void
-}
-class Student~Primary~ {
-	-String studentNo
-	+doHomework(pen) Homework
-}
-class Tool {
-	+String function
-	+use() void
-}
-class Pen {
-	+use() void
-}
-class Air {
-	+String O2
-}
-class Eye {
-	+String eyes
-}
-class Grade {
-	+Student students
-}
-Air <.. Person: 依赖(一个需要另一个的协助)
-Person <|-- Student: 继承
-Tool <|.. Pen: 实现
-Pen <.. Student: 依赖
-Person *-- Eye: 组合(整体与部分的关系, 部分不能离开整体单独存在)
-Grade o-- Student: 聚合(整体与部分的关系, 部分可以离开整体单独存在)
-
-</div>
-
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">classDiagram</span>
-<span class="token keyword">class</span> Person <span class="token punctuation">&#123;</span>
-	+String name // public
-	-int age // private
-	+save<span class="token punctuation">(</span><span class="token punctuation">)</span> void
-	+eat<span class="token text string">(food)</span> void
-	+breathe<span class="token text string">(air)</span> void
-<span class="token punctuation">&#125;</span>
-<span class="token keyword">class</span> Student~Primary~ <span class="token punctuation">&#123;</span>
-	-String studentNo
-	+doHomework<span class="token text string">(pen)</span> Homework
-<span class="token punctuation">&#125;</span>
-<span class="token keyword">class</span> Tool <span class="token punctuation">&#123;</span>
-	+String function
-	+use<span class="token punctuation">(</span><span class="token punctuation">)</span> void
-<span class="token punctuation">&#125;</span>
-<span class="token keyword">class</span> Pen <span class="token punctuation">&#123;</span>
-	+use<span class="token punctuation">(</span><span class="token punctuation">)</span> void
-<span class="token punctuation">&#125;</span>
-<span class="token keyword">class</span> Air <span class="token punctuation">&#123;</span>
-	+String O2
-<span class="token punctuation">&#125;</span>
-<span class="token keyword">class</span> Eye <span class="token punctuation">&#123;</span>
-	+String eyes
-<span class="token punctuation">&#125;</span>
-<span class="token keyword">class</span> Grade <span class="token punctuation">&#123;</span>
-	+Student students
-<span class="token punctuation">&#125;</span>
-Air <span class="token arrow operator">&lt;..</span> Person<span class="token operator">:</span> 依赖<span class="token text string">(一个需要另一个的协助)</span>
-Person <span class="token arrow operator">&lt;|--</span> Student<span class="token operator">:</span> 继承
-Tool <span class="token arrow operator">&lt;|..</span> Pen<span class="token operator">:</span> 实现
-Pen <span class="token arrow operator">&lt;..</span> Student<span class="token operator">:</span> 依赖
-Person <span class="token arrow operator">*--</span> Eye<span class="token operator">:</span> 组合<span class="token text string">(整体与部分的关系, 部分不能离开整体单独存在)</span>
-Grade <span class="token arrow operator">o--</span> Student<span class="token operator">:</span> 聚合<span class="token text string">(整体与部分的关系, 部分可以离开整体单独存在)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+<h3 id="其他参数"><a href="#其他参数" class="headerlink" title="其他参数"></a>其他参数</h3><h2 id="04-通过Java代码获取JVM参数"><a href="#04-通过Java代码获取JVM参数" class="headerlink" title="04-通过Java代码获取JVM参数"></a>04-通过Java代码获取JVM参数</h2>
                 
             </div>
             <hr/>
@@ -805,7 +612,7 @@ Grade <span class="token arrow operator">o--</span> Student<span class="token op
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.saddyfire.cn/2023/04/10/mermaid-note/">https://www.saddyfire.cn/2023/04/10/mermaid-note/</a>
+                    <a href="https://www.saddyfire.cn/2024/01/17/jvm-tuning3/">https://www.saddyfire.cn/2024/01/17/jvm-tuning3/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -816,7 +623,7 @@ Grade <span class="token arrow operator">o--</span> Student<span class="token op
                 </span>
                 <span class="reprint-info">
                     本博客所有文章除特別声明外，均采用
-                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a>
                     许可协议。转载请注明来源
                     <a href="https://www.saddyfire.cn" target="_blank">👑Dee👑</a>
                     !
@@ -843,16 +650,8 @@ Grade <span class="token arrow operator">o--</span> Student<span class="token op
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Mermaid/">
-                                    <span class="chip bg-color">Mermaid</span>
-                                </a>
-                            
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
-                                </a>
-                            
-                                <a href="/tags/Markdown/">
-                                    <span class="chip bg-color">Markdown</span>
+                                <a href="/tags/JVM/">
+                                    <span class="chip bg-color">JVM</span>
                                 </a>
                             
                         </div>
@@ -895,29 +694,29 @@ Grade <span class="token arrow operator">o--</span> Student<span class="token op
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/04/14/daily/">
+                <a href="/2024/01/17/jvm-tuning3/">
                     <div class="card-image">
                         
+                        <img src="/images/article/62.jpg" class="responsive-img" alt="JVM参数">
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="日常查询">
-                        
-                        <span class="card-title">日常查询</span>
+                        <span class="card-title">JVM参数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            个人隐私咯😋😋😋
+                            JVM参数
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -930,23 +729,12 @@ Grade <span class="token arrow operator">o--</span> Student<span class="token op
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
-                    <a href="/tags/Git/">
-                        <span class="chip bg-color">Git</span>
-                    </a>
-                    
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
+                    <a href="/tags/JVM/">
+                        <span class="chip bg-color">JVM</span>
                     </a>
                     
                 </div>
@@ -960,23 +748,23 @@ Grade <span class="token arrow operator">o--</span> Student<span class="token op
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/04/10/th-login/">
+                <a href="/2024/01/10/oranpi-start/">
                     <div class="card-image">
                         
-                        <img src="/images/article/2.jpg" class="responsive-img" alt="th-login">
+                        <img src="/images/article/7.jpg" class="responsive-img" alt="香橙派5B上手记录">
                         
-                        <span class="card-title">th-login</span>
+                        <span class="card-title">香橙派5B上手记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            第三方登录流程
+                            香橙派5B上手记录
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-10
                             </span>
                         <span class="publish-author">
                             
@@ -993,12 +781,16 @@ Grade <span class="token arrow operator">o--</span> Student<span class="token op
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
-                    <a href="/tags/Vue/">
-                        <span class="chip bg-color">Vue</span>
+                    <a href="/tags/OrangePi/">
+                        <span class="chip bg-color">OrangePi</span>
+                    </a>
+                    
+                    <a href="/tags/Ubuntu/">
+                        <span class="chip bg-color">Ubuntu</span>
                     </a>
                     
                 </div>

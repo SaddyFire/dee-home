@@ -338,7 +338,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.4k
+                    4.3k
                 </div>
                 
 
@@ -368,16 +368,14 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1>香橙派5B上手记录</h1>
-<blockquote>
+                <h1 id="香橙派5B上手记录"><a href="#香橙派5B上手记录" class="headerlink" title="香橙派5B上手记录"></a>香橙派5B上手记录</h1><blockquote>
 <p>本文基于香橙派官方文档, 结合自己上手记录过程</p>
 <p><a target="_blank" rel="noopener" href="http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-5B.html">香橙派5B 资料页面链接</a></p>
 </blockquote>
-<p><img src="./../oranpi-start/image-20240110205343056.png" alt="正面视图(尤其注意电源位置)"></p>
-<h2 id="前置工作">前置工作</h2>
-<ul>
+<p><img src="/2024/01/10/oranpi-start/image-20240110205343056.png" alt="正面视图(尤其注意电源位置)"></p>
+<h2 id="前置工作"><a href="#前置工作" class="headerlink" title="前置工作"></a>前置工作</h2><ul>
 <li>开发板</li>
-<li>5V/4A/20W 电源 (手册中多次提及电压不能超过5V, 否则会烧坏板子)</li>
+<li>5V&#x2F;4A&#x2F;20W 电源 (手册中多次提及电压不能超过5V, 否则会烧坏板子)</li>
 <li>3.3V 的 USB 转 TTL 模块和杜邦线, 使用串口调试功能时, 需要 USB 转 TTL 模块和杜邦线来连接开发板和电脑</li>
 <li>上一条可以换成网线</li>
 <li>读卡器 + TF卡 (对于香橙派5, 板载emmc自带 Droid 系统)</li>
@@ -386,12 +384,8 @@
 <blockquote>
 <p>balenaEtcher官方地址 <a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">https://www.balena.io/etcher/</a></p>
 </blockquote>
-<h2 id="Ubuntu-系统启动">Ubuntu 系统启动</h2>
-<h3 id="前置烧录">前置烧录</h3>
-<h4 id="烧录至-TF-卡">烧录至 TF 卡</h4>
-<p><img src="./../oranpi-start/image-20240110210102428.png" alt=""></p>
-<h4 id="使用-TF-卡烧录至-emmc">使用 TF 卡烧录至 emmc</h4>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ls</span> /dev/mmcblk*boot0 <span class="token operator">|</span> <span class="token function">cut</span> -c1-12
+<h2 id="Ubuntu-系统启动"><a href="#Ubuntu-系统启动" class="headerlink" title="Ubuntu 系统启动"></a>Ubuntu 系统启动</h2><h3 id="前置烧录"><a href="#前置烧录" class="headerlink" title="前置烧录"></a>前置烧录</h3><h4 id="烧录至-TF-卡"><a href="#烧录至-TF-卡" class="headerlink" title="烧录至 TF 卡"></a>烧录至 TF 卡</h4><p><img src="/2024/01/10/oranpi-start/image-20240110210102428.png"></p>
+<h4 id="使用-TF-卡烧录至-emmc"><a href="#使用-TF-卡烧录至-emmc" class="headerlink" title="使用 TF 卡烧录至 emmc"></a>使用 TF 卡烧录至 emmc</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ls</span> /dev/mmcblk*boot0 <span class="token operator">|</span> <span class="token function">cut</span> -c1-12
 
 <span class="token comment">#格式化</span>
 <span class="token function">sudo</span> <span class="token function">dd</span> <span class="token assign-left variable">bs</span><span class="token operator">=</span>1M <span class="token assign-left variable">if</span><span class="token operator">=</span>/dev/zero <span class="token assign-left variable">of</span><span class="token operator">=</span>/dev/mmcblk1 <span class="token assign-left variable">count</span><span class="token operator">=</span><span class="token number">1000</span> <span class="token assign-left variable">status</span><span class="token operator">=</span>progress
@@ -404,201 +398,162 @@
 <span class="token comment">#实例</span>
 <span class="token function">sudo</span> <span class="token function">dd</span> <span class="token assign-left variable">bs</span><span class="token operator">=</span>1M <span class="token assign-left variable">if</span><span class="token operator">=</span>Orangepi5b_1.0.8_ubuntu_focal_server_linux5.10.160.img <span class="token assign-left variable">of</span><span class="token operator">=</span>/dev/mmcblk1 <span class="token assign-left variable">status</span><span class="token operator">=</span>progress
 <span class="token function">sudo</span> <span class="token function">sync</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="使用-RKDevTool-烧录至-emmc">使用 RKDevTool 烧录至 emmc</h4>
-<ol>
-<li>
-<p>准备工具</p>
-<p><img src="./../oranpi-start/image-20240113215312745.png" alt=""></p>
+
+<h4 id="使用-RKDevTool-烧录至-emmc"><a href="#使用-RKDevTool-烧录至-emmc" class="headerlink" title="使用 RKDevTool 烧录至 emmc"></a>使用 RKDevTool 烧录至 emmc</h4><ol>
+<li><p>准备工具</p>
+<p><img src="/2024/01/10/oranpi-start/image-20240113215312745.png"></p>
 <blockquote>
-<p>注意，&quot;MiniLoader-烧录 Linux 镜像才需要用到的东西&quot;文件夹下文简称为 MiniLoader 文件夹。</p>
+<p>注意，”MiniLoader-烧录 Linux 镜像才需要用到的东西”文件夹下文简称为 MiniLoader 文件夹。</p>
 </blockquote>
 </li>
-<li>
-<p>在文件夹 DriverAssitant_v5.12 中找到 DriverInstall.exe 可执行文件并打开即可</p>
+<li><p>在文件夹 DriverAssitant_v5.12 中找到 DriverInstall.exe 可执行文件并打开即可</p>
 </li>
-<li>
-<p>打开 DriverInstall.exe 后安装瑞芯微驱动的步骤如下所示:</p>
+<li><p>打开 DriverInstall.exe 后安装瑞芯微驱动的步骤如下所示:</p>
 <ol>
-<li>
-<p>点击“驱动安装”按钮</p>
-<p><img src="./../oranpi-start/image-20240113215457426.png" alt=""></p>
+<li><p>点击“驱动安装”按钮</p>
+<p><img src="/2024/01/10/oranpi-start/image-20240113215457426.png"></p>
 </li>
-<li>
-<p>等待一段时间后，会弹出窗口提示“安装驱动成功”，然后点击“确定”按钮即可</p>
-<p><img src="./../oranpi-start/image-20240113215521619.png" alt=""></p>
+<li><p>等待一段时间后，会弹出窗口提示“安装驱动成功”，然后点击“确定”按钮即可</p>
+<p><img src="/2024/01/10/oranpi-start/image-20240113215521619.png"></p>
 </li>
 </ol>
 </li>
-<li>
-<p>在 RKDevTool_Release 中打开 RKDevTool</p>
-<p><img src="./../oranpi-start/image-20240113215904896.png" alt=""></p>
+<li><p>在 RKDevTool_Release 中打开 RKDevTool</p>
+<p><img src="/2024/01/10/oranpi-start/image-20240113215904896.png"></p>
 </li>
-<li>
-<p>打开 RKDevTool 烧录工具后，因为电脑此时还没有通过 Type-C 线连接上开发板，所以左下角会提示&quot;没有发现设备&quot;</p>
-<p><img src="./../oranpi-start/image-20240113215954181.png" alt=""></p>
+<li><p>打开 RKDevTool 烧录工具后，因为电脑此时还没有通过 Type-C 线连接上开发板，所以左下角会提示”没有发现设备”</p>
+<p><img src="/2024/01/10/oranpi-start/image-20240113215954181.png"></p>
 </li>
-<li>
-<p>然后开始烧录 Linux 镜像到 eMMC 中</p>
+<li><p>然后开始烧录 Linux 镜像到 eMMC 中</p>
 <ol>
-<li>
-<p>首先通过 Type-C 数据线连接好开发板与 Windows 电脑</p>
+<li><p>首先通过 Type-C 数据线连接好开发板与 Windows 电脑</p>
 </li>
-<li>
-<p>确保开发板没有插入 TF 卡，没有连接电源</p>
+<li><p>确保开发板没有插入 TF 卡，没有连接电源</p>
 </li>
-<li>
-<p>还需确保下图位置的白色 USB2.0 接口没有插入 USB 设备</p>
+<li><p>还需确保下图位置的白色 USB2.0 接口没有插入 USB 设备</p>
 </li>
-<li>
-<p>然后按住开发板的 MaskROM 按键不放，MaskROM 按键在开发板的位置如下图所示：</p>
-<p><img src="./../oranpi-start/image-20240113220111610.png" alt=""></p>
+<li><p>然后按住开发板的 MaskROM 按键不放，MaskROM 按键在开发板的位置如下图所示：</p>
+<p><img src="/2024/01/10/oranpi-start/image-20240113220111610.png"></p>
 </li>
-<li>
-<p>然后给开发板接上 Type-C 接口的电源，并上电，然后就可以松开 MaskROM 按键了</p>
-<p><img src="./../oranpi-start/image-20240113220151020.png" alt=""></p>
+<li><p>然后给开发板接上 Type-C 接口的电源，并上电，然后就可以松开 MaskROM 按键了</p>
+<p><img src="/2024/01/10/oranpi-start/image-20240113220151020.png"></p>
 </li>
-<li>
-<p>如果前面的步骤顺利，此时开发板会进入 MASKROM 模式，在烧录工具的界面上会提示&quot;发现一个 MASKROM 设备&quot;</p>
-<p><img src="./../oranpi-start/image-20240113220226739.png" alt=""></p>
+<li><p>如果前面的步骤顺利，此时开发板会进入 MASKROM 模式，在烧录工具的界面上会提示”发现一个 MASKROM 设备”</p>
+<p><img src="/2024/01/10/oranpi-start/image-20240113220226739.png"></p>
 </li>
-<li>
-<p>然后将鼠标光标放在下面的这片区域中</p>
-<p><img src="./../oranpi-start/image-20240113220312051.png" alt=""></p>
+<li><p>然后将鼠标光标放在下面的这片区域中</p>
+<p><img src="/2024/01/10/oranpi-start/image-20240113220312051.png"></p>
 </li>
-<li>
-<p>然后点击鼠标右键会弹出下图所示的选择界面</p>
-<p><img src="./../oranpi-start/image-20240113220342529.png" alt=""></p>
+<li><p>然后点击鼠标右键会弹出下图所示的选择界面</p>
+<p><img src="/2024/01/10/oranpi-start/image-20240113220342529.png"></p>
 </li>
-<li>
-<p>然后选择<strong>导入配置</strong>选项</p>
-<p><img src="./../oranpi-start/image-20240113220421330.png" alt=""></p>
+<li><p>然后选择<strong>导入配置</strong>选项</p>
+<p><img src="/2024/01/10/oranpi-start/image-20240113220421330.png"></p>
 </li>
-<li>
-<p>然后选择前面下载的 MiniLoader 文件夹中的 rk3588_linux_emmc.cfg 配置文件，再点击<strong>打开</strong></p>
-<p><img src="./../oranpi-start/image-20240113220458479.png" alt=""></p>
+<li><p>然后选择前面下载的 MiniLoader 文件夹中的 rk3588_linux_emmc.cfg 配置文件，再点击<strong>打开</strong></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240113220458479.png"></p>
 </li>
-<li>
-<p>然后点击<strong>确定</strong></p>
-<p><img src="./../oranpi-start/image-20240113220539678.png" alt=""></p>
+<li><p>然后点击<strong>确定</strong></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240113220539678.png"></p>
 </li>
-<li>
-<p>然后点击下图所示的位置</p>
-<p><img src="./../oranpi-start/image-20240113220610577.png" alt=""></p>
+<li><p>然后点击下图所示的位置</p>
+<p><img src="/2024/01/10/oranpi-start/image-20240113220610577.png"></p>
 </li>
-<li>
-<p>再选择前面下载的 MiniLoader 文件夹中 MiniLoaderAll.bin，再点击<strong>打开</strong></p>
-<p><img src="./../oranpi-start/image-20240113220631065.png" alt=""></p>
+<li><p>再选择前面下载的 MiniLoader 文件夹中 MiniLoaderAll.bin，再点击<strong>打开</strong></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240113220631065.png"></p>
 </li>
-<li>
-<p>然后点击下图所示的位置</p>
-<p><img src="./../oranpi-start/image-20240113220736369.png" alt=""></p>
+<li><p>然后点击下图所示的位置</p>
+<p><img src="/2024/01/10/oranpi-start/image-20240113220736369.png"></p>
 </li>
-<li>
-<p>然后选择想要烧录的 linux 镜像的路径，再点击<strong>打开</strong></p>
+<li><p>然后选择想要烧录的 linux 镜像的路径，再点击<strong>打开</strong></p>
 <blockquote>
 <p>在烧录镜像前，建议将要烧录的linux镜像重命名为orangepi.img或者其它比较短的名字，这样在烧录镜像的时候就能看到烧录进度的百分比数值。</p>
 </blockquote>
 </li>
 </ol>
-<p><img src="./../oranpi-start/image-20240113220850498.png" alt=""></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240113220850498.png"></p>
 <ol start="16">
-<li>
-<p>然后请<strong>勾选上强制按地址写</strong>选项</p>
-<p><img src="./../oranpi-start/image-20240113220918394.png" alt=""></p>
+<li><p>然后请<strong>勾选上强制按地址写</strong>选项</p>
+<p><img src="/2024/01/10/oranpi-start/image-20240113220918394.png"></p>
 </li>
-<li>
-<p>再点击执行按钮就会开始烧录 linux 镜像到开发板的 eMMC 中</p>
+<li><p>再点击执行按钮就会开始烧录 linux 镜像到开发板的 eMMC 中</p>
 </li>
-<li>
-<p>linux 镜像烧录完后的显示 log 如下图所示</p>
-<p><img src="./../oranpi-start/image-20240113220958757.png" alt=""></p>
+<li><p>linux 镜像烧录完后的显示 log 如下图所示</p>
+<p><img src="/2024/01/10/oranpi-start/image-20240113220958757.png"></p>
 </li>
-<li>
-<p>烧录完 linux 镜像到 eMMC 中后，linux 系统会自动启动。</p>
+<li><p>烧录完 linux 镜像到 eMMC 中后，linux 系统会自动启动。</p>
 </li>
 </ol>
 </li>
 </ol>
-<h3 id="Linux-启动并登录">Linux 启动并登录</h3>
-<blockquote>
+<h3 id="Linux-启动并登录"><a href="#Linux-启动并登录" class="headerlink" title="Linux 启动并登录"></a>Linux 启动并登录</h3><blockquote>
 <p>此处我烧录的是 Ubuntu Server, 因此提前准备了一根网线</p>
 </blockquote>
 <ol>
-<li>
-<p>连接网线, 电源并启动</p>
+<li><p>连接网线, 电源并启动</p>
 </li>
-<li>
-<p>登录 192.168.1.1 查看香橙派网络</p>
-<p><img src="./../oranpi-start/image-20240110212239167.png" alt=""></p>
+<li><p>登录 192.168.1.1 查看香橙派网络</p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110212239167.png"></p>
 </li>
-<li>
-<p>使用 ssh 工具连接香橙派</p>
+<li><p>使用 ssh 工具连接香橙派</p>
 <p>账号及密码都是 (orangepi)</p>
 </li>
 </ol>
-<h3 id="串口调试">串口调试</h3>
-<ul>
+<h3 id="串口调试"><a href="#串口调试" class="headerlink" title="串口调试"></a>串口调试</h3><ul>
 <li>RX (Receive Data) 接收数据</li>
 <li>TX (Transmit Data) 发送数据</li>
 </ul>
 <ol>
 <li>首先查看自己手上的模块的引脚对应关系</li>
 </ol>
-<p><img src="./../oranpi-start/Snipaste_2024-01-14_14-32-46.png" alt="TX青色、RX蓝色、GN紫色"></p>
+<p><img src="/2024/01/10/oranpi-start/Snipaste_2024-01-14_14-32-46.png" alt="TX青色、RX蓝色、GN紫色"></p>
 <ol start="2">
 <li>开发板的调试串口引脚关系对应如下</li>
 </ol>
-<p><img src="./../oranpi-start/image-20240114143604445.png" alt=""></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240114143604445.png"></p>
 <ol start="3">
-<li>
-<p>USB 转 TTL 模块 GND、TXD 和 RXD 引脚需要通过杜邦线连接到开发板的调试串口上</p>
+<li><p>USB 转 TTL 模块 GND、TXD 和 RXD 引脚需要通过杜邦线连接到开发板的调试串口上</p>
 <ul>
 <li>USB 转 TTL 模块的 GND 接到开发板的 GND 上</li>
 <li>USB 转 TTL 模块的 RX 接到开发板的 TX 上</li>
 <li>USB 转 TTL 模块的 TX 接到开发板的 RX 上</li>
 </ul>
 </li>
-<li>
-<p>由此杜邦线接线的顺序应该(紫、青、蓝)</p>
+<li><p>由此杜邦线接线的顺序应该(紫、青、蓝)</p>
 </li>
-<li>
-<p>调整终端工具参数</p>
+<li><p>调整终端工具参数</p>
 </li>
 </ol>
-<p><img src="./../oranpi-start/image-20240114153426102.png" alt="以xshell为例"></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240114153426102.png" alt="以xshell为例"></p>
 <ol start="6">
 <li>开机</li>
 </ol>
-<h3 id="WIFI-连接">WIFI 连接</h3>
-<ol>
+<h3 id="WIFI-连接"><a href="#WIFI-连接" class="headerlink" title="WIFI 连接"></a>WIFI 连接</h3><ol>
 <li>首先使用 <code>nmcli dev wifi</code> 命令扫描周围的 WIFI 热点</li>
 </ol>
-<p><img src="./../oranpi-start/image-20240110212620976.png" alt=""></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110212620976.png"></p>
 <ol start="2">
 <li>然后使用 <code>nmcli</code> 命令连接扫描到的 WIFI 热点：</li>
 </ol>
 <p><code>nmcli dev wifi connect &lt;wifi_name&gt; password &lt;wifi_passwd&gt;</code></p>
-<p><img src="./../oranpi-start/image-20240110212831443.png" alt=""></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110212831443.png"></p>
 <ol start="3">
 <li>通过 <code>ip addr show wlan0</code> 命令可以查看 wifi 的 IP 地址</li>
 </ol>
-<p><img src="./../oranpi-start/image-20240110213012840.png" alt=""></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110213012840.png"></p>
 <ol start="4">
 <li>使用 <code>ping</code> 命令可以测试 wifi 网络的连通性</li>
 </ol>
-<p><img src="./../oranpi-start/image-20240110213123089.png" alt=""></p>
-<h3 id="设置静态-IP-地址">设置静态 IP 地址</h3>
-<h4 id="使用-nmcli-命令设置">使用 nmcli 命令设置</h4>
-<blockquote>
+<p><img src="/2024/01/10/oranpi-start/image-20240110213123089.png"></p>
+<h3 id="设置静态-IP-地址"><a href="#设置静态-IP-地址" class="headerlink" title="设置静态 IP 地址"></a>设置静态 IP 地址</h3><h4 id="使用-nmcli-命令设置"><a href="#使用-nmcli-命令设置" class="headerlink" title="使用 nmcli 命令设置"></a>使用 nmcli 命令设置</h4><blockquote>
 <p>如果要设置网口的静态 IP 地址，请先将网线插入开发板，如果需要设置 WIFI的静态 IP 地址，请先连接好 WIFI，然后再开始设置静态 IP 地址</p>
 </blockquote>
 <ol>
 <li>然后通过 <code>nmcli con show</code> 命令可以查看网络设备的名字，如下所示</li>
 </ol>
-<p><img src="./../oranpi-start/image-20240110220800203.png" alt=""></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110220800203.png"></p>
 <ol start="2">
-<li>
-<p>然后输入下面的命令</p>
+<li><p>然后输入下面的命令</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nmcli con mod <span class="token string">"&lt;网络名>"</span> <span class="token punctuation">\</span>
 ipv4.addresses <span class="token string">"192.168.1.110"</span> <span class="token punctuation">\</span>
 ipv4.gateway <span class="token string">"192.168.1.1"</span> <span class="token punctuation">\</span>
@@ -615,131 +570,109 @@ ipv4.method <span class="token string">"manual"</span>
 <span class="token comment"># ipv4.addresses 后面是要设置的静态 IP 地址，可以修改为自己想要设置的值</span>
 <span class="token comment"># ipv4.gateway 表示网关的地址</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li>
-<p>然后重启 linux 系统</p>
+<li><p>然后重启 linux 系统</p>
 <p><code>sudo reboot</code></p>
 </li>
-<li>
-<p>然后重新进入 linux 系统使用 <code>ip addr show eth0</code> 命令就可以查看到 IP 地址已经设置为想要的值了 (如果设置成功后通过 ssh登录就能发现了🤣)</p>
+<li><p>然后重新进入 linux 系统使用 <code>ip addr show eth0</code> 命令就可以查看到 IP 地址已经设置为想要的值了 (如果设置成功后通过 ssh登录就能发现了🤣)</p>
 </li>
 </ol>
-<h4 id="使用-nmtui-命令设置">使用 nmtui 命令设置</h4>
-<ol>
+<h4 id="使用-nmtui-命令设置"><a href="#使用-nmtui-命令设置" class="headerlink" title="使用 nmtui 命令设置"></a>使用 nmtui 命令设置</h4><ol>
 <li>首先运行 <code>nmtui</code> 命令</li>
 </ol>
-<p><img src="./../oranpi-start/image-20240110214452331.png" alt=""></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110214452331.png"></p>
 <ol start="2">
 <li>选择 Edit a connection, 并按下回车</li>
 <li>选择需要设置静态 IP 地址的网络接口, 比如设置 CMCC-6Xcu-5G, 按下 Tab 键进入</li>
 </ol>
-<p><img src="./../oranpi-start/image-20240110214624786.png" alt=""></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110214624786.png"></p>
 <ol start="4">
 <li>将光标移动到下图所示的 <code>&lt;Automatic&gt;</code> 位置进行 IPv4 的配置</li>
 </ol>
-<p><img src="./../oranpi-start/image-20240110214901015.png" alt=""></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110214901015.png"></p>
 <ol start="5">
 <li>然后回车, 通过方向键选择 <code>Manual</code>, 然后回车确定</li>
 </ol>
-<p><img src="./../oranpi-start/image-20240110214945084.png" alt=""></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110214945084.png"></p>
 <ol start="6">
 <li>然后通过 Tab 键将光标移动到 <code>&lt;Show&gt;</code></li>
 </ol>
-<p><img src="./../oranpi-start/image-20240110215021768.png" alt=""></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110215021768.png"></p>
 <ol start="7">
 <li>在下图所示的位置设置 IP 地址(Addresses)、网关(Gateway)和 DNS 服务器的地址（里面还有很多其他设置选项，请自行探索），请根据自己的具体需求来设置，下图中设置的值只是一个示例</li>
 </ol>
-<p><img src="./../oranpi-start/image-20240110215211432.png" alt=""></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110215211432.png"></p>
 <ol start="8">
 <li>完后将光标移动到右下角的 <code>&lt;OK&gt;</code>，然后回车确认, 然后点击 <code>&lt;Back&gt;</code> 回退到上一级选择界面</li>
 <li>然后选择 Activate a connection，再将光标移动到 <code>&lt;OK&gt;</code>，最后点击回车</li>
 </ol>
-<p><img src="./../oranpi-start/image-20240110215400337.png" alt=""></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110215400337.png"></p>
 <ol start="10">
 <li>然后选择需要设置的网络接口，激活该激活的, 关闭想关闭的网络</li>
 </ol>
-<p><img src="./../oranpi-start/image-20240110215705785.png" alt=""></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110215705785.png"></p>
 <ol start="11">
 <li>设置完成, 友好退出即可</li>
 <li>最后通过 <code>ip addr show wlan0</code> 就能看到网口的 IP 地址已经变成前面设置的静态 IP地址了</li>
 </ol>
-<p><img src="./../oranpi-start/image-20240110215932436.png" alt=""></p>
-<h3 id="板载-LED-灯说明">板载 LED 灯说明</h3>
-<ol>
+<p><img src="/2024/01/10/oranpi-start/image-20240110215932436.png"></p>
+<h3 id="板载-LED-灯说明"><a href="#板载-LED-灯说明" class="headerlink" title="板载 LED 灯说明"></a>板载 LED 灯说明</h3><ol>
 <li>开发板上有两个 LED 灯，一个绿灯，一个红灯，所在位置如下图所示：</li>
 </ol>
-<p><img src="./../oranpi-start/image-20240110210834760.png" alt=""></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110210834760.png"></p>
 <ol start="2">
-<li>
-<p>只要开发板打开了电源，红色的 LED 灯就会常亮，这是由硬件控制的，软件无法关闭。</p>
+<li><p>只要开发板打开了电源，红色的 LED 灯就会常亮，这是由硬件控制的，软件无法关闭。</p>
 </li>
-<li>
-<p>绿色的 LED 灯在内核启动后会一直闪烁，这是由软件控制的</p>
+<li><p>绿色的 LED 灯在内核启动后会一直闪烁，这是由软件控制的</p>
 </li>
-<li>
-<p>设置绿灯亮灭和闪烁的方法如下所示</p>
+<li><p>设置绿灯亮灭和闪烁的方法如下所示</p>
 <blockquote>
 <p>注意: 下面的操作请在 root 用户下进行</p>
 </blockquote>
 <ol>
-<li>
-<p>首先进入绿灯的设置目录</p>
+<li><p>首先进入绿灯的设置目录</p>
 <p><code>cd /sys/class/leds/status_led</code></p>
 </li>
-<li>
-<p>设置绿灯停止闪烁的命令如下</p>
+<li><p>设置绿灯停止闪烁的命令如下</p>
 <p><code>echo none &gt; trigger</code></p>
 </li>
-<li>
-<p>设置绿灯常亮的命令如下</p>
+<li><p>设置绿灯常亮的命令如下</p>
 <p><code>echo default-on &gt; trigger</code></p>
 </li>
-<li>
-<p>设置绿灯闪烁的命令如下</p>
+<li><p>设置绿灯闪烁的命令如下</p>
 <p><code>echo heartbeat &gt; trigger</code></p>
 </li>
-<li>
-<p>如果开机后不需要 LED 灯闪烁, 可以使用下面的方法来关闭绿灯和蓝灯</p>
+<li><p>如果开机后不需要 LED 灯闪烁, 可以使用下面的方法来关闭绿灯和蓝灯</p>
 <ol>
-<li>
-<p>首先运行下 orangepi-config，普通用户记得加 sudo 权限</p>
+<li><p>首先运行下 orangepi-config，普通用户记得加 sudo 权限</p>
 <p><code>sudo orangepi-config</code></p>
 </li>
-<li>
-<p>然后选择 System</p>
-<p><img src="./../oranpi-start/image-20240110211444336.png" alt=""></p>
+<li><p>然后选择 System</p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110211444336.png"></p>
 </li>
-<li>
-<p>然后选择 Hardware</p>
-<p><img src="./../oranpi-start/image-20240110211500003.png" alt=""></p>
+<li><p>然后选择 Hardware</p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110211500003.png"></p>
 </li>
-<li>
-<p>然后使用键盘的方向键定位到下图所示的位置，再使用空格选中 disable-led 配置</p>
-<p><img src="./../oranpi-start/image-20240110211601620.png" alt=""></p>
+<li><p>然后使用键盘的方向键定位到下图所示的位置，再使用空格选中 disable-led 配置</p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110211601620.png"></p>
 </li>
-<li>
-<p>然后选择 <code>&lt;Save&gt;</code> 保存, 然后选择 <code>&lt;Back&gt;</code></p>
-<p><img src="./../oranpi-start/image-20240110211627953.png" alt=""></p>
+<li><p>然后选择 <code>&lt;Save&gt;</code> 保存, 然后选择 <code>&lt;Back&gt;</code></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110211627953.png"></p>
 </li>
-<li>
-<p>然后选择 <code>&lt;Reboot&gt;</code> 重启系统使配置生效, 重启后就可以看到开发板上只有红灯常亮, 绿灯不会闪烁了</p>
-<p><img src="./../oranpi-start/image-20240110211709091.png" alt=""></p>
+<li><p>然后选择 <code>&lt;Reboot&gt;</code> 重启系统使配置生效, 重启后就可以看到开发板上只有红灯常亮, 绿灯不会闪烁了</p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110211709091.png"></p>
 </li>
 </ol>
 </li>
 </ol>
 </li>
 </ol>
-<h2 id="常用命令">常用命令</h2>
-<h4 id="查看-Ubuntu-版本">查看 Ubuntu 版本</h4>
-<p><code>lsb_release -a</code></p>
-<p><img src="./../oranpi-start/image-20240110222823841.png" alt=""></p>
-<h4 id="查看当前Ubuntu系统使用的镜像源">查看当前Ubuntu系统使用的镜像源</h4>
-<p><code>cat /etc/apt/sources.list</code></p>
-<p><img src="./../oranpi-start/image-20240110223734669.png" alt=""></p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h4 id="查看-Ubuntu-版本"><a href="#查看-Ubuntu-版本" class="headerlink" title="查看 Ubuntu 版本"></a>查看 Ubuntu 版本</h4><p><code>lsb_release -a</code></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110222823841.png"></p>
+<h4 id="查看当前Ubuntu系统使用的镜像源"><a href="#查看当前Ubuntu系统使用的镜像源" class="headerlink" title="查看当前Ubuntu系统使用的镜像源"></a>查看当前Ubuntu系统使用的镜像源</h4><p><code>cat /etc/apt/sources.list</code></p>
+<p><img src="/2024/01/10/oranpi-start/image-20240110223734669.png"></p>
 <p>如果想使用其他镜像源，可以在这个文件中添加或编辑相应的行。编辑完成后，记得运行以下命令更新软件包列表：</p>
 <p><code>sudo apt-get update</code></p>
-<h4 id="其他设置">其他设置</h4>
-<p><strong>账户相关</strong></p>
+<h4 id="其他设置"><a href="#其他设置" class="headerlink" title="其他设置"></a>其他设置</h4><p><strong>账户相关</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#修改 root 账号的密码(要切换至root)</span>
 paswd
 <span class="token comment">#修改 orangepi 账号的密码</span>
@@ -763,10 +696,10 @@ paswd
 <span class="token function">userdel</span> <span class="token operator">&lt;</span>用户名<span class="token operator">></span>
 <span class="token comment">#删除linux中某个用户所有信息</span>
 <span class="token function">userdel</span> <span class="token parameter variable">-r</span> <span class="token operator">&lt;</span>用户名<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>设置时区</strong></p>
 <p><code>sudo dpkg-reconfigure tzdata</code> 选择Asia然后shanghai即可</p>
-<h3 id="常用-apt-命令">常用 apt 命令</h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> update <span class="token comment">#列出所有可更新的软件清单命令</span>
+<h3 id="常用-apt-命令"><a href="#常用-apt-命令" class="headerlink" title="常用 apt 命令"></a>常用 apt 命令</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> update <span class="token comment">#列出所有可更新的软件清单命令</span>
 
 <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> <span class="token operator">&lt;</span>package_name<span class="token operator">></span> <span class="token comment">#安装指定的软件命令</span>
 <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> <span class="token operator">&lt;</span>package_<span class="token operator"><span class="token file-descriptor important">1</span>></span> <span class="token operator">&lt;</span>package_<span class="token operator"><span class="token file-descriptor important">2</span>></span> <span class="token operator">&lt;</span>package_<span class="token operator"><span class="token file-descriptor important">3</span>></span> <span class="token comment">#安装多个软件包</span>
@@ -784,8 +717,8 @@ paswd
 <span class="token function">apt</span> list <span class="token parameter variable">--installed</span> <span class="token comment">#列出所有已安装的包</span>
 
 <span class="token function">apt</span> list --all-versions <span class="token comment">#列出所有已安装的包的版本信息</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="常用防火墙命令">常用防火墙命令</h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> ufw <span class="token comment">#安装防火墙</span>
+
+<h3 id="常用防火墙命令"><a href="#常用防火墙命令" class="headerlink" title="常用防火墙命令"></a>常用防火墙命令</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> ufw <span class="token comment">#安装防火墙</span>
 
 <span class="token function">sudo</span> ufw status <span class="token comment">#查看防火墙状态</span>
 
@@ -809,14 +742,14 @@ paswd
 <span class="token function">sudo</span> ufw allow from <span class="token number">10.0</span>.0.0/8
 <span class="token function">sudo</span> ufw allow from <span class="token number">172.16</span>.0.0/12
 <span class="token function">sudo</span> ufw allow from <span class="token number">192.168</span>.0.0/16<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="常用端口命令">常用端口命令</h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">netstat</span> -ntulp<span class="token operator">|</span><span class="token function">grep</span> <span class="token operator">&lt;</span>应用名<span class="token operator">></span> <span class="token comment">#注意要加sudo</span>
+
+<h3 id="常用端口命令"><a href="#常用端口命令" class="headerlink" title="常用端口命令"></a>常用端口命令</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">netstat</span> -ntulp<span class="token operator">|</span><span class="token function">grep</span> <span class="token operator">&lt;</span>应用名<span class="token operator">></span> <span class="token comment">#注意要加sudo</span>
 <span class="token function">sudo</span> <span class="token function">lsof</span> -i:<span class="token operator">&lt;</span>端口号<span class="token operator">></span> <span class="token comment">#注意要加sudo</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h2 id="软件及服务">软件及服务</h2>
-<h3 id="JDK">JDK</h3>
-<p><strong>安装 OpenJDK 8</strong></p>
+
+<h2 id="软件及服务"><a href="#软件及服务" class="headerlink" title="软件及服务"></a>软件及服务</h2><h3 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h3><p><strong>安装 OpenJDK 8</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> update
 <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> openjdk-8-jdk <span class="token parameter variable">-y</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>通过检查 Java 版本，来验证安装过程：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">java</span> <span class="token parameter variable">-version</span>
 
@@ -824,6 +757,7 @@ paswd
 openjdk version <span class="token string">"1.8.0_382"</span>
 OpenJDK Runtime Environment <span class="token punctuation">(</span>build <span class="token number">1.8</span>.0_382-8u382-ga-1~20.04.1-b05<span class="token punctuation">)</span>
 OpenJDK <span class="token number">64</span>-Bit Server VM <span class="token punctuation">(</span>build <span class="token number">25.382</span>-b05, mixed mode<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>安装OpenJDK 11</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> openjdk-11-jdk <span class="token parameter variable">-y</span>
 
@@ -831,8 +765,10 @@ OpenJDK <span class="token number">64</span>-Bit Server VM <span class="token pu
 openjdk version <span class="token string">"11.0.20.1"</span> <span class="token number">2023</span>-08-24
 OpenJDK Runtime Environment <span class="token punctuation">(</span>build <span class="token number">11.0</span>.20.1+1-post-Ubuntu-0ubuntu120.04<span class="token punctuation">)</span>
 OpenJDK <span class="token number">64</span>-Bit Server VM <span class="token punctuation">(</span>build <span class="token number">11.0</span>.20.1+1-post-Ubuntu-0ubuntu120.04, mixed mode<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>设置默认版本</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> update-alternatives <span class="token parameter variable">--config</span> <span class="token function">java</span> <span class="token comment">#同时也可查看 Java 安装路径</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><strong>JAVA_HOME 环境变量</strong></p>
 <p>java 安装路径如下:</p>
 <ul>
@@ -850,9 +786,10 @@ OpenJDK <span class="token number">64</span>-Bit Server VM <span class="token pu
 
 <span class="token comment">#校验</span>
 <span class="token builtin class-name">echo</span> <span class="token variable">$JAVA_HOME</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> remove openjdk-11-jdk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="MySql">MySql</h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#查看</span>
+
+<h3 id="MySql"><a href="#MySql" class="headerlink" title="MySql"></a>MySql</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#查看</span>
 <span class="token function">sudo</span> <span class="token function">apt</span> search mysql
 <span class="token comment">#安装</span>
 <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> mysql-server <span class="token parameter variable">-y</span>
@@ -860,17 +797,17 @@ OpenJDK <span class="token number">64</span>-Bit Server VM <span class="token pu
 <span class="token function">sudo</span> systemctl status mysql
 <span class="token comment">#查看版本</span>
 mysql <span class="token parameter variable">--version</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="安全配置向导说明">安全配置向导说明</h4>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> mysql_secure_installation<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="配置远程访问">配置远程访问</h4>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#允许远程访问</span>
+
+<h4 id="安全配置向导说明"><a href="#安全配置向导说明" class="headerlink" title="安全配置向导说明"></a>安全配置向导说明</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> mysql_secure_installation<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="配置远程访问"><a href="#配置远程访问" class="headerlink" title="配置远程访问"></a>配置远程访问</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#允许远程访问</span>
 <span class="token builtin class-name">cd</span> /etc/mysql/mysql.conf.d
 <span class="token function">sudo</span> <span class="token function">vim</span> mysqld.cnf <span class="token comment">#此处不要修改权限, 否则 mysql 无法读取配置</span>
 <span class="token comment"># 重启mysql</span>
 <span class="token function">sudo</span> systemctl restart mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="./../oranpi-start/image-20240113105048034.png" alt=""></p>
-<h4 id="登录">登录</h4>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#登录</span>
+
+<p><img src="/2024/01/10/oranpi-start/image-20240113105048034.png"></p>
+<h4 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#登录</span>
 <span class="token function">sudo</span> mysql
 <span class="token function">sudo</span> mysql <span class="token parameter variable">-uroot</span> <span class="token parameter variable">-p</span> <span class="token comment">#接着输入密码</span>
 <span class="token comment">#更改 root 密码</span>
@@ -885,8 +822,8 @@ show variables like <span class="token string">'validate_password%'</span><span 
 <span class="token builtin class-name">set</span> global <span class="token assign-left variable">validate_password.policy</span><span class="token operator">=</span>LOW<span class="token punctuation">;</span>
 <span class="token builtin class-name">set</span> global <span class="token assign-left variable">validate_password.length</span><span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">;</span>
 flush privileges<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="卸载">卸载</h4>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#查看MySQL的依赖项</span>
+
+<h4 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#查看MySQL的依赖项</span>
 dpkg --list<span class="token operator">|</span><span class="token function">grep</span> mysql
 <span class="token comment">#删除</span>
 <span class="token function">sudo</span> <span class="token function">apt</span> remove mysql-*
@@ -894,8 +831,9 @@ dpkg --list<span class="token operator">|</span><span class="token function">gre
 dpkg --list<span class="token operator">|</span><span class="token function">grep</span> mysql
 <span class="token comment">#继续删除</span>
 <span class="token function">sudo</span> <span class="token function">apt</span> autoremove <span class="token parameter variable">--purge</span> mysql-server-8.0 mysql-common<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="Redis">Redis</h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> redis-server <span class="token parameter variable">-y</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> redis-server <span class="token parameter variable">-y</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><strong>配置文件及日志</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /etc/redis
 <span class="token function">sudo</span> <span class="token function">vim</span> /etc/redis/redis.conf
@@ -908,8 +846,9 @@ dpkg --list<span class="token operator">|</span><span class="token function">gre
 
 <span class="token comment">#中间会遇到文件夹及文件权限问题</span>
 <span class="token function">chmod</span> <span class="token number">755</span> *<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="Nginx">Nginx</h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> nginx-full <span class="token parameter variable">-y</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> nginx-full <span class="token parameter variable">-y</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><strong>配置文件及日志</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#配置文件夹</span>
 <span class="token builtin class-name">cd</span> /etc/nginx
@@ -918,8 +857,8 @@ dpkg --list<span class="token operator">|</span><span class="token function">gre
 <span class="token builtin class-name">cd</span> /var/log/nginx/
 <span class="token comment">#中间会遇到文件夹及文件权限问题</span>
 <span class="token function">chmod</span> <span class="token number">755</span> *<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="局域网共享">局域网共享</h3>
-<p><strong>安装及配置</strong></p>
+
+<h3 id="局域网共享"><a href="#局域网共享" class="headerlink" title="局域网共享"></a>局域网共享</h3><p><strong>安装及配置</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#安装Samba</span>
 <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> samba <span class="token parameter variable">-y</span>
 <span class="token comment">#新增共享目录</span>
@@ -931,9 +870,11 @@ dpkg --list<span class="token operator">|</span><span class="token function">gre
 <span class="token comment">#将用户smbuser添加到samba的smbpasswd file中(即在samba服务中注册该账户)</span>
 <span class="token function">sudo</span> smbpasswd <span class="token parameter variable">-a</span> dee
 <span class="token comment">#pass=dee</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>配置文件</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /etc/samba/
 <span class="token function">sudo</span> <span class="token function">vim</span> /etc/samba/smb.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p><code>shift g</code> 在末尾添加</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">## 注意: 后面的注释要输出</span>
 <span class="token punctuation">[</span>secret<span class="token punctuation">]</span>    <span class="token comment">#共享目录名，访问时的展示名</span>
@@ -943,9 +884,11 @@ dpkg --list<span class="token operator">|</span><span class="token function">gre
     guest ok <span class="token operator">=</span> no               <span class="token comment">#是否允许访客，否</span>
     writable <span class="token operator">=</span> <span class="token function">yes</span>              <span class="token comment">#可写，是</span>
     browsable <span class="token operator">=</span> <span class="token function">yes</span>             <span class="token comment">#可浏览，是</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>重启生效</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> systemctl restart smbd
 <span class="token function">sudo</span> systemctl restart nmbd<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p><strong>匿名方式类似</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 打开文件</span>
 <span class="token function">sudo</span> <span class="token function">vim</span> /etc/samba/smb.conf
@@ -956,6 +899,7 @@ dpkg --list<span class="token operator">|</span><span class="token function">gre
     browsable <span class="token operator">=</span> <span class="token function">yes</span> 
     guest ok <span class="token operator">=</span> <span class="token function">yes</span> 
     <span class="token builtin class-name">read</span> only <span class="token operator">=</span> no<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>附加命令</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看samba用户列表</span>
 <span class="token function">sudo</span> pdbedit <span class="token parameter variable">-L</span>
@@ -965,9 +909,8 @@ dpkg --list<span class="token operator">|</span><span class="token function">gre
 <span class="token function">sudo</span> smbpasswd <span class="token parameter variable">-h</span>  <span class="token comment">#查看支持的命令列表</span>
 <span class="token comment"># 异常时可查看日志情况</span>
 <span class="token function">cat</span> /var/log/samba/log.%m<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="自动化部署">自动化部署</h2>
-<h3 id="wifi">wifi</h3>
-<p><code>vim inti-wifi.sh</code></p>
+
+<h2 id="自动化部署"><a href="#自动化部署" class="headerlink" title="自动化部署"></a>自动化部署</h2><h3 id="wifi"><a href="#wifi" class="headerlink" title="wifi"></a>wifi</h3><p><code>vim inti-wifi.sh</code></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#! /bin/bash</span>
 <span class="token comment">## 如果出现 -bash: /bin/bash^M: bad interpreter: No such file or directory</span>
 <span class="token comment">## vim或者vi的命令模式下, 输入命令 set ff=unix 即可解决换行问题</span>
@@ -1038,8 +981,8 @@ dpkg --list<span class="token operator">|</span><span class="token function">gre
 	<span class="token builtin class-name">echo</span> <span class="token string">"连接失败"</span>
 	<span class="token builtin class-name">exit</span> <span class="token number">1</span>
 <span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="基础应用安装">基础应用安装</h3>
-<p><code>vim init-prog.sh</code></p>
+
+<h3 id="基础应用安装"><a href="#基础应用安装" class="headerlink" title="基础应用安装"></a>基础应用安装</h3><p><code>vim init-prog.sh</code></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#! /bin/bash</span>
 
 <span class="token keyword">while</span> <span class="token builtin class-name">getopts</span> <span class="token string">":r:"</span> opt<span class="token punctuation">;</span> <span class="token keyword">do</span>
@@ -1101,6 +1044,7 @@ exit
 EOF</span>
 <span class="token builtin class-name">echo</span> <span class="token string">">>> mysql 安装完成&lt;&lt;&lt;"</span>
 <span class="token builtin class-name">echo</span> <span class="token string">">>> 账号: saddyfire 密码: dee_mysql&lt;&lt;&lt;"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -1217,29 +1161,28 @@ EOF</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/01/10/oranpi-start/">
+                <a href="/2024/01/17/jvm-tuning3/">
                     <div class="card-image">
                         
-                        <img src="/images/article/7.jpg" class="responsive-img" alt="香橙派5B上手记录">
+                        <img src="/images/article/62.jpg" class="responsive-img" alt="JVM参数">
                         
-                        <span class="card-title">香橙派5B上手记录</span>
+                        <span class="card-title">JVM参数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            香橙派5B上手记录
+                            JVM参数
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-10
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-17
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1252,20 +1195,11 @@ EOF</span>
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
-                    <a href="/tags/OrangePi/">
-                        <span class="chip bg-color">OrangePi</span>
-                    </a>
-                    
-                    <a href="/tags/Ubuntu/">
-                        <span class="chip bg-color">Ubuntu</span>
+                    <a href="/tags/JVM/">
+                        <span class="chip bg-color">JVM</span>
                     </a>
                     
                 </div>
