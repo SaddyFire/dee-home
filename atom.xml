@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2024-01-18T15:12:16.283Z</updated>
+  <updated>2024-01-20T14:37:38.084Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -17,18 +17,173 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>JVM参数</title>
+    <title>JVM-Tuning-04-JVM监控及诊断-分析GC日志</title>
+    <link href="https://www.saddyfire.cn/2024/01/20/jvm-tuning4/"/>
+    <id>https://www.saddyfire.cn/2024/01/20/jvm-tuning4/</id>
+    <published>2024-01-20T13:16:23.000Z</published>
+    <updated>2024-01-20T14:37:38.084Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;JVM监控及诊断-分析GC日志&lt;/h1&gt;
+&lt;h2 id=&quot;01-GC日志参数&quot;&gt;01-GC日志参数&lt;/h2&gt;
+&lt;p&gt;见上一篇&lt;/p&gt;
+&lt;h2 id=&quot;02-GC日志格式&quot;&gt;02-GC日志格式&lt;/h2&gt;
+&lt;p&gt;针对 HotSpot VM 的实现，它里面的 GC</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mermaid-流程图</title>
+    <link href="https://www.saddyfire.cn/2024/01/20/mermaid-flowchart/"/>
+    <id>https://www.saddyfire.cn/2024/01/20/mermaid-flowchart/</id>
+    <published>2024-01-20T10:43:06.000Z</published>
+    <updated>2024-01-20T11:53:50.663Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;Mermaid-流程图&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;摘录自 &lt;a href=&quot;https://mermaid.nodejs.cn/syntax/flowchart.html&quot;&gt;流程图语法 | Mermaid 中文网</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Mermaid" scheme="https://www.saddyfire.cn/tags/Mermaid/"/>
+    
+    <category term="Markdown" scheme="https://www.saddyfire.cn/tags/Markdown/"/>
+    
+    <category term="Flowchart" scheme="https://www.saddyfire.cn/tags/Flowchart/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nvm管理node.js</title>
+    <link href="https://www.saddyfire.cn/2024/01/20/nvm-note/"/>
+    <id>https://www.saddyfire.cn/2024/01/20/nvm-note/</id>
+    <published>2024-01-20T07:55:08.000Z</published>
+    <updated>2024-01-20T08:13:09.636Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;nvm管理 node.js&lt;/h1&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;Quick Start&lt;/h2&gt;
+&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="nvm" scheme="https://www.saddyfire.cn/tags/nvm/"/>
+    
+    <category term="npm" scheme="https://www.saddyfire.cn/tags/npm/"/>
+    
+    <category term="node.js" scheme="https://www.saddyfire.cn/tags/node-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mermaid-类图</title>
+    <link href="https://www.saddyfire.cn/2024/01/19/mermaid-uml/"/>
+    <id>https://www.saddyfire.cn/2024/01/19/mermaid-uml/</id>
+    <published>2024-01-19T14:31:31.000Z</published>
+    <updated>2024-01-20T15:24:54.802Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;Mermaid-类图&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;摘录自 &lt;a href=&quot;https://mermaid.nodejs.cn/syntax/classDiagram.html&quot;&gt;类图 | Mermaid 中文网</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Mermaid" scheme="https://www.saddyfire.cn/tags/Mermaid/"/>
+    
+    <category term="Markdown" scheme="https://www.saddyfire.cn/tags/Markdown/"/>
+    
+    <category term="UML" scheme="https://www.saddyfire.cn/tags/UML/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式-01-概述</title>
+    <link href="https://www.saddyfire.cn/2024/01/19/design-pattern/"/>
+    <id>https://www.saddyfire.cn/2024/01/19/design-pattern/</id>
+    <published>2024-01-19T05:04:37.000Z</published>
+    <updated>2024-01-20T15:20:23.082Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;设计模式概述&quot;&gt;设计模式概述&lt;/h2&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+    <category term="DesignPattern" scheme="https://www.saddyfire.cn/tags/DesignPattern/"/>
+    
+    <category term="Mermaid" scheme="https://www.saddyfire.cn/tags/Mermaid/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JVM-Tuning-03-JVM监控及诊断-运行参数篇</title>
     <link href="https://www.saddyfire.cn/2024/01/17/jvm-tuning3/"/>
     <id>https://www.saddyfire.cn/2024/01/17/jvm-tuning3/</id>
     <published>2024-01-17T14:27:07.000Z</published>
-    <updated>2024-01-18T15:12:16.283Z</updated>
+    <updated>2024-01-20T13:15:58.834Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;JVM参数&quot;&gt;&lt;a href=&quot;#JVM参数&quot; class=&quot;headerlink&quot; title=&quot;JVM参数&quot;&gt;&lt;/a&gt;JVM参数&lt;/h1&gt;&lt;h2 id=&quot;01-JVM参数选项类型&quot;&gt;&lt;a href=&quot;#01-JVM参数选项类型&quot;</summary>
+    <summary type="html">&lt;h1&gt;JVM监控及诊断-运行参数篇&lt;/h1&gt;
+&lt;h2 id=&quot;01-JVM参数选项类型&quot;&gt;01-JVM参数选项类型&lt;/h2&gt;
+&lt;h3 id=&quot;X参数选项&quot;&gt;-X参数选项&lt;/h3&gt;
+&lt;pre class=&quot;line-numbers language-bash&quot;</summary>
         
       
     
@@ -53,8 +208,10 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;香橙派5B上手记录&quot;&gt;&lt;a href=&quot;#香橙派5B上手记录&quot; class=&quot;headerlink&quot; title=&quot;香橙派5B上手记录&quot;&gt;&lt;/a&gt;香橙派5B上手记录&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;本文基于香橙派官方文档,</summary>
+    <summary type="html">&lt;h1&gt;香橙派5B上手记录&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文基于香橙派官方文档, 结合自己上手记录过程&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
         
       
     
@@ -72,18 +229,19 @@
   </entry>
   
   <entry>
-    <title>JVM-Tuning-02-JVM监控及诊断工具-命令篇</title>
+    <title>JVM-Tuning-02-JVM监控及诊断-工具篇</title>
     <link href="https://www.saddyfire.cn/2024/01/07/jvm-tuning2/"/>
     <id>https://www.saddyfire.cn/2024/01/07/jvm-tuning2/</id>
     <published>2024-01-07T15:30:30.000Z</published>
-    <updated>2024-01-17T13:23:49.755Z</updated>
+    <updated>2024-01-20T13:13:23.696Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;JVM监控及诊断工具-工具篇&quot;&gt;&lt;a href=&quot;#JVM监控及诊断工具-工具篇&quot; class=&quot;headerlink&quot; title=&quot;JVM监控及诊断工具-工具篇&quot;&gt;&lt;/a&gt;JVM监控及诊断工具-工具篇&lt;/h1&gt;&lt;h2 id=&quot;01-工具概述&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h1&gt;JVM监控及诊断-工具篇&lt;/h1&gt;
+&lt;h2</summary>
         
       
     
@@ -97,18 +255,24 @@
   </entry>
   
   <entry>
-    <title>JVM-Tuning-01-JVM性能调优概述及监控诊断工具</title>
+    <title>JVM-Tuning-01-JVM监控及诊断-命令篇</title>
     <link href="https://www.saddyfire.cn/2024/01/07/jvm-tuning1/"/>
     <id>https://www.saddyfire.cn/2024/01/07/jvm-tuning1/</id>
     <published>2024-01-07T06:02:25.000Z</published>
-    <updated>2024-01-07T15:26:30.028Z</updated>
+    <updated>2024-01-20T13:13:55.718Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;JVM性能调优概述及监控诊断工具&quot;&gt;&lt;a href=&quot;#JVM性能调优概述及监控诊断工具&quot; class=&quot;headerlink&quot; title=&quot;JVM性能调优概述及监控诊断工具&quot;&gt;&lt;/a&gt;JVM性能调优概述及监控诊断工具&lt;/h1&gt;&lt;h2 id=&quot;概述&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h1&gt;JVM监控及诊断-命令篇&lt;/h1&gt;
+&lt;h2 id=&quot;概述&quot;&gt;概述&lt;/h2&gt;
+&lt;h3 id=&quot;性能调优思路&quot;&gt;性能调优思路&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;1-发现问题: 性能监控&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GC 频繁&lt;/li&gt;
+&lt;li&gt;cpu load</summary>
         
       
     
@@ -133,7 +297,10 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;类的加载过程详解&quot;&gt;&lt;a href=&quot;#类的加载过程详解&quot; class=&quot;headerlink&quot; title=&quot;类的加载过程详解&quot;&gt;&lt;/a&gt;类的加载过程详解&lt;/h1&gt;&lt;h2 id=&quot;01-概述&quot;&gt;&lt;a href=&quot;#01-概述&quot;</summary>
+    <summary type="html">&lt;h1&gt;类的加载过程详解&lt;/h1&gt;
+&lt;h2 id=&quot;01-概述&quot;&gt;01-概述&lt;/h2&gt;
+&lt;p&gt;在 Java 中数据类型分为基本数据类型和引用数据类型。&lt;strong&gt;基本数据类型由虚拟机预先定义，引用数据类型则需要进行类的加载。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;按照 Java</summary>
         
       
     
@@ -158,7 +325,11 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;字节码指令集与解析举例&quot;&gt;&lt;a href=&quot;#字节码指令集与解析举例&quot; class=&quot;headerlink&quot; title=&quot;字节码指令集与解析举例&quot;&gt;&lt;/a&gt;字节码指令集与解析举例&lt;/h1&gt;&lt;h2 id=&quot;01-概述&quot;&gt;&lt;a href=&quot;#01-概述&quot;</summary>
+    <summary type="html">&lt;h1&gt;字节码指令集与解析举例&lt;/h1&gt;
+&lt;h2 id=&quot;01-概述&quot;&gt;01-概述&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Java 字节码对于虚拟机，就好像汇编语言对于计算机，属于基本执行指令。&lt;/li&gt;
+&lt;li&gt;Java</summary>
         
       
     
@@ -183,7 +354,10 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Class文件结构&quot;&gt;&lt;a href=&quot;#Class文件结构&quot; class=&quot;headerlink&quot; title=&quot;Class文件结构&quot;&gt;&lt;/a&gt;Class文件结构&lt;/h1&gt;&lt;h2 id=&quot;01-概述&quot;&gt;&lt;a href=&quot;#01-概述&quot;</summary>
+    <summary type="html">&lt;h1&gt;Class文件结构&lt;/h1&gt;
+&lt;h2 id=&quot;01-概述&quot;&gt;01-概述&lt;/h2&gt;
+&lt;h3 id=&quot;字节码文件的跨平台性&quot;&gt;字节码文件的跨平台性&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;1. Java语言:</summary>
         
       
     
@@ -208,7 +382,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;垃圾回收器&quot;&gt;&lt;a href=&quot;#垃圾回收器&quot; class=&quot;headerlink&quot; title=&quot;垃圾回收器&quot;&gt;&lt;/a&gt;垃圾回收器&lt;/h1&gt;&lt;h2 id=&quot;GC-分类与性能指标&quot;&gt;&lt;a href=&quot;#GC-分类与性能指标&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;垃圾回收器&lt;/h1&gt;
+&lt;h2 id=&quot;GC-分类与性能指标&quot;&gt;GC</summary>
         
       
     
@@ -233,7 +408,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;垃圾回收相关概念&quot;&gt;&lt;a href=&quot;#垃圾回收相关概念&quot; class=&quot;headerlink&quot; title=&quot;垃圾回收相关概念&quot;&gt;&lt;/a&gt;垃圾回收相关概念&lt;/h1&gt;&lt;h2 id=&quot;1-System-gc-的理解&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h1&gt;垃圾回收相关概念&lt;/h1&gt;
+&lt;h2</summary>
         
       
     
@@ -258,7 +434,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;垃圾回收概述和相关算法&quot;&gt;&lt;a href=&quot;#垃圾回收概述和相关算法&quot; class=&quot;headerlink&quot; title=&quot;垃圾回收概述和相关算法&quot;&gt;&lt;/a&gt;垃圾回收概述和相关算法&lt;/h1&gt;&lt;img</summary>
+    <summary type="html">&lt;h1&gt;垃圾回收概述和相关算法&lt;/h1&gt;
+&lt;img src=&quot;./../jvm-sgg10/image-20231224183056294.png&quot; style=&quot;zoom: 50%;&quot; /&gt;
+&lt;img</summary>
         
       
     
@@ -283,7 +461,12 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;StringTable&quot;&gt;&lt;a href=&quot;#StringTable&quot; class=&quot;headerlink&quot; title=&quot;StringTable&quot;&gt;&lt;/a&gt;StringTable&lt;/h1&gt;&lt;h2 id=&quot;1-String的基本特性&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h1&gt;StringTable&lt;/h1&gt;
+&lt;h2 id=&quot;1-String的基本特性&quot;&gt;1-String的基本特性&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;String：字符串，使用一对 “” 引起来表示&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;line-numbers</summary>
         
       
     
@@ -308,7 +491,10 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;执行引擎&quot;&gt;&lt;a href=&quot;#执行引擎&quot; class=&quot;headerlink&quot; title=&quot;执行引擎&quot;&gt;&lt;/a&gt;执行引擎&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/2023/12/22/jvm-sgg8/image-20231222214407590.png&quot;</summary>
+    <summary type="html">&lt;h1&gt;执行引擎&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;./../jvm-sgg8/image-20231222214407590.png&quot; alt=&quot;Hotspot JVM&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;1-执行引擎概述&quot;&gt;1-执行引擎概述&lt;/h2&gt;
+&lt;p&gt;&lt;img</summary>
         
       
     
@@ -333,7 +519,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;对象的实例化内存布局与访问定位&quot;&gt;&lt;a href=&quot;#对象的实例化内存布局与访问定位&quot; class=&quot;headerlink&quot; title=&quot;对象的实例化内存布局与访问定位&quot;&gt;&lt;/a&gt;对象的实例化内存布局与访问定位&lt;/h1&gt;&lt;h2 id=&quot;1-对象的实例化&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h1&gt;对象的实例化内存布局与访问定位&lt;/h1&gt;
+&lt;h2</summary>
         
       
     
@@ -360,7 +547,10 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;方法区&quot;&gt;&lt;a href=&quot;#方法区&quot; class=&quot;headerlink&quot; title=&quot;方法区&quot;&gt;&lt;/a&gt;方法区&lt;/h1&gt;&lt;h2 id=&quot;1-栈、堆、方法区的交互关系&quot;&gt;&lt;a href=&quot;#1-栈、堆、方法区的交互关系&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;方法区&lt;/h1&gt;
+&lt;h2 id=&quot;1-栈、堆、方法区的交互关系&quot;&gt;1-栈、堆、方法区的交互关系&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;../jvm-sgg6/001.png&quot; alt=&quot;运行时数据区结构图&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
         
       
     
@@ -385,8 +575,9 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;目录滚动&quot;&gt;&lt;a href=&quot;#目录滚动&quot; class=&quot;headerlink&quot; title=&quot;目录滚动&quot;&gt;&lt;/a&gt;目录滚动&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;默认情况下matery主题, 文章中当目录过多, 超出页面后便无法展示多余目录, 解决方案如下.</summary>
+    <summary type="html">&lt;h2 id=&quot;目录滚动&quot;&gt;目录滚动&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;默认情况下matery主题, 文章中当目录过多, 超出页面后便无法展示多余目录, 解决方案如下. (该方案取自github issues中,</summary>
         
       
     
@@ -396,131 +587,6 @@
     
     
     <category term="Hexo" scheme="https://www.saddyfire.cn/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>🔖JVM-05-堆</title>
-    <link href="https://www.saddyfire.cn/2023/12/18/jvm-sgg5/"/>
-    <id>https://www.saddyfire.cn/2023/12/18/jvm-sgg5/</id>
-    <published>2023-12-18T11:56:45.000Z</published>
-    <updated>2023-12-19T13:53:51.725Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;堆&quot;&gt;&lt;a href=&quot;#堆&quot; class=&quot;headerlink&quot; title=&quot;堆&quot;&gt;&lt;/a&gt;堆&lt;/h1&gt;&lt;h2 id=&quot;1-堆的核心概述&quot;&gt;&lt;a href=&quot;#1-堆的核心概述&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ℹ️JVM-04-虚拟机栈</title>
-    <link href="https://www.saddyfire.cn/2023/12/16/jvm-sgg4/"/>
-    <id>https://www.saddyfire.cn/2023/12/16/jvm-sgg4/</id>
-    <published>2023-12-16T13:26:31.000Z</published>
-    <updated>2023-12-19T04:02:39.334Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;虚拟机栈&quot;&gt;&lt;a href=&quot;#虚拟机栈&quot; class=&quot;headerlink&quot; title=&quot;虚拟机栈&quot;&gt;&lt;/a&gt;虚拟机栈&lt;/h1&gt;&lt;h2 id=&quot;1-虚拟机栈概述&quot;&gt;&lt;a href=&quot;#1-虚拟机栈概述&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JVM-03-运行时数据区概述及程序计数器</title>
-    <link href="https://www.saddyfire.cn/2023/12/16/jvm-sgg3/"/>
-    <id>https://www.saddyfire.cn/2023/12/16/jvm-sgg3/</id>
-    <published>2023-12-16T10:14:51.000Z</published>
-    <updated>2023-12-17T02:51:07.141Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;运行时数据区概述及线程&quot;&gt;&lt;a href=&quot;#运行时数据区概述及线程&quot; class=&quot;headerlink&quot; title=&quot;运行时数据区概述及线程&quot;&gt;&lt;/a&gt;运行时数据区概述及线程&lt;/h1&gt;&lt;h2 id=&quot;1-运行时数据区结构&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JVM-02-类加载子系统</title>
-    <link href="https://www.saddyfire.cn/2023/12/16/jvm-sgg2/"/>
-    <id>https://www.saddyfire.cn/2023/12/16/jvm-sgg2/</id>
-    <published>2023-12-16T01:11:49.000Z</published>
-    <updated>2023-12-16T14:43:22.245Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;类加载子系统&quot;&gt;&lt;a href=&quot;#类加载子系统&quot; class=&quot;headerlink&quot; title=&quot;类加载子系统&quot;&gt;&lt;/a&gt;类加载子系统&lt;/h1&gt;&lt;h2 id=&quot;1-内存结构概述&quot;&gt;&lt;a href=&quot;#1-内存结构概述&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JVM-01-JVM与Java体系结构</title>
-    <link href="https://www.saddyfire.cn/2023/12/15/jvm-sgg1/"/>
-    <id>https://www.saddyfire.cn/2023/12/15/jvm-sgg1/</id>
-    <published>2023-12-15T14:11:33.000Z</published>
-    <updated>2023-12-16T01:18:04.666Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;JVM和Java体系架构&quot;&gt;&lt;a href=&quot;#JVM和Java体系架构&quot; class=&quot;headerlink&quot; title=&quot;JVM和Java体系架构&quot;&gt;&lt;/a&gt;JVM和Java体系架构&lt;/h2&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
     
   </entry>
   

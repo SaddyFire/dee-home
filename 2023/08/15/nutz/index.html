@@ -50,7 +50,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SaddyFire" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.1.0"><link rel="alternate" href="/atom.xml" title="SaddyFire" type="application/atom+xml">
 </head>
 
 
@@ -338,7 +338,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    490
+                    491
                 </div>
                 
 
@@ -368,7 +368,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="基础封装"><a href="#基础封装" class="headerlink" title="基础封装"></a>基础封装</h2><p>封装单个对象查询</p>
+                <h2 id="基础封装">基础封装</h2>
+<p>封装单个对象查询</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 1.获取dao</span>
 <span class="token class-name">Dao</span> dao <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">NutDao</span><span class="token punctuation">(</span>dataSource<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 伪代码</span>
 <span class="token class-name">Sql</span> sql <span class="token operator">=</span> <span class="token class-name">Sqls</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token string">"select * from tb_user"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setParam</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token string">"小明"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 伪代码</span>
@@ -380,24 +381,21 @@ sql<span class="token punctuation">.</span><span class="token function">setEntit
 dao<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// 5.接收对象</span>
 <span class="token class-name">Record</span> record <span class="token operator">=</span> sql<span class="token punctuation">.</span><span class="token function">getObject</span><span class="token punctuation">(</span><span class="token class-name">Record</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 此处是接收单个对象</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>封装结合对象查询</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">sql<span class="token punctuation">.</span><span class="token function">setCallback</span><span class="token punctuation">(</span><span class="token class-name">Sqls</span><span class="token punctuation">.</span>callback<span class="token punctuation">.</span><span class="token function">records</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 sql<span class="token punctuation">.</span><span class="token function">setEntity</span><span class="token punctuation">(</span>dao<span class="token punctuation">.</span><span class="token function">getEntity</span><span class="token punctuation">(</span><span class="token class-name">Record</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 可自定义实体</span>
 dao<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Record</span><span class="token punctuation">></span></span> records <span class="token operator">=</span> sql<span class="token punctuation">.</span><span class="token function">getList</span><span class="token punctuation">(</span><span class="token class-name">Record</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>封装数字查询</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">sql<span class="token punctuation">.</span><span class="token function">setCallback</span><span class="token punctuation">(</span><span class="token class-name">Sqls</span><span class="token punctuation">.</span>callback<span class="token punctuation">.</span><span class="token function">integer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 dao<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">int</span> count <span class="token operator">=</span> sql<span class="token punctuation">.</span><span class="token function">getInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>封装DDL</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">sql<span class="token punctuation">.</span><span class="token function">setCallback</span><span class="token punctuation">(</span><span class="token class-name">Sqls</span><span class="token punctuation">.</span>callback<span class="token punctuation">.</span><span class="token function">integer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 dao<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">int</span> rows <span class="token operator">=</span> sql<span class="token punctuation">.</span><span class="token function">getUpdateCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="condition花式用法"><a href="#condition花式用法" class="headerlink" title="condition花式用法"></a><code>condition</code>花式用法</h2><p>首先创建<code>sql</code>对象(注意此处的占位符是<code>$</code>)</p>
+<h2 id="condition花式用法"><code>condition</code>花式用法</h2>
+<p>首先创建<code>sql</code>对象(注意此处的占位符是<code>$</code>)</p>
 <p><code>select * from tb_xxx $condition</code></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Cnd</span><span class="token punctuation">.</span><span class="token function">exps</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 将一个条件表达式封装为条件表达式组</span>
 <span class="token class-name">Cnd</span><span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 将一个表达式封装成一个Cnd实例</span>
@@ -419,32 +417,29 @@ dao<span class="token punctuation">.</span><span class="token function">execute<
         <span class="token punctuation">)</span>
         <span class="token comment">// 静态条件,直接拼入sql,不做任何转义</span>
         <span class="token punctuation">.</span><span class="token function">and</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Static</span><span class="token punctuation">(</span><span class="token string">"isnull(is_delete)"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>生成后的<code>sql</code></p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">WHERE</span> name<span class="token operator">=</span><span class="token string">'张三'</span> 
 <span class="token operator">AND</span> age <span class="token operator">BETWEEN</span> <span class="token number">19</span> <span class="token operator">AND</span> <span class="token number">29</span> 
 <span class="token operator">AND</span> <span class="token punctuation">(</span>city <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'上海'</span><span class="token punctuation">,</span><span class="token string">'广东'</span><span class="token punctuation">)</span> <span class="token operator">OR</span> hobby <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'篮球'</span><span class="token punctuation">,</span><span class="token string">'网球'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
 <span class="token operator">AND</span> <span class="token punctuation">(</span>gender<span class="token operator">=</span><span class="token string">'女'</span> <span class="token operator">AND</span> height <span class="token operator">LIKE</span> <span class="token string">'180'</span><span class="token punctuation">)</span> 
 <span class="token operator">AND</span>  isnull<span class="token punctuation">(</span>is_delete<span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="like左右模糊"><a href="#like左右模糊" class="headerlink" title="like左右模糊"></a><code>like</code>左右模糊</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// Cnd.NEW().where().andLike();</span>
+<h2 id="like左右模糊"><code>like</code>左右模糊</h2>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// Cnd.NEW().where().andLike();</span>
 <span class="token class-name">SimpleCriteria</span> cri <span class="token operator">=</span> <span class="token class-name">Cnd</span><span class="token punctuation">.</span><span class="token function">cri</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 cri<span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">andLike</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token string">"李四"</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// 建议传ignoreCase = false, 否则会被拼接成 LOWER(XXX) LIKE LOWER('%XXX%')</span>
 cri<span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">andLike</span><span class="token punctuation">(</span><span class="token string">"idcard"</span><span class="token punctuation">,</span> <span class="token string">"330"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// 右侧模糊查询</span>
 cri<span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">andLike</span><span class="token punctuation">(</span><span class="token string">"hobby"</span><span class="token punctuation">,</span> <span class="token string">"运动"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token string">"%"</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>生成后的<code>sql</code></p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">WHERE</span> name <span class="token operator">LIKE</span> <span class="token string">'%李四%'</span> <span class="token operator">AND</span> LOWER<span class="token punctuation">(</span>idcard<span class="token punctuation">)</span> <span class="token operator">LIKE</span> LOWER<span class="token punctuation">(</span><span class="token string">'%330%'</span><span class="token punctuation">)</span> <span class="token operator">AND</span> hobby <span class="token operator">LIKE</span> <span class="token string">'运动%'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="实体动态更新"><a href="#实体动态更新" class="headerlink" title="实体动态更新"></a>实体动态更新</h2><p>由于<code>nutz.dao</code>默认<code>update</code>操作是全字段更新, 如果只更新实体类不为空的需要设置字段过滤器</p>
+<h2 id="实体动态更新">实体动态更新</h2>
+<p>由于<code>nutz.dao</code>默认<code>update</code>操作是全字段更新, 如果只更新实体类不为空的需要设置字段过滤器</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">dao<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>
     <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setIsDel</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
     <span class="token class-name">FieldFilter</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token class-name">User</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token class-name">Cnd</span><span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token string">"is_del"</span><span class="token punctuation">,</span><span class="token string">"="</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 
                 
             </div>
@@ -1120,13 +1115,13 @@ $(function () {
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
 
+
     
-        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
-        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
         <script>
-          if (window.mermaid) {
-            mermaid.initialize({theme: 'forest'});
-          }
+            if (window.mermaid) {
+                mermaid.initialize({theme: 'forest'});
+            }
         </script>
     
 

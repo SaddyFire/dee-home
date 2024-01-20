@@ -50,7 +50,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SaddyFire" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.1.0"><link rel="alternate" href="/atom.xml" title="SaddyFire" type="application/atom+xml">
 </head>
 
 
@@ -360,55 +360,67 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="类加载子系统"><a href="#类加载子系统" class="headerlink" title="类加载子系统"></a>类加载子系统</h1><h2 id="1-内存结构概述"><a href="#1-内存结构概述" class="headerlink" title="1-内存结构概述"></a>1-内存结构概述</h2><p>简图</p>
-<p><img src="/2023/12/16/jvm-sgg2/001.png"></p>
+                <h1>类加载子系统</h1>
+<h2 id="1-内存结构概述">1-内存结构概述</h2>
+<p>简图</p>
+<p><img src="../jvm-sgg2/001.png" alt=""></p>
 <p>详图</p>
-<p><img src="/2023/12/16/jvm-sgg2/002.png"></p>
+<p><img src="../jvm-sgg2/002.png" alt=""></p>
 <p>注意：方法区只有HotSpot虚拟机有，J9，JRockit都没有</p>
 <p>如果自己想手写一个Java虚拟机的话，主要考虑哪些结构呢？</p>
 <ol>
 <li>类加载器</li>
 <li>执行引擎</li>
 </ol>
-<h3 id="类加载器子系统"><a href="#类加载器子系统" class="headerlink" title="类加载器子系统"></a>类加载器子系统</h3><ol>
-<li><p>类加载器子系统负责从文件系统或者网络中加载Class文件，class文件在文件开头有特定的文件标识。</p>
+<h3 id="类加载器子系统">类加载器子系统</h3>
+<ol>
+<li>
+<p>类加载器子系统负责从文件系统或者网络中加载Class文件，class文件在文件开头有特定的文件标识。</p>
 </li>
-<li><p>ClassLoader只负责class文件的加载，至于它是否可以运行，则由Execution Engine决定。</p>
+<li>
+<p>ClassLoader只负责class文件的加载，至于它是否可以运行，则由Execution Engine决定。</p>
 </li>
-<li><p><strong>加载的类信息存放于一块称为方法区的内存空间</strong>。除了类的信息外，方法区中还会存放运行时常量池信息，可能还包括字符串字面量和数字常量（这部分常量信息是Class文件中常量池部分的内存映射）</p>
+<li>
+<p><strong>加载的类信息存放于一块称为方法区的内存空间</strong>。除了类的信息外，方法区中还会存放运行时常量池信息，可能还包括字符串字面量和数字常量（这部分常量信息是Class文件中常量池部分的内存映射）</p>
 </li>
 </ol>
-<p><img src="/2023/12/16/jvm-sgg2/003.png"></p>
-<h3 id="类加载器ClassLoader角色"><a href="#类加载器ClassLoader角色" class="headerlink" title="类加载器ClassLoader角色"></a>类加载器ClassLoader角色</h3><ol>
+<p><img src="../jvm-sgg2/003.png" alt=""></p>
+<h3 id="类加载器ClassLoader角色">类加载器ClassLoader角色</h3>
+<ol>
 <li>class file 存在于本地硬盘上，可以理解为设计师画在纸上的模板，而最终这个模板在执行的时候是要加载到JVM当中来根据这个文件实例化出n个一模一样的实例。</li>
 <li>class file加载到JVM中，被称为DNA元数据模板（在下图中就是内存中的Car Class），放在方法区。</li>
 <li>在.class文件–&gt;JVM–&gt;最终成为元数据模板，此过程就要一个运输工具（类装载器Class Loader），扮演一个快递员的角色。</li>
 </ol>
-<p><img src="/2023/12/16/jvm-sgg2/004.png"></p>
-<h2 id="2-类加载过程"><a href="#2-类加载过程" class="headerlink" title="2-类加载过程"></a>2-类加载过程</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloLoader</span> <span class="token punctuation">&#123;</span>
+<p><img src="../jvm-sgg2/004.png" alt=""></p>
+<h2 id="2-类加载过程">2-类加载过程</h2>
+<h3 id="概述">概述</h3>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloLoader</span> <span class="token punctuation">&#123;</span>
 
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"谢谢ClassLoader加载我...."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"你的大恩大德，我下辈子再报！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>它的加载过程是怎么样的呢?</p>
 <ul>
 <li>执行 main() 方法（静态方法）就需要先加载main方法所在类 HelloLoader</li>
 <li>加载成功，则进行链接、初始化等操作。完成后调用 HelloLoader 类中的静态方法 main</li>
 <li>加载失败则抛出异常</li>
 </ul>
-<p><img src="/2023/12/16/jvm-sgg2/005.png"></p>
+<p><img src="../jvm-sgg2/005.png" alt=""></p>
 <p>完整的流程图如下所示：</p>
-<p><img src="/2023/12/16/jvm-sgg2/006.png"></p>
-<h3 id="加载-Loading-阶段"><a href="#加载-Loading-阶段" class="headerlink" title="加载(Loading)阶段"></a>加载(Loading)阶段</h3><p><strong>加载：</strong></p>
+<p><img src="../jvm-sgg2/006.png" alt=""></p>
+<h3 id="加载-Loading-阶段">加载(Loading)阶段</h3>
+<p><strong>加载：</strong></p>
 <ol>
-<li><p>通过一个类的全限定名获取定义此类的二进制字节流</p>
+<li>
+<p>通过一个类的全限定名获取定义此类的二进制字节流</p>
 </li>
-<li><p>将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构</p>
+<li>
+<p>将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构</p>
 </li>
-<li><p><strong>在内存中生成一个代表这个类的java.lang.Class对象</strong>，作为方法区这个类的各种数据的访问入口</p>
+<li>
+<p><strong>在内存中生成一个代表这个类的java.lang.Class对象</strong>，作为方法区这个类的各种数据的访问入口</p>
 </li>
 </ol>
 <p><strong>加载class文件的方式：</strong></p>
@@ -420,73 +432,96 @@
 <li>由其他文件生成，典型场景：JSP应用从专有数据库中提取.class文件，比较少见</li>
 <li>从加密文件中获取，典型的防Class文件被反编译的保护措施</li>
 </ol>
-<h3 id="链接-Linking-阶段"><a href="#链接-Linking-阶段" class="headerlink" title="链接(Linking)阶段"></a>链接(Linking)阶段</h3><h4 id="验证-Verify"><a href="#验证-Verify" class="headerlink" title="验证(Verify)"></a>验证(Verify)</h4><ol>
+<h3 id="链接-Linking-阶段">链接(Linking)阶段</h3>
+<h4 id="验证-Verify">验证(Verify)</h4>
+<ol>
 <li>目的在于确保Class文件的字节流中包含信息符合当前虚拟机要求，保证被加载类的正确性，不会危害虚拟机自身安全</li>
 <li>主要包括四种验证，文件格式验证，元数据验证，字节码验证，符号引用验证。</li>
 </ol>
-<h4 id="准备-Prepare"><a href="#准备-Prepare" class="headerlink" title="准备(Prepare)"></a>准备(Prepare)</h4><ol>
+<h4 id="准备-Prepare">准备(Prepare)</h4>
+<ol>
 <li>为类变量（static变量）分配内存并且设置该类变量的默认初始值，即零值</li>
 <li><strong>这里不包含用final修饰的static，因为final在编译的时候就会分配好了默认值，准备阶段会显式初始化</strong></li>
 <li><strong>注意：这里不会为实例变量分配初始化</strong>，类变量会分配在方法区中，而实例变量是会随着对象一起分配到Java堆中</li>
 </ol>
-<h4 id="解析-Resolve"><a href="#解析-Resolve" class="headerlink" title="解析(Resolve)"></a>解析(Resolve)</h4><ol>
-<li><p><strong>将常量池内的符号引用转换为直接引用的过程</strong></p>
+<h4 id="解析-Resolve">解析(Resolve)</h4>
+<ol>
+<li>
+<p><strong>将常量池内的符号引用转换为直接引用的过程</strong></p>
 </li>
-<li><p>事实上，解析操作往往会伴随着JVM在执行完初始化之后再执行</p>
+<li>
+<p>事实上，解析操作往往会伴随着JVM在执行完初始化之后再执行</p>
 </li>
-<li><p>符号引用就是一组符号来描述所引用的目标。符号引用的字面量形式明确定义在《java虚拟机规范》的class文件格式中。直接引用就是直接指向目标的指针、相对偏移量或一个间接定位到目标的句柄</p>
+<li>
+<p>符号引用就是一组符号来描述所引用的目标。符号引用的字面量形式明确定义在《java虚拟机规范》的class文件格式中。直接引用就是直接指向目标的指针、相对偏移量或一个间接定位到目标的句柄</p>
 </li>
-<li><p>解析动作主要针对类或接口、字段、类方法、接口方法、方法类型等。对应常量池中的<code>CONSTANT_Class_info</code>、<code>CONSTANT Fieldref_info</code>、<code>CONSTANT_Methodref_info</code>等</p>
-</li>
-</ol>
-<h3 id="初始化-Initialization-阶段"><a href="#初始化-Initialization-阶段" class="headerlink" title="初始化(Initialization)阶段"></a>初始化(Initialization)阶段</h3><ol>
-<li><p><strong>初始化阶段就是执行类构造器方法<code>&lt;clinit&gt;()</code>的过程</strong></p>
-</li>
-<li><p>此方法不需定义，是javac编译器自动收集类中的所有<strong>类变量</strong>的赋值动作和静态代码块中的语句合并而来。也就是说，<strong>当我们代码中包含static变量的时候，就会有clinit方法</strong>	<img src="/2023/12/16/jvm-sgg2/007.png"></p>
-</li>
-<li><p><code>&lt;clinit&gt;()</code>方法中的指令按语句在源文件中出现的顺序执行</p>
-<p><img src="/2023/12/16/jvm-sgg2/008.png"></p>
-</li>
-<li><p><code>&lt;clinit&gt;()</code>不同于类的构造器。（关联：构造器是虚拟机视角下的<code>&lt;init&gt;()</code>）</p>
-<p><img src="/2023/12/16/jvm-sgg2/009.png"></p>
-</li>
-<li><p>若该类具有父类，JVM会保证子类的<code>&lt;clinit&gt;()</code>执行前，父类的<code>&lt;clinit&gt;()</code>已经执行完毕</p>
-<p><img src="/2023/12/16/jvm-sgg2/010.png"></p>
-</li>
-<li><p>虚拟机必须保证一个类的<code>&lt;clinit&gt;()</code>方法在多线程下被同步加锁</p>
-<p><img src="/2023/12/16/jvm-sgg2/011.png"></p>
+<li>
+<p>解析动作主要针对类或接口、字段、类方法、接口方法、方法类型等。对应常量池中的<code>CONSTANT_Class_info</code>、<code>CONSTANT Fieldref_info</code>、<code>CONSTANT_Methodref_info</code>等</p>
 </li>
 </ol>
-<h2 id="3-类加载器的分类"><a href="#3-类加载器的分类" class="headerlink" title="3-类加载器的分类"></a>3-类加载器的分类</h2><ul>
-<li><p>JVM严格来讲支持两种类型的类加载器 。分别为引导类加载器（Bootstrap ClassLoader）和自定义类加载器（User-Defined ClassLoader）</p>
+<h3 id="初始化-Initialization-阶段">初始化(Initialization)阶段</h3>
+<ol>
+<li>
+<p><strong>初始化阶段就是执行类构造器方法<code>&lt;clinit&gt;()</code>的过程</strong></p>
 </li>
-<li><p>从概念上来讲，自定义类加载器一般指的是程序中由开发人员自定义的一类类加载器，但是Java虚拟机规范却没有这么定义，而是<strong>将所有派生于抽象类ClassLoader的类加载器都划分为自定义类加载器</strong></p>
+<li>
+<p>此方法不需定义，是javac编译器自动收集类中的所有<strong>类变量</strong>的赋值动作和静态代码块中的语句合并而来。也就是说，<strong>当我们代码中包含static变量的时候，就会有clinit方法</strong>	<img src="../jvm-sgg2/007.png" alt=""></p>
 </li>
-<li><p>无论类加载器的类型如何划分，在程序中我们最常见的类加载器始终只有3个，如下所示</p>
+<li>
+<p><code>&lt;clinit&gt;()</code>方法中的指令按语句在源文件中出现的顺序执行</p>
+<p><img src="../jvm-sgg2/008.png" alt=""></p>
+</li>
+<li>
+<p><code>&lt;clinit&gt;()</code>不同于类的构造器。（关联：构造器是虚拟机视角下的<code>&lt;init&gt;()</code>）</p>
+<p><img src="../jvm-sgg2/009.png" alt=""></p>
+</li>
+<li>
+<p>若该类具有父类，JVM会保证子类的<code>&lt;clinit&gt;()</code>执行前，父类的<code>&lt;clinit&gt;()</code>已经执行完毕</p>
+<p><img src="../jvm-sgg2/010.png" alt=""></p>
+</li>
+<li>
+<p>虚拟机必须保证一个类的<code>&lt;clinit&gt;()</code>方法在多线程下被同步加锁</p>
+<p><img src="../jvm-sgg2/011.png" alt=""></p>
+</li>
+</ol>
+<h2 id="3-类加载器的分类">3-类加载器的分类</h2>
+<ul>
+<li>
+<p>JVM严格来讲支持两种类型的类加载器 。分别为引导类加载器（Bootstrap ClassLoader）和自定义类加载器（User-Defined ClassLoader）</p>
+</li>
+<li>
+<p>从概念上来讲，自定义类加载器一般指的是程序中由开发人员自定义的一类类加载器，但是Java虚拟机规范却没有这么定义，而是<strong>将所有派生于抽象类ClassLoader的类加载器都划分为自定义类加载器</strong></p>
+</li>
+<li>
+<p>无论类加载器的类型如何划分，在程序中我们最常见的类加载器始终只有3个，如下所示</p>
 </li>
 </ul>
-<p><img src="/2023/12/16/jvm-sgg2/012.png"></p>
-<p><img src="/2023/12/16/jvm-sgg2/013.png"></p>
-<h3 id="虚拟机自带的加载器"><a href="#虚拟机自带的加载器" class="headerlink" title="虚拟机自带的加载器"></a>虚拟机自带的加载器</h3><h4 id="启动类加载器"><a href="#启动类加载器" class="headerlink" title="启动类加载器"></a>启动类加载器</h4><blockquote>
+<p><img src="../jvm-sgg2/012.png" alt=""></p>
+<p><img src="../jvm-sgg2/013.png" alt=""></p>
+<h3 id="虚拟机自带的加载器">虚拟机自带的加载器</h3>
+<h4 id="启动类加载器">启动类加载器</h4>
+<blockquote>
 <p><strong>启动类加载器（引导类加载器，Bootstrap ClassLoader）</strong></p>
 </blockquote>
 <ol>
-<li>这个类加载使用C&#x2F;C++语言实现的，嵌套在JVM内部</li>
-<li>它用来加载Java的核心库（JAVA_HOME&#x2F;jre&#x2F;lib&#x2F;rt.jar、resources.jar或sun.boot.class.path路径下的内容），用于提供JVM自身需要的类</li>
+<li>这个类加载使用C/C++语言实现的，嵌套在JVM内部</li>
+<li>它用来加载Java的核心库（JAVA_HOME/jre/lib/rt.jar、resources.jar或sun.boot.class.path路径下的内容），用于提供JVM自身需要的类</li>
 <li>并不继承自java.lang.ClassLoader，没有父加载器</li>
 <li>加载扩展类和应用程序类加载器，并作为他们的父类加载器</li>
 <li>出于安全考虑，Bootstrap启动类加载器只加载包名为java、javax、sun等开头的类</li>
 </ol>
-<h4 id="扩展类加载器"><a href="#扩展类加载器" class="headerlink" title="扩展类加载器"></a>扩展类加载器</h4><blockquote>
+<h4 id="扩展类加载器">扩展类加载器</h4>
+<blockquote>
 <p><strong>扩展类加载器（Extension ClassLoader）</strong></p>
 </blockquote>
 <ol>
 <li>Java语言编写，由sun.misc.Launcher$ExtClassLoader实现</li>
 <li>派生于ClassLoader类</li>
 <li>父类加载器为启动类加载器</li>
-<li>从java.ext.dirs系统属性所指定的目录中加载类库，或从JDK的安装目录的jre&#x2F;lib&#x2F;ext子目录（扩展目录）下加载类库。如果用户创建的JAR放在此目录下，也会自动由扩展类加载器加载</li>
+<li>从java.ext.dirs系统属性所指定的目录中加载类库，或从JDK的安装目录的jre/lib/ext子目录（扩展目录）下加载类库。如果用户创建的JAR放在此目录下，也会自动由扩展类加载器加载</li>
 </ol>
-<h4 id="系统类加载器"><a href="#系统类加载器" class="headerlink" title="系统类加载器"></a>系统类加载器</h4><blockquote>
+<h4 id="系统类加载器">系统类加载器</h4>
+<blockquote>
 <p><strong>应用程序类加载器（也称为系统类加载器，AppClassLoader）</strong></p>
 </blockquote>
 <ol>
@@ -497,48 +532,61 @@
 <li>该类加载是程序中默认的类加载器，一般来说，Java应用的类都是由它来完成加载</li>
 <li>通过classLoader.getSystemclassLoader()方法可以获取到该类加载器</li>
 </ol>
-<p><img src="/2023/12/16/jvm-sgg2/014.png"></p>
-<h3 id="用户自定义类加载器"><a href="#用户自定义类加载器" class="headerlink" title="用户自定义类加载器"></a>用户自定义类加载器</h3><h4 id="什么时候需要自定义类加载器？"><a href="#什么时候需要自定义类加载器？" class="headerlink" title="什么时候需要自定义类加载器？"></a>什么时候需要自定义类加载器？</h4><ol>
+<p><img src="../jvm-sgg2/014.png" alt=""></p>
+<h3 id="用户自定义类加载器">用户自定义类加载器</h3>
+<h4 id="什么时候需要自定义类加载器？">什么时候需要自定义类加载器？</h4>
+<ol>
 <li>隔离加载类（比如说我假设现在Spring框架，和RocketMQ有包名路径完全一样的类，类名也一样，这个时候类就冲突了。不过一般的主流框架和中间件都会自定义类加载器，实现不同的框架，中间价之间是隔离的）</li>
 <li>修改类加载的方式</li>
 <li>扩展加载源（还可以考虑从数据库中加载类，路由器等等不同的地方）</li>
 <li>防止源码泄漏（对字节码文件进行解密，自己用的时候通过自定义类加载器来对其进行解密）</li>
 </ol>
-<h4 id="用户自定义类加载器实现步骤"><a href="#用户自定义类加载器实现步骤" class="headerlink" title="用户自定义类加载器实现步骤"></a>用户自定义类加载器实现步骤</h4><ol>
+<h4 id="用户自定义类加载器实现步骤">用户自定义类加载器实现步骤</h4>
+<ol>
 <li>开发人员可以通过继承抽象类java.lang.ClassLoader类的方式，实现自己的类加载器，以满足一些特殊的需求</li>
 <li>在JDK1.2之前，在自定义类加载器时，总会去继承ClassLoader类并重写loadClass()方法，从而实现自定义的类加载类，但是在JDK1.2之后已不再建议用户去覆盖loadClass()方法，而是建议把自定义的类加载逻辑写在findclass()方法中</li>
 <li>在编写自定义类加载器时，如果没有太过于复杂的需求，可以直接继承URIClassLoader类，这样就可以避免自己去编写findclass()方法及其获取字节码流的方式，使自定义类加载器编写更加简洁。</li>
 </ol>
-<h3 id="关于ClassLoader"><a href="#关于ClassLoader" class="headerlink" title="关于ClassLoader"></a>关于ClassLoader</h3><p>ClassLoader类，它是一个抽象类，其后所有的类加载器都继承自ClassLoader（不包括启动类加载器）</p>
-<p><img src="/2023/12/16/jvm-sgg2/015.png"></p>
+<h3 id="关于ClassLoader">关于ClassLoader</h3>
+<p>ClassLoader类，它是一个抽象类，其后所有的类加载器都继承自ClassLoader（不包括启动类加载器）</p>
+<p><img src="../jvm-sgg2/015.png" alt=""></p>
 <p>sun.misc.Launcher 它是一个java虚拟机的入口应用</p>
-<p><img src="/2023/12/16/jvm-sgg2/016.png"></p>
-<h4 id="获取ClassLoader途径"><a href="#获取ClassLoader途径" class="headerlink" title="获取ClassLoader途径"></a>获取ClassLoader途径</h4><p><img src="/2023/12/16/jvm-sgg2/017.png"></p>
-<h2 id="4-双亲委派机制"><a href="#4-双亲委派机制" class="headerlink" title="4-双亲委派机制"></a>4-双亲委派机制</h2><blockquote>
+<p><img src="../jvm-sgg2/016.png" alt=""></p>
+<h4 id="获取ClassLoader途径">获取ClassLoader途径</h4>
+<p><img src="../jvm-sgg2/017.png" alt=""></p>
+<h2 id="4-双亲委派机制">4-双亲委派机制</h2>
+<blockquote>
 <p>Java虚拟机对class文件采用的是<strong>按需加载</strong>的方式，也就是说当需要使用该类时才会将它的class文件加载到内存生成class对象。而且加载某个类的class文件时，Java虚拟机采用的是双亲委派模式，即把请求交由父类处理，它是一种任务委派模式</p>
 </blockquote>
-<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理:"></a>工作原理:</h3><ol>
+<h3 id="工作原理">工作原理:</h3>
+<ol>
 <li>如果一个类加载器收到了类加载请求，它并不会自己先去加载，而是把这个请求委托给父类的加载器去执行；</li>
 <li>如果父类加载器还存在其父类加载器，则进一步向上委托，依次递归，请求最终将到达顶层的启动类加载器；</li>
 <li>如果父类加载器可以完成类加载任务，就成功返回，倘若父类加载器无法完成此加载任务，子加载器才会尝试自己去加载，这就是双亲委派模式。</li>
 <li>父类加载器一层一层往下分配任务，如果子类加载器能加载，则加载此类，如果将加载任务分配至系统类加载器也无法加载此类，则抛出异常</li>
 </ol>
-<p><img src="/2023/12/16/jvm-sgg2/018.png"></p>
-<p><img src="/2023/12/16/jvm-sgg2/019.png"></p>
-<h3 id="双亲委派机制优势"><a href="#双亲委派机制优势" class="headerlink" title="双亲委派机制优势"></a>双亲委派机制优势</h3><p>通过上面的例子，我们可以知道，双亲机制可以</p>
+<p><img src="../jvm-sgg2/018.png" alt=""></p>
+<p><img src="../jvm-sgg2/019.png" alt=""></p>
+<h3 id="双亲委派机制优势">双亲委派机制优势</h3>
+<p>通过上面的例子，我们可以知道，双亲机制可以</p>
 <ul>
-<li><p>避免类的重复加载</p>
+<li>
+<p>避免类的重复加载</p>
 </li>
-<li><p>保护程序安全，防止核心API被随意篡改</p>
+<li>
+<p>保护程序安全，防止核心API被随意篡改</p>
 <ul>
-<li><p>自定义类：自定义java.lang.String 没有被加载。</p>
+<li>
+<p>自定义类：自定义java.lang.String 没有被加载。</p>
 </li>
-<li><p>自定义类：java.lang.ShkStart（报错：阻止创建 java.lang开头的类）</p>
+<li>
+<p>自定义类：java.lang.ShkStart（报错：阻止创建 java.lang开头的类）</p>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="沙箱安全机制"><a href="#沙箱安全机制" class="headerlink" title="沙箱安全机制"></a>沙箱安全机制</h3><ol>
+<h3 id="沙箱安全机制">沙箱安全机制</h3>
+<ol>
 <li>自定义String类时：在加载自定义String类的时候会率先使用引导类加载器加载，而引导类加载器在加载的过程中会先加载jdk自带的文件（rt.jar包中java.lang.String.class），报错信息说没有main方法，就是因为加载的是rt.jar包中的String类。</li>
 <li>这样可以保证对java核心源代码的保护，这就是沙箱安全机制。</li>
 </ol>
@@ -1205,13 +1253,13 @@ $(function () {
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
 
+
     
-        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
-        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
         <script>
-          if (window.mermaid) {
-            mermaid.initialize({theme: 'forest'});
-          }
+            if (window.mermaid) {
+                mermaid.initialize({theme: 'forest'});
+            }
         </script>
     
 

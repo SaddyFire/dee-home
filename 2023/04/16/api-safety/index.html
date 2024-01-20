@@ -50,7 +50,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SaddyFire" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.1.0"><link rel="alternate" href="/atom.xml" title="SaddyFire" type="application/atom+xml">
 </head>
 
 
@@ -327,7 +327,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-22
+                    2024-01-20
                 </div>
                 
 
@@ -364,8 +364,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="demo1"><a href="#demo1" class="headerlink" title="demo1"></a>demo1</h2><div class="mermaid">
-  sequenceDiagram
+                <h2 id="demo1">demo1</h2>
+<pre class="mermaid">sequenceDiagram
 	actor c as 客户端
 	participant f as 前端服务器
 	participant b as 后端服务器
@@ -386,10 +386,7 @@
 	b --> +f: 
 	f ->> f: 解密: prikey2(secret2) => AESkey
 	f ->> f: 加密: AESkey(data) => secretData
-	f ->> -b: 将加密数据发送给后端
-</div>
-
-
+	f ->> -b: 将加密数据发送给后端</pre>
 <pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
   &lt;div&gt;
     &lt;input type&#x3D;&quot;text&quot; v-model&#x3D;&quot;text&quot; &#x2F;&gt;
@@ -445,9 +442,6 @@ export default &#123;
   &#125;
 &#125;
 &lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>nio<span class="token punctuation">.</span>charset<span class="token punctuation">.</span></span><span class="token class-name">StandardCharsets</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>security<span class="token punctuation">.</span></span><span class="token class-name">KeyPair</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>security<span class="token punctuation">.</span></span><span class="token class-name">KeyPairGenerator</span></span><span class="token punctuation">;</span>
@@ -563,11 +557,9 @@ export default &#123;
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>plaintext<span class="token punctuation">,</span> <span class="token class-name">StandardCharsets</span><span class="token punctuation">.</span><span class="token constant">UTF_8</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 输出：Hello World!</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>上述代码使用了CryptoJS库和Bouncy Castle库实现了前后端数据加密。在这个示例中，前端使用AES算法对数据进行加密，然后使用RSA公钥加密AES密钥，将加密后的密钥和加密后的数据一起发送给后端。后端使用RSA私钥解密AES密钥，然后使用解密后的密钥对数据进行解密。同样，后端也可以使用AES算法对数据进行加密，然后使用RSA公钥加密AES密钥，将加密后的密钥和加密后的数据一起发送给前端。前端使用RSA私钥解密AES密钥，然后使用解密后的密钥对数据进行解密。</p>
-<h2 id="demo2"><a href="#demo2" class="headerlink" title="demo2"></a>demo2</h2><div class="mermaid">
-  
-sequenceDiagram
+<h2 id="demo2">demo2</h2>
+<pre class="mermaid">sequenceDiagram
 	actor a as 用户
 	participant f as 前端服务器
 	participant b as 后端服务器
@@ -580,13 +572,7 @@ sequenceDiagram
 	b ->> b: AES(secretData) => data
 	b ->> b: 同等方式加密
 	b -->> -f: 响应数据
-	f -->> -a: 响应给用户
-
-</div>
-
-
-
-
+	f -->> -a: 响应给用户</pre>
 
                 
             </div>
@@ -1258,13 +1244,13 @@ $(function () {
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
 
+
     
-        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
-        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
         <script>
-          if (window.mermaid) {
-            mermaid.initialize({theme: 'forest'});
-          }
+            if (window.mermaid) {
+                mermaid.initialize({theme: 'forest'});
+            }
         </script>
     
 

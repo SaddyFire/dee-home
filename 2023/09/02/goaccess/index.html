@@ -50,7 +50,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SaddyFire" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.1.0"><link rel="alternate" href="/atom.xml" title="SaddyFire" type="application/atom+xml">
 </head>
 
 
@@ -334,7 +334,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    319
+                    322
                 </div>
                 
 
@@ -364,17 +364,23 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Nginx日志分析"><a href="#Nginx日志分析" class="headerlink" title="Nginx日志分析"></a>Nginx日志分析</h1><h2 id="linux-工具"><a href="#linux-工具" class="headerlink" title="linux 工具"></a>linux 工具</h2><p>获取前20的ip访问数量</p>
+                <h1>Nginx日志分析</h1>
+<h2 id="linux-工具">linux 工具</h2>
+<p>获取前20的ip访问数量</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 具体截取位置根据日志格式</span>
 <span class="token function">awk</span> <span class="token string">'&#123;print $1&#125;'</span> access-<span class="token variable"><span class="token variable">`</span><span class="token function">date</span> <span class="token string">"+%Y-%m-%d"</span><span class="token variable">`</span></span>.log <span class="token operator">|</span> <span class="token function">sort</span> <span class="token operator">|</span> <span class="token function">uniq</span> <span class="token parameter variable">-c</span> <span class="token operator">|</span> <span class="token function">sort</span> <span class="token parameter variable">-nr</span> <span class="token operator">|</span> <span class="token function">head</span> <span class="token parameter variable">-n</span> <span class="token number">20</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2 id="goaccess统计分析"><a href="#goaccess统计分析" class="headerlink" title="goaccess统计分析"></a>goaccess统计分析</h2><p>window安装教程</p>
-<h3 id="下载goaccess包"><a href="#下载goaccess包" class="headerlink" title="下载goaccess包"></a>下载goaccess包</h3><p><a target="_blank" rel="noopener" href="https://goaccess.io/">https://goaccess.io/</a></p>
-<h3 id="安装cygwin"><a href="#安装cygwin" class="headerlink" title="安装cygwin"></a>安装cygwin</h3><ol>
-<li><p>官网地址</p>
-<p> <a target="_blank" rel="noopener" href="http://www.cygwin.com/">http://www.cygwin.com/</a></p>
+<h2 id="goaccess统计分析">goaccess统计分析</h2>
+<p>window安装教程</p>
+<h3 id="下载goaccess包">下载goaccess包</h3>
+<p><a target="_blank" rel="noopener" href="https://goaccess.io/">https://goaccess.io/</a></p>
+<h3 id="安装cygwin">安装cygwin</h3>
+<ol>
+<li>
+<p>官网地址</p>
+<p><a target="_blank" rel="noopener" href="http://www.cygwin.com/">http://www.cygwin.com/</a></p>
 </li>
-<li><p>在cygwin中需要安装的包</p>
+<li>
+<p>在cygwin中需要安装的包</p>
 <pre class="line-numbers language-none"><code class="language-none">libGeoIP-devel           | GeoIP2 C library
 libncurses-devel         | Terminal display library
 libncursesw10            | Terminal display library (wide-character)
@@ -382,26 +388,31 @@ gcc-core (C)             | GNU Compiler Collection
 make                     | make utility
 automake                 | GNU Makefiles
 gettext                  | GNU Gettext
-automake wrapper scripts | wrapper scripts for automake and aclocal<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="安装goaccess"><a href="#安装goaccess" class="headerlink" title="安装goaccess"></a>安装goaccess</h3><ol>
-<li><p>将<code>goaccess-1.7.2.tar.gz</code>放入<code>cygwin</code>目录下</p>
+automake wrapper scripts | wrapper scripts for automake and aclocal<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>打开cygwin</p>
+</ol>
+<h3 id="安装goaccess">安装goaccess</h3>
+<ol>
+<li>
+<p>将<code>goaccess-1.7.2.tar.gz</code>放入<code>cygwin</code>目录下</p>
+</li>
+<li>
+<p>打开cygwin</p>
 <pre class="line-numbers language-none"><code class="language-none">tar -xzvf goaccess-1.7.2.tar.gz
 cd goaccess-1.7.2
 .&#x2F;configure --enable-utf8 --enable-geoip&#x3D;legacy
 # 如果不成功则执行 .&#x2F;configure --enable-utf8
 make
-make install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+make install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ol>
-<h3 id="配置文件格式"><a href="#配置文件格式" class="headerlink" title="配置文件格式"></a>配置文件格式</h3><p>nginx.conf</p>
+<h3 id="配置文件格式">配置文件格式</h3>
+<p>nginx.conf</p>
 <pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">log_format</span>  main  <span class="token string">'<span class="token variable">$remote_addr</span> - <span class="token variable">$remote_user</span> [<span class="token variable">$time_iso8601]</span> requesthost:"<span class="token variable">$http_host</span>"; "<span class="token variable">$request</span>" requesttime:"<span class="token variable">$request_time</span>"; '</span>
 	<span class="token string">'<span class="token variable">$status</span> <span class="token variable">$body_bytes_sent</span> "<span class="token variable">$http_referer</span>" - <span class="token variable">$request_body</span>'</span>                      
 	<span class="token string">'"<span class="token variable">$http_user_agent</span>" "<span class="token variable">$http_x_forwarded_for</span>"'</span></span><span class="token punctuation">;</span>
 
 <span class="token comment">## 日志输出</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>goaccess.conf</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">time-format %T
 date-format %Y-%m-%d
@@ -421,10 +432,9 @@ log-format %h - %^ <span class="token punctuation">[</span>%dT%t+%^<span class="
 <span class="token comment"># $request_body >>>  %^</span>
 <span class="token comment"># $http_user_agent >>> %u</span>
 <span class="token comment"># $http_x_forwarded_for >>> </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="启动命令"><a href="#启动命令" class="headerlink" title="启动命令"></a>启动命令</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 此处采用动态文件路径, 将日志文件输出至cygwin目录下</span>
+<h3 id="启动命令">启动命令</h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 此处采用动态文件路径, 将日志文件输出至cygwin目录下</span>
 <span class="token assign-left variable"><span class="token environment constant">LANG</span></span><span class="token operator">=</span><span class="token string">"zh_CN.UTF-8"</span> goaccess /cygdrive/d/nginx-1.20.2/nginx-1.19.5.1/logs/access-<span class="token variable"><span class="token variable">`</span><span class="token function">date</span> <span class="token string">"+%Y-%m-%d"</span><span class="token variable">`</span></span>.log <span class="token parameter variable">-p</span> /cygdrive/d/cygwin64/goaccess-1.7.2/config/goaccess.conf <span class="token parameter variable">-o</span> D:/cygwin64/report.html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 
                 
             </div>
@@ -1096,13 +1106,13 @@ $(function () {
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
 
+
     
-        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
-        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
         <script>
-          if (window.mermaid) {
-            mermaid.initialize({theme: 'forest'});
-          }
+            if (window.mermaid) {
+                mermaid.initialize({theme: 'forest'});
+            }
         </script>
     
 

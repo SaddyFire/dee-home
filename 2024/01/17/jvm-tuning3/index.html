@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="JVM参数, SaddyFire">
-    <meta name="description" content="JVM参数">
+    <meta name="keywords" content="JVM-Tuning-03-JVM监控及诊断-运行参数篇, SaddyFire">
+    <meta name="description" content="JVM监控及诊断-运行参数篇">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>JVM参数 | SaddyFire</title>
+    <title>JVM-Tuning-03-JVM监控及诊断-运行参数篇 | SaddyFire</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -50,7 +50,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SaddyFire" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.1.0"><link rel="alternate" href="/atom.xml" title="SaddyFire" type="application/atom+xml">
 </head>
 
 
@@ -267,7 +267,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">JVM参数</h1>
+                    <h1 class="description center-align post-title">JVM-Tuning-03-JVM监控及诊断-运行参数篇</h1>
                 </div>
             </div>
         </div>
@@ -323,21 +323,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-01-18
+                    2024-01-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    11 分
                 </div>
                 
 
@@ -360,18 +360,20 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="JVM参数"><a href="#JVM参数" class="headerlink" title="JVM参数"></a>JVM参数</h1><h2 id="01-JVM参数选项类型"><a href="#01-JVM参数选项类型" class="headerlink" title="01-JVM参数选项类型"></a>01-JVM参数选项类型</h2><h3 id="X参数选项"><a href="#X参数选项" class="headerlink" title="-X参数选项"></a>-X参数选项</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-Xms<span class="token operator">&lt;</span>size<span class="token operator">></span>        设置初始 Java 堆大小, 等价于-XX:InitialHeapSize
+                <h1>JVM监控及诊断-运行参数篇</h1>
+<h2 id="01-JVM参数选项类型">01-JVM参数选项类型</h2>
+<h3 id="X参数选项">-X参数选项</h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-Xms<span class="token operator">&lt;</span>size<span class="token operator">></span>        设置初始 Java 堆大小, 等价于-XX:InitialHeapSize
 -Xmx<span class="token operator">&lt;</span>size<span class="token operator">></span>        设置最大 Java 堆大小, 等价于-XX:MaxHeapSize
 -Xss<span class="token operator">&lt;</span>size<span class="token operator">></span>        设置 Java 线程堆栈大小, 等价于-XX:ThreadStackSize<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="XX参数选项"><a href="#XX参数选项" class="headerlink" title="-XX参数选项"></a>-XX参数选项</h3><p>Boolean类型格式</p>
+<h3 id="XX参数选项">-XX参数选项</h3>
+<p>Boolean类型格式</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-XX:+<span class="token operator">&lt;</span>option<span class="token operator">></span> 表示启用option属性
 -XX:-<span class="token operator">&lt;</span>option<span class="token operator">></span> 表示禁用option属性
 
 <span class="token parameter variable">-XX:+UseParallelGC</span>  选择垃圾回收器行为并行收集器
 <span class="token parameter variable">-XX:+UseG1GC</span>  表示启用G1收集器
 <span class="token parameter variable">-XX:+UseAdaptiveSizePolicy</span>  自动选择年轻代区大小和相应的Survivor区比例<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>非 Boolean 类型格式(key-value类型)</p>
 <ul>
 <li>子类型1: 数值型格式 <code>-XX&lt;option&gt;=&lt;number&gt;</code></li>
@@ -380,29 +382,28 @@
 <span class="token parameter variable">-XX:MaxGCPauseMillis</span><span class="token operator">=</span><span class="token number">500</span>  表示设置GC停顿时间：500毫秒
 <span class="token parameter variable">-XX:GCTimeRatio</span><span class="token operator">=</span><span class="token number">19</span>  表示设置吞吐量
 <span class="token parameter variable">-XX:NewRatio</span><span class="token operator">=</span><span class="token number">2</span>  表示新生代与老年代的比例<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li>子类型2: 非数值型格式 <code>-XX:&lt;name&gt;=&lt;string&gt;</code></li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-XX:HeapDumpPath</span><span class="token operator">=</span>/usr/local/heapdump.hprof  用来指定 heap 转存文件的存储路径。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>特别的</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-XX:+PrintFlagsFinal</span>
 输出所有参数的默认值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2 id="02-添加JVM参数选项"><a href="#02-添加JVM参数选项" class="headerlink" title="02-添加JVM参数选项"></a>02-添加JVM参数选项</h2><p>程序运行过程中</p>
+<h2 id="02-添加JVM参数选项">02-添加JVM参数选项</h2>
+<p>程序运行过程中</p>
 <ul>
 <li>使用 <code>jinfo -flag &lt;name&gt;=&lt;value&gt; &lt;pid&gt;</code> 设置非 Boolean 类型参数</li>
 <li>使用 <code>jinfo -flag [+|-]&lt;name&gt; &lt;pid&gt;</code> 设置Boolean 类型参数</li>
 </ul>
-<h2 id="03-常用的JVM参数选项"><a href="#03-常用的JVM参数选项" class="headerlink" title="03-常用的JVM参数选项"></a>03-常用的JVM参数选项</h2><h3 id="打印设置的XX选项及值"><a href="#打印设置的XX选项及值" class="headerlink" title="打印设置的XX选项及值"></a>打印设置的XX选项及值</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-XX:+PrintCommandLineFlags</span>  可以让在程序运行前打印出用户手动设置或者 JVM 自动设置的 XX 选项
+<h2 id="03-常用的JVM参数选项">03-常用的JVM参数选项</h2>
+<h3 id="打印设置的XX选项及值">打印设置的XX选项及值</h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-XX:+PrintCommandLineFlags</span>  可以让在程序运行前打印出用户手动设置或者 JVM 自动设置的 XX 选项
 <span class="token parameter variable">-XX:+PrintFlagsInitial</span>  表示打印出所有 XX 选项的默认值
 XX:+PrintFlagsFinal  👍表示打印出 XX 选项在运行程序时生效的值
 <span class="token parameter variable">-XX:+PrintVMOptions</span>  打印 JVM 的参数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="堆、栈、方法区等内存大小设置"><a href="#堆、栈、方法区等内存大小设置" class="headerlink" title="堆、栈、方法区等内存大小设置"></a>堆、栈、方法区等内存大小设置</h3><p>栈</p>
+<h3 id="堆、栈、方法区等内存大小设置">堆、栈、方法区等内存大小设置</h3>
+<p>栈</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-Xss128k</span>  设置每个线程的栈大小为128k<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>堆内存</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-Xms3550m</span>  等价于-XX:InitialHeapSize,设置 JVM 初始堆内存为3550M
 <span class="token parameter variable">-Xmx3550m</span>  等价于-XX:MaxHeapSize,设置 JVM 最大堆内存为3550M
@@ -413,14 +414,12 @@ XX:+PrintFlagsFinal  👍表示打印出 XX 选项在运行程序时生效的值
 <span class="token parameter variable">-XX:+UseAdaptiveSizePolicy</span>  自动选择各区大小比例
 <span class="token parameter variable">-XX:NewRatio</span><span class="token operator">=</span><span class="token number">4</span>  设置老年代与年轻代（包括1个Eden和2个Survivorl区）的比值
 <span class="token parameter variable">-XX:PretenureSizeThreadshold</span><span class="token operator">=</span><span class="token number">1024</span>  设置让大于此阈值的对象直接分配在老年代，单位为字节  只对Serial、ParNewl收集器有效<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>方法区</p>
 <ul>
 <li>永久代</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">XX:PermSize<span class="token operator">=</span>256m  设置永久代初始值为256M
 <span class="token parameter variable">-XX:MaxPermSize</span><span class="token operator">=</span>256m  设置永久代最大值为256M<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <ul>
 <li>元空间</li>
 </ul>
@@ -429,22 +428,23 @@ XX:+PrintFlagsFinal  👍表示打印出 XX 选项在运行程序时生效的值
 <span class="token parameter variable">-XX:+UseCompressedOops</span>  压缩对象指针
 <span class="token parameter variable">-XX:+UseCompressedClassPointers</span>  压缩类指针
 <span class="token parameter variable">-XX:CompressedClassSpaceSize</span>  设置Klass Metaspace的大小，默认1G<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>直接内存</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-XX:MaxDirectMemorySize</span> 指定DirectMemory容量，若未指定，则默认与Java堆最大值一样<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="OutofMemory相关的选项"><a href="#OutofMemory相关的选项" class="headerlink" title="OutofMemory相关的选项"></a>OutofMemory相关的选项</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-XX:+HeapDumpOnOutOfMemoryError</span>  表示在内存出现OOM的时候，把Heap转存<span class="token punctuation">(</span>Dump<span class="token punctuation">)</span>到文件以便后续分析
+<h3 id="OutofMemory相关的选项">OutofMemory相关的选项</h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-XX:+HeapDumpOnOutOfMemoryError</span>  表示在内存出现OOM的时候，把Heap转存<span class="token punctuation">(</span>Dump<span class="token punctuation">)</span>到文件以便后续分析
 <span class="token parameter variable">-XX:+HeapDumpBeforeFullGC</span>  表示在出现FulIGC之前，生成Heap转储文件
 <span class="token parameter variable">-XX:HeapDumpPath</span><span class="token operator">=</span><span class="token operator">&lt;</span>path<span class="token operator">></span>  指定heap转存文件的存储路径
 <span class="token parameter variable">-XX:OnOutofMemoryError</span>  指定一个可行性程序或者脚本的路径，当发生OOM的时候，去执行这个脚本<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <blockquote>
-<p>对 OnOutOfMemoryError 的运维处理<br>以部署在 linux 系统 &#x2F;opt&#x2F;Server 目录下的 Server.jar 为例</p>
+<p>对 OnOutOfMemoryError 的运维处理<br>
+以部署在 linux 系统 /opt/Server 目录下的 Server.jar 为例</p>
 <ol>
-<li><p>在 run.sh 启动脚本中添加 jvm 参数：</p>
-<p>-XX:OnOutofMemoryError&#x3D;&#x2F;opt&#x2F;Server&#x2F;restart.sh</p>
+<li>
+<p>在 <a target="_blank" rel="noopener" href="http://run.sh">run.sh</a> 启动脚本中添加 jvm 参数：</p>
+<p>-XX:OnOutofMemoryError=/opt/Server/restart.sh</p>
 </li>
-<li><p>restart.sh脚本</p>
+<li>
+<p>restart.sh脚本</p>
 </li>
 </ol>
 </blockquote>
@@ -453,18 +453,16 @@ XX:+PrintFlagsFinal  👍表示打印出 XX 选项在运行程序时生效的值
 <span class="token assign-left variable">pid</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">ps</span> -ef<span class="token operator">|</span><span class="token function">grep</span> Server.jar<span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'&#123;if($8=="java")&#123;print $2&#125;&#125;'</span><span class="token variable">)</span></span>
 <span class="token function">kill</span> <span class="token parameter variable">-9</span> <span class="token variable">$pid</span>
 <span class="token builtin class-name">cd</span> /opt/Server/<span class="token punctuation">;</span><span class="token function">sh</span> run.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>Windows 环境：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">echo</span> off
 wmic process where <span class="token assign-left variable">Name</span><span class="token operator">=</span><span class="token string">'java.exe'</span>delete
 <span class="token builtin class-name">cd</span> D:<span class="token punctuation">\</span>Server
 start run.bat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="垃圾收集器相关选项"><a href="#垃圾收集器相关选项" class="headerlink" title="垃圾收集器相关选项"></a>垃圾收集器相关选项</h3><ul>
+<h3 id="垃圾收集器相关选项">垃圾收集器相关选项</h3>
+<ul>
 <li>查看默认垃圾回收器</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-XX:PrintCommandLineFlags</span>	查看命令行相关参数<span class="token punctuation">(</span>包含使用的垃圾收集器<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <ul>
 <li>Serial 回收器</li>
 </ul>
@@ -476,7 +474,7 @@ start run.bat<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 </ul>
 <p>-XX:+UseParNewGC</p>
 <p>手动指定使用 ParNew 收集器执行内存回收任务。它表示年轻代使用并行收集器，不影响老年代。</p>
-<p>-XX:ParallelGCThreads&#x3D;N</p>
+<p>-XX:ParallelGCThreads=N</p>
 <p>限制线程数量，默认开启和 CPU 数据相同的线程数。</p>
 <ul>
 <li>Parallel 回收器</li>
@@ -502,7 +500,6 @@ start run.bat<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 	与前一个 <span class="token parameter variable">-X:MaxGCPauseMillis</span> 参数有一定矛盾性。暂停时间越长，Radio 参数就容易超过设定的比例。
 
 <span class="token parameter variable">-XX:+UseAdaptivesizePolicy</span>	设置 Parallel Scavengel 收集器具有自适应调节策略<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li>CMS 回收器</li>
 </ul>
@@ -520,7 +517,6 @@ start run.bat<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 
 <span class="token parameter variable">-XX:ParallelCMSThreads</span>	设置 CMS 的线程数量。
 	CMS 默认启动的线程数是<span class="token punctuation">(</span>ParallelGCThreads+3<span class="token punctuation">)</span>/4, ParallelGCThreads 是年轻代并行收集器的线程数。当 CPU 资源比较紧张时，受到 CMS 收集器线程的影响，应用程序的性能在垃圾回收阶段可能会非常糟糕<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li>G1 回收器</li>
 </ul>
@@ -547,7 +543,6 @@ start run.bat<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 
 <span class="token parameter variable">-XX:G1ReservePercent</span><span class="token operator">=</span><span class="token number">10</span>
 保留内存区域，防止to space<span class="token punctuation">(</span>Survivor中的to区<span class="token punctuation">)</span>溢出<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>如何选择</p>
 <ul>
 <li>优先调整堆的大小让 JVM 自适应完成。</li>
@@ -563,7 +558,9 @@ start run.bat<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 <li>调优永远是针对特定场景、特定需求，不存在一劳永逸的收集器</li>
 </ol>
 </blockquote>
-<h3 id="GC日志相关选项"><a href="#GC日志相关选项" class="headerlink" title="GC日志相关选项"></a>GC日志相关选项</h3><h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-verbose:gc</span>
+<h3 id="GC日志相关选项">GC日志相关选项</h3>
+<h3 id="常用参数">常用参数</h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-verbose:gc</span>
 输出 gc 日志信息，默认输出到标准输出
 
 <span class="token parameter variable">-XX:+PrintGC</span>
@@ -573,20 +570,35 @@ start run.bat<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 在发生垃圾回收时打印内存回收详细的日志，并在进程退出时输出当前内存各区域分配情况
 
 <span class="token parameter variable">-XX:+PrintGCTimeStamps</span>
-输出GC发生时的时间戳
+输出GC发生时的时间戳<span class="token punctuation">(</span>不可独立使用, 需要配合-XX:+PrintGCDetails<span class="token punctuation">)</span>
 
 <span class="token parameter variable">-XX:+PrintGCDateStamps</span>
-输出GC发生时的时间戳（以日期的形式，如2013-05-04T21:53:59.234+0800<span class="token punctuation">)</span>
+输出GC发生时的时间戳（以日期的形式，如2013-05-04T21:53:59.234+0800<span class="token punctuation">)</span><span class="token punctuation">(</span>不可独立使用, 需要配合-XX:+PrintGCDetails<span class="token punctuation">)</span>
 
 <span class="token parameter variable">-XX:+PrintHeapAtGC</span>
 每一次 GC 前和 GC 后，都打印堆信息
 
 -Xloggc:<span class="token operator">&lt;</span>file<span class="token operator">></span>
 把GC日志写入到一个文件中去，而不是打印到标准输出中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="04-通过Java代码获取JVM参数">04-通过Java代码获取JVM参数</h2>
+<p>Java 提供了 java.lang.management 包用于监视和管理 Java 虚拟机和 Java 运行时中的其他组件，它允许本地和远程监控和管理运行的 Java 虚拟机。其中 ManagementFactory 这个类还是挺常用的。另外还有 Runtime 类也可以获取一些内存、CPU核数等相关的数据。<br>
+通过这些api可以监控我们的应用服务器的堆内存使用情况，设置一些阈值进行报警等处理。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">MemoryMXBean</span> memorymbean <span class="token operator">=</span> <span class="token class-name">ManagementFactory</span><span class="token punctuation">.</span><span class="token function">getMemoryMXBean</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">MemoryUsage</span> usage <span class="token operator">=</span> memorymbean<span class="token punctuation">.</span><span class="token function">getHeapMemoryUsage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"INIT HEAP: "</span> <span class="token operator">+</span> usage<span class="token punctuation">.</span><span class="token function">getInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1024</span> <span class="token operator">/</span> <span class="token number">1024</span> <span class="token operator">+</span> <span class="token string">"m"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"MAX HEAP: "</span> <span class="token operator">+</span> usage<span class="token punctuation">.</span><span class="token function">getMax</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1024</span> <span class="token operator">/</span> <span class="token number">1024</span> <span class="token operator">+</span> <span class="token string">"m"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"USE HEAP: "</span> <span class="token operator">+</span> usage<span class="token punctuation">.</span><span class="token function">getUsed</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1024</span> <span class="token operator">/</span> <span class="token number">1024</span> <span class="token operator">+</span> <span class="token string">"m"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"\nFull Information:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Heap Memory Usage: "</span> <span class="token operator">+</span> memorymbean<span class="token punctuation">.</span><span class="token function">getHeapMemoryUsage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Non-Heap Memory Usage: "</span> <span class="token operator">+</span> memorymbean<span class="token punctuation">.</span><span class="token function">getNonHeapMemoryUsage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"=======================通过java来获取相关系统状态============================ "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"当前堆内存大小totalMemory "</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token class-name">Runtime</span><span class="token punctuation">.</span><span class="token function">getRuntime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">totalMemory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1024</span> <span class="token operator">/</span> <span class="token number">1024</span> <span class="token operator">+</span> <span class="token string">"m"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 当前堆内存大小</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"空闲堆内存大小freeMemory "</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token class-name">Runtime</span><span class="token punctuation">.</span><span class="token function">getRuntime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">freeMemory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1024</span> <span class="token operator">/</span> <span class="token number">1024</span> <span class="token operator">+</span> <span class="token string">"m"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 空闲堆内存大小</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"最大可用总堆内存maxMemory "</span> <span class="token operator">+</span> <span class="token class-name">Runtime</span><span class="token punctuation">.</span><span class="token function">getRuntime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">maxMemory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1024</span> <span class="token operator">/</span> <span class="token number">1024</span> <span class="token operator">+</span> <span class="token string">"m"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 最大可用总堆内存大小</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-<h3 id="其他参数"><a href="#其他参数" class="headerlink" title="其他参数"></a>其他参数</h3><h2 id="04-通过Java代码获取JVM参数"><a href="#04-通过Java代码获取JVM参数" class="headerlink" title="04-通过Java代码获取JVM参数"></a>04-通过Java代码获取JVM参数</h2>
                 
             </div>
             <hr/>
@@ -694,29 +706,28 @@ start run.bat<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/01/17/jvm-tuning3/">
+                <a href="/2024/01/19/design-pattern/">
                     <div class="card-image">
                         
-                        <img src="/images/article/62.jpg" class="responsive-img" alt="JVM参数">
+                        <img src="/images/article/71.jpg" class="responsive-img" alt="设计模式-01-概述">
                         
-                        <span class="card-title">JVM参数</span>
+                        <span class="card-title">设计模式-01-概述</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JVM参数
+                            设计模式-01-概述
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-17
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-19
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -729,12 +740,19 @@ start run.bat<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JVM/">
-                        <span class="chip bg-color">JVM</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/DesignPattern/">
+                        <span class="chip bg-color">DesignPattern</span>
+                    </a>
+                    
+                    <a href="/tags/Mermaid/">
+                        <span class="chip bg-color">Mermaid</span>
                     </a>
                     
                 </div>
@@ -1259,13 +1277,13 @@ $(function () {
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
 
+
     
-        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
-        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
         <script>
-          if (window.mermaid) {
-            mermaid.initialize({theme: 'forest'});
-          }
+            if (window.mermaid) {
+                mermaid.initialize({theme: 'forest'});
+            }
         </script>
     
 

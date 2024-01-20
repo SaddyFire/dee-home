@@ -50,7 +50,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SaddyFire" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.1.0"><link rel="alternate" href="/atom.xml" title="SaddyFire" type="application/atom+xml">
 </head>
 
 
@@ -360,14 +360,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="目录滚动"><a href="#目录滚动" class="headerlink" title="目录滚动"></a>目录滚动</h2><blockquote>
+                <h2 id="目录滚动">目录滚动</h2>
+<blockquote>
 <p>默认情况下matery主题, 文章中当目录过多, 超出页面后便无法展示多余目录, 解决方案如下. (该方案取自github issues中, 只能做简单滚动)</p>
 </blockquote>
 <ol>
-<li><p>全局搜索<code>#toc-content &#123;</code> </p>
+<li>
+<p>全局搜索<code>#toc-content &#123;</code></p>
 <p>或者直接找到目录<code>/themes/xxx/source/css/post.css</code></p>
 </li>
-<li><p>更改如下代码</p>
+<li>
+<p>更改如下代码</p>
 </li>
 </ol>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">#toc-content</span> <span class="token punctuation">&#123;</span>
@@ -382,11 +385,12 @@
     <span class="token property">overflow-y</span><span class="token punctuation">:</span> scroll<span class="token punctuation">;</span>
     <span class="token property">height</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>100vh - 250px<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="滚动条颜色调整"><a href="#滚动条颜色调整" class="headerlink" title="滚动条颜色调整"></a>滚动条颜色调整</h2><blockquote>
+<h2 id="滚动条颜色调整">滚动条颜色调整</h2>
+<blockquote>
 <p>原滚动条颜色是暖红色调, 现改为冷蓝色调</p>
 </blockquote>
-<h3 id="主题文件"><a href="#主题文件" class="headerlink" title="主题文件"></a>主题文件</h3><p><code>/themes/xxx/source/css/post.css</code></p>
+<h3 id="主题文件">主题文件</h3>
+<p><code>/themes/xxx/source/css/post.css</code></p>
 <ul>
 <li>分别搜索</li>
 </ul>
@@ -395,27 +399,36 @@
 <ul>
 <li>改为: <code>background-color: #18bfd0;</code></li>
 </ul>
-<h3 id="暗色文件"><a href="#暗色文件" class="headerlink" title="暗色文件"></a>暗色文件</h3><p><code>/themes/xxx/source/css/dark.css</code></p>
+<h3 id="暗色文件">暗色文件</h3>
+<p><code>/themes/xxx/source/css/dark.css</code></p>
 <ul>
-<li><p>搜索<code>body.DarkMode .progress-bar</code></p>
+<li>
+<p>搜索<code>body.DarkMode .progress-bar</code></p>
 </li>
-<li><p>改为 <code>background: linear-gradient(to right, #2fb0e5 0%, #2ce0cb 100%);</code></p>
+<li>
+<p>改为 <code>background: linear-gradient(to right, #2fb0e5 0%, #2ce0cb 100%);</code></p>
 </li>
 </ul>
-<h2 id="区块颜色调整"><a href="#区块颜色调整" class="headerlink" title="区块颜色调整"></a>区块颜色调整</h2><blockquote>
+<h2 id="区块颜色调整">区块颜色调整</h2>
+<blockquote>
 <p>区块由于在主题源码包中已经有相关定义, 因此需要针对源码包进行调整</p>
 </blockquote>
-<h3 id="源码文件"><a href="#源码文件" class="headerlink" title="源码文件"></a>源码文件</h3><p><code>themes/xxx/source/libs/materialize/materialize.min.css</code></p>
+<h3 id="源码文件">源码文件</h3>
+<p><code>themes/xxx/source/libs/materialize/materialize.min.css</code></p>
 <ul>
-<li><p>删除</p>
+<li>
+<p>删除</p>
 <p><code>border-left:5px solid #ee6e73&#125;</code></p>
 </li>
 </ul>
-<h3 id="主题文件-1"><a href="#主题文件-1" class="headerlink" title="主题文件"></a>主题文件</h3><p><code>themes/xxx/source/css/matery.css</code></p>
+<h3 id="主题文件-2">主题文件</h3>
+<p><code>themes/xxx/source/css/matery.css</code></p>
 <ul>
-<li><p>搜索 <code>blockquote &#123;</code></p>
+<li>
+<p>搜索 <code>blockquote &#123;</code></p>
 </li>
-<li><p>改为</p>
+<li>
+<p>改为</p>
 </li>
 </ul>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">blockquote</span> <span class="token punctuation">&#123;</span>
@@ -425,8 +438,8 @@
     <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span>94 163 157 / 10%<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token property">text-align</span><span class="token punctuation">:</span> justify<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="夜间文件"><a href="#夜间文件" class="headerlink" title="夜间文件"></a>夜间文件</h3><p><code>themes/xxx/source/css/dark.css</code></p>
+<h3 id="夜间文件">夜间文件</h3>
+<p><code>themes/xxx/source/css/dark.css</code></p>
 <ul>
 <li>搜索 <code>body.DarkMode blockquote &#123;</code></li>
 <li>改为(此处色调未调整, 依旧是暖红色调</li>
@@ -437,16 +450,21 @@
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 0.6<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token property">text-align</span><span class="token punctuation">:</span> justify<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="目录颜色"><a href="#目录颜色" class="headerlink" title="目录颜色"></a>目录颜色</h2><h3 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h3><p><code>themes/xxx/source/css/post.css</code></p>
+<h2 id="目录颜色">目录颜色</h2>
+<h3 id="文件">文件</h3>
+<p><code>themes/xxx/source/css/post.css</code></p>
 <ul>
-<li><p>搜索<code>#toc-content .toc-link:hover &#123;</code></p>
+<li>
+<p>搜索<code>#toc-content .toc-link:hover &#123;</code></p>
 </li>
-<li><p>将悬停颜色改为 <code>color: #009cff;</code></p>
+<li>
+<p>将悬停颜色改为 <code>color: #009cff;</code></p>
 </li>
-<li><p>搜索<code>#toc-content .is-active-link &#123;</code></p>
+<li>
+<p>搜索<code>#toc-content .is-active-link &#123;</code></p>
 </li>
-<li><p>将激活颜色改为 <code>color: #009cff</code></p>
+<li>
+<p>将激活颜色改为 <code>color: #009cff</code></p>
 </li>
 </ul>
 
@@ -1112,13 +1130,13 @@ $(function () {
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
 
+
     
-        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
-        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
         <script>
-          if (window.mermaid) {
-            mermaid.initialize({theme: 'forest'});
-          }
+            if (window.mermaid) {
+                mermaid.initialize({theme: 'forest'});
+            }
         </script>
     
 
