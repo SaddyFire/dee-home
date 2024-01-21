@@ -327,7 +327,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-22
+                    2024-01-21
                 </div>
                 
 
@@ -367,9 +367,9 @@
                 <h1>对象的实例化内存布局与访问定位</h1>
 <h2 id="1-对象的实例化">1-对象的实例化</h2>
 <ul>
-<li>对象在JVM中是怎么存储的？</li>
+<li>对象在 JVM 中是怎么存储的？</li>
 <li>对象头信息里面有哪些东西？</li>
-<li>Java对象头里有什么</li>
+<li>Java 对象头里有什么</li>
 </ul>
 
 <div class="markmap-container" style="height:height">
@@ -391,25 +391,25 @@
 <ul>
 <li>如果内存是规整的，那么虚拟机将采用的是指针碰撞法（Bump The Point）来为对象分配内存。</li>
 <li>意思是所有用过的内存在一边，空闲的内存放另外一边，中间放着一个指针作为分界点的指示器，分配内存就仅仅是把指针往空闲内存那边挪动一段与对象大小相等的距离罢了。</li>
-<li>如果垃圾收集器选择的是Serial ，ParNew这种基于压缩算法的，虚拟机采用这种分配方式。一般使用带Compact（整理）过程的收集器时，使用指针碰撞。</li>
+<li>如果垃圾收集器选择的是 Serial ，ParNew 这种基于压缩算法的，虚拟机采用这种分配方式。一般使用带 Compact（整理）过程的收集器时，使用指针碰撞。</li>
 <li>标记压缩（整理）算法会整理内存碎片，堆内存一存对象，另一边为空闲区域</li>
 </ul>
 <h6 id="空闲列表分配"><strong>空闲列表分配</strong></h6>
 <ul>
 <li>如果内存不是规整的，已使用的内存和未使用的内存相互交错，那么虚拟机将采用的是空闲列表来为对象分配内存。</li>
 <li>意思是虚拟机维护了一个列表，记录上哪些内存块是可用的，再分配的时候从列表中找到一块足够大的空间划分给对象实例，并更新列表上的内容。这种分配方式成为了 <strong>空闲列表（Free List）</strong></li>
-<li>CMS标记清除算法清理过后的堆内存，就会存在很多内存碎片。</li>
+<li>CMS 标记清除算法清理过后的堆内存，就会存在很多内存碎片。</li>
 </ul>
 <h6 id="说明"><strong>说明</strong></h6>
 <ul>
-<li>选择哪种分配方式由Java堆是否规整所决定，而Java堆是否规整又由所采用的垃圾收集器是否带有压缩整理功能决定</li>
+<li>选择哪种分配方式由 Java 堆是否规整所决定，而Java堆是否规整又由所采用的垃圾收集器是否带有压缩整理功能决定</li>
 </ul>
 <h6 id="设置对象的对象头"><strong>设置对象的对象头</strong></h6>
 <p>将对象的所属类(即类的元数据信息)、对象的HashCode和对象的GC信息、锁信息等数据存储在对象的对象头. 这个过程的具体设置方式取决于JVM实现.</p>
-<h6 id="执行init方法进行初始化"><strong>执行init方法进行初始化</strong></h6>
+<h6 id="执行-init-方法进行初始化"><strong>执行 init 方法进行初始化</strong></h6>
 <ul>
-<li>在Java程序的视角看来，初始化才正式开始。初始化成员变量，执行实例化代码块，调用类的构造方法，并把堆内对象的首地址赋值给引用变量</li>
-<li>因此一般来说（由字节码中跟随invokespecial指令所决定），new指令之后会接着就是执行init方法，把对象按照程序员的意愿进行初始化，这样一个真正可用的对象才算完成创建出来。</li>
+<li>在 Java 程序的视角看来，初始化才正式开始。初始化成员变量，执行实例化代码块，调用类的构造方法，并把堆内对象的首地址赋值给引用变量</li>
+<li>因此一般来说（由字节码中跟随 <code>invokespecial</code> 指令所决定），<code>new</code> 指令之后会接着就是执行 <code>init</code> 方法，把对象按照程序员的意愿进行初始化，这样一个真正可用的对象才算完成创建出来。</li>
 </ul>
 <h2 id="2-对象的内存布局">2-对象的内存布局</h2>
 
@@ -442,7 +442,7 @@
 <h6 id="内存布局图"><img src="./../jvm-sgg7/image-20231222200603079.png" alt="内存布局图"></h6>
 <h2 id="3-对象的访问定位">3-对象的访问定位</h2>
 <blockquote>
-<p>JVM是如何通过栈帧中的对象引用访问到其内部的对象实例呢？</p>
+<p>JVM 是如何通过栈帧中的对象引用访问到其内部的对象实例呢？</p>
 </blockquote>
 
 <div class="markmap-container" style="height:height">
@@ -458,19 +458,19 @@
 <p><strong>(Direct Memory)</strong></p>
 <ul>
 <li>
-<p>不是虚拟机运行时数据区的一部分，也不是《Java虚拟机规范》中定义的内存区域。</p>
+<p>不是虚拟机运行时数据区的一部分，也不是《Java 虚拟机规范》中定义的内存区域。</p>
 </li>
 <li>
 <p>直接内存是在Java堆外的、直接向系统申请的内存区间。</p>
 </li>
 <li>
-<p>来源于NIO，通过存在堆中的DirectByteBuffer操作Native内存</p>
+<p>来源于 NIO，通过存在堆中的 DirectByteBuffer 操作 Native 内存</p>
 </li>
 <li>
-<p>通常，访问直接内存的速度会优于Java堆。即读写性能高。</p>
+<p>通常，访问直接内存的速度会优于 Java 堆。即读写性能高。</p>
 <ul>
 <li>因此出于性能考虑，读写频繁的场合可能会考虑使用直接内存。</li>
-<li>Java的NIO库允许Java程序使用直接内存，用于数据缓冲区</li>
+<li>Java 的 NIO 库允许 Java 程序使用直接内存，用于数据缓冲区</li>
 </ul>
 </li>
 </ul>
@@ -483,29 +483,29 @@
 <p><img src="./../jvm-sgg7/image-20231222210605746.png" alt=""></p>
 <p><strong>直接缓冲区(NIO)</strong></p>
 <ul>
-<li>使用NIO时, 如下图. 操作系统划出的直接缓存区可以被Java代码直接访问, 只有一份. NIO适合堆大文件的读写操作</li>
+<li>使用 NIO 时, 如下图. 操作系统划出的直接缓存区可以被 Java 代码直接访问, 只有一份. NIO 适合堆大文件的读写操作</li>
 </ul>
 <p><img src="./../jvm-sgg7/image-20231222211252472.png" alt=""></p>
 <h3 id="直接内存与OOM">直接内存与OOM</h3>
 <ul>
 <li>
-<p>直接内存也可能导致OutofMemoryError异常</p>
+<p>直接内存也可能导致 OutofMemoryError 异常</p>
 </li>
 <li>
-<p>由于直接内存在Java堆外，因此它的大小不会直接受限于-Xmx指定的最大堆大小，但是系统内存是有限的，Java堆和直接内存的总和依然受限于操作系统能给出的最大内存。</p>
+<p>由于直接内存在Java堆外，因此它的大小不会直接受限于 -Xmx 指定的最大堆大小，但是系统内存是有限的，Java 堆和直接内存的总和依然受限于操作系统能给出的最大内存。</p>
 </li>
 <li>
 <p>直接内存的缺点为：</p>
 <ul>
 <li>分配回收成本较高</li>
-<li>不受JVM内存回收管理</li>
+<li>不受 JVM 内存回收管理</li>
 </ul>
 </li>
 <li>
-<p>直接内存大小可以通过MaxDirectMemorySize设置</p>
+<p>直接内存大小可以通过 MaxDirectMemorySize 设置</p>
 </li>
 <li>
-<p>如果不指定，默认与堆的最大值-Xmx参数值一致</p>
+<p>如果不指定，默认与堆的最大值 -Xmx 参数值一致</p>
 </li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**

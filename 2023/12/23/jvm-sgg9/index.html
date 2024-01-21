@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="JVM-09-StringTable, SaddyFire">
-    <meta name="description" content="StringTable">
+    <meta name="description" content="StringTablel👍">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -323,7 +323,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-24
+                    2024-01-21
                 </div>
                 
 
@@ -337,7 +337,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    18 分
+                    19 分
                 </div>
                 
 
@@ -368,9 +368,9 @@
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s1 <span class="token operator">=</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>  <span class="token comment">// 字面量的定义方式</span>
 <span class="token class-name">String</span> s2 <span class="token operator">=</span>  <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// new 对象的方式</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
-<li>String被声明为final的，不可被继承</li>
-<li>String实现了Serializable接口：表示字符串是支持序列化的。实现了Comparable接口：表示String可以比较大小</li>
-<li>String在jdk8及以前内部定义了<code>final char value[]</code>用于存储字符串数据。JDK9时改为<code>byte[]</code></li>
+<li>String 被声明为 final 的，不可被继承</li>
+<li>String 实现了 Serializable 接口：表示字符串是支持序列化的。实现了 Comparable 接口：表示 String 可以比较大小</li>
+<li>String 在 jdk8 及以前内部定义了 <code>final char value[]</code> 用于存储字符串数据。JDK9 时改为 <code>byte[]</code></li>
 </ul>
 <h3 id="String存储结构变更">String存储结构变更</h3>
 <p><strong>官方文档</strong>：<a target="_blank" rel="noopener" href="http://openjdk.java.net/jeps/254">http://openjdk.java.net/jeps/254</a></p>
@@ -379,23 +379,23 @@
 <span class="token comment">// >=jdk9</span>
 <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> value<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>String类的当前实现将字符存储在char数组中，每个字符使用两个字节(16位)。</li>
-<li>从许多不同的应用程序收集的数据表明，字符串是堆使用的主要组成部分，而且大多数字符串对象只包含拉丁字符（Latin-1）。这些字符只需要一个字节的存储空间，因此这些字符串对象的内部char数组中有一半的空间将不会使用，产生了大量浪费。</li>
-<li>之前 String 类使用 UTF-16 的 char[] 数组存储，现在改为 byte[] 数组 外加一个编码标识存储。该编码表示如果你的字符是ISO-8859-1或者Latin-1，那么只需要一个字节存。如果你是其它字符集，比如UTF-8，你仍然用两个字节存</li>
+<li>String 类的当前实现将字符存储在 char 数组中，每个字符使用两个字节(16位)。</li>
+<li>从许多不同的应用程序收集的数据表明，字符串是堆使用的主要组成部分，而且大多数字符串对象只包含拉丁字符（Latin-1）。这些字符只需要一个字节的存储空间，因此这些字符串对象的内部 char 数组中有一半的空间将不会使用，产生了大量浪费。</li>
+<li>之前 String 类使用 UTF-16 的 char[] 数组存储，现在改为 byte[] 数组外加一个编码标识存储。该编码表示如果你的字符是 ISO-8859-1 或者 Latin-1，那么只需要一个字节存。如果你是其它字符集，比如 UTF-8，你仍然用两个字节存</li>
 </ul>
 <p><strong>结论：</strong></p>
 <ul>
 <li>
-<p>String再也不用char[] 来存储了，改成了byte [] 加上编码标记，节约了一些空间</p>
+<p>String 再也不用 char[] 来存储了，改成了 byte [] 加上编码标记，节约了一些空间</p>
 </li>
 <li>
-<p>同时基于String的数据结构，例如StringBuffer和StringBuilder也同样做了修改</p>
+<p>同时基于 String 的数据结构，例如 StringBuffer 和 StringBuilder 也同样做了修改</p>
 </li>
 </ul>
 <h3 id="基本特性">基本特性</h3>
 <p><strong>String：代表不可变的字符序列。简称：不可变性。</strong></p>
 <ul>
-<li>当对字符串重新赋值时，需要重写指定内存区域赋值，不能使用原有的value进行赋值。</li>
+<li>当对字符串重新赋值时，需要重写指定内存区域赋值，不能使用原有的 value 进行赋值。</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
 <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -408,7 +408,7 @@
     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s2<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//abc</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>当对现有的字符串进行连接操作时，也需要重新指定内存区域赋值，不能使用原有的value进行赋值。</li>
+<li>当对现有的字符串进行连接操作时，也需要重新指定内存区域赋值，不能使用原有的 value 进行赋值。</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
 <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -419,7 +419,7 @@
     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//abc</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>当调用String的replace()方法修改指定字符或字符串时，也需要重新指定内存区域赋值，不能使用原有的value进行赋值。</li>
+<li>当调用 String 的 replace() 方法修改指定字符或字符串时，也需要重新指定内存区域赋值，不能使用原有的 value 进行赋值。</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
 <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -448,49 +448,49 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="./../jvm-sgg9/image-20231224125537544.png" alt="字节码"></p>
 <p><img src="./../jvm-sgg9/image-20231224130452060.png" alt="castore操作规范"></p>
-<p>通过字节码可以看到, str时仅仅是当前栈帧的局部变量表中, 并没有针对引用数据类型做修改的动作. 而数组则是采用了<code>castore</code>操作(具体细节说明结合规范), 切实地对引用数据类做操作.</p>
+<p>通过字节码可以看到, str 时仅仅是当前栈帧的局部变量表中, 并没有针对引用数据类型做修改的动作. 而数组则是采用了 <code>castore</code> 操作(具体细节说明结合规范), 切实地对引用数据类做操作.</p>
 <p><strong>通过字面量的方式（区别于new）给一个字符串赋值，此时的字符串值声明在字符串常量池中。</strong></p>
 <p><strong>字符串常量池中是不会存储相同内容的字符串的</strong></p>
 <ul>
-<li>String的String Pool（字符串常量池）是一个固定大小的Hashtable，默认值大小长度是1009。如果放进String Pool的String非常多，就会造成Hash冲突严重，从而导致链表会很长，而链表长了后直接会造成的影响就是当调用String.intern()方法时性能会大幅下降。</li>
-<li>使用<code>-XX:StringTablesize</code>可设置StringTable的长度</li>
-<li>在JDK6中StringTable是固定的，就是<strong>1009</strong>的长度，所以如果常量池中的字符串过多就会导致效率下降很快，StringTablesize设置没有要求</li>
-<li>在JDK7中，StringTable的长度默认值是<strong>60013</strong>，StringTablesize设置没有要求</li>
-<li>在JDK8中，StringTable的长度默认值是60013，StringTable可以设置的最小值为1009</li>
+<li>String的String Pool（字符串常量池）是一个固定大小的Hashtable，默认值大小长度是 1009。如果放进 String Pool 的 String 非常多，就会造成Hash冲突严重，从而导致链表会很长，而链表长了后直接会造成的影响就是当调用 String.intern() 方法时性能会大幅下降。</li>
+<li>使用 <code>-XX:StringTablesize</code> 可设置 StringTable 的长度</li>
+<li>在 JDK6 中 StringTable 是固定的，就是 <strong>1009</strong> 的长度，所以如果常量池中的字符串过多就会导致效率下降很快，StringTablesize 设置没有要求</li>
+<li>在 JDK7中，StringTable 的长度默认值是 <strong>60013</strong>，StringTablesize 设置没有要求</li>
+<li>在 JDK8 中，StringTable 的长度默认值是 60013，StringTable 可以设置的最小值为 1009</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jps <span class="token comment">#查看java进程</span>
 jinfo <span class="token parameter variable">-flag</span> StringTableSize <span class="token number">5432</span> <span class="token comment">#查看大小</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="2-String的内存分配">2-String的内存分配</h2>
 <ul>
 <li>
-<p>在Java语言中有8种基本数据类型和一种比较特殊的类型String。这些类型为了使它们在运行过程中速度更快、更节省内存，都提供了一种常量池的概念。</p>
+<p>在 Java 语言中有 8 种基本数据类型和一种比较特殊的类型String。这些类型为了使它们在运行过程中速度更快、更节省内存，都提供了一种常量池的概念。</p>
 </li>
 <li>
-<p>常量池就类似一个Java系统级别提供的缓存。8种基本数据类型的常量池都是系统协调的，<strong>String类型的常量池比较特殊。它的主要使用方法有两种</strong>。</p>
+<p>常量池就类似一个 Java 系统级别提供的缓存。8 种基本数据类型的常量池都是系统协调的，<strong>String 类型的常量池比较特殊。它的主要使用方法有两种</strong>。</p>
 <ul>
 <li>
-<p>直接使用双引号声明出来的String对象会直接存储在常量池中。</p>
+<p>直接使用双引号声明出来的 String 对象会直接存储在常量池中。</p>
 <ul>
 <li>比如：<code>String info=&quot;hello&quot;;</code></li>
 </ul>
 </li>
 <li>
-<p>如果不是用双引号声明的String对象，可以使用String提供的intern()方法。这个后面重点谈</p>
+<p>如果不是用双引号声明的 String 对象，可以使用 String 提供的 intern() 方法。这个后面重点谈</p>
 </li>
 </ul>
 </li>
 <li>
-<p>Java 6及以前，字符串常量池存放在永久代</p>
+<p>Java 6 及以前，字符串常量池存放在永久代</p>
 </li>
 <li>
-<p>Java 7中 Oracle的工程师对字符串池的逻辑做了很大的改变，即将字符串常量池的位置调整到Java堆内</p>
+<p>Java 7 中 Oracle的工程师对字符串池的逻辑做了很大的改变，即将字符串常量池的位置调整到 Java 堆内</p>
 <ul>
 <li>所有的字符串都保存在堆（Heap）中，和其他普通对象一样，这样可以让你在进行调优应用时仅需要调整堆大小就可以了。</li>
-<li>字符串常量池概念原本使用得比较多，但是这个改动使得我们有足够的理由让我们重新考虑在Java 7中使用String.intern()。</li>
+<li>字符串常量池概念原本使用得比较多，但是这个改动使得我们有足够的理由让我们重新考虑在 Java 7 中使用 String.intern()。</li>
 </ul>
 </li>
 <li>
-<p>Java8元空间，字符串常量在堆</p>
+<p>Java8 元空间，字符串常量在堆</p>
 </li>
 </ul>
 <p><img src="./../jvm-sgg9/image-20231224131222406.png" alt="JDK6 StringTable位置"></p>
@@ -499,10 +499,10 @@ jinfo <span class="token parameter variable">-flag</span> StringTableSize <span 
 <p><strong>官方文档</strong>:<a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/javase/jdk7-relnotes.html#jdk7changes">https://www.oracle.com/java/technologies/javase/jdk7-relnotes.html#jdk7changes</a></p>
 <ol>
 <li>
-<p>permSize默认比较小</p>
+<p>permSize 默认比较小</p>
 </li>
 <li>
-<p>永久代垃圾回收频率低, 大量的字符串无法及时回收容易进行Full GC产生STW或者容易产生OOM</p>
+<p>永久代垃圾回收频率低, 大量的字符串无法及时回收容易进行 Full GC 产生 STW 或者容易产生 OOM</p>
 </li>
 </ol>
 <p><strong>实例demo</strong></p>
@@ -524,7 +524,7 @@ jinfo <span class="token parameter variable">-flag</span> StringTableSize <span 
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>JKD8报错(由此也可见Java8元空间，字符串常量在堆)</p>
+<p>JKD8 报错(由此也可见 Java8 元空间，字符串常量在堆)</p>
 <pre class="line-numbers language-latex" data-language="latex"><code class="language-latex">Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
 	at java.util.HashMap.resize(HashMap.java:703)
 	at java.util.HashMap.putVal(HashMap.java:662)
@@ -535,7 +535,7 @@ jinfo <span class="token parameter variable">-flag</span> StringTableSize <span 
 Process finished with exit code 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-String的基本操作">3-String的基本操作</h2>
 <h3 id="demo1">demo1</h3>
-<p>Java语言规范里要求完全相同的字符串字面量，应该包含同样的Unicode字符序列（包含同一份码点序列的常量），并且必须是指向同一个String类实例。</p>
+<p>Java 语言规范里要求完全相同的字符串字面量，应该包含同样的 Unicode 字符序列（包含同一份码点序列的常量），并且必须是指向同一个 String 实例。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">StringTest4</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//此处断点, 观察内存中String数量</span>
@@ -581,8 +581,8 @@ Process finished with exit code 1<span aria-hidden="true" class="line-numbers-ro
 <ol>
 <li>常量与常量的拼接结果在常量池，原理是编译期优化</li>
 <li>常量池中不会存在相同内容的变量</li>
-<li>拼接前后，只要其中有一个是变量，结果就在堆中。变量拼接的原理是StringBuilder</li>
-<li>如果拼接的结果调用intern()方法，根据该字符串是否在常量池中存在，分为：
+<li>拼接前后，只要其中有一个是变量，结果就在堆中。变量拼接的原理是 StringBuilder</li>
+<li>如果拼接的结果调用 intern() 方法，根据该字符串是否在常量池中存在，分为：
 <ul>
 <li>如果存在，则返回字符串在常量池中的地址</li>
 <li>如果字符串常量池中不存在该字符串，则在常量池中创建一份，并返回此对象的地址</li>
@@ -642,10 +642,10 @@ Process finished with exit code 1<span aria-hidden="true" class="line-numbers-ro
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="./../jvm-sgg9/image-20231224142009016.png" alt="字节码分析"></p>
 <p><strong>细节二</strong></p>
-<p>字符串拼接不一定使用的都是StringBuilder</p>
+<p>字符串拼接不一定使用的都是 StringBuilder</p>
 <ul>
-<li>如果拼接符号左右两边都是字符串常量或常量引用, 则仍然使用编译器优化, 即非StringBuilder的方式</li>
-<li>针对于final修饰类、方法、基本数据类型、引用数据类型的量的结构时, 能使用上final的时候建议使用上</li>
+<li>如果拼接符号左右两边都是字符串常量或常量引用, 则仍然使用编译器优化, 即非 StringBuilder 的方式</li>
+<li>针对于 final 修饰类、方法、基本数据类型、引用数据类型的量的结构时, 能使用上 final 的时候建议使用上</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
 <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test4</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -668,7 +668,7 @@ Process finished with exit code 1<span aria-hidden="true" class="line-numbers-ro
     <span class="token class-name">String</span> s5 <span class="token operator">=</span> s4 <span class="token operator">+</span> <span class="token string">"hadoop"</span><span class="token punctuation">;</span>
     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1 <span class="token operator">==</span> s5<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>拼接操作与append操作的效率对比</strong></p>
+<p><strong>拼接操作与 append 操作的效率对比</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
 <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test6</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
     <span class="token keyword">long</span> start <span class="token operator">=</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -698,21 +698,21 @@ Process finished with exit code 1<span aria-hidden="true" class="line-numbers-ro
 <span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>相差了2000多倍</li>
-<li><strong>StringBuilder的append()方式</strong>: 自始至终只创建过一个StringBuilder对象; <strong>String字符串拼接方式</strong>: 创建过多个StringBuilder和String的对象</li>
-<li><strong>String字符串拼接方式</strong>: 内存中由于创建了较多的StringBuilder和String对象, 内存占用更大; 如果进行GC, 需要花费额外的时间</li>
-<li>在实际开发中, 如果基本确定前前后后添加的字符串长度不高于某个限定值highLevel的情况下, 建议使用构造器实例化<code>StringBuilder s = new StringBuilder(highLevel);</code> 尽量避免底层不断进行扩容的情况</li>
+<li>相差了 2000 多倍</li>
+<li><strong>StringBuilder 的 append() 方式</strong>: 自始至终只创建过一个StringBuilder 对象; <strong>String 字符串拼接方式</strong>: 创建过多个StringBuilder 和 String 的对象</li>
+<li><strong>String 字符串拼接方式</strong>: 内存中由于创建了较多的 StringBuilder 和 String 对象, 内存占用更大; 如果进行 GC, 需要花费额外的时间</li>
+<li>在实际开发中, 如果基本确定前前后后添加的字符串长度不高于某个限定值 highLevel 的情况下, 建议使用构造器实例化<code>StringBuilder s = new StringBuilder(highLevel);</code> 尽量避免底层不断进行扩容的情况</li>
 </ul>
 <h2 id="5-intern-的使用">5-intern()的使用</h2>
 <ul>
 <li>
-<p>如果不是用双引号声明的String对象，可以使用String提供的intern方法：intern方法会从字符串常量池中查询当前字符串是否存在，若不存在就会将当前字符串放入常量池中。</p>
+<p>如果不是用双引号声明的 String 对象，可以使用 String 提供的 intern 方法：intern 方法会从字符串常量池中查询当前字符串是否存在，若不存在就会将当前字符串放入常量池中。</p>
 <ul>
 <li>比如：<code>String myInfo = new string(&quot;hello&quot;).intern();</code></li>
 </ul>
 </li>
 <li>
-<p>也就是说，如果在任意字符串上调用String.intern方法，那么其返回结果所指向的那个类实例，必须和直接以常量形式出现的字符串实例完全相同。因此，下列表达式的值必定是true</p>
+<p>也就是说，如果在任意字符串上调用 String.intern() 方法，那么其返回结果所指向的那个类实例，必须和直接以常量形式出现的字符串实例完全相同。因此，下列表达式的值必定是 true</p>
 </li>
 </ul>
 <h3 id="demo1-3">demo1</h3>
@@ -752,13 +752,13 @@ Process finished with exit code 1<span aria-hidden="true" class="line-numbers-ro
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="总结">总结</h3>
 <ul>
-<li>JDK1.6中, 将这个字符对象尝试放入串池
+<li>JDK1.6 中, 将这个字符对象尝试放入串池
 <ul>
 <li>如果串池有, 则并不会放入. 返回已有的串池中的对象的地址</li>
 <li>如果没有, 则会把<strong>此对象复制一份</strong>, 放入串池, 并返回串池中的对象地址</li>
 </ul>
 </li>
-<li>JDK1.7起, 将这个字符串对象尝试放入串池
+<li>JDK1.7 起, 将这个字符串对象尝试放入串池
 <ul>
 <li>如果串池中有, 则并不会放入. 返回已有的串池中的对象的地址</li>
 <li>如果没有, 则会把<strong>对象的引用地址复制一份</strong>, 放入串池, 并返回传池中的引用地址</li>
@@ -833,14 +833,14 @@ line7: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="./../jvm-sgg9/image-20231224175840946.png" alt="写法1的内存情况"></p>
 <p><img src="./../jvm-sgg9/image-20231224175910290.png" alt="写法2的内存情况"></p>
-<p><strong>对于程序中大量存在的字符串, 尤其其中存在很多重复字符串时, 使用intern()可以节省内存空间</strong></p>
+<p><strong>对于程序中大量存在的字符串, 尤其其中存在很多重复字符串时, 使用intern() 可以节省内存空间</strong></p>
 <p><strong>第一种方式</strong></p>
 <p><code>arr[i] = new String(String.valueOf(data[i % data.length])); </code></p>
-<p>在堆中确实创建了1000W个对象, 并且存放在数组中, 也不会被回收</p>
+<p>在堆中确实创建了 1000W 个对象, 并且存放在数组中, 也不会被回收</p>
 <p><strong>第二种方式</strong></p>
 <p><code>arr[i] = new String(String.valueOf(data[i % data.length])).intern();</code></p>
 <p>返回给数组的是串池中的引用地址, 因此即使new的对象也可以即使被销毁</p>
-<p><em>大的网站平台, 需要内存中存储大量的字符串. 比如社交网站, 很多人都存储: 北京市、海淀区等信息. 这时候如果字符串都调用intern()方法, 就会明显降低内存的大小</em></p>
+<p><em>大的网站平台, 需要内存中存储大量的字符串. 比如社交网站, 很多人都存储: 北京市、海淀区等信息. 这时候如果字符串都调用 intern() 方法, 就会明显降低内存的大小</em></p>
 <h2 id="6-StringTable的垃圾回收">6-StringTable的垃圾回收</h2>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  * String的垃圾回收:
@@ -857,28 +857,28 @@ line7: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 <h2 id="7-G1中的String去重操作">7-G1中的String去重操作</h2>
 <p><strong>官方文档</strong>：<a target="_blank" rel="noopener" href="http://openjdk.java.net/jeps/192">http://openjdk.java.net/jeps/192</a></p>
 <ul>
-<li>背景：对许多Java应用（有大的也有小的）做的测试得出以下结果：
+<li>背景：对许多 Java 应用（有大的也有小的）做的测试得出以下结果：
 <ul>
-<li>堆存活数据集合里面String对象占了25%</li>
-<li>堆存活数据集合里面重复的String对象有13.5%</li>
-<li>String对象的平均长度是45</li>
+<li>堆存活数据集合里面 String 对象占了25%</li>
+<li>堆存活数据集合里面重复的 String 对象有13.5%</li>
+<li>String 对象的平均长度是45</li>
 </ul>
 </li>
-<li>许多大规模的Java应用的瓶颈在于内存，测试表明，在这些类型的应用里面，Java堆中存活的数据集合差不多25%是String对象。更进一步，这里面差不多一半String对象是重复的，重复的意思是说：<code>str1.equals(str2)= true</code>。堆上存在重复的String对象必然是一种内存的浪费。这个项目将在G1垃圾收集器中实现自动持续对重复的String对象进行去重，这样就能避免浪费内存。</li>
+<li>许多大规模的 Java 应用的瓶颈在于内存，测试表明，在这些类型的应用里面，Java 堆中存活的数据集合差不多25%是 String 对象。更进一步，这里面差不多一半 String 对象是重复的，重复的意思是说：<code>str1.equals(str2)= true</code>。堆上存在重复的 String 对象必然是一种内存的浪费。这个项目将在 G1 垃圾收集器中实现自动持续对重复的 String 对象进行去重，这样就能避免浪费内存。</li>
 </ul>
 <p><strong>实现</strong></p>
 <ul>
-<li>当垃圾收集器工作的时候，会访问堆上存活的对象。<strong>对每一个访问的对象都会检查是否是候选的要去重的String对象</strong>。</li>
-<li>如果是，把这个对象的一个引用插入到队列中等待后续的处理。一个去重的线程在后台运行，处理这个队列。处理队列的一个元素意味着从队列删除这个元素，然后尝试去重它引用的String对象。</li>
-<li>使用一个Hashtable来记录所有的被String对象使用的不重复的char数组。当去重的时候，会查这个Hashtable，来看堆上是否已经存在一个一模一样的char数组。</li>
-<li>如果存在，String对象会被调整引用那个数组，释放对原来的数组的引用，最终会被垃圾收集器回收掉。</li>
-<li>如果查找失败，char数组会被插入到Hashtable，这样以后的时候就可以共享这个数组了。</li>
+<li>当垃圾收集器工作的时候，会访问堆上存活的对象。<strong>对每一个访问的对象都会检查是否是候选的要去重的 String 对象</strong>。</li>
+<li>如果是，把这个对象的一个引用插入到队列中等待后续的处理。一个去重的线程在后台运行，处理这个队列。处理队列的一个元素意味着从队列删除这个元素，然后尝试去重它引用的 String 对象。</li>
+<li>使用一个 Hashtable 来记录所有的被 String 对象使用的不重复的 char 数组。当去重的时候，会查这个 Hashtable，来看堆上是否已经存在一个一模一样的 char 数组。</li>
+<li>如果存在，String 对象会被调整引用那个数组，释放对原来的数组的引用，最终会被垃圾收集器回收掉。</li>
+<li>如果查找失败，char 数组会被插入到 Hashtable，这样以后的时候就可以共享这个数组了。</li>
 </ul>
 <p><strong>命令行选项</strong></p>
 <ul>
-<li>UseStringDeduplication(bool) ：开启String去重，默认是不开启的，需要手动开启。</li>
+<li>UseStringDeduplication(bool) ：开启 String 去重，默认是不开启的，需要手动开启。</li>
 <li>PrintStringDeduplicationStatistics(bool) ：打印详细的去重统计信息</li>
-<li>stringDeduplicationAgeThreshold(uintx) ：达到这个年龄的String对象被认为是去重的候选对象</li>
+<li>stringDeduplicationAgeThreshold(uintx) ：达到这个年龄的 String 对象被认为是去重的候选对象</li>
 </ul>
 
                 

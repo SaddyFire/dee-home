@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2024-01-20T14:37:38.084Z</updated>
+  <updated>2024-01-21T13:12:18.641Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>设计模式-02-创建型模式-单例模式</title>
+    <link href="https://www.saddyfire.cn/2024/01/21/design-pattern-graphic/"/>
+    <id>https://www.saddyfire.cn/2024/01/21/design-pattern-graphic/</id>
+    <published>2024-01-21T06:13:20.000Z</published>
+    <updated>2024-01-21T13:12:18.641Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;创建型模式&lt;/h1&gt;
+&lt;p&gt;创建型模式的主要关注点是“怎样创建对象？”，它的主要特点是“将对象的创建与使用分离”。&lt;/p&gt;
+&lt;p&gt;这样可以降低系统的耦合度，使用者不需要关注对象的创建细节。&lt;/p&gt;
+&lt;p&gt;创建型模式分为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;单例模式&lt;/li&gt;
+&lt;l</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+    <category term="DesignPattern" scheme="https://www.saddyfire.cn/tags/DesignPattern/"/>
+    
+    <category term="Mermaid" scheme="https://www.saddyfire.cn/tags/Mermaid/"/>
+    
+  </entry>
   
   <entry>
     <title>JVM-Tuning-04-JVM监控及诊断-分析GC日志</title>
@@ -81,14 +116,14 @@
     <link href="https://www.saddyfire.cn/2024/01/20/nvm-note/"/>
     <id>https://www.saddyfire.cn/2024/01/20/nvm-note/</id>
     <published>2024-01-20T07:55:08.000Z</published>
-    <updated>2024-01-20T08:13:09.636Z</updated>
+    <updated>2024-01-21T02:55:50.099Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1&gt;nvm管理 node.js&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;nvm 管理 node.js&lt;/h1&gt;
 &lt;h2 id=&quot;Quick-Start&quot;&gt;Quick Start&lt;/h2&gt;
 &lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
         
@@ -112,7 +147,7 @@
     <link href="https://www.saddyfire.cn/2024/01/19/mermaid-uml/"/>
     <id>https://www.saddyfire.cn/2024/01/19/mermaid-uml/</id>
     <published>2024-01-19T14:31:31.000Z</published>
-    <updated>2024-01-20T15:24:54.802Z</updated>
+    <updated>2024-01-21T02:16:06.947Z</updated>
     
     
       
@@ -143,14 +178,14 @@
     <link href="https://www.saddyfire.cn/2024/01/19/design-pattern/"/>
     <id>https://www.saddyfire.cn/2024/01/19/design-pattern/</id>
     <published>2024-01-19T05:04:37.000Z</published>
-    <updated>2024-01-20T15:20:23.082Z</updated>
+    <updated>2024-01-21T06:15:33.703Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;设计模式概述&quot;&gt;设计模式概述&lt;/h2&gt;
+    <summary type="html">&lt;h1&gt;设计模式概述&lt;/h1&gt;
 &lt;h2</summary>
         
       
@@ -318,7 +353,7 @@
     <link href="https://www.saddyfire.cn/2024/01/05/jvm-class2/"/>
     <id>https://www.saddyfire.cn/2024/01/05/jvm-class2/</id>
     <published>2024-01-05T15:42:27.000Z</published>
-    <updated>2024-01-06T15:49:32.971Z</updated>
+    <updated>2024-01-21T07:44:29.373Z</updated>
     
     
       
@@ -401,7 +436,7 @@
     <link href="https://www.saddyfire.cn/2023/12/26/jvm-sgg11/"/>
     <id>https://www.saddyfire.cn/2023/12/26/jvm-sgg11/</id>
     <published>2023-12-26T14:06:59.000Z</published>
-    <updated>2023-12-27T15:09:22.729Z</updated>
+    <updated>2024-01-21T13:22:09.680Z</updated>
     
     
       
@@ -427,7 +462,7 @@
     <link href="https://www.saddyfire.cn/2023/12/24/jvm-sgg10/"/>
     <id>https://www.saddyfire.cn/2023/12/24/jvm-sgg10/</id>
     <published>2023-12-24T10:25:34.000Z</published>
-    <updated>2023-12-26T13:44:42.709Z</updated>
+    <updated>2024-01-21T13:22:09.690Z</updated>
     
     
       
@@ -454,7 +489,7 @@
     <link href="https://www.saddyfire.cn/2023/12/23/jvm-sgg9/"/>
     <id>https://www.saddyfire.cn/2023/12/23/jvm-sgg9/</id>
     <published>2023-12-23T05:35:40.000Z</published>
-    <updated>2023-12-24T10:22:42.437Z</updated>
+    <updated>2024-01-21T08:38:31.993Z</updated>
     
     
       
@@ -484,7 +519,7 @@
     <link href="https://www.saddyfire.cn/2023/12/22/jvm-sgg8/"/>
     <id>https://www.saddyfire.cn/2023/12/22/jvm-sgg8/</id>
     <published>2023-12-22T13:40:26.000Z</published>
-    <updated>2023-12-23T05:33:42.786Z</updated>
+    <updated>2024-01-21T08:33:02.860Z</updated>
     
     
       
@@ -512,7 +547,7 @@
     <link href="https://www.saddyfire.cn/2023/12/21/jvm-sgg7/"/>
     <id>https://www.saddyfire.cn/2023/12/21/jvm-sgg7/</id>
     <published>2023-12-21T14:24:04.000Z</published>
-    <updated>2023-12-22T13:25:09.203Z</updated>
+    <updated>2024-01-21T08:25:45.986Z</updated>
     
     
       
@@ -520,7 +555,11 @@
         
         
     <summary type="html">&lt;h1&gt;对象的实例化内存布局与访问定位&lt;/h1&gt;
-&lt;h2</summary>
+&lt;h2 id=&quot;1-对象的实例化&quot;&gt;1-对象的实例化&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;对象在 JVM 中是怎么存储的？&lt;/li&gt;
+&lt;li&gt;对象头信息里面有哪些东西？&lt;/li&gt;
+&lt;li&gt;Java</summary>
         
       
     
@@ -540,7 +579,7 @@
     <link href="https://www.saddyfire.cn/2023/12/19/jvm-sgg6/"/>
     <id>https://www.saddyfire.cn/2023/12/19/jvm-sgg6/</id>
     <published>2023-12-19T13:57:44.000Z</published>
-    <updated>2023-12-22T05:36:09.133Z</updated>
+    <updated>2024-01-21T08:23:51.010Z</updated>
     
     
       
@@ -560,33 +599,6 @@
     
     
     <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo-matery主题优化</title>
-    <link href="https://www.saddyfire.cn/2023/12/19/hexo-update/"/>
-    <id>https://www.saddyfire.cn/2023/12/19/hexo-update/</id>
-    <published>2023-12-19T07:56:50.000Z</published>
-    <updated>2023-12-19T08:28:25.912Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;目录滚动&quot;&gt;目录滚动&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;默认情况下matery主题, 文章中当目录过多, 超出页面后便无法展示多余目录, 解决方案如下. (该方案取自github issues中,</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Hexo" scheme="https://www.saddyfire.cn/tags/Hexo/"/>
     
   </entry>
   

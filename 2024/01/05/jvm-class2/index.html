@@ -323,7 +323,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-01-06
+                    2024-01-21
                 </div>
                 
 
@@ -418,11 +418,11 @@
 <p><strong>作用</strong></p>
 <p>加载和存储指令用于将数据从栈帧的局部变量表和操作数栈之间来回传递。</p>
 <p><strong>常用指令</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">1、【局变量压栈指令】将一个局部变量加载到操作数栈：x1oad、x1oad&lt;n&gt;(其中x为i、l、f、d、a，n 为 0 到 3)
+<pre class="line-numbers language-null" data-language="null"><code class="language-null">1、【局变量压栈指令】将一个局部变量加载到操作数栈：xload、xload&lt;n&gt;(其中x为i、l、f、d、a，n 为 0 到 3)
 ------------------------------------------------------------------------------
-2、【常量入栈指令】将一个常量加载到操作数栈：bipush、sipush、ldc、ldc_w、ldc2_w、aconst_nul1、iconst_ml、iconst&lt;i&gt;、lconst_&lt;l&gt;、fconst_&lt;f&gt;、dconst&lt;d&gt;
+2、【常量入栈指令】将一个常量加载到操作数栈：bipush、sipush、ldc、ldc_w、ldc2_w、aconst_null、iconst_ml、iconst&lt;i&gt;、lconst_&lt;l&gt;、fconst_&lt;f&gt;、dconst&lt;d&gt;
 -------------------------------------------------------------------------------
-3、【出栈装入局部变量表指令】将一个数值从操作数栈存储到局部变量表：xstore、xstore_&lt;n&gt;（其中 x 为 i、1、f、d、a，n 为 g 到3)；xastore(其中 x 为 i、l、f、d、a、b、c、s)
+3、【出栈装入局部变量表指令】将一个数值从操作数栈存储到局部变量表：xstore、xstore_&lt;n&gt;（其中 x 为 i、l、f、d、a，n 为 g 到3)；xastore(其中 x 为 i、l、f、d、a、b、c、s)
 --------------------------------------------------------------------------------
 4、扩充局部变量表的访问索引的指令：wide。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>上面所列举的指令助记符中，有一部分是以尖括号结尾的（例如 <code>iload_&lt;n&gt;</code> )。这些指令助记符实际上代表了一组指令(例如 <code>iload&lt;n&gt;</code> 代表了 <code>iload_0</code> 、<code>iload_1</code>、<code>iload_2</code> 和 <code>iload_3</code> 这几个指令)。这几组指令都是某个带有一个操作数的通用指令（例如 <code>iload</code> )的特殊形式，<strong>对于这若干组特殊指令来说，它们表面上没有操作数，不需要进行取操作数的动作，但操作数都隐含在指令中。</strong></p>
@@ -432,7 +432,7 @@
 <p>iload 0: 与上条一样。</p>
 <p>iload 4: 将局部变量表中索引为4位置上的数据压入操作数栈中。</p>
 </blockquote>
-<p>除此之外，它们的语义与原生的通用指令完全一致（例如 <code>iload_0</code> 的语义与操作数为0时的 <code>iload</code> 指令语义完全一致)。在尖括号之间的字母指定了指令隐含操作数的数据类型，<code>&lt;n&gt;</code> 代表非负的整数，<code>&lt;i&gt;</code> 代表是 int 类型数据，<code>&lt;l&gt;</code> 代表 long 类型，<code>&lt;f&gt;</code>代表 float 类型， <code>&lt;d&gt;</code> 代表double类型。操作byte, char, short 和 boolean 类型数据时, 经常用 int 类型的指令来表示。</p>
+<p>除此之外，它们的语义与原生的通用指令完全一致（例如 <code>iload_0</code> 的语义与操作数为 0 时的 <code>iload</code> 指令语义完全一致)。在尖括号之间的字母指定了指令隐含操作数的数据类型，<code>&lt;n&gt;</code> 代表非负的整数，<code>&lt;i&gt;</code> 代表是 int 类型数据，<code>&lt;l&gt;</code> 代表 long 类型，<code>&lt;f&gt;</code>代表 float 类型， <code>&lt;d&gt;</code> 代表 double 类型。操作 byte, char, short 和 boolean 类型数据时, 经常用 int 类型的指令来表示。</p>
 <h3 id="复习-再谈操作数栈与局部变量表">复习: 再谈操作数栈与局部变量表</h3>
 <p><strong>操作数栈(Operand Stacks)</strong></p>
 <ul>
@@ -442,18 +442,18 @@
 </ul>
 <p><img src="./../jvm-class2/image-20240106092421015.png" alt=""></p>
 <blockquote>
-<p>以加法指令 iadd 为例:</p>
-<p>假设在执行该指令前, 栈顶的两个元素分别为 int 值 1 和 int 值 2, 那么 iadd 指令将弹出这两个 int, 并将求得的和 int 值 3 压入栈中</p>
+<p>以加法指令 <code>iadd</code> 为例:</p>
+<p>假设在执行该指令前, 栈顶的两个元素分别为 int 值 1 和 int 值 2, 那么 <code>iadd</code> 指令将弹出这两个 int, 并将求得的和 int 值 3 压入栈中</p>
 </blockquote>
 <p><img src="./../jvm-class2/image-20240106092608805.png" alt=""></p>
 <blockquote>
-<p>由于iadd 指令只消耗栈顶的两个元素，因此，对于离栈顶距离为2的元素，即图中的问号，iadd指令并不关心它是否存在，更加不会对其进行修改。</p>
+<p>由于iadd 指令只消耗栈顶的两个元素，因此，对于离栈顶距离为2的元素，即图中的问号，iadd 指令并不关心它是否存在，更加不会对其进行修改。</p>
 </blockquote>
 <p><strong>局部变量表(Local Variables)</strong></p>
 <ul>
-<li>Java方法栈桢的另外一个重要组成部分则是局部变量区，<strong>字节码程序可以将计算的结果缓存在局部变量区之中</strong>。</li>
-<li>实际上，Java虚拟机将局部变量区<strong>当成一个数组</strong>，依次存放 this 指针（仅非静态方法），所传入的参数，以及字节码中的局部变量。</li>
-<li>和操作数栈一样，long类型以及double类型的值将占据两个单元，其余类型仅占据一个单元。</li>
+<li>Java 方法栈桢的另外一个重要组成部分则是局部变量区，<strong>字节码程序可以将计算的结果缓存在局部变量区之中</strong>。</li>
+<li>实际上，Java 虚拟机将局部变量区<strong>当成一个数组</strong>，依次存放 this 指针（仅非静态方法），所传入的参数，以及字节码中的局部变量。</li>
+<li>和操作数栈一样，long 类型以及 double 类型的值将占据两个单元，其余类型仅占据一个单元。</li>
 </ul>
 <img src="./../jvm-class2/image-20240106093239190.png" style="zoom:67%;" />
 <p>举例:</p>
@@ -486,7 +486,7 @@
 <blockquote>
 <p>说明：在这里，x 的取值表示数据类型。</p>
 <p>指令 <code>xload_n</code> 表示将第 n 个局部变量压入操作数栈，比如 <code>iload_1</code>、<code>fload_0</code>、<code>aload_0</code> 等指令。其中<code>aload_n</code> 表示将一个对象引用压栈。<br>
-指令 <code>xload</code> 通过指定参数的形式，把局部变量压入操作数栈，当使用这个命令时，表示局部变量的数量可能超过了4个，比如指令iload、f1oad等。</p>
+指令 <code>xload</code> 通过指定参数的形式，把局部变量压入操作数栈，当使用这个命令时，表示局部变量的数量可能超过了4个，比如指令<code>iload</code>、<code>fload</code> 等。</p>
 </blockquote>
 <p><strong>代码示例:</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 局部变量压入栈</span>
@@ -499,11 +499,11 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="./../jvm-class2/image-20240106095818409.png" alt=""></p>
 <h3 id="2-常量入栈指令">2-常量入栈指令</h3>
-<p>常量入栈指令的功能是将常数压入操作数栈，根据数据类型和入栈内容的不同，又可以分为cost系列、push系列和ldc指令。</p>
+<p>常量入栈指令的功能是将常数压入操作数栈，根据数据类型和入栈内容的不同，又可以分为 <code>cost</code> 系列、<code>push</code> 系列和 <code>ldc</code> 指令。</p>
 <ul>
-<li>指令 const 系列：
+<li>指令 <code>const</code> 系列：
 <ul>
-<li>用于对特定的常量入栈，入栈的常量隐含在指令本身里。指令有：<code>iconst_&lt;i&gt;</code> (i 从 -1 到 5)、<code>lconst_&lt;1&gt;</code> (1从0到1)、<code>fconst_&lt;f&gt;</code> (f 从 0 到 2)、<code>dconst_&lt;d&gt;</code>(d 从 0 到 1)、<code>aconst_null</code>。</li>
+<li>用于对特定的常量入栈，入栈的常量隐含在指令本身里。指令有：<code>iconst_&lt;i&gt;</code> (i 从 -1 到 5)、<code>lconst_&lt;1&gt;</code> (1 从 0 到 1)、<code>fconst_&lt;f&gt;</code> (f 从 0 到 2)、<code>dconst_&lt;d&gt;</code>(d 从 0 到 1)、<code>aconst_null</code>。</li>
 <li>比如:<br>
 <code>iconst_m1</code> 将 -1 压入操作数栈;<br>
 <code>iconst_×</code> (x 为 0 到 5)将 x 压入栈;<br>
@@ -511,18 +511,18 @@
 <code>fconst_0</code>、<code>fconst_1</code>、<code>fconst_2</code> 分别将浮点数 0、1、2压入栈;<br>
 <code>dconst_0</code> 和 <code>dconst_1</code> 分别将 double 型 0 和 1 压入栈;<br>
 <code>aconst_null</code> 将<code>null</code> 压入操作数栈;</li>
-<li>从指令的命名上不难找出规律，指令助记符的第一个字符总是喜欢表示数据类型，i 表示整数，l 表示长整数，f 表示浮点数，d表示双精度浮点，习惯上用 a 表示对象引用。如果指令隐含操作的参数，会以下划线形式给出。</li>
+<li>从指令的命名上不难找出规律，指令助记符的第一个字符总是喜欢表示数据类型，i 表示整数，l 表示长整数，f 表示浮点数，d 表示双精度浮点，习惯上用 a 表示对象引用。如果指令隐含操作的参数，会以下划线形式给出。</li>
 </ul>
 </li>
-<li>指令 push 系列:
+<li>指令 <code>push</code> 系列:
 <ul>
-<li>主要包括 bipush 和 sipush 。它们的区别在于接收数据类型的不同，bipush 接收 8 位整数作为参数，sipush 接收 16 位整数，它们都将参数压入栈。</li>
+<li>主要包括 <code>bipush</code> 和 <code>sipush</code> 。它们的区别在于接收数据类型的不同，<code>bipush</code> 接收 8 位整数作为参数，<code>sipush</code> 接收 16 位整数，它们都将参数压入栈。</li>
 </ul>
 </li>
-<li>指令 ldc 系列:
+<li>指令 <code>ldc</code> 系列:
 <ul>
 <li>如果以上指令都不能满足需求，那么可以使用万能的 ldc 指令，它可以接收一个 8 位的参数，该参数指向常量池中的 int、float 或者 String 的索引，将指定的内容压入堆栈。</li>
-<li>类似的还有 <code>ldc_w</code> , 它接收两个 8 位参数, 能支持的索引范围大于 ldc。</li>
+<li>类似的还有 <code>ldc_w</code> , 它接收两个 8 位参数, 能支持的索引范围大于 <code>ldc</code>。</li>
 <li>如果要压入的元素是 long 或者 double 类型的, 则使用 <code>ldc2_w</code> 指令, 使用方式都是类似的。</li>
 </ul>
 </li>
@@ -635,13 +635,13 @@ int k &#x3D; 32768 ldc 索引<span aria-hidden="true" class="line-numbers-rows">
 <p><strong>说明:</strong></p>
 <ul>
 <li>
-<p>**一般说来，类似像stor这样的命令需要带一个参数，用来指明将弹出的元素放在局部变量表的第几个位置。**但是，为了尽可能压缩指令大小，使用专门的 <code>istore_1</code> 指令表示将弹出的元素放置在局部变量表第 1 个位置。类似的还有 <code>istore_0</code>、<code>istore_2</code>、<code>istore_3</code>，它们分别表示从操作数栈顶弹出一个元素，存放在局部变量表第0、2、3个位置。</p>
+<p><strong>一般说来，类似像 stor 这样的命令需要带一个参数，用来指明将弹出的元素放在局部变量表的第几个位置</strong>。但是，为了尽可能压缩指令大小，使用专门的 <code>istore_1</code> 指令表示将弹出的元素放置在局部变量表第 1 个位置。类似的还有 <code>istore_0</code>、<code>istore_2</code>、<code>istore_3</code>，它们分别表示从操作数栈顶弹出一个元素，存放在局部变量表第 0、2、3 个位置。</p>
 </li>
 <li>
 <p>由于局部变量表前几个位置总是非常常用，因此<strong>这种做法虽然增加了指令数量，但是可以大大压缩生成的字节码的体积</strong>。</p>
 </li>
 <li>
-<p>如果局部变量表很大，需要存储的槽位大于3，那么可以使用 istore 指令，外加一个参数，用来表示需要存放的槽位位置。</p>
+<p>如果局部变量表很大，需要存储的槽位大于 3，那么可以使用 <code>istore</code> 指令，外加一个参数，用来表示需要存放的槽位位置。</p>
 </li>
 </ul>
 <p><strong>代码示例</strong></p>
@@ -661,7 +661,7 @@ int k &#x3D; 32768 ldc 索引<span aria-hidden="true" class="line-numbers-rows">
 <strong>2、分类：</strong></p>
 <p>大体上算术指令可以分为两种：对<strong>整型数据</strong>进行运算的指令与对<strong>浮点类型数据</strong>进行运算的指令。<br>
 <strong>3、byte、short、char和boolean:类型说明</strong></p>
-<p>在每一大类中，都有针对Java虚拟机具体数据类型的专用算术指令。但没有直接支持byte、short、char 和 boolean 类型的算术指令，对于这些数据的运算，都使用 int 类型的指令来处理。此外，在处理boolean、byte、short 和 char 类型的数组时，也会转换为使用对应的 int 类型的字节码指令来处理。</p>
+<p>在每一大类中，都有针对 Java 虚拟机具体数据类型的专用算术指令。但没有直接支持 byte、short、char 和 boolean 类型的算术指令，对于这些数据的运算，都使用 int 类型的指令来处理。此外，在处理boolean、byte、short 和 char 类型的数组时，也会转换为使用对应的 int 类型的字节码指令来处理。</p>
 <p><strong>Java虚拟机中的实际类型与运算类型</strong></p>
 <table>
 <thead>
@@ -793,7 +793,7 @@ int k &#x3D; 32768 ldc 索引<span aria-hidden="true" class="line-numbers-rows">
 <li>比较指令的作用是比较栈顶两个元素的大小，并将比较结果入栈。</li>
 <li>比较指令有：<code>dcmpg</code>、<code>dcmpl</code>、<code>fcmpg</code>、<code>fcmpl</code>、<code>lcmp</code>。
 <ul>
-<li>与前面讲解的指令类似，首字符d表示double类型，f 表示 float , l 表示 long。</li>
+<li>与前面讲解的指令类似，首字符 d 表示 double 类型，f 表示 float , l 表示 long。</li>
 </ul>
 </li>
 <li>对于 double 和 float 类型的数字，由于 NaN 的存在，各有两个版本的比较指令。以 float 为例，有 <code>fcmpg</code> 和 <code>fcmpl</code> 两个指令，它们的区别在于在数字比较时，若遇到NaN值，处理结果不同。</li>
@@ -801,7 +801,7 @@ int k &#x3D; 32768 ldc 索引<span aria-hidden="true" class="line-numbers-rows">
 <li>指令 <code>lcmp</code> 针对 long 型整数，由于 long 型整数没有 NaN 值，故无需准备两套指令。</li>
 </ul>
 <p><strong>举例：</strong><br>
-指令 <code>fcmpg</code> 和 fcmpl 都从栈中弹出两个操作数，并将它们做比较，设栈顶的元素为 v2，栈顶顺位第2位的元素为 v1(v2在上, v1在下)</p>
+指令 <code>fcmpg</code> 和 <code>fcmpl</code> 都从栈中弹出两个操作数，并将它们做比较，设栈顶的元素为 v2，栈顶顺位第 2 位的元素为 v1(v2在上, v1在下)</p>
 <ul>
 <li>若 <code>v1 = v2</code>，则压入 0;</li>
 <li>若 <code>v1 &gt; v2</code> 则压入 1；</li>
@@ -834,7 +834,7 @@ Java虚拟机直接支持以下数值的宽化类型转换(widening numeric conv
 <p><strong>2、精度损失问题</strong></p>
 <ol>
 <li>
-<p>宽化类型转换是不会因为超过目标类型最大值而丢失信息的，例如，从 int 转换到long, 或者从 int 转换到 double , 都不会丢失任何信息，转换前后的值是精确相等的。</p>
+<p>宽化类型转换是不会因为超过目标类型最大值而丢失信息的，例如，从 int 转换到 long, 或者从 int 转换到 double , 都不会丢失任何信息，转换前后的值是精确相等的。</p>
 </li>
 <li>
 <p>从int、long 类型数值转换到 float , 或者 long 类型数值转换到 double 时，将可能发生精度丢失——可能丢失掉几个最低有效位上的值，转换后的浮点数值是根据 IEEE754 最接近舍入模式所得到的正确整数值。</p>
@@ -1160,11 +1160,11 @@ Java虚拟机也直接支持以下窄化类型转换:</p>
 <ul>
 <li>不带 <code>_x</code> 的指令是复制栈顶数据并压入栈顶。包括两个指令，<code>dup</code> 和 <code>dup2</code>。<code>dup</code>的系数代表要复制的 Slot 个数。
 <ul>
-<li><code>dup</code> 开头的指令用于复制1个 Slot 的数据。例如1个 int 或1个 reference 类型数据</li>
-<li><code>dup2</code> 开头的指令用于复制2个 Slot 的数据。例如1个 long ,或2个 int ,或1个 int+1 个 float 类型数据</li>
+<li><code>dup</code> 开头的指令用于复制 1 个 Slot 的数据。例如 1 个 int 或 1 个 reference 类型数据</li>
+<li><code>dup2</code> 开头的指令用于复制 2 个 Slot 的数据。例如 1 个 long ,或 2 个 int ,或 1 个 int+1 个 float 类型数据</li>
 </ul>
 </li>
-<li>带 <code>_x</code> 的指令是复制栈顶数据并插入栈顶以下的某个位置。共有4个指令，<code>dup_×1</code> , <code>dup2_×1</code>, <code>dup_x2</code>, <code>dup2_x2</code>。对于带 <code>_x</code> 的复制插入指令，只要将指令的 <code>dup</code> 和 x 的系数相加，结果即为需要插入的位置。因此
+<li>带 <code>_x</code> 的指令是复制栈顶数据并插入栈顶以下的某个位置。共有 4 个指令，<code>dup_×1</code> , <code>dup2_×1</code>, <code>dup_x2</code>, <code>dup2_x2</code>。对于带 <code>_x</code> 的复制插入指令，只要将指令的 <code>dup</code> 和 x 的系数相加，结果即为需要插入的位置。因此
 <ul>
 <li><code>dup_×1</code> 插入位置：1+1=2，即栈顶 2 个 Slot 下面</li>
 <li><code>dup_×2</code> 插入位置：1+2=3，即栈顶 3 个 Slot 下面</li>
@@ -1205,35 +1205,35 @@ Java虚拟机也直接支持以下窄化类型转换:</p>
 </thead>
 <tbody>
 <tr>
-<td>ifeq</td>
+<td><code>ifeq</code></td>
 <td>当栈顶 int 类型数值等于( == ) 0 时跳转</td>
 </tr>
 <tr>
-<td>ifne</td>
+<td><code>ifne</code></td>
 <td>当栈顶 int 类型数值不等于( != ) 0 时跳转</td>
 </tr>
 <tr>
-<td>iflt</td>
+<td><code>iflt</code></td>
 <td>当栈顶 int 类型数值小于( &lt; ) 0 时跳转</td>
 </tr>
 <tr>
-<td>ifle</td>
+<td><code>ifle</code></td>
 <td>当栈顶 int 类型数值小于等于( &lt;= ) 0 时跳转</td>
 </tr>
 <tr>
-<td>ifgt</td>
+<td><code>ifgt</code></td>
 <td>当栈顶 int 类型数值大于( &gt; ) 0 时跳转</td>
 </tr>
 <tr>
-<td>ifge</td>
+<td><code>ifge</code></td>
 <td>当栈顶 int 类型数值大于等于( &gt;= ) 0 时跳转</td>
 </tr>
 <tr>
-<td>ifnull</td>
+<td><code>ifnull</code></td>
 <td>为 null 时跳转</td>
 </tr>
 <tr>
-<td>ifnonnull</td>
+<td><code>ifnonnull</code></td>
 <td>不为 null 时跳转</td>
 </tr>
 </tbody>
@@ -1244,7 +1244,7 @@ Java虚拟机也直接支持以下窄化类型转换:</p>
 <li>与前面运算规则一致：
 <ul>
 <li>对于boolean、byte、char、short 类型的条件分支比较操作，都是使用 int 类型的比较指令完成</li>
-<li>对于long、float、doub1e 类型的条件分支比较操作，则会先执行相应类型的比较运算指令，运算指令会返回一个整型值到操作数栈中，随后再执行 int 类型的条件分支比较操作来完成整个分支跳转</li>
+<li>对于long、float、double 类型的条件分支比较操作，则会先执行相应类型的比较运算指令，运算指令会返回一个整型值到操作数栈中，随后再执行 int 类型的条件分支比较操作来完成整个分支跳转</li>
 </ul>
 </li>
 <li>由于各类型的比较最终都会转为 int 类型的比较操作，所以 Java 虚拟机提供的 int 类型的条件分支指令是最为丰富和强大的。</li>

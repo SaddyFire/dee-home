@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="🔖JVM-05-堆, SaddyFire">
-    <meta name="description" content="堆">
+    <meta name="keywords" content="JVM-05-堆, SaddyFire">
+    <meta name="description" content="堆👍">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>🔖JVM-05-堆 | SaddyFire</title>
+    <title>JVM-05-堆 | SaddyFire</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -267,7 +267,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">🔖JVM-05-堆</h1>
+                    <h1 class="description center-align post-title">JVM-05-堆</h1>
                 </div>
             </div>
         </div>
@@ -323,7 +323,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-19
+                    2024-01-21
                 </div>
                 
 
@@ -365,19 +365,19 @@
 <p><img src="../jvm-sgg5/001.png" alt=""></p>
 <ul>
 <li>
-<p>一个JVM实例只存在一个堆内存，堆也是Java内存管理的核心区域。</p>
+<p>一个 JVM 实例只存在一个堆内存，堆也是 Java 内存管理的核心区域。</p>
 </li>
 <li>
-<p>Java堆区在JVM启动的时候即被创建，其空间大小也就确定了，堆是JVM管理的最大一块内存空间.</p>
+<p>Java 堆区在 JVM 启动的时候即被创建，其空间大小也就确定了，堆是 JVM 管理的最大一块内存空间.</p>
 <ul>
 <li>堆内存的大小是可以调节的。</li>
 </ul>
 </li>
 <li>
-<p>《Java虚拟机规范》规定，堆可以处于<strong>物理上不连续</strong>的内存空间中，但在<strong>逻辑上</strong>它应该被视为<strong>连续的</strong>。</p>
+<p>《Java 虚拟机规范》规定，堆可以处于<strong>物理上不连续</strong>的内存空间中，但在<strong>逻辑上</strong>它应该被视为<strong>连续的</strong>。</p>
 </li>
 <li>
-<p>所有的线程共享Java堆，在这里还可以划分线程私有的缓冲区（Thread Local Allocation Buffer，<strong>TLAB</strong>）。</p>
+<p>所有的线程共享 Java 堆，在这里还可以划分线程私有的缓冲区（Thread Local Allocation Buffer，<strong>TLAB</strong>）。</p>
 </li>
 <li>
 <p>《Java虚拟机规范》中对Java堆的描述是：<strong>所有的对象实例以及数组都应当在运行时分配在堆上</strong>。（The heap is the run-time data area from which memory for all class instances and arrays is allocated）</p>
@@ -391,12 +391,12 @@
 <li>
 <p>在方法结束后，堆中的对象不会马上被移除，仅仅在垃圾收集的时候才会被移除。</p>
 <ul>
-<li>也就是触发了GC的时候，才会进行回收</li>
-<li>如果堆中对象马上被回收，那么用户线程就会收到影响，因为有stop the word</li>
+<li>也就是触发了 GC 的时候，才会进行回收</li>
+<li>如果堆中对象马上被回收，那么用户线程就会收到影响，因为有 stop the word</li>
 </ul>
 </li>
 <li>
-<p>堆，是GC（Garbage Collection，垃圾收集器）执行垃圾回收的重点区域。</p>
+<p>堆，是 GC（Garbage Collection，垃圾收集器）执行垃圾回收的重点区域。</p>
 </li>
 </ul>
 <p><img src="../jvm-sgg5/002.png" alt=""></p>
@@ -412,17 +412,17 @@
 <h2 id="2-设置堆内存大小与-OOM">2-设置堆内存大小与 OOM</h2>
 <ul>
 <li>
-<p>Java堆区用于存储Java对象实例，那么堆的大小在JVM启动时就已经设定好了，大家可以通过选项&quot;-Xms&quot;和&quot;-Xmx&quot;来进行设置。</p>
+<p>Java 堆区用于存储Java对象实例，那么堆的大小在JVM启动时就已经设定好了，大家可以通过选项&quot;-Xms&quot;和&quot;-Xmx&quot;来进行设置。</p>
 <ul>
 <li><code>-Xms</code>用于表示堆区的起始内存，等价于<code>-XX:InitialHeapSize</code></li>
 <li><code>-Xmx</code>则用于表示堆区的最大内存，等价于<code>-XX:MaxHeapSize</code></li>
 </ul>
 </li>
 <li>
-<p>一旦堆区中的内存大小超过<code>-Xmx</code>所指定的最大内存时，将会抛出OutofMemoryError异常。</p>
+<p>一旦堆区中的内存大小超过<code>-Xmx</code>所指定的最大内存时，将会抛出 OutofMemoryError 异常。</p>
 </li>
 <li>
-<p>通常会将-Xms和-Xmx两个参数配置相同的值, 其目的<strong>是为了能够在Java垃圾回收机制清理完堆区后不需要重新分隔计算的堆区的大小, 从而提高性能</strong></p>
+<p>通常会将 -Xms 和 -Xmx 两个参数配置相同的值, 其目的<strong>是为了能够在 Java 垃圾回收机制清理完堆区后不需要重新分隔计算的堆区的大小, 从而提高性能</strong></p>
 </li>
 <li>
 <p>默认情况下:</p>
@@ -502,14 +502,14 @@ FGC: full GC的次数
 <p><img src="../jvm-sgg5/011.png" alt=""></p>
 <h2 id="3-年轻代与老年代">3-年轻代与老年代</h2>
 <ul>
-<li>存储在JVM中的Java对象可以被划分为两类：
+<li>存储在 JVM 中的 Java 对象可以被划分为两类：
 <ul>
 <li>一类是生命周期较短的瞬时对象，这类对象的创建和消亡都非常迅速</li>
-<li>另外一类对象的生命周期却非常长，在某些极端的情况下还能够与JVM的生命周期保持一致</li>
+<li>另外一类对象的生命周期却非常长，在某些极端的情况下还能够与 JVM 的生命周期保持一致</li>
 </ul>
 </li>
-<li>Java堆区进一步细分的话，可以划分为年轻代（YoungGen）和老年代（OldGen）</li>
-<li>其中年轻代又可以划分为Eden空间、Survivor0空间和Survivor1空间（有时也叫做from区、to区）</li>
+<li>Java 堆区进一步细分的话，可以划分为年轻代（YoungGen）和老年代（OldGen）</li>
+<li>其中年轻代又可以划分为 Eden 空间、Survivor0 空间和 Survivor1 空间（有时也叫做 from 区、to 区）</li>
 </ul>
 <p><img src="../jvm-sgg5/012.png" alt="堆空间结构"></p>
 <p><img src="../jvm-sgg5/013.png" alt=""></p>
@@ -518,15 +518,15 @@ FGC: full GC的次数
 <p>配置新生代与老年代在堆结构的占比</p>
 <ul>
 <li>
-<p>默认<code>-XX:NewRatio=2</code>，表示新生代占1，老年代占2，新生代占整个堆的1/3</p>
+<p>默认<code>-XX:NewRatio=2</code>，表示新生代占1，老年代占2，新生代占整个堆的 1/3</p>
 </li>
 <li>
-<p>可以修改<code>-XX:NewRatio=4</code>，表示新生代占1，老年代占4，新生代占整个堆的1/5</p>
+<p>可以修改<code>-XX:NewRatio=4</code>，表示新生代占1，老年代占4，新生代占整个堆的 1/5</p>
 </li>
 </ul>
 </li>
 <li>
-<p>在HotSpot中，Eden空间和另外两个survivor空间缺省所占的比例是8 : 1 : 1</p>
+<p>在 HotSpot 中，Eden空间和另外两个 survivor 空间缺省所占的比例是 8 : 1 : 1</p>
 </li>
 </ul>
 <blockquote>
@@ -534,26 +534,26 @@ FGC: full GC的次数
 </blockquote>
 <ul>
 <li>
-<p>当然开发人员可以通过选项<code>-XX:SurvivorRatio</code>调整这个空间比例。比如<code>-XX:SurvivorRatio=8</code></p>
+<p>当然开发人员可以通过选项 <code>-XX:SurvivorRatio</code> 调整这个空间比例。比如 <code>-XX:SurvivorRatio=8</code></p>
 </li>
 <li>
-<p>几乎所有的Java对象都是在Eden区被new出来的。</p>
+<p>几乎所有的 Java 对象都是在 Eden 区被 new 出来的。</p>
 </li>
 <li>
-<p>绝大部分的Java对象的销毁都在新生代进行了（有些大的对象在Eden区无法存储时候，将直接进入老年代），IBM公司的专门研究表明，新生代中80%的对象都是&quot;朝生夕死&quot;的。</p>
+<p>绝大部分的 Java 对象的销毁都在新生代进行了（有些大的对象在 Eden 区无法存储时候，将直接进入老年代），IBM 公司的专门研究表明，新生代中 80% 的对象都是&quot;朝生夕死&quot;的。</p>
 </li>
 <li>
-<p>可以使用选项<code>-Xmn</code>设置新生代最大内存大小，但这个参数一般使用默认值就可以了。</p>
+<p>可以使用选项 <code>-Xmn</code> 设置新生代最大内存大小，但这个参数一般使用默认值就可以了。</p>
 </li>
 </ul>
 <h2 id="4-图解对象分配过程">4-图解对象分配过程</h2>
 <blockquote>
-<p>为新对象分配内存是一件非常严谨和复杂的任务，JVM的设计者们不仅需要考虑内存如何分配、在哪里分配等问题，并且由于内存分配算法与内存回收算法密切相关，所以还需要考虑GC执行完内存回收后是否会在内存空间中产生内存碎片。</p>
+<p>为新对象分配内存是一件非常严谨和复杂的任务，JVM 的设计者们不仅需要考虑内存如何分配、在哪里分配等问题，并且由于内存分配算法与内存回收算法密切相关，所以还需要考虑 GC 执行完内存回收后是否会在内存空间中产生内存碎片。</p>
 </blockquote>
 <h3 id="具体过程">具体过程</h3>
 <ol>
-<li>new的对象先放伊甸园区。此区有大小限制。</li>
-<li>当伊甸园的空间填满时，程序又需要创建对象，JVM的垃圾回收器将对伊甸园区进行垃圾回收（MinorGC），将伊甸园区中的不再被其他对象所引用的对象进行销毁。再加载新的对象放到伊甸园区。</li>
+<li>new 的对象先放伊甸园区。此区有大小限制。</li>
+<li>当伊甸园的空间填满时，程序又需要创建对象，JVM 的垃圾回收器将对伊甸园区进行垃圾回收（MinorGC），将伊甸园区中的不再被其他对象所引用的对象进行销毁。再加载新的对象放到伊甸园区。</li>
 <li>然后将伊甸园中的剩余对象移动到幸存者0区。</li>
 </ol>
 <p><img src="../jvm-sgg5/014.png" alt="清除红色,剩余放入S0"></p>
@@ -562,24 +562,24 @@ FGC: full GC的次数
 </ol>
 <p><img src="../jvm-sgg5/015.png" alt="清除红色,S0放置S1"></p>
 <ol start="5">
-<li>如果再次经历垃圾回收，此时会重新放回幸存者0区，接着再去幸存者1区。</li>
+<li>如果再次经历垃圾回收，此时会重新放回幸存者0区，接着再去幸存者 1 区。</li>
 </ol>
 <p><img src="../jvm-sgg5/016.png" alt="继续回到S0"></p>
 <ol start="5">
-<li>啥时候能去养老区呢？可以设置次数。默认是15次。可以设置新生区进入养老区的年龄限制，设置 JVM 参数：<code>-XX:MaxTenuringThreshold=N</code> 进行设置</li>
+<li>啥时候能去养老区呢？可以设置次数。默认是 15 次。可以设置新生区进入养老区的年龄限制，设置 JVM 参数：<code>-XX:MaxTenuringThreshold=N</code> 进行设置</li>
 </ol>
 <p><img src="../jvm-sgg5/017.png" alt="当次数达到15次后晋升至老年代"></p>
 <ol start="7">
 <li>
-<p>在养老区，相对悠闲。当养老区内存不足时，再次触发GC：Major GC，进行养老区的内存清理</p>
+<p>在养老区，相对悠闲。当养老区内存不足时，再次触发 GC：Major GC，进行养老区的内存清理</p>
 </li>
 <li>
-<p>若养老区执行了Major GC之后，发现依然无法进行对象的保存，就会产生OOM异常。</p>
+<p>若养老区执行了 Major GC 之后，发现依然无法进行对象的保存，就会产生 OOM 异常。</p>
 </li>
 </ol>
 <h3 id="总结">总结</h3>
 <ul>
-<li>针对幸存者S0, S1区的总结: 复制之后有交换, 谁空谁是to.</li>
+<li>针对幸存者 S0, S1 区的总结: 复制之后有交换, 谁空谁是 to.</li>
 <li>关于垃圾回收: 频繁在新生区收集, 很少在养老区收集, 几乎不在永久区/元空间收集.</li>
 </ul>
 <h3 id="特殊情况说明">特殊情况说明</h3>
@@ -594,66 +594,66 @@ FGC: full GC的次数
 <li>将对象放到老年区又有两种情况：
 <ul>
 <li>如果 Eden 执行了 YGC 还是无法放不下该对象，那没得办法，只能说明是超大对象，只能直接放到老年代</li>
-<li>那万一老年代都放不下，则先触发FullGC ，再看看能不能放下，放得下最好，但如果还是放不下，那只能报 OOM</li>
+<li>那万一老年代都放不下，则先触发 FullGC ，再看看能不能放下，放得下最好，但如果还是放不下，那只能报 OOM</li>
 </ul>
 </li>
 <li>如果 Eden 区满了，将对象往幸存区拷贝时，发现幸存区放不下啦，那只能便宜了某些新对象，让他们直接晋升至老年区</li>
 </ul>
 <h2 id="5-GC-Minor-Major-Full">5-GC(Minor/Major/Full)</h2>
 <ul>
-<li>我们都知道，JVM的调优的一个环节，也就是垃圾收集，我们需要尽量的避免垃圾回收，因为在垃圾回收的过程中，容易出现STW（Stop the World）的问题，<strong>而 Major GC 和 Full GC出现STW的时间，是Minor GC的10倍以上</strong></li>
-<li>JVM在进行GC时，并非每次都对上面三个内存区域一起回收的，大部分时候回收的都是指新生代。针对Hotspot VM的实现，它里面的GC按照回收区域又分为两大种类型：一种是部分收集（Partial GC），一种是整堆收集（FullGC）</li>
-<li>部分收集：不是完整收集整个Java堆的垃圾收集。其中又分为：
+<li>我们都知道，JVM 的调优的一个环节，也就是垃圾收集，我们需要尽量的避免垃圾回收，因为在垃圾回收的过程中，容易出现 STW（Stop the World）的问题，<strong>而 Major GC 和 Full GC出现STW的时间，是Minor GC的10倍以上</strong></li>
+<li>JVM 在进行 GC 时，并非每次都对上面三个内存区域一起回收的，大部分时候回收的都是指新生代。针对 Hotspot VM 的实现，它里面的 GC 按照回收区域又分为两大种类型：一种是部分收集（Partial GC），一种是整堆收集（FullGC）</li>
+<li>部分收集：不是完整收集整个 Java 堆的垃圾收集。其中又分为：
 <ul>
 <li><strong>新生代收集</strong>（Minor GC/Young GC）：只是新生代（Eden，s0，s1）的垃圾收集</li>
 <li><strong>老年代收集</strong>（Major GC/Old GC）：只是老年代的圾收集。</li>
-<li>目前，只有CMS GC会有单独收集老年代的行为。</li>
-<li>注意，很多时候Major GC会和Full GC混淆使用，需要具体分辨是老年代回收还是整堆回收。</li>
-<li>混合收集（Mixed GC）：收集整个新生代以及部分老年代的垃圾收集。目前，只有G1 GC会有这种行为</li>
+<li>目前，只有 CMS GC 会有单独收集老年代的行为。</li>
+<li>注意，很多时候 Major GC 会和 Full GC 混淆使用，需要具体分辨是老年代回收还是整堆回收。</li>
+<li>混合收集（Mixed GC）：收集整个新生代以及部分老年代的垃圾收集。目前，只有 G1 GC 会有这种行为</li>
 </ul>
 </li>
-<li><strong>整堆收集</strong>（Full GC）：收集整个java堆和方法区的垃圾收集。</li>
+<li><strong>整堆收集</strong>（Full GC）：收集整个 Java 堆和方法区的垃圾收集。</li>
 </ul>
 <h3 id="Young-Minor-GC">Young/Minor GC</h3>
 <h4 id="最简单的分代式GC策略的触发条件">最简单的分代式GC策略的触发条件</h4>
 <p><strong>年轻代 GC（Minor GC）触发机制</strong></p>
 <ul>
 <li>
-<p>当年轻代空间不足时，就会触发Minor GC，这里的年轻代满指的是Eden代满。Survivor满不会主动引发GC，在Eden区满的时候，会顺带触发s0区的GC，也就是被动触发GC（每次Minor GC会清理年轻代的内存）</p>
+<p>当年轻代空间不足时，就会触发 Minor GC，这里的年轻代满指的是 Eden 代满。Survivor 满不会主动引发 GC，在 Eden 区满的时候，会顺带触发 s0 区的 GC，也就是被动触发 GC（每次 Minor GC 会清理年轻代的内存）</p>
 </li>
 <li>
-<p>因为Java对象<strong>大多都具备朝生夕灭</strong>的特性，所以Minor GC非常频繁，一般回收速度也比较快。这一定义既清晰又易于理解。</p>
+<p>因为 Java 对象<strong>大多都具备朝生夕灭</strong>的特性，所以 Minor GC 非常频繁，一般回收速度也比较快。这一定义既清晰又易于理解。</p>
 </li>
 <li>
-<p>Minor GC会引发STW，暂停其它用户的线程，等垃圾回收结束，用户线程才恢复运行</p>
+<p>Minor GC 会引发 STW，暂停其它用户的线程，等垃圾回收结束，用户线程才恢复运行</p>
 </li>
 </ul>
 <p><img src="../jvm-sgg5/019.png" alt=""></p>
 <h3 id="Major-GC">Major GC</h3>
 <ul>
 <li>
-<p>指发生在老年代的GC，对象从老年代消失时，我们说 <code>Major GC</code> 或 <code>Full GC</code> 发生了</p>
+<p>指发生在老年代的 GC，对象从老年代消失时，我们说 <code>Major GC</code> 或 <code>Full GC</code> 发生了</p>
 </li>
 <li>
-<p>出现了<code>Major GC</code>，经常会伴随至少一次的<code>Minor GC</code>。（但非绝对的，在Parallel Scavenge收集器的收集策略里就有直接进行<code>Major GC</code>的策略选择过程）</p>
+<p>出现了<code>Major GC</code>，经常会伴随至少一次的 <code>Minor GC</code>。（但非绝对的，在 Parallel Scavenge 收集器的收集策略里就有直接进行 <code>Major GC</code> 的策略选择过程）</p>
 <ul>
-<li>也就是在老年代空间不足时，会先尝试触发<code>Minor GC</code>，如果之后空间还不足，则触发<code>Major GC</code></li>
+<li>也就是在老年代空间不足时，会先尝试触发 <code>Minor GC</code>，如果之后空间还不足，则触发 <code>Major GC</code></li>
 </ul>
 </li>
 <li>
-<p><code>Major GC</code>的速度一般会比Minor GC慢10倍以上，STW的时间更长。</p>
+<p><code>Major GC</code> 的速度一般会比 Minor GC 慢10倍以上，STW 的时间更长。</p>
 </li>
 <li>
-<p>如果<code>Major GC</code>后，内存还不足，就报OOM了</p>
+<p>如果 <code>Major GC</code> 后，内存还不足，就报 OOM 了</p>
 </li>
 </ul>
 <h3 id="Full-GC">Full GC</h3>
 <ul>
-<li>调用System.gc()时，系统建议执行FullGC，但是不必然执行</li>
+<li>调用 System.gc() 时，系统建议执行 FullGC，但是不必然执行</li>
 <li>老年代空间不足</li>
 <li>方法区空间不足</li>
-<li>通过Minor GC后进入老年代的平均大小大于老年代的可用内存</li>
-<li>由Eden区、survivor space0（From Space）区向survivor space1（To Space）区复制时，对象大小大于To Space可用内存，则把该对象转存到老年代，且老年代的可用内存小于该对象大小</li>
+<li>通过 Minor GC 后进入老年代的平均大小大于老年代的可用内存</li>
+<li>由Eden区、survivor space0（From Space）区向 survivor space1（To Space）区复制时，对象大小大于 To Space 可用内存，则把该对象转存到老年代，且老年代的可用内存小于该对象大小</li>
 </ul>
 <blockquote>
 <p>说明: Full GC 是开发或调优中尽量要避免的. 这样暂时时间会短一些.</p>
@@ -685,19 +685,19 @@ FGC: full GC的次数
 <p><img src="../jvm-sgg5/020.png" alt="日志分析"></p>
 <h2 id="6-堆空间分代思想">6-堆空间分代思想</h2>
 <blockquote>
-<p>为什么要把Java堆分代？不分代就不能正常工作了吗？</p>
+<p>为什么要把 Java 堆分代？不分代就不能正常工作了吗？</p>
 </blockquote>
 <ul>
 <li>
-<p>经研究，不同对象的生命周期不同。70%-99%的对象是临时对象。</p>
+<p>经研究，不同对象的生命周期不同。70%-99% 的对象是临时对象。</p>
 <ul>
-<li>新生代：有Eden、两块大小相同的survivor（又称为from/to或s0/s1）构成，to总为空。</li>
-<li>老年代：存放新生代中经历多次GC仍然存活的对象。</li>
+<li>新生代：有 Eden、两块大小相同的 survivor（又称为 from/to 或 s0/s1）构成，to 总为空。</li>
+<li>老年代：存放新生代中经历多次 GC 仍然存活的对象。</li>
 </ul>
 </li>
 <li>
-<p>其实不分代完全可以，分代的唯一理由就是优化GC性能. 如果没有分代，那所有的对象都在一块，就如同把一个学校的人都关在一个教室。GC的时候要找到哪些对象没用，这样就会对堆的所有区域进行扫描。（性能低）</p>
-<p>而很多对象都是朝生夕死的，如果分代的话，把新创建的对象放到某一地方，当GC的时候先把这块存储“朝生夕死”对象的区域进行回收，这样就会腾出很大的空间出来。（多回收新生代，少回收老年代，性能会提高很多）</p>
+<p>其实不分代完全可以，分代的唯一理由就是优化 GC 性能. 如果没有分代，那所有的对象都在一块，就如同把一个学校的人都关在一个教室。GC 的时候要找到哪些对象没用，这样就会对堆的所有区域进行扫描。（性能低）</p>
+<p>而很多对象都是朝生夕死的，如果分代的话，把新创建的对象放到某一地方，当 GC 的时候先把这块存储“朝生夕死”对象的区域进行回收，这样就会腾出很大的空间出来。（多回收新生代，少回收老年代，性能会提高很多）</p>
 </li>
 </ul>
 <h2 id="7-对象内存分配策略">7-对象内存分配策略</h2>
@@ -705,15 +705,15 @@ FGC: full GC的次数
 <p>又称 对象提升(Promotion)规则</p>
 </blockquote>
 <ul>
-<li>如果对象在Eden出生并经过第一次<code>Minor GC</code>后仍然存活，并且能被Survivor容纳的话，将被移动到Survivor空间中，并将对象年龄设为1。</li>
-<li>对象在Survivor区中每熬过一次<code>Minor GC</code>，年龄就增加1岁，当它的年龄增加到一定程度（默认为15岁，其实每个JVM、每个GC都有所不同）时，就会被晋升到老年代</li>
-<li>对象晋升老年代的年龄阀值，可以通过选项<code>-XX:MaxTenuringThreshold</code>来设置</li>
+<li>如果对象在 Eden 出生并经过第一次 <code>Minor GC</code> 后仍然存活，并且能被 Survivor 容纳的话，将被移动到 Survivor 空间中，并将对象年龄设为 1。</li>
+<li>对象在 Survivor 区中每熬过一次 <code>Minor GC</code>，年龄就增加 1 岁，当它的年龄增加到一定程度（默认为 15 岁，其实每个 JVM、每个 GC 都有所不同）时，就会被晋升到老年代</li>
+<li>对象晋升老年代的年龄阀值，可以通过选项 <code>-XX:MaxTenuringThreshold</code> 来设置</li>
 </ul>
 <p><strong>针对不同年龄段的对象分配原则如下所示：</strong></p>
 <ul>
-<li><strong>优先分配到Eden</strong>
+<li><strong>优先分配到 Eden</strong>
 <ul>
-<li>开发中比较长的<strong>字符串</strong>或者<strong>数组</strong>，会直接存在老年代，但是因为新创建的对象都是朝生夕死的，所以这个大对象可能也很快被回收，但是因为老年代触发Major GC的次数比 Minor GC要更少，因此可能回收起来就会比较慢</li>
+<li>开发中比较长的<strong>字符串</strong>或者<strong>数组</strong>，会直接存在老年代，但是因为新创建的对象都是朝生夕死的，所以这个大对象可能也很快被回收，但是因为老年代触发 Major GC 的次数比 Minor GC 要更少，因此可能回收起来就会比较慢</li>
 </ul>
 </li>
 <li><strong>大对象直接分配到老年代</strong>
@@ -724,7 +724,7 @@ FGC: full GC的次数
 <li><strong>长期存活的对象分配到老年代</strong></li>
 <li><strong>动态对象年龄判断</strong>
 <ul>
-<li>如果Survivor区中相同年龄的所有对象大小的总和大于Survivor空间的一半，年龄大于或等于该年龄的对象可以直接进入老年代，无须等到<code>MaxTenuringThreshold</code>中要求的年龄。</li>
+<li>如果 Survivor 区中相同年龄的所有对象大小的总和大于 Survivor 空间的一半，年龄大于或等于该年龄的对象可以直接进入老年代，无须等到 <code>MaxTenuringThreshold</code> 中要求的年龄。</li>
 </ul>
 </li>
 <li><strong>空间分配担保</strong>
@@ -738,35 +738,35 @@ FGC: full GC的次数
 <p>(Thread Local Allocation Buffer)</p>
 <ul>
 <li>堆区是线程共享区域，任何线程都可以访问到堆区中的共享数据</li>
-<li>由于对象实例的创建在JVM中非常频繁，因此在并发环境下从堆区中划分内存空间是线程不安全的</li>
+<li>由于对象实例的创建在 JVM 中非常频繁，因此在并发环境下从堆区中划分内存空间是线程不安全的</li>
 <li>为避免多个线程操作同一地址，需要使用<strong>加锁等机制</strong>，进而影响分配速度。</li>
 </ul>
 <h3 id="什么是TLAB">什么是TLAB</h3>
 <ul>
-<li>从内存模型而不是垃圾收集的角度，对Eden区域继续进行划分，<strong>JVM为每个线程分配了一个私有缓存区域，它包含在Eden空间内</strong>。</li>
-<li>多线程同时分配内存时，使用TLAB可以避免一系列的非线程安全问题，同时还能够提升内存分配的吞吐量，因此我们可以将这种内存分配方式称之为<strong>快速分配策略</strong>。</li>
-<li>据我所知所有OpenJDK衍生出来的JVM都提供了TLAB的设计。</li>
+<li>从内存模型而不是垃圾收集的角度，对 Eden 区域继续进行划分，<strong>JVM 为每个线程分配了一个私有缓存区域，它包含在 Eden 空间内</strong>。</li>
+<li>多线程同时分配内存时，使用 TLAB 可以避免一系列的非线程安全问题，同时还能够提升内存分配的吞吐量，因此我们可以将这种内存分配方式称之为<strong>快速分配策略</strong>。</li>
+<li>据我所知所有 OpenJDK 衍生出来的 JVM 都提供了 TLAB 的设计。</li>
 </ul>
 <p><img src="../jvm-sgg5/021.png" alt=""></p>
 <ul>
 <li>
-<p>每个线程都有一个TLAB空间</p>
-<p>当一个线程的TLAB存满时，可以使用公共区域（蓝色）的</p>
+<p>每个线程都有一个 TLAB 空间</p>
+<p>当一个线程的 TLAB 存满时，可以使用公共区域（蓝色）的</p>
 </li>
 </ul>
 <h3 id="TLAB再说明">TLAB再说明</h3>
 <ul>
 <li>
-<p>尽管不是所有的对象实例都能够在TLAB中成功分配内存，但<strong>JVM确实是将TLAB作为内存分配的首选</strong>。</p>
+<p>尽管不是所有的对象实例都能够在TLAB中成功分配内存，但 <strong>JVM确实是将 TLAB 作为内存分配的首选</strong>。</p>
 </li>
 <li>
-<p>在程序中，开发人员可以通过选项“<strong>-XX:UseTLAB</strong>”设置是否开启TLAB空间。</p>
+<p>在程序中，开发人员可以通过选项“<strong>-XX:UseTLAB</strong>”设置是否开启 TLAB 空间。</p>
 </li>
 <li>
-<p>默认情况下，TLAB空间的内存非常小，仅占有整个Eden空间的1%，当然我们可以通过选项<code>-XX:TLABWasteTargetPercent</code>设置TLAB空间所占用Eden空间的百分比大小。</p>
+<p>默认情况下，TLAB 空间的内存非常小，仅占有整个 Eden 空间的 1%，当然我们可以通过选项 <code>-XX:TLABWasteTargetPercent</code> 设置 TLAB 空间所占用 Eden 空间的百分比大小。</p>
 </li>
 <li>
-<p>一旦对象在TLAB空间分配内存失败时，JVM就会尝试着通过<strong>使用加锁机制确保数据操作的原子性</strong>，从而直接在Eden空间中分配内存。</p>
+<p>一旦对象在 TLAB 空间分配内存失败时，JVM 就会尝试着通过<strong>使用加锁机制确保数据操作的原子性</strong>，从而直接在 Eden 空间中分配内存。</p>
 </li>
 </ul>
 <p><img src="../jvm-sgg5/022.png" alt="TLAB分配过程"></p>
@@ -786,42 +786,39 @@ jinfo <span class="token parameter variable">-flag</span> SurvivorRatio 进程id
 <span class="token parameter variable">-verbose:gc</span>  打印gc简要信息
 <span class="token parameter variable">-XX:HandlePromotionFailure</span>  是否设置空间分配担保<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="空间分配担保">空间分配担保</h3>
-<p>在发生Minor GC之前，虚拟机会检查老年代最大可用的连续空间是否大于新生代所有对象的总空间。</p>
+<p>在发生 Minor GC 之前，虚拟机会检查老年代最大可用的连续空间是否大于新生代所有对象的总空间。</p>
 <ul>
-<li>如果大于，则此次Minor GC是安全的</li>
-<li>如果小于，则虚拟机会查看<code>-XX:HandlePromotionFailure</code>设置值是否允担保失败
+<li>如果大于，则此次 Minor GC 是安全的</li>
+<li>如果小于，则虚拟机会查看 <code>-XX:HandlePromotionFailure</code> 设置值是否允担保失败
 <ul>
-<li>如果HandlePromotionFailure=true，那么会继续检查<strong>老年代最大可用连续空间是否大于历次晋升到老年代的对象的平均大小</strong>
+<li>如果 HandlePromotionFailure=true，那么会继续检查<strong>老年代最大可用连续空间是否大于历次晋升到老年代的对象的平均大小</strong>
 <ul>
-<li>如果大于，则尝试进行一次Minor GC，但这次Minor GC依然是有风险的</li>
-<li>如果小于，则进行一次Full GC</li>
+<li>如果大于，则尝试进行一次 Minor GC，但这次 Minor GC 依然是有风险的</li>
+<li>如果小于，则进行一次 Full GC</li>
 </ul>
 </li>
-<li>如果HandlePromotionFailure=false，则进行一次Full GC</li>
+<li>如果 HandlePromotionFailure=false，则进行一次 Full GC</li>
 </ul>
 </li>
 </ul>
 <ul>
-<li>在JDK6 Update 24之后，<code>HandlePromotionFailure</code>参数不会再影响到虚拟机的空间分配担保策略，观察openJDK中的源码变化，虽然源码中还定义了<code>HandlePromotionFailure</code>参数，但是在代码中已经不会再使用它。</li>
-<li>JDK6 Update 24之后的规则变为<strong>只要老年代的连续空间大于新生代对象总大小或者历次晋升的平均大小就会进行Minor GC</strong>, 否则将进行Full GC. 即 <code>HandlePromotionFailure=true</code></li>
+<li>在 JDK6 Update 24 之后，<code>HandlePromotionFailure</code>参数不会再影响到虚拟机的空间分配担保策略，观察 openJDK 中的源码变化，虽然源码中还定义了 <code>HandlePromotionFailure</code> 参数，但是在代码中已经不会再使用它。</li>
+<li>JDK6 Update 24 之后的规则变为<strong>只要老年代的连续空间大于新生代对象总大小或者历次晋升的平均大小就会进行 Minor GC</strong>, 否则将进行 Full GC. 即 <code>HandlePromotionFailure=true</code></li>
 </ul>
 <h2 id="10-对象存储栈上分配–逃逸分析">10-对象存储栈上分配–逃逸分析</h2>
 <ul>
-<li>
-<p>随着JIT编译期的发展与<strong>逃逸分析技术</strong>逐渐成熟，<strong>栈上分配、标量替换</strong>优化技术将会导致一些微妙的变化，所有的对象都分配到堆上也渐渐变得不那么&quot;绝对&quot;了。</p>
-</li>
-<li>
-<p>在Java虚拟机中，对象是在Java堆中分配内存的，这是一个普遍的常识。但是，有一种特殊情况，那就是<strong>如果经过逃逸分析(Escape Analysis)后发现，一个对象并没有逃逸出方法的话，那么就可能被优化成栈上分配</strong>。这样就无需在堆上分配内存，也无须进行垃圾回收了。这也是最常见的堆外存储技术。</p>
-</li>
-<li>
-<p>此外，前面提到的基于OpenJDK深度定制的TaoBao VM，其中创新的GCIH（GC invisible heap）技术实现off-heap，将生命周期较长的Java对象从heap中移至heap外，并且GC不能管理GCIH内部的Java对象，以此达到降低GC的回收频率和提升GC的回收效率的目的。</p>
+<li>随着JIT编译期的发展与<strong>逃逸分析技术</strong>逐渐成熟，<strong>栈上分配、标量替换</strong>优化技术将会导致一些微妙的变化，所有的对象都分配到堆上也渐渐变得不那么&quot;绝对&quot;了。</li>
+<li>在Java虚拟机中，对象是在 Java 堆中分配内存的，这是一个普遍的常识。但是，有一种特殊情况，那就是<strong>如果经过逃逸分析(Escape Analysis)后发现，一个对象并没有逃逸出方法的话，那么就可能被优化成栈上分配</strong>。这样就无需在堆上分配内存，也无须进行垃圾回收了。这也是最常见的堆外存储技术。
+<ul>
+<li>此外，前面提到的基于 OpenJDK 深度定制的 TaoBao VM，其中创新的 GCIH（GC invisible heap）技术实现 off-heap，将生命周期较长的Java对象从 heap 中移至 heap 外，并且 GC 不能管理 GCIH 内部的 Java 对象，以此达到降低 GC 的回收频率和提升 GC 的回收效率的目的。</li>
+</ul>
 </li>
 </ul>
 <h3 id="逃逸分析概述">逃逸分析概述</h3>
 <ul>
 <li>如何将堆上的对象分配到栈，需要使用逃逸分析手段。</li>
-<li>这是一种可以有效减少Java程序中同步负载和内存堆分配压力的跨函数全局数据流分析算法。</li>
-<li>通过逃逸分析，Java Hotspot编译器能够分析出一个新的对象的引用的使用范围从而决定是否要将这个对象分配到堆上。</li>
+<li>这是一种可以有效减少 Java 程序中同步负载和内存堆分配压力的跨函数全局数据流分析算法。</li>
+<li>通过逃逸分析，Java Hotspot 编译器能够分析出一个新的对象的引用的使用范围从而决定是否要将这个对象分配到堆上。</li>
 <li>逃逸分析的基本行为就是分析对象动态作用域：
 <ul>
 <li>当一个对象在方法中被定义后，对象只在方法内部使用，则认为没有发生逃逸。</li>
@@ -831,7 +828,7 @@ jinfo <span class="token parameter variable">-flag</span> SurvivorRatio 进程id
 </ul>
 <h3 id="逃逸分析举例">逃逸分析举例</h3>
 <ul>
-<li>没有发生逃逸的对象，则可以分配到栈（无线程安全问题）上，随着方法执行的结束，栈空间就被移除（也就无需GC）</li>
+<li>没有发生逃逸的对象，则可以分配到栈（无线程安全问题）上，随着方法执行的结束，栈空间就被移除（也就无需 GC）</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 此方法内 v 的作用空间只在方法内部, 因此可以将他放在栈中</span>
 <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">my_method</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -849,7 +846,7 @@ jinfo <span class="token parameter variable">-flag</span> SurvivorRatio 进程id
     sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>s2<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> sb<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>如果想要StringBuffer sb不逃出方法, 可以改写如下:</p>
+<p>如果想要 StringBuffer sb 不逃出方法, 可以改写如下:</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">String</span> <span class="token function">createStringBuffer</span><span class="token punctuation">(</span><span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token class-name">StringBuffer</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -903,7 +900,7 @@ jinfo <span class="token parameter variable">-flag</span> SurvivorRatio 进程id
 <ul>
 <li><strong>栈上分配</strong>: 将堆分配转化为栈分配. 如果一个对象在子程序中被分配, 要使指向该对象的指针永远不会发生逃逸, 对象可能是栈上分配的候选, 而不是堆上分配</li>
 <li><strong>同步省略</strong>: 如果一个对象被发现只有一个线程被访问到，那么对于这个对象的操作可以不考虑同步.</li>
-<li><strong>分离对象或标量替换</strong>: 有的对象可能不需要作为一个连续的内存结构存在也可以被访问到, 那么对象的部分(或全部)可以不存储在内存, 而是存储在CPU寄存器中.</li>
+<li><strong>分离对象或标量替换</strong>: 有的对象可能不需要作为一个连续的内存结构存在也可以被访问到, 那么对象的部分(或全部)可以不存储在内存, 而是存储在 CPU 寄存器中.</li>
 </ul>
 <h4 id="栈上分配">栈上分配</h4>
 <ul>
@@ -935,7 +932,7 @@ jinfo <span class="token parameter variable">-flag</span> SurvivorRatio 进程id
 <p>相对的，那些还可以分解的数据叫做<strong>聚合量（Aggregate）</strong>，Java中的对象就是聚合量，因为他可以分解成其他聚合量和标量。</p>
 </li>
 <li>
-<p>在JIT阶段，如果经过逃逸分析，发现一个对象不会被外界访问的话，那么经过JIT优化，就会把这个对象拆解成若干个其中包含的若干个成员变量来代替。这个过程就是标量替换。</p>
+<p>在 JIT 阶段，如果经过逃逸分析，发现一个对象不会被外界访问的话，那么经过 JIT 优化，就会把这个对象拆解成若干个其中包含的若干个成员变量来代替。这个过程就是标量替换。</p>
 </li>
 </ul>
 <p><strong>demo</strong></p>
@@ -966,20 +963,20 @@ jinfo <span class="token parameter variable">-flag</span> SurvivorRatio 进程id
 <p><code>-server -Xmx100m -Xms100m -XX:+DoEscapeAnalysis -XX:+PrintGC -XX:+EliminateAllocations</code></p>
 <p>这里设置参数如下：</p>
 <ul>
-<li>参数 <code>-server</code>：启动Server模式，因为在server模式下，才可以启用逃逸分析。</li>
+<li>参数 <code>-server</code>：启动 Server 模式，因为在 Server 模式下，才可以启用逃逸分析。</li>
 <li>参数 <code>-XX:+DoEscapeAnalysis</code>：启用逃逸分析</li>
 <li>参数 <code>-Xmx10m</code>：指定了堆空间最大为10MB</li>
 <li>参数 <code>-XX:+PrintGC</code>：将打印GC日志。</li>
-<li>参数 <code>-XX:+EliminateAllocations</code>：开启了标量替换（默认打开），允许将对象打散分配在栈上，比如对象拥有id和name两个字段，那么这两个字段将会被视为两个独立的局部变量进行分配</li>
+<li>参数 <code>-XX:+EliminateAllocations</code>：开启了标量替换（默认打开），允许将对象打散分配在栈上，比如对象拥有 id 和 name两个字段，那么这两个字段将会被视为两个独立的局部变量进行分配</li>
 </ul>
 <h4 id="逃逸分析的不足">逃逸分析的不足</h4>
 <ul>
-<li>关于逃逸分析的论文在1999年就已经发表了，但直到JDK1.6才有实现，而且这项技术到如今也并不是十分成熟的。</li>
+<li>关于逃逸分析的论文在 1999 年就已经发表了，但直到 JDK1.6 才有实现，而且这项技术到如今也并不是十分成熟的。</li>
 <li>其根本原因就是无法保证逃逸分析的性能消耗一定能高于他的消耗。虽然经过逃逸分析可以做标量替换、栈上分配、和锁消除。但是逃逸分析自身也是需要进行一系列复杂的分析的，这其实也是一个相对耗时的过程。</li>
 <li>一个极端的例子，就是经过逃逸分析之后，发现没有一个对象是不逃逸的。那这个逃逸分析的过程就白白浪费掉了。</li>
 <li>虽然这项技术并不十分成熟，但是它也是即时编译器优化技术中一个十分重要的手段。</li>
-<li>注意到有一些观点，认为通过逃逸分析，JVM会在栈上分配那些不会逃逸的对象，这在理论上是可行的，但是取决于JVM设计者的选择。据我所知，<strong>Oracle Hotspot JVM中并未这么做</strong>（刚刚演示的效果，是因为HotSpot实现了标量替换），这一点在逃逸分析相关的文档里已经说明，<strong>所以可以明确在HotSpot虚拟机上，所有的对象实例都是创建在堆上</strong>。</li>
-<li>目前很多书籍还是基于JDK7以前的版本，JDK已经发生了很大变化，intern字符串的缓存和静态变量曾经都被分配在永久代上，而永久代已经被元数据区取代。但是<strong>intern字符串缓存和静态变量并不是被转移到元数据区，而是直接在堆上分配</strong>，<strong>所以这一点同样符合前面一点的结论：对象实例都是分配在堆上</strong>。</li>
+<li>注意到有一些观点，认为通过逃逸分析，JVM 会在栈上分配那些不会逃逸的对象，这在理论上是可行的，但是取决于 JVM 设计者的选择。据我所知，<strong>Oracle Hotspot JVM 中并未这么做</strong>（刚刚演示的效果，是因为HotSpot实现了标量替换），这一点在逃逸分析相关的文档里已经说明，<strong>所以可以明确在 HotSpot 虚拟机上，所有的对象实例都是创建在堆上</strong>。</li>
+<li>目前很多书籍还是基于 JDK7 以前的版本，JDK已经发生了很大变化，intern 字符串的缓存和静态变量曾经都被分配在永久代上，而永久代已经被元数据区取代。但是 <strong>intern 字符串缓存和静态变量并不是被转移到元数据区，而是直接在堆上分配</strong>，<strong>所以这一点同样符合前面一点的结论：对象实例都是分配在堆上</strong>。</li>
 </ul>
 <h2 id="11-小结">11-小结</h2>
 <ul>
@@ -987,25 +984,25 @@ jinfo <span class="token parameter variable">-flag</span> SurvivorRatio 进程id
 <p>年轻代是对象的诞生、成长、消亡的区域，一个对象在这里产生、应用，最后被垃圾回收器收集、结束生命</p>
 </li>
 <li>
-<p>老年代放置长生命周期的对象，通常都是从Survivor区域筛选拷贝过来的Java对象</p>
+<p>老年代放置长生命周期的对象，通常都是从 Survivor 区域筛选拷贝过来的 Java 对象</p>
 </li>
 <li>
-<p>当然，也有特殊情况，我们知道普通的对象可能会被分配在TLAB上</p>
+<p>当然，也有特殊情况，我们知道普通的对象可能会被分配在 TLAB 上</p>
 </li>
 <li>
-<p>如果对象较大，无法分配在 TLAB 上，则JVM会试图直接分配在Eden其他位置上</p>
+<p>如果对象较大，无法分配在 TLAB 上，则 JVM 会试图直接分配在 Eden 其他位置上</p>
 </li>
 <li>
-<p>如果对象太大，完全无法在新生代找到足够长的连续空闲空间，JVM就会直接分配到老年代</p>
+<p>如果对象太大，完全无法在新生代找到足够长的连续空闲空间， JVM 就会直接分配到老年代</p>
 </li>
 <li>
-<p>当GC只发生在年轻代中，回收年轻代对象的行为被称为Minor GC</p>
+<p>当 GC 只发生在年轻代中，回收年轻代对象的行为被称为 Minor GC</p>
 </li>
 <li>
-<p>当GC发生在老年代时则被称为Major GC或者Full GC</p>
+<p>当 GC 发生在老年代时则被称为 Major GC 或者 Full GC</p>
 </li>
 <li>
-<p>一般的，Minor GC的发生频率要比Major GC高很多，即老年代中垃圾回收发生的频率将大大低于年轻代</p>
+<p>一般的，Minor GC 的发生频率要比 Major GC 高很多，即老年代中垃圾回收发生的频率将大大低于年轻代</p>
 </li>
 </ul>
 
