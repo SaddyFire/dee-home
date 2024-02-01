@@ -331,21 +331,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-01-21
+                    2024-01-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    399
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    6 分
                 </div>
                 
 
@@ -374,32 +374,32 @@
 </blockquote>
 <p>类图是面向对象建模的主要构建块。 它用于应用结构的一般概念建模，以及将模型转换为编程代码的详细建模。 类图也可用于数据建模。 类图中的类表示主要元素、应用中的交互以及要编程的类。</p>
 <p><strong>Code</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">---
-title: Animal example
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">---
+<span class="token function"><span class="token prefix">title<span class="token punctuation">:</span></span></span> Animal example
 ---
 classDiagram
-    note &quot;From Duck till Zebra&quot;
+    note <span class="token string">"From Duck till Zebra"</span>
     Animal &lt;|-- Duck
-    note for Duck &quot;can fly\ncan swim\ncan dive\ncan help in debugging&quot;
+    note for Duck <span class="token string">"can fly\ncan swim\ncan dive\ncan help in debugging"</span>
     Animal &lt;|-- Fish
     Animal &lt;|-- Zebra
-    Animal : +int age
-    Animal : +String gender
-    Animal: +isMammal()
-    Animal: +mate()
-    class Duck&#123;
+    Animal <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +int age
+    Animal <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +String gender
+    <span class="token function"><span class="token prefix">Animal<span class="token punctuation">:</span></span></span> +isMammal<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function"><span class="token prefix">Animal<span class="token punctuation">:</span></span></span> +mate<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    class Duck<span class="token punctuation">&#123;</span>
         +String beakColor
-        +swim()
-        +quack()
-    &#125;
-    class Fish&#123;
+        +swim<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        +quack<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+    class Fish<span class="token punctuation">&#123;</span>
         -int sizeInFeet
-        -canEat()
-    &#125;
-    class Zebra&#123;
+        -canEat<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+    class Zebra<span class="token punctuation">&#123;</span>
         +bool is_wild
-        +run()
-    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        +run<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">---
 title: Animal example
 ---
@@ -435,15 +435,15 @@ classDiagram
 <li>底部隔间包含该类可以执行的操作。 它们也是左对齐的，并且第一个字母是小写的。</li>
 </ul>
 <p><strong>Code</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">---
-title: Bank example
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">---
+<span class="token function"><span class="token prefix">title<span class="token punctuation">:</span></span></span> Bank example
 ---
 classDiagram
 	class BankAccount
-	BankAccount : +String owner
-	BankAccount : +Bigdecimal balance
-	BankAccount : +deposit(amount)
-	BankAccount : +withdrawal(amount)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	BankAccount <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +String owner
+	BankAccount <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +Bigdecimal balance
+	BankAccount <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +deposit<span class="token punctuation">(</span>amount<span class="token punctuation">)</span>
+	BankAccount <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +withdrawal<span class="token punctuation">(</span>amount<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">---
 title: Bank example
 ---
@@ -460,7 +460,7 @@ classDiagram
 <li>通过 relatinoship 一次定义两个类及其关系。例如, <code>Vehicle &lt;|-- Car</code>。</li>
 </ul>
 <p><strong>Code</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">classDiagram
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
 	class Animal
 	Vehicle &lt;|-- Car<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">classDiagram
@@ -470,20 +470,20 @@ classDiagram
 <h3 id="类别标签">类别标签</h3>
 <p>如果你需要为类提供标签，可以使用以下语法：</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">classDiagram
-    class Animal[&quot;Animal with a label&quot;]
-    class Car[&quot;Car with *! symbols&quot;]
-    Animal --&gt; Car<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+    class Animal<span class="token punctuation">[</span><span class="token string">"Animal with a label"</span><span class="token punctuation">]</span>
+    class Car<span class="token punctuation">[</span><span class="token string">"Car with *! symbols"</span><span class="token punctuation">]</span>
+    Animal --> Car<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">classDiagram
     class Animal["Animal with a label"]
     class Car["Car with *! symbols"]
     Animal --> Car</pre>
 <p>你还可以使用反引号来转义标签中的特殊字符：</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">classDiagram
-    class &#96;Animal Class!&#96;
-    class &#96;Car Class&#96;
-    &#96;Animal Class!&#96; --&gt; &#96;Car Class&#96;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+    class `Animal Class!`
+    class `Car Class`
+    `Animal Class!` --> `Car Class`<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">classDiagram
     class `Animal Class!`
     class `Car Class`
@@ -496,12 +496,12 @@ classDiagram
 <li>使用 <strong>:</strong>（冒号）后跟成员名称来关联类的成员，这对于一次定义一个成员很有用。 例如：</li>
 </ul>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">classDiagram
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
     class BankAccount
-    BankAccount : +String owner
-    BankAccount : +BigDecimal balance
-    BankAccount : +deposit(amount)
-    BankAccount : +withdrawal(amount)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    BankAccount <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +String owner
+    BankAccount <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +BigDecimal balance
+    BankAccount <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +deposit<span class="token punctuation">(</span>amount<span class="token punctuation">)</span>
+    BankAccount <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +withdrawal<span class="token punctuation">(</span>amount<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">classDiagram
     class BankAccount
     BankAccount : +String owner
@@ -512,13 +512,13 @@ classDiagram
 <li>使用 <strong>{}</strong> 括号关联类的成员，其中成员分组在大括号内。 适合一次定义多个成员。 例如：</li>
 </ul>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">classDiagram
-class BankAccount&#123;
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+class BankAccount<span class="token punctuation">&#123;</span>
     +String owner
     +BigDecimal balance
-    +deposit(amount)
-    +withdrawal(amount)
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    +deposit<span class="token punctuation">(</span>amount<span class="token punctuation">)</span>
+    +withdrawal<span class="token punctuation">(</span>amount<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">classDiagram
 class BankAccount{
     +String owner
@@ -528,13 +528,13 @@ class BankAccount{
 }</pre>
 <h3 id="返回类型">返回类型</h3>
 <p>或者，你可以使用将返回的数据类型来结束方法/函数定义（注意：最终的 <code>)</code> 和返回类型之间必须有空格）。 一个例子：</p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">classDiagram
-class BankAccount&#123;
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+class BankAccount<span class="token punctuation">&#123;</span>
     +String owner
     +BigDecimal balance
-    +deposit(amount) bool
-    +withdrawal(amount) int
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    +deposit<span class="token punctuation">(</span>amount<span class="token punctuation">)</span> bool
+    +withdrawal<span class="token punctuation">(</span>amount<span class="token punctuation">)</span> int
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">classDiagram
 class BankAccount{
     +String owner
@@ -548,18 +548,18 @@ class BankAccount{
 <p>请注意，当在类定义中使用泛型时，泛型类型不被视为类名称的一部分。 IE。： 对于任何需要引用类名的语法，你需要删除定义的类型部分。 这也意味着 mermaid 目前不支持两个具有相同名称但泛型类型不同的类。</p>
 </blockquote>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">classDiagram
-class Square~Shape~&#123;
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+class Square~Shape~<span class="token punctuation">&#123;</span>
     int id
     List~int~ position
-    setPoints(List~int~ points)
-    getPoints() List~int~
-&#125;
+    setPoints<span class="token punctuation">(</span>List~int~ points<span class="token punctuation">)</span>
+    getPoints<span class="token punctuation">(</span><span class="token punctuation">)</span> List~int~
+<span class="token punctuation">&#125;</span>
 
-Square : -List~string~ messages
-Square : +setMessages(List~string~ messages)
-Square : +getMessages() List~string~
-Square : +getDistanceMatrix() List~List~int~~<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+Square <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> -List~string~ messages
+Square <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +setMessages<span class="token punctuation">(</span>List~string~ messages<span class="token punctuation">)</span>
+Square <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +getMessages<span class="token punctuation">(</span><span class="token punctuation">)</span> List~string~
+Square <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +getDistanceMatrix<span class="token punctuation">(</span><span class="token punctuation">)</span> List~List~int~~<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">classDiagram
 class Square~Shape~{
     int id
@@ -595,7 +595,7 @@ Square : +getDistanceMatrix() List~List~int~~</pre>
 </blockquote>
 <h2 id="定义关系">定义关系</h2>
 <p>关系是一个通用术语，涵盖类图和对象图上发现的特定类型的逻辑连接。</p>
-<pre class="line-numbers language-none"><code class="language-none">[classA][Arrow][ClassB]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle"><span class="token punctuation">[</span>classA<span class="token punctuation">]</span><span class="token punctuation">[</span>Arrow<span class="token punctuation">]</span><span class="token punctuation">[</span>ClassB<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>目前支持的 UML 下为类定义了八种不同类型的关系：</p>
 <table>
 <thead>
@@ -640,15 +640,15 @@ Square : +getDistanceMatrix() List~List~int~~</pre>
 </tbody>
 </table>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">classDiagram
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
 classA &lt;|-- classB
 classC *-- classD
 classE o-- classF
 classG &lt;-- classH
 classI -- classJ
-classK &lt;.. classL
-classM &lt;|.. classN
-classO .. classP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+classK &lt;<span class="token punctuation">.</span><span class="token punctuation">.</span> classL
+classM &lt;|<span class="token punctuation">.</span><span class="token punctuation">.</span> classN
+classO <span class="token punctuation">.</span><span class="token punctuation">.</span> classP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">classDiagram
 classA <|-- classB
 classC *-- classD
@@ -660,15 +660,15 @@ classM <|.. classN
 classO .. classP</pre>
 <p>我们可以使用标签来描述两个类之间关系的性质。 此外，箭头也可以用于相反的方向：</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">classDiagram
-classA --|&gt; classB : Inheritance
-classC --* classD : Composition
-classE --o classF : Aggregation
-classG --&gt; classH : Association
-classI -- classJ : Link(Solid)
-classK ..&gt; classL : Dependency
-classM ..|&gt; classN : Realization
-classO .. classP : Link(Dashed)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+classA --|> classB <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> Inheritance
+classC --* classD <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> Composition
+classE --o classF <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> Aggregation
+classG --> classH <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> Association
+classI -- classJ <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> Link<span class="token punctuation">(</span>Solid<span class="token punctuation">)</span>
+classK <span class="token punctuation">.</span><span class="token punctuation">.</span>> classL <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> Dependency
+classM <span class="token punctuation">.</span><span class="token punctuation">.</span>|> classN <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> Realization
+classO <span class="token punctuation">.</span><span class="token punctuation">.</span> classP <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> Link<span class="token punctuation">(</span>Dashed<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">classDiagram
 classA --|> classB : Inheritance
 classC --* classD : Composition
@@ -680,12 +680,12 @@ classM ..|> classN : Realization
 classO .. classP : Link(Dashed)</pre>
 <h3 id="关系标签">关系标签</h3>
 <p>可以将标签文本添加到关系中：</p>
-<pre class="line-numbers language-none"><code class="language-none">[classA][Arrow][ClassB]:LabelText<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle"><span class="token punctuation">[</span>classA<span class="token punctuation">]</span><span class="token punctuation">[</span>Arrow<span class="token punctuation">]</span><span class="token punctuation">[</span>ClassB<span class="token punctuation">]</span><span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span><span class="token local-name">LabelText</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">classDiagram
-classA &lt;|-- classB : implements
-classC *-- classD : composition
-classE o-- classF : aggregation<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+classA &lt;|-- classB <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> implements
+classC *-- classD <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> composition
+classE o-- classF <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> aggregation<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">classDiagram
 classA <|-- classB : implements
 classC *-- classD : composition
@@ -693,12 +693,12 @@ classE o-- classF : aggregation</pre>
 <h3 id="双向关系">双向关系</h3>
 <p>关系在逻辑上可以表示一个 N：M 关联：</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">classDiagram
-    Animal &lt;|--|&gt; Zebra<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+    Animal &lt;|--|> Zebra<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">classDiagram
     Animal <|--|> Zebra</pre>
 <p>语法如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">[Relation Type][Link][Relation Type]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle"><span class="token punctuation">[</span>Relation Type<span class="token punctuation">]</span><span class="token punctuation">[</span>Link<span class="token punctuation">]</span><span class="token punctuation">[</span>Relation Type<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>其中 <code>Relation Type</code> 可以是以下之一：</p>
 <table>
 <thead>
@@ -756,14 +756,14 @@ classE o-- classF : aggregation</pre>
 <h2 id="定义命名空间">定义命名空间</h2>
 <p>命名空间对类进行分组。</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">classDiagram
-namespace BaseShapes &#123;
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+namespace BaseShapes <span class="token punctuation">&#123;</span>
     class Triangle
-    class Rectangle &#123;
+    class Rectangle <span class="token punctuation">&#123;</span>
       double width
       double height
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">classDiagram
 namespace BaseShapes {
     class Triangle
@@ -786,11 +786,11 @@ namespace BaseShapes {
 <li><code>1..n</code> 一对多</li>
 </ul>
 <p>通过将文本选项放在给定箭头之前或之后的引号 <code>&quot;</code> 内，可以轻松定义基数。 例如：</p>
-<pre class="line-numbers language-none"><code class="language-none">[classA] &quot;cardinality1&quot; [Arrow] &quot;cardinality2&quot; [ClassB]:LabelText<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">classDiagram
-    Customer &quot;1&quot; --&gt; &quot;*&quot; Ticket
-    Student &quot;1&quot; --&gt; &quot;1..*&quot; Course
-    Galaxy --&gt; &quot;many&quot; Star : Contains<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle"><span class="token punctuation">[</span>classA<span class="token punctuation">]</span> <span class="token string">"cardinality1"</span> <span class="token punctuation">[</span>Arrow<span class="token punctuation">]</span> <span class="token string">"cardinality2"</span> <span class="token punctuation">[</span>ClassB<span class="token punctuation">]</span><span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span><span class="token local-name">LabelText</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+    Customer <span class="token string">"1"</span> --> <span class="token string">"*"</span> Ticket
+    Student <span class="token string">"1"</span> --> <span class="token string">"1..*"</span> Course
+    Galaxy --> <span class="token string">"many"</span> Star <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> Contains<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">classDiagram
     Customer "1" --> "*" Ticket
     Student "1" --> "1..*" Course
@@ -808,11 +808,11 @@ namespace BaseShapes {
 <li>在 <strong>单独的线</strong> 中定义了一个类之后：</li>
 </ul>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">classDiagram
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
 class Shape
-&lt;&lt;interface&gt;&gt; Shape
-Shape : noOfVertices
-Shape : draw()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;<span class="token url"><span class="token punctuation">&lt;</span>interface<span class="token punctuation">></span></span>> Shape
+Shape <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> noOfVertices
+Shape <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> draw<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">classDiagram
 class Shape
 <<interface>> Shape
@@ -822,20 +822,20 @@ Shape : draw()</pre>
 <li>在 <strong>嵌套结构</strong> 中连同类定义：</li>
 </ul>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">classDiagram
-class Shape&#123;
-    &lt;&lt;interface&gt;&gt;
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+class Shape<span class="token punctuation">&#123;</span>
+    &lt;<span class="token url"><span class="token punctuation">&lt;</span>interface<span class="token punctuation">></span></span>>
     noOfVertices
-    draw()
-&#125;
-class Color&#123;
-    &lt;&lt;Enumeration&gt;&gt;
+    draw<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+class Color<span class="token punctuation">&#123;</span>
+    &lt;<span class="token url"><span class="token punctuation">&lt;</span>Enumeration<span class="token punctuation">></span></span>>
     RED
     BLUE
     GREEN
     WHITE
     BLACK
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">classDiagram
 class Shape{
     << interface >>
@@ -856,13 +856,13 @@ class Color{
 <h2 id="注释">注释</h2>
 <p>可以在类图中输入注释，解析器将忽略该注释。 注释需要独占一行，并且必须以 <code>%%</code>（双百分号）开头。 下一个换行符之前的任何文本都将被视为注释，包括任何类图语法。</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">classDiagram
-%% This whole line is a comment classDiagram class Shape
-class Shape&#123;
-    &lt;&lt;interface&gt;&gt;
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+%% This whole line is <span class="token keyword">a</span> comment classDiagram class Shape
+class Shape<span class="token punctuation">&#123;</span>
+    &lt;<span class="token url"><span class="token punctuation">&lt;</span>interface<span class="token punctuation">></span></span>>
     noOfVertices
-    draw()
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    draw<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">classDiagram
 %% This whole line is a comment classDiagram class Shape << interface >>
 class Shape{
@@ -873,21 +873,21 @@ class Shape{
 <h2 id="设置图表的方向">设置图表的方向</h2>
 <p>对于类图，你可以使用方向语句来设置图渲染的方向：</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">classDiagram
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
   direction RL
-  class Student &#123;
-    -idCard : IdCard
-  &#125;
-  class IdCard&#123;
-    -id : int
-    -name : string
-  &#125;
-  class Bike&#123;
-    -id : int
-    -name : string
-  &#125;
-  Student &quot;1&quot; --o &quot;1&quot; IdCard : carries
-  Student &quot;1&quot; --o &quot;1&quot; Bike : rides<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  class Student <span class="token punctuation">&#123;</span>
+    -idCard <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> IdCard
+  <span class="token punctuation">&#125;</span>
+  class IdCard<span class="token punctuation">&#123;</span>
+    -id <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> int
+    -name <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> string
+  <span class="token punctuation">&#125;</span>
+  class Bike<span class="token punctuation">&#123;</span>
+    -id <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> int
+    -name <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> string
+  <span class="token punctuation">&#125;</span>
+  Student <span class="token string">"1"</span> --o <span class="token string">"1"</span> IdCard <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> carries
+  Student <span class="token string">"1"</span> --o <span class="token string">"1"</span> Bike <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> rides<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">classDiagram
   direction RL
   class Student {
@@ -906,9 +906,9 @@ class Shape{
 <h2 id="相互作用">相互作用</h2>
 <p>可以将单击事件绑定到节点。 单击可能会导致 JavaScript 回调或导致在新浏览器选项卡中打开的链接。 <strong>注意</strong>： 使用 <code>securityLevel='strict'</code> 时禁用此功能，使用 <code>securityLevel='loose'</code> 时启用此功能。</p>
 <p>声明所有类后，你可以在单独的行上定义这些操作。</p>
-<pre class="line-numbers language-none"><code class="language-none">action className &quot;reference&quot; &quot;tooltip&quot;
-click className call callback() &quot;tooltip&quot;
-click className href &quot;url&quot; &quot;tooltip&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">action className <span class="token string">"reference"</span> <span class="token string">"tooltip"</span>
+click className call callback<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token string">"tooltip"</span>
+click className href <span class="token string">"url"</span> <span class="token string">"tooltip"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>action 是 <code>link</code> 或 <code>callback</code>，具体取决于你想要调用的交互类型</li>
 <li>className 是与操作关联的节点的 id</li>
@@ -919,12 +919,12 @@ click className href &quot;url&quot; &quot;tooltip&quot;<span aria-hidden="true"
 <h2 id="图表注释">图表注释</h2>
 <p>可以使用 <code>note &quot;line1\nline2&quot;</code> 在图表上添加注释。 可以使用 <code>note for &lt;CLASS NAME&gt; &quot;line1\nline2&quot;</code> 为特定类添加注释。</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">classDiagram
-    note &quot;This is a general note&quot;
-    note for Student &quot;This is a note for a class&quot;
-    class Student&#123;
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+    note <span class="token string">"This is a general note"</span>
+    note for Student <span class="token string">"This is a note for a class"</span>
+    class Student<span class="token punctuation">&#123;</span>
     	+String name
-    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">classDiagram
     note "This is a general note"
     note for Student "This is a note for a class"
@@ -933,11 +933,11 @@ click className href &quot;url&quot; &quot;tooltip&quot;<span aria-hidden="true"
     }</pre>
 <h2 id="网址链接">网址链接</h2>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">classDiagram
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
 class Shape
-link Shape &quot;https:&#x2F;&#x2F;www.github.com&quot; &quot;This is a tooltip for a link&quot;
+link Shape <span class="token string">"https://www.github.com"</span> <span class="token string">"This is a tooltip for a link"</span>
 class Shape2
-click Shape2 href &quot;https:&#x2F;&#x2F;www.github.com&quot; &quot;This is a tooltip for a link&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+click Shape2 href <span class="token string">"https://www.github.com"</span> <span class="token string">"This is a tooltip for a link"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">classDiagram
 class Shape
 link Shape "https://www.github.com" "This is a tooltip for a link"
@@ -947,11 +947,11 @@ click Shape2 href "https://www.github.com" "This is a tooltip for a link"</pre>
 <h3 id="设置节点样式-v-MERMAID-RELEASE-VERSION">设置节点样式 (v&lt;MERMAID_RELEASE_VERSION&gt;+)</h3>
 <p>可以使用 <code>style</code> 关键字将特定样式（例如较粗的边框或不同的背景颜色）应用于单个节点。</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">classDiagram
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
   class Animal
   class Mineral
-  style Animal fill:#f9f,stroke:#333,stroke-width:4px
-  style Mineral fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  style Animal <span class="token function"><span class="token prefix">fill<span class="token punctuation">:</span></span></span><span class="token comment">#f9f,stroke:#333,stroke-width:4px</span>
+  style Mineral <span class="token function"><span class="token prefix">fill<span class="token punctuation">:</span></span></span><span class="token comment">#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">classDiagram
   class Animal
   class Mineral
@@ -1718,6 +1718,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"live2d-widget-model-izumi"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 
 </html>

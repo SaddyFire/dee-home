@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2024-01-21T13:12:18.641Z</updated>
+  <updated>2024-01-31T06:01:00.884Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -17,11 +17,225 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linux 下软链接和硬链接的区别</title>
+    <link href="https://www.saddyfire.cn/2024/01/31/linux-ln/"/>
+    <id>https://www.saddyfire.cn/2024/01/31/linux-ln/</id>
+    <published>2024-01-31T03:55:13.000Z</published>
+    <updated>2024-01-31T06:01:00.884Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;Linux 下软链接和硬链接的区别&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;参考自 &lt;a href=&quot;https://zhuanlan.zhihu.com/p/88891362&quot;&gt;Linux 下软链接和硬链接的区别 - 知乎</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring中事务管理</title>
+    <link href="https://www.saddyfire.cn/2024/01/30/trans-manager/"/>
+    <id>https://www.saddyfire.cn/2024/01/30/trans-manager/</id>
+    <published>2024-01-30T09:42:47.000Z</published>
+    <updated>2024-02-01T01:45:13.410Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;Spring中事务管理&lt;/h1&gt;
+&lt;h2 id=&quot;使用背景&quot;&gt;使用背景&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+    <category term="SpringBoot" scheme="https://www.saddyfire.cn/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>树莓派上手配置</title>
+    <link href="https://www.saddyfire.cn/2024/01/23/rasppi-start/"/>
+    <id>https://www.saddyfire.cn/2024/01/23/rasppi-start/</id>
+    <published>2024-01-23T14:51:25.000Z</published>
+    <updated>2024-01-28T11:14:39.608Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;树莓派启动配置&lt;/h1&gt;
+&lt;p&gt;前置烧录使用 Raspberry Pi Imager&lt;/p&gt;
+&lt;h2 id=&quot;常用命令&quot;&gt;常用命令&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;查看 Ubuntu 版本&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;lsb_release</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
+    
+    <category term="RaspberryPi" scheme="https://www.saddyfire.cn/tags/RaspberryPi/"/>
+    
+    <category term="Debian" scheme="https://www.saddyfire.cn/tags/Debian/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式-04-结构型模式</title>
+    <link href="https://www.saddyfire.cn/2024/01/23/design-pattern-structural/"/>
+    <id>https://www.saddyfire.cn/2024/01/23/design-pattern-structural/</id>
+    <published>2024-01-23T13:47:08.000Z</published>
+    <updated>2024-01-25T15:02:28.335Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;结构型模式</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+    <category term="DesignPattern" scheme="https://www.saddyfire.cn/tags/DesignPattern/"/>
+    
+    <category term="Mermaid" scheme="https://www.saddyfire.cn/tags/Mermaid/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式-03-创建型模式-原型&amp;建造者</title>
+    <link href="https://www.saddyfire.cn/2024/01/22/design-pattern-builder/"/>
+    <id>https://www.saddyfire.cn/2024/01/22/design-pattern-builder/</id>
+    <published>2024-01-22T15:06:10.000Z</published>
+    <updated>2024-01-23T13:39:33.957Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;创建型模式 Ⅲ&lt;/h1&gt;
+&lt;h2 id=&quot;原型模式&quot;&gt;原型模式&lt;/h2&gt;
+&lt;h3 id=&quot;概述&quot;&gt;概述&lt;/h3&gt;
+&lt;p&gt;用一个已经创建的实例作为原型，通过复制该原型对象来创建一个和原型对象相同的新对象。&lt;/p&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+    <category term="DesignPattern" scheme="https://www.saddyfire.cn/tags/DesignPattern/"/>
+    
+    <category term="Mermaid" scheme="https://www.saddyfire.cn/tags/Mermaid/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mermaid-时序图</title>
+    <link href="https://www.saddyfire.cn/2024/01/22/mermaid-sequence/"/>
+    <id>https://www.saddyfire.cn/2024/01/22/mermaid-sequence/</id>
+    <published>2024-01-22T03:50:31.000Z</published>
+    <updated>2024-01-22T05:34:31.800Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;Mermaid-时序图&lt;/h1&gt;
+&lt;p&gt;序列图是一种交互图，显示进程如何彼此运行以及以什么顺序运行。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Code:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-turtle&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Mermaid" scheme="https://www.saddyfire.cn/tags/Mermaid/"/>
+    
+    <category term="Markdown" scheme="https://www.saddyfire.cn/tags/Markdown/"/>
+    
+    <category term="Sequence" scheme="https://www.saddyfire.cn/tags/Sequence/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式-02-创建型模式-工厂模式</title>
+    <link href="https://www.saddyfire.cn/2024/01/22/design-pattern-factory/"/>
+    <id>https://www.saddyfire.cn/2024/01/22/design-pattern-factory/</id>
+    <published>2024-01-22T02:10:45.000Z</published>
+    <updated>2024-01-22T15:04:20.617Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;创建型模式 Ⅱ&lt;/h1&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+    <category term="DesignPattern" scheme="https://www.saddyfire.cn/tags/DesignPattern/"/>
+    
+    <category term="Mermaid" scheme="https://www.saddyfire.cn/tags/Mermaid/"/>
+    
+  </entry>
+  
+  <entry>
     <title>设计模式-02-创建型模式-单例模式</title>
-    <link href="https://www.saddyfire.cn/2024/01/21/design-pattern-graphic/"/>
-    <id>https://www.saddyfire.cn/2024/01/21/design-pattern-graphic/</id>
+    <link href="https://www.saddyfire.cn/2024/01/21/design-pattern-singleton/"/>
+    <id>https://www.saddyfire.cn/2024/01/21/design-pattern-singleton/</id>
     <published>2024-01-21T06:13:20.000Z</published>
-    <updated>2024-01-21T13:12:18.641Z</updated>
+    <updated>2024-01-22T02:13:32.268Z</updated>
     
     
       
@@ -85,7 +299,7 @@
     <link href="https://www.saddyfire.cn/2024/01/20/mermaid-flowchart/"/>
     <id>https://www.saddyfire.cn/2024/01/20/mermaid-flowchart/</id>
     <published>2024-01-20T10:43:06.000Z</published>
-    <updated>2024-01-20T11:53:50.663Z</updated>
+    <updated>2024-01-22T05:37:35.636Z</updated>
     
     
       
@@ -147,7 +361,7 @@
     <link href="https://www.saddyfire.cn/2024/01/19/mermaid-uml/"/>
     <id>https://www.saddyfire.cn/2024/01/19/mermaid-uml/</id>
     <published>2024-01-19T14:31:31.000Z</published>
-    <updated>2024-01-21T02:16:06.947Z</updated>
+    <updated>2024-01-22T05:39:08.665Z</updated>
     
     
       
@@ -236,7 +450,7 @@
     <link href="https://www.saddyfire.cn/2024/01/10/oranpi-start/"/>
     <id>https://www.saddyfire.cn/2024/01/10/oranpi-start/</id>
     <published>2024-01-10T12:41:20.000Z</published>
-    <updated>2024-01-15T13:50:43.887Z</updated>
+    <updated>2024-01-28T10:35:58.451Z</updated>
     
     
       
@@ -393,203 +607,6 @@
 &lt;h2 id=&quot;01-概述&quot;&gt;01-概述&lt;/h2&gt;
 &lt;h3 id=&quot;字节码文件的跨平台性&quot;&gt;字节码文件的跨平台性&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;1. Java语言:</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JVM-12-垃圾回收器</title>
-    <link href="https://www.saddyfire.cn/2023/12/27/jvm-sgg12/"/>
-    <id>https://www.saddyfire.cn/2023/12/27/jvm-sgg12/</id>
-    <published>2023-12-27T15:13:03.000Z</published>
-    <updated>2024-01-01T12:27:28.736Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;垃圾回收器&lt;/h1&gt;
-&lt;h2 id=&quot;GC-分类与性能指标&quot;&gt;GC</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JVM-11-垃圾回收相关概念</title>
-    <link href="https://www.saddyfire.cn/2023/12/26/jvm-sgg11/"/>
-    <id>https://www.saddyfire.cn/2023/12/26/jvm-sgg11/</id>
-    <published>2023-12-26T14:06:59.000Z</published>
-    <updated>2024-01-21T13:22:09.680Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;垃圾回收相关概念&lt;/h1&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JVM-10-垃圾回收概述和相关算法</title>
-    <link href="https://www.saddyfire.cn/2023/12/24/jvm-sgg10/"/>
-    <id>https://www.saddyfire.cn/2023/12/24/jvm-sgg10/</id>
-    <published>2023-12-24T10:25:34.000Z</published>
-    <updated>2024-01-21T13:22:09.690Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;垃圾回收概述和相关算法&lt;/h1&gt;
-&lt;img src=&quot;./../jvm-sgg10/image-20231224183056294.png&quot; style=&quot;zoom: 50%;&quot; /&gt;
-&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JVM-09-StringTable</title>
-    <link href="https://www.saddyfire.cn/2023/12/23/jvm-sgg9/"/>
-    <id>https://www.saddyfire.cn/2023/12/23/jvm-sgg9/</id>
-    <published>2023-12-23T05:35:40.000Z</published>
-    <updated>2024-01-21T08:38:31.993Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;StringTable&lt;/h1&gt;
-&lt;h2 id=&quot;1-String的基本特性&quot;&gt;1-String的基本特性&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;String：字符串，使用一对 “” 引起来表示&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class=&quot;line-numbers</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JVM-08-执行引擎</title>
-    <link href="https://www.saddyfire.cn/2023/12/22/jvm-sgg8/"/>
-    <id>https://www.saddyfire.cn/2023/12/22/jvm-sgg8/</id>
-    <published>2023-12-22T13:40:26.000Z</published>
-    <updated>2024-01-21T08:33:02.860Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;执行引擎&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&quot;./../jvm-sgg8/image-20231222214407590.png&quot; alt=&quot;Hotspot JVM&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;1-执行引擎概述&quot;&gt;1-执行引擎概述&lt;/h2&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JVM-07-对象的实例化内存布局与访问定位</title>
-    <link href="https://www.saddyfire.cn/2023/12/21/jvm-sgg7/"/>
-    <id>https://www.saddyfire.cn/2023/12/21/jvm-sgg7/</id>
-    <published>2023-12-21T14:24:04.000Z</published>
-    <updated>2024-01-21T08:25:45.986Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;对象的实例化内存布局与访问定位&lt;/h1&gt;
-&lt;h2 id=&quot;1-对象的实例化&quot;&gt;1-对象的实例化&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;对象在 JVM 中是怎么存储的？&lt;/li&gt;
-&lt;li&gt;对象头信息里面有哪些东西？&lt;/li&gt;
-&lt;li&gt;Java</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="NIO" scheme="https://www.saddyfire.cn/tags/NIO/"/>
-    
-    <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JVM-06-方法区</title>
-    <link href="https://www.saddyfire.cn/2023/12/19/jvm-sgg6/"/>
-    <id>https://www.saddyfire.cn/2023/12/19/jvm-sgg6/</id>
-    <published>2023-12-19T13:57:44.000Z</published>
-    <updated>2024-01-21T08:23:51.010Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;方法区&lt;/h1&gt;
-&lt;h2 id=&quot;1-栈、堆、方法区的交互关系&quot;&gt;1-栈、堆、方法区的交互关系&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;../jvm-sgg6/001.png&quot; alt=&quot;运行时数据区结构图&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
         
       
     

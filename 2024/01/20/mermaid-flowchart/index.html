@@ -331,21 +331,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-01-20
+                    2024-01-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.6k
+                    3.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    15 分
                 </div>
                 
 
@@ -375,8 +375,8 @@
 <p>流程图由 <strong>nodes</strong>（几何形状）和 <strong>edges</strong>（箭头或线条）组成。 Mermaid 代码定义了如何制作节点和边，并适应不同的箭头类型、多方向箭头以及任何与子图的链接。</p>
 <h2 id="一个节点（默认）">一个节点（默认）</h2>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">---
-title: Node
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">---
+<span class="token function"><span class="token prefix">title<span class="token punctuation">:</span></span></span> Node
 ---
 flowchart LR
     id<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -388,11 +388,11 @@ flowchart LR
 <h2 id="带有文本的节点">带有文本的节点</h2>
 <p>也可以在框中设置与 id 不同的文本。 如果执行此操作多次，则它将是为要使用的节点找到的最后一个文本。 此外，如果稍后为节点定义边，则可以省略文本定义。 渲染盒子时将使用先前定义的值。</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">---
-title: Node with text
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">---
+<span class="token function"><span class="token prefix">title<span class="token punctuation">:</span></span></span> Node with text
 ---
 flowchart LR
-    id1[This is the text in the box]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    id1<span class="token punctuation">[</span>This is the text in the box<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">---
 title: Node with text
 ---
@@ -401,20 +401,20 @@ flowchart LR
 <h3 id="统一码文本">统一码文本</h3>
 <p>使用 <code>&quot;</code> 将 unicode 文本括起来。</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-    id[&quot;This ❤ Unicode&quot;]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+    id<span class="token punctuation">[</span><span class="token string">"This ❤ Unicode"</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     id["This ❤ Unicode"]</pre>
 <h3 id="Markdown-格式">Markdown 格式</h3>
 <p>使用双引号和反引号 “<code>text</code>” 将 Markdown 文本括起来。</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">%%&#123;init: &#123;&quot;flowchart&quot;: &#123;&quot;htmlLabels&quot;: false&#125;&#125; &#125;%%
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">%%<span class="token punctuation">&#123;</span><span class="token function"><span class="token prefix">init<span class="token punctuation">:</span></span></span> <span class="token punctuation">&#123;</span><span class="token string">"flowchart"</span><span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> <span class="token punctuation">&#123;</span><span class="token string">"htmlLabels"</span><span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> <span class="token boolean">false</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span>%%
 flowchart LR
-    markdown[&quot;&#96;This **is** _Markdown_&#96;&quot;]
-    newLines[&quot;&#96;Line1
-    Line 2
-    Line 3&#96;&quot;]
-    markdown --&gt; newLines<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    markdown<span class="token punctuation">[</span><span class="token string">"`This **is** _Markdown_`"</span><span class="token punctuation">]</span>
+    newLines<span class="token punctuation">[</span>"`Line1
+    Line <span class="token number">2</span>
+    Line <span class="token number">3</span>`"<span class="token punctuation">]</span>
+    markdown --> newLines<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">%%{init: {"flowchart": {"htmlLabels": false}} }%%
 flowchart LR
     markdown["`This **is** _Markdown_`"]
@@ -426,14 +426,14 @@ flowchart LR
 <p>该语句声明了流程图的方向。</p>
 <p>这声明流程图是从上到下（<code>TD</code> 或 <code>TB</code>）的。</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart TD
-    Start --&gt; Stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart TD
+    Start --> Stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart TD
     Start --> Stop</pre>
 <p>这声明流程图是从左到右定向的 (<code>LR</code>)。</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-    Start --&gt; Stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+    Start --> Stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     Start --> Stop</pre>
 <p>可能的流程图方向是：</p>
@@ -447,178 +447,178 @@ flowchart LR
 <h2 id="节点形状">节点形状</h2>
 <p>具有圆边的节点</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-    id1(This is the text in the box)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+    id1<span class="token punctuation">(</span>This is the text in the box<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     id1(This is the text in the box)</pre>
 <p>体育场形状的节点</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-    id1([This is the text in the box])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+    id1<span class="token punctuation">(</span><span class="token punctuation">[</span>This is the text in the box<span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     id1([This is the text in the box])</pre>
 <p>子程序形状中的节点</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-    id1[[This is the text in the box]]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+    id1<span class="token punctuation">[</span><span class="token punctuation">[</span>This is the text in the box<span class="token punctuation">]</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     id1[[This is the text in the box]]</pre>
 <p>圆柱形节点</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-    id1[(Database)]
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+    id1<span class="token punctuation">[</span><span class="token punctuation">(</span>Database<span class="token punctuation">)</span><span class="token punctuation">]</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     id1[(Database)]</pre>
 <p>一个圆形的节点</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-    id1((This is the text in the circle))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+    id1<span class="token punctuation">(</span><span class="token punctuation">(</span>This is the text in the circle<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     id1((This is the text in the circle))</pre>
 <p>形状不对称的节点</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-    id1&gt;This is the text in the box]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+    id1>This is the text in the box<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     id1>This is the text in the box]</pre>
 <p>目前只有上面的形状是可能的，而不是它的镜像。 这可能会随着未来的版本而改变。</p>
 <p>节点（菱形）</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-    id1&#123;This is the text in the box&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+    id1<span class="token punctuation">&#123;</span>This is the text in the box<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     id1{This is the text in the box}</pre>
 <p>六边形节点</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-    id1&#123;&#123; This is the text in the box &#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+    id1<span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> This is the text in the box <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <blockquote>
 <p>此处渲染会报错</p>
 </blockquote>
 <p>平行四边形</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart TD
-    id1[&#x2F;This is the text in the box&#x2F;]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart TD
+    id1<span class="token punctuation">[</span>/This is the text in the box/<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart TD
     id1[/This is the text in the box/]</pre>
 <p>平行四边形 alt</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart TD
-    id1[\This is the text in the box\]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart TD
+    id1<span class="token punctuation">[</span>\This is the text in the box\<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart TD
     id1[\This is the text in the box\]</pre>
 <p>梯形</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart TD
-    A[&#x2F;Christmas\]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart TD
+    A<span class="token punctuation">[</span>/Christmas\<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart TD
     A[/Christmas\]</pre>
 <p>梯形 alt</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart TD
-    B[\Go shopping&#x2F;]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart TD
+    B<span class="token punctuation">[</span>\Go shopping/<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart TD
     B[\Go shopping/]</pre>
 <p>双圈</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart TD
-    id1(((This is the text in the circle)))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart TD
+    id1<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>This is the text in the circle<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart TD
     id1(((This is the text in the circle)))</pre>
 <h2 id="节点之间的链接">节点之间的链接</h2>
 <p>节点可以通过链接/边连接。 可以有不同类型的链接或将文本字符串附加到链接。</p>
 <h3 id="带箭头的链接">带箭头的链接</h3>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-    A--&gt;B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+    A-->B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     A-->B</pre>
 <h3 id="一个打开的链接">一个打开的链接</h3>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
     A --- B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     A --- B</pre>
 <h3 id="链接上的文本">链接上的文本</h3>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
     A-- This is the text! ---B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     A-- This is the text! ---B</pre>
 <p>or</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
     A---|This is the text|B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     A---|This is the text|B</pre>
 <h3 id="带有箭头和文本的链接">带有箭头和文本的链接</h3>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-    A--&gt;|text|B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+    A-->|text|B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     A-->|text|B</pre>
 <p>or</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-    A-- text --&gt;B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+    A-- text -->B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     A-- text -->B</pre>
 <h3 id="虚线链接">虚线链接</h3>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-   A-.-&gt;B;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+   A-<span class="token punctuation">.</span>->B<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
    A-.->B;</pre>
 <h3 id="带文本的虚线链接">带文本的虚线链接</h3>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-   A-. text .-&gt; B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+   A-<span class="token punctuation">.</span> text <span class="token punctuation">.</span>-> B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
    A-. text .-> B</pre>
 <h3 id="粗链接">粗链接</h3>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-   A &#x3D;&#x3D;&gt; B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+   A <span class="token keyword">=</span><span class="token keyword">=</span>> B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
    A ==> B</pre>
 <h3 id="带文本的粗链接">带文本的粗链接</h3>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-   A &#x3D;&#x3D; text &#x3D;&#x3D;&gt; B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+   A <span class="token keyword">=</span><span class="token keyword">=</span> text <span class="token keyword">=</span><span class="token keyword">=</span>> B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
    A == text ==> B</pre>
 <h3 id="看不见的链接">看不见的链接</h3>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
     A ~~~ B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     A ~~~ B</pre>
 <h3 id="链接的链接">链接的链接</h3>
 <p>可以在同一行中声明多个链接，如下所示：</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-   A -- text --&gt; B -- text2 --&gt; C<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+   A -- text --> B -- text2 --> C<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
    A -- text --> B -- text2 --> C</pre>
 <p>还可以在同一行中声明多个节点链接，如下所示：</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-   a --&gt; b &amp; c--&gt; d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+   <span class="token keyword">a</span> --> b &amp; c--> d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
    a --> b & c--> d</pre>
 <p>然后，你可以以非常富有表现力的方式描述依赖。 就像下面的一行字：</p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart TB
-    A &amp; B--&gt; C &amp; D<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart TB
+    A &amp; B--> C &amp; D<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart TB
     A & B--> C & D</pre>
 <p>如果使用基本语法描述同一个图，则需要四行。 警告一句，这样做可能会导致流程图更难以 Markdown 形式阅读。 我想到了瑞典语“<code>lagom</code>”。 意思是，不能太多，也不能太少。 这也适用于表达语法。</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart TB
-    A --&gt; C
-    A --&gt; D
-    B --&gt; C
-    B --&gt; D<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart TB
+    A --> C
+    A --> D
+    B --> C
+    B --> D<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart TB
     A --> C
     A --> D
@@ -627,7 +627,7 @@ flowchart LR
 <h3 id="新的箭头类型">新的箭头类型</h3>
 <p>支持以下新类型的箭头：</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
     A --o B
     B --x C<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
@@ -636,9 +636,9 @@ flowchart LR
 <h3 id="多方向箭头">多方向箭头</h3>
 <p>可以使用多向箭头。</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
     A o--o B
-    B &lt;--&gt; C
+    B <span class="token url"><span class="token punctuation">&lt;</span>--<span class="token punctuation">></span></span> C
     C x--x D<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     A o--o B
@@ -648,12 +648,12 @@ flowchart LR
 <p>流程图中的每个节点最终根据其链接到的节点分配给渲染图中的一个等级，即垂直或水平级别（取决于流程图方向）。 默认情况下，链接可以跨越任意数量的等级，但你可以通过在链接定义中添加额外的破折号来要求任何链接比其他链接更长。</p>
 <p>在以下示例中，在从节点 B 到节点 E 的链接中添加了两个额外的破折号，以便它比常规链接多跨越两个等级：</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart TD
-    A[Start] --&gt; B&#123;Is it?&#125;
-    B --&gt;|Yes| C[OK]
-    C --&gt; D[Rethink]
-    D --&gt; B
-    B ----&gt;|No| E[End]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart TD
+    A<span class="token punctuation">[</span>Start<span class="token punctuation">]</span> --> B<span class="token punctuation">&#123;</span>Is it?<span class="token punctuation">&#125;</span>
+    B -->|Yes| C<span class="token punctuation">[</span>OK<span class="token punctuation">]</span>
+    C --> D<span class="token punctuation">[</span>Rethink<span class="token punctuation">]</span>
+    D --> B
+    B ---->|No| E<span class="token punctuation">[</span>End<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart TD
     A[Start] --> B{Is it?}
     B -->|Yes| C[OK]
@@ -665,12 +665,12 @@ flowchart LR
 </blockquote>
 <p>当链接标签写在链接中间时，必须在链接右侧添加额外的破折号。 以下示例与上一个示例等效：</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart TD
-    A[Start] --&gt; B&#123;Is it?&#125;
-    B -- Yes --&gt; C[OK]
-    C --&gt; D[Rethink]
-    D --&gt; B
-    B -- No ----&gt; E[End]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart TD
+    A<span class="token punctuation">[</span>Start<span class="token punctuation">]</span> --> B<span class="token punctuation">&#123;</span>Is it?<span class="token punctuation">&#125;</span>
+    B -- Yes --> C<span class="token punctuation">[</span>OK<span class="token punctuation">]</span>
+    C --> D<span class="token punctuation">[</span>Rethink<span class="token punctuation">]</span>
+    D --> B
+    B -- No ----> E<span class="token punctuation">[</span>End<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart TD
     A[Start] --> B{Is it?}
     B -- Yes --> C[OK]
@@ -729,29 +729,29 @@ flowchart LR
 <h2 id="破坏语法的特殊字符">破坏语法的特殊字符</h2>
 <p>可以将文本放在引号内以渲染更麻烦的字符。 如下例所示：</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-    id1[&quot;This is the (text) in the box&quot;]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+    id1<span class="token punctuation">[</span><span class="token string">"This is the (text) in the box"</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     id1["This is the (text) in the box"]</pre>
 <h3 id="用于转义字符的实体代码">用于转义字符的实体代码</h3>
 <p>可以使用此处示例的语法对字符进行转义。</p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-	A[&quot;A double quote:#quot;&quot;] --&gt; B[&quot;A dec char:#9829;&quot;]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+	A<span class="token punctuation">[</span><span class="token string">"A double quote:#quot;"</span><span class="token punctuation">]</span> --> B<span class="token punctuation">[</span><span class="token string">"A dec char:#9829;"</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
 	A["A double quote:#quot;"] --> B["A dec char:#9829;"]</pre>
 <p>给出的数字以 10 为基数，因此 <code>#</code> 可以编码为 <code>#35;</code>。 还支持使用 HTML 字符名称。</p>
 <h2 id="子图">子图</h2>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart TB
-    c1--&gt;a2
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart TB
+    c1-->a2
     subgraph one
-    a1--&gt;a2
+    a1-->a2
     end
     subgraph two
-    b1--&gt;b2
+    b1-->b2
     end
     subgraph three
-    c1--&gt;c2
+    c1-->c2
     end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart TB
     c1-->a2
@@ -766,10 +766,10 @@ flowchart LR
     end</pre>
 <p>你还可以为子图设置显式 id。</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart TB
-    c1--&gt;a2
-    subgraph ide1 [one]
-    a1--&gt;a2
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart TB
+    c1-->a2
+    subgraph ide1 <span class="token punctuation">[</span>one<span class="token punctuation">]</span>
+    a1-->a2
     end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart TB
     c1-->a2
@@ -779,20 +779,20 @@ flowchart LR
 <h3 id="流程图">流程图</h3>
 <p>使用图形类型流程图，还可以设置子图的边和子图的边，如下流程图所示。</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart TB
-    c1--&gt;a2
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart TB
+    c1-->a2
     subgraph one
-    a1--&gt;a2
+    a1-->a2
     end
     subgraph two
-    b1--&gt;b2
+    b1-->b2
     end
     subgraph three
-    c1--&gt;c2
+    c1-->c2
     end
-    one --&gt; two
-    three --&gt; two
-    two --&gt; c2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    one --> two
+    three --> two
+    two --> c2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart TB
     c1-->a2
     subgraph one
@@ -809,20 +809,20 @@ flowchart LR
     two --> c2</pre>
 <h3 id="子图中的方向">子图中的方向</h3>
 <p>使用 graphtype 流程图，你可以使用方向语句来设置子图渲染的方向，如本例所示。</p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
   subgraph TOP
     direction TB
     subgraph B1
         direction RL
-        i1 --&gt;f1
+        i1 -->f1
     end
     subgraph B2
         direction BT
-        i2 --&gt;f2
+        i2 -->f2
     end
   end
-  A --&gt; TOP --&gt; B
-  B1 --&gt; B2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  A --> TOP --> B
+  B1 --> B2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
   subgraph TOP
     direction TB
@@ -840,22 +840,22 @@ flowchart LR
 <h4 id="局限性">局限性</h4>
 <p>如果任何子图的节点链接到外部，则子图方向将被忽略。 相反，子图将继承父图的方向：</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
     subgraph subgraph1
         direction TB
-        top1[top] --&gt; bottom1[bottom]
+        top1<span class="token punctuation">[</span>top<span class="token punctuation">]</span> --> bottom1<span class="token punctuation">[</span>bottom<span class="token punctuation">]</span>
     end
     subgraph subgraph2
         direction TB
-        top2[top] --&gt; bottom2[bottom]
+        top2<span class="token punctuation">[</span>top<span class="token punctuation">]</span> --> bottom2<span class="token punctuation">[</span>bottom<span class="token punctuation">]</span>
     end
-    %% ^ These subgraphs are identical, except for the links to them:
+    %% ^ These subgraphs are identical<span class="token punctuation">,</span> except for the links to <span class="token function"><span class="token prefix">them<span class="token punctuation">:</span></span></span>
 
-    %% Link *to* subgraph1: subgraph1 direction is maintained
-    outside --&gt; subgraph1
-    %% Link *within* subgraph2:
-    %% subgraph2 inherits the direction of the top-level graph (LR)
-    outside ---&gt; top2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    %% Link *to* <span class="token function"><span class="token prefix">subgraph1<span class="token punctuation">:</span></span></span> subgraph1 direction is maintained
+    outside --> subgraph1
+    %% Link *within* <span class="token function"><span class="token prefix">subgraph2<span class="token punctuation">:</span></span></span>
+    %% subgraph2 inherits the direction of the top-level <span class="token keyword">graph</span> <span class="token punctuation">(</span>LR<span class="token punctuation">)</span>
+    outside ---> top2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     subgraph subgraph1
         direction TB
@@ -874,15 +874,15 @@ flowchart LR
     outside ---> top2</pre>
 <h2 id="Markdown-字符串">Markdown 字符串</h2>
 <p>“Markdown 字符串” 功能通过提供更通用的字符串类型来增强流程图和思维导图，该字符串类型支持粗体和斜体等文本格式选项，并自动将文本换行在标签内。</p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">%%&#123;init: &#123;&quot;flowchart&quot;: &#123;&quot;htmlLabels&quot;: false&#125;&#125; &#125;%%
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">%%<span class="token punctuation">&#123;</span><span class="token function"><span class="token prefix">init<span class="token punctuation">:</span></span></span> <span class="token punctuation">&#123;</span><span class="token string">"flowchart"</span><span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> <span class="token punctuation">&#123;</span><span class="token string">"htmlLabels"</span><span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> <span class="token boolean">false</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span>%%
 flowchart LR
-subgraph &quot;One&quot;
-  a(&quot;&#96;The **cat**
-  in the hat&#96;&quot;) -- &quot;edge label&quot; --&gt; b&gt;&quot;&#96;The **dog** in the hog&#96;&quot;]
+subgraph <span class="token string">"One"</span>
+  <span class="token keyword">a</span><span class="token punctuation">(</span>"`The **cat**
+  in the hat`<span class="token string">") -- "</span>edge label<span class="token string">" --> b>"</span>`The **dog** in the hog`"<span class="token punctuation">]</span>
 end
-subgraph &quot;&#96;**Two**&#96;&quot;
-  c(&quot;&#96;The **cat**
-  in the hat&#96;&quot;) -- &quot;&#96;Bold **edge label**&#96;&quot; --&gt; d(&quot;The dog in the hog&quot;)
+subgraph <span class="token string">"`**Two**`"</span>
+  c<span class="token punctuation">(</span>"`The **cat**
+  in the hat`<span class="token string">") -- "</span>`Bold **edge label**`<span class="token string">" --> d("</span>The dog in the hog"<span class="token punctuation">)</span>
 end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">%%{init: {"flowchart": {"htmlLabels": false}} }%%
 flowchart LR
@@ -904,15 +904,15 @@ end</pre>
 <h2 id="相互作用">相互作用</h2>
 <p>可以将单击事件绑定到节点，单击可以导致 JavaScript 回调(demo略)或将在新浏览器选项卡中打开的链接。</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-    A--&gt;B
-    B--&gt;C
-    C--&gt;D
-    D--&gt;E
-    click A &quot;https:&#x2F;&#x2F;www.github.com&quot; _blank
-    click B &quot;https:&#x2F;&#x2F;www.github.com&quot; &quot;Open this in a new tab&quot; _blank
-    click C href &quot;https:&#x2F;&#x2F;www.github.com&quot; _blank
-    click D href &quot;https:&#x2F;&#x2F;www.github.com&quot; &quot;Open this in a new tab&quot; _blank<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+    A-->B
+    B-->C
+    C-->D
+    D-->E
+    click A <span class="token string">"https://www.github.com"</span> _blank
+    click B <span class="token string">"https://www.github.com"</span> <span class="token string">"Open this in a new tab"</span> _blank
+    click C href <span class="token string">"https://www.github.com"</span> _blank
+    click D href <span class="token string">"https://www.github.com"</span> <span class="token string">"Open this in a new tab"</span> _blank<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     A-->B
     B-->C
@@ -925,31 +925,31 @@ end</pre>
 <h3 id="注释">注释</h3>
 <p>可以在流程图中输入注释，解析器将忽略这些注释。 注释需要独占一行，并且必须以 <code>%%</code>（双百分号）开头。 注释开始后到下一个换行符的任何文本都将被视为注释，包括任何流语法</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-%% this is a comment A -- text --&gt; B&#123;node&#125;
-   A -- text --&gt; B -- text2 --&gt; C<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+%% this is <span class="token keyword">a</span> comment A -- text --> B<span class="token punctuation">&#123;</span>node<span class="token punctuation">&#125;</span>
+   A -- text --> B -- text2 --> C<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
 %% this is a comment A -- text --> B{node}
    A -- text --> B -- text2 --> C</pre>
 <h2 id="样式和类别">样式和类别</h2>
 <h3 id="设置链接样式">设置链接样式</h3>
 <p>可以设置链接样式。 例如，你可能想要设计一个在流程中向后移动的链接。 由于链接没有像节点一样的 id，因此需要其他一些方法来决定链接应附加到什么样式。 使用图表中定义链接时的顺序号来代替 ids，或者使用默认值应用于所有链接。 在下面的示例中，linkStyle 语句中定义的样式将属于图中的第四个链接：</p>
-<pre class="line-numbers language-none"><code class="language-none">linkStyle 3 stroke:#ff3,stroke-width:4px,color:red;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">linkStyle <span class="token number">3</span> <span class="token function"><span class="token prefix">stroke<span class="token punctuation">:</span></span></span><span class="token comment">#ff3,stroke-width:4px,color:red;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>还可以通过用逗号分隔链接编号，在单个语句中向多个链接添加样式：</p>
-<pre class="line-numbers language-none"><code class="language-none">linkStyle 1,2,7 color:blue;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">linkStyle <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">7</span> <span class="token function"><span class="token prefix">color<span class="token punctuation">:</span></span><span class="token local-name">blue</span></span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="样式线条曲线">样式线条曲线</h3>
 <p>如果默认方法不能满足你的需求，可以设置用于项目之间线条的曲线类型的样式。 可用的曲线样式包括 <code>basis</code>、<code>bumpX</code>、<code>bumpY</code>、<code>cardinal</code>、<code>catmullRom</code>、<code>linear</code>、<code>monotoneX</code>、<code>monotoneY</code>、<code>natural</code>、<code>step</code>、<code>stepAfter</code> 和 <code>stepBefore</code>。</p>
 <p>在此示例中，从左到右的图表使用 <code>stepBefore</code> 曲线样式：</p>
-<pre class="line-numbers language-none"><code class="language-none">%%&#123; init: &#123; &#39;flowchart&#39;: &#123; &#39;curve&#39;: &#39;stepBefore&#39; &#125; &#125; &#125;%%
-graph LR<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">%%<span class="token punctuation">&#123;</span> <span class="token function"><span class="token prefix">init<span class="token punctuation">:</span></span></span> <span class="token punctuation">&#123;</span> <span class="token string">'flowchart'</span><span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> <span class="token punctuation">&#123;</span> <span class="token string">'curve'</span><span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> <span class="token string">'stepBefore'</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span>%%
+<span class="token keyword">graph</span> LR<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>有关可用曲线的完整列表，包括自定义曲线的说明，请参阅 <a target="_blank" rel="noopener" href="https://github.com/d3/d3-shape/">d3-shape</a> 项目中的 <a target="_blank" rel="noopener" href="https://github.com/d3/d3-shape/blob/main/README.md#curves">形状</a> 文档。</p>
 <h3 id="设置节点样式">设置节点样式</h3>
 <p>可以对节点应用特定样式，例如较粗的边框或不同的背景颜色。</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-    id1(Start)--&gt;id2(Stop)
-    style id1 fill:#f9f,stroke:#333,stroke-width:4px
-    style id2 fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+    id1<span class="token punctuation">(</span>Start<span class="token punctuation">)</span>-->id2<span class="token punctuation">(</span>Stop<span class="token punctuation">)</span>
+    style id1 <span class="token function"><span class="token prefix">fill<span class="token punctuation">:</span></span></span><span class="token comment">#f9f,stroke:#333,stroke-width:4px</span>
+    style id2 <span class="token function"><span class="token prefix">fill<span class="token punctuation">:</span></span></span><span class="token comment">#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     id1(Start)-->id2(Stop)
     style id1 fill:#f9f,stroke:#333,stroke-width:4px
@@ -957,28 +957,28 @@ graph LR<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
 <h4 id="类">类</h4>
 <p>比每次定义样式更方便的是定义一类样式并将该类附加到应该具有不同外观的节点。</p>
 <p>类定义如下例所示：</p>
-<pre class="line-numbers language-none"><code class="language-none">classDef className fill:#f9f,stroke:#333,stroke-width:4px;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDef className <span class="token function"><span class="token prefix">fill<span class="token punctuation">:</span></span></span><span class="token comment">#f9f,stroke:#333,stroke-width:4px;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>此外，还可以在一条语句中为多个类定义样式：</p>
-<pre class="line-numbers language-none"><code class="language-none">classDef firstClassName,secondClassName font-size:12pt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDef firstClassName<span class="token punctuation">,</span>secondClassName <span class="token function"><span class="token prefix">font-size<span class="token punctuation">:</span></span><span class="token local-name">12pt</span></span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>将类附加到节点的操作如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">class nodeId1 className;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">class nodeId1 className<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>还可以在一条语句中将一个类附加到节点列表：</p>
-<pre class="line-numbers language-none"><code class="language-none">class nodeId1,nodeId2 className;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">class nodeId1<span class="token punctuation">,</span>nodeId2 className<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>添加类的一种较短形式是使用 <code>:::</code> 运算符将类名附加到节点，如下所示：</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-    A:::someclass --&gt; B
-    classDef someclass fill:#f96<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+    <span class="token function"><span class="token prefix">A<span class="token punctuation">:</span></span><span class="token local-name">::someclass</span></span> --> B
+    classDef someclass <span class="token function"><span class="token prefix">fill<span class="token punctuation">:</span></span></span><span class="token comment">#f96</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     A:::someclass --> B
     classDef someclass fill:#f96</pre>
 <p>当声明节点之间的多个链接时可以使用这种形式：</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart LR
-    A:::foo &amp; B:::bar --&gt; C:::foobar
-    classDef foo stroke:#f00
-    classDef bar stroke:#0f0
-    classDef foobar stroke:#00f<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart LR
+    <span class="token function"><span class="token prefix">A<span class="token punctuation">:</span></span><span class="token local-name">::foo</span></span> &amp; <span class="token function"><span class="token prefix">B<span class="token punctuation">:</span></span><span class="token local-name">::bar</span></span> --> <span class="token function"><span class="token prefix">C<span class="token punctuation">:</span></span><span class="token local-name">::foobar</span></span>
+    classDef foo <span class="token function"><span class="token prefix">stroke<span class="token punctuation">:</span></span></span><span class="token comment">#f00</span>
+    classDef bar <span class="token function"><span class="token prefix">stroke<span class="token punctuation">:</span></span></span><span class="token comment">#0f0</span>
+    classDef foobar <span class="token function"><span class="token prefix">stroke<span class="token punctuation">:</span></span></span><span class="token comment">#00f</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart LR
     A:::foo & B:::bar --> C:::foobar
     classDef foo stroke:#f00
@@ -988,11 +988,11 @@ graph LR<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
 <p>可以添加来自 fontawesome 的图标。</p>
 <p>通过语法 fa 访问图标：#图标类名#.</p>
 <p><strong>Code:</strong></p>
-<pre class="line-numbers language-null" data-language="null"><code class="language-null">flowchart TD
-    B[&quot;fa:fa-twitter for peace&quot;]
-    B--&gt;C[fa:fa-ban forbidden]
-    B--&gt;D(fa:fa-spinner)
-    B--&gt;E(A fa:fa-camera-retro perhaps?)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">flowchart TD
+    B<span class="token punctuation">[</span><span class="token string">"fa:fa-twitter for peace"</span><span class="token punctuation">]</span>
+    B-->C<span class="token punctuation">[</span><span class="token function"><span class="token prefix">fa<span class="token punctuation">:</span></span><span class="token local-name">fa-ban</span></span> forbidden<span class="token punctuation">]</span>
+    B-->D<span class="token punctuation">(</span><span class="token function"><span class="token prefix">fa<span class="token punctuation">:</span></span><span class="token local-name">fa-spinner</span></span><span class="token punctuation">)</span>
+    B-->E<span class="token punctuation">(</span>A <span class="token function"><span class="token prefix">fa<span class="token punctuation">:</span></span><span class="token local-name">fa-camera-retro</span></span> perhaps?<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="mermaid">flowchart TD
     B["fa:fa-twitter for peace"]
     B-->C[fa:fa-ban forbidden]
@@ -1752,6 +1752,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"live2d-widget-model-izumi"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 
 </html>

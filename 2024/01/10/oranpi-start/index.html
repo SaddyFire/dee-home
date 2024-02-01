@@ -331,21 +331,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-01-15
+                    2024-01-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.4k
+                    4.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    18 分
+                    20 分
                 </div>
                 
 
@@ -730,16 +730,27 @@ ipv4.method <span class="token string">"manual"</span>
 </li>
 </ol>
 <h2 id="常用命令">常用命令</h2>
-<h4 id="查看-Ubuntu-版本">查看 Ubuntu 版本</h4>
+<p><strong>查看 Ubuntu 版本</strong></p>
 <p><code>lsb_release -a</code></p>
 <p><img src="./../oranpi-start/image-20240110222823841.png" alt=""></p>
-<h4 id="查看当前Ubuntu系统使用的镜像源">查看当前Ubuntu系统使用的镜像源</h4>
-<p><code>cat /etc/apt/sources.list</code></p>
-<p><img src="./../oranpi-start/image-20240110223734669.png" alt=""></p>
-<p>如果想使用其他镜像源，可以在这个文件中添加或编辑相应的行。编辑完成后，记得运行以下命令更新软件包列表：</p>
-<p><code>sudo apt-get update</code></p>
-<h4 id="其他设置">其他设置</h4>
-<p><strong>账户相关</strong></p>
+<p><strong>查看系统架构</strong></p>
+<p><code>uname -m</code></p>
+<p><strong>scp</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">scp</span> <span class="token punctuation">[</span>参数<span class="token punctuation">]</span> <span class="token operator">&lt;</span>源地址（用户名@IP地址或主机名）<span class="token operator">></span>:<span class="token operator">&lt;</span>文件路径<span class="token operator">></span> <span class="token operator">&lt;</span>目的地址（用户名 @IP 地址或主机名）<span class="token operator">></span>:<span class="token operator">&lt;</span>文件路径<span class="token operator">></span>
+
+<span class="token comment">####举例</span>
+<span class="token function">scp</span> ./init.sh dee@192.168.1.99:/home/dee/ <span class="token comment">#把本地的init.sh文件拷贝到192.168.1.99的/home/dee目录下</span>
+
+<span class="token function">scp</span> orangepi@192.168.1.111:/etc/apt/sources.list ./ <span class="token comment">#把192.168.1.111的sources.list文件拷贝到本地当前目录下</span>
+
+<span class="token function">scp</span> <span class="token parameter variable">-r</span> /home/work/sourcedir work@192.168.0.10:/home/work/ <span class="token comment">#拷贝文件夹，加-r参数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>磁盘挂载</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">mkdir</span> /home/data
+<span class="token function">sudo</span> <span class="token function">mount</span> /dev/sda1 /home/data <span class="token comment">#挂载</span>
+<span class="token function">sudo</span> <span class="token function">umount</span> /dev/sda1 <span class="token comment">#卸载</span>
+<span class="token function">fuser</span> <span class="token parameter variable">-m</span> /dev/sda1 <span class="token comment">#查看正在使用磁盘的应用</span>
+<span class="token function">sudo</span> <span class="token function">fdisk</span> <span class="token parameter variable">-l</span> <span class="token comment">#查看所有磁盘信息(包括未挂载的)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="账户相关">账户相关</h3>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#修改 root 账号的密码(要切换至root)</span>
 paswd
 <span class="token comment">#修改 orangepi 账号的密码</span>
@@ -766,7 +777,22 @@ paswd
 <p><strong>设置时区</strong></p>
 <p><code>sudo dpkg-reconfigure tzdata</code> 选择Asia然后shanghai即可</p>
 <h3 id="常用-apt-命令">常用 apt 命令</h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> update <span class="token comment">#列出所有可更新的软件清单命令</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看当前Ubuntu系统使用的镜像源</span>
+<span class="token function">cat</span> /etc/apt/sources.list
+如果想使用其他镜像源，可以在这个文件中添加或编辑相应的行。编辑完成后，记得运行以下命令更新软件包列表：
+
+<span class="token function">sudo</span> <span class="token function">apt</span> update
+<span class="token comment"># 这是一个主要在新系统安装之后或安装新软件包之前调用的命令。apt update 命令更新 Linux 系统的包索引或包列表。它不会升级任何软件包，正如一些 Linux 用户被误导的那样。</span>
+
+<span class="token function">sudo</span> <span class="token function">apt</span> upgrade
+<span class="token comment"># 需要将您的软件包升级到最新版本？然后apt upgrade是要执行的命令。apt upgrade 命令不带任何参数，将系统上所有过时的软件包升级到最新版本。</span>
+<span class="token comment"># 如果需要任何依赖项，该命令还会触发新软件包的安装。除此之外，apt upgrade还会安装您系统所需的所有安全更新，这加强了您系统的安全性。</span>
+
+<span class="token function">apt</span> list <span class="token parameter variable">--upgradable</span> <span class="token comment">#列出需要升级的软件包</span>
+
+<span class="token comment">#### </span>
+
+<span class="token function">sudo</span> <span class="token function">apt</span> update <span class="token comment">#列出所有可更新的软件清单命令</span>
 
 <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> <span class="token operator">&lt;</span>package_name<span class="token operator">></span> <span class="token comment">#安装指定的软件命令</span>
 <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> <span class="token operator">&lt;</span>package_<span class="token operator"><span class="token file-descriptor important">1</span>></span> <span class="token operator">&lt;</span>package_<span class="token operator"><span class="token file-descriptor important">2</span>></span> <span class="token operator">&lt;</span>package_<span class="token operator"><span class="token file-descriptor important">3</span>></span> <span class="token comment">#安装多个软件包</span>
@@ -783,7 +809,7 @@ paswd
 
 <span class="token function">apt</span> list <span class="token parameter variable">--installed</span> <span class="token comment">#列出所有已安装的包</span>
 
-<span class="token function">apt</span> list --all-versions <span class="token comment">#列出所有已安装的包的版本信息</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">apt</span> list --all-versions <span class="token comment">#列出所有已安装的包的版本信息</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="常用防火墙命令">常用防火墙命令</h3>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> ufw <span class="token comment">#安装防火墙</span>
 
@@ -923,11 +949,11 @@ dpkg --list<span class="token operator">|</span><span class="token function">gre
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#安装Samba</span>
 <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> samba <span class="token parameter variable">-y</span>
 <span class="token comment">#新增共享目录</span>
-<span class="token function">sudo</span> <span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /dee/sharedir
+<span class="token function">sudo</span> <span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /dee/sharedata
 <span class="token comment">#添加用户</span>
 <span class="token function">sudo</span> <span class="token function">useradd</span> dee <span class="token parameter variable">-s</span> /usr/sbin/nologin
 <span class="token comment">#修改权限</span>
-<span class="token function">sudo</span> <span class="token function">chown</span> dee:dee /dee/sharedir
+<span class="token function">sudo</span> <span class="token function">chown</span> dee:dee /dee/sharedata
 <span class="token comment">#将用户smbuser添加到samba的smbpasswd file中(即在samba服务中注册该账户)</span>
 <span class="token function">sudo</span> smbpasswd <span class="token parameter variable">-a</span> dee
 <span class="token comment">#pass=dee</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -1846,6 +1872,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"live2d-widget-model-izumi"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 
 </html>
