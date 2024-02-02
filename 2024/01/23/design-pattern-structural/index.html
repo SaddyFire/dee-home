@@ -331,7 +331,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-01-25
+                    2024-02-02
                 </div>
                 
 
@@ -947,6 +947,100 @@ InputStream --o StreamDecoder : 聚合</pre>
 </ul>
 <p><font color="red">结论：</font></p>
 <p>​	从表层来看，InputStreamReader 做了 InputStream 字节流类到 Reader 字符流之间的转换。<strong>而从如上 Sun JDK 中的实现类关系结构中可以看出，是 StreamDecoder 的设计实现在实际上采用了对象适配器模式</strong>。</p>
+<h2 id="3-装饰者模式">3-装饰者模式</h2>
+<h3 id="概述-2">概述</h3>
+<p>我们先来看一个快餐店的例子。</p>
+<p>快餐店有炒面、炒饭这些快餐，可以额外附加鸡蛋、火腿、培根这些配菜，当然加配菜需要额外加钱，每个配菜的价钱通常不太一样，那么计算总价就会显得比较麻烦。</p>
+<pre class="mermaid">classDiagram
+class FastFood {
+	- price : float
+	- desc : String
+	+ setPrice(float price) void
+	+ setDesc(String desc) void
+	+ getPrice() float
+	+ getDesc() String
+	+ cost() float
+}
+class FriedRice {
+	+ FriedRice()
+	+ cost() float
+}
+class EggFriedRice { }
+class BaconFriedRice { }
+class FriedNoodles {
+	+ FriedNoodles()
+	+ cost() float
+}
+class EggFriedNoodles { }
+class BaconFriedNoodles { }
+FastFood <|-- FriedRice : 继承
+FastFood <|-- FriedNoodles : 继承
+FriedRice <|-- EggFriedRice
+FriedRice <|-- BaconFriedRice
+FriedNoodles <|-- EggFriedNoodles
+FriedNoodles <|-- BaconFriedNoodles</pre>
+<p>使用继承的方式存在的问题：</p>
+<ul>
+<li>
+<p>扩展性不好</p>
+<p>如果要再加一种配料（火腿肠），我们就会发现需要给FriedRice和FriedNoodles分别定义一个子类。如果要新增一个快餐品类（炒河粉）的话，就需要定义更多的子类。</p>
+</li>
+<li>
+<p>产生过多的子类</p>
+</li>
+</ul>
+<p><strong>定义：</strong></p>
+<p>​	指在不改变现有对象结构的情况下，动态地给该对象增加一些职责（即增加其额外功能）的模式。</p>
+<h3 id="结构-3">结构</h3>
+<p>装饰（Decorator）模式中的角色：</p>
+<ul>
+<li>抽象构件（Component）角色 ：定义一个抽象接口以规范准备接收附加责任的对象。</li>
+<li>具体构件（Concrete  Component）角色 ：实现抽象构件，通过装饰角色为其添加一些职责。</li>
+<li>抽象装饰（Decorator）角色 ： 继承或实现抽象构件，并包含具体构件的实例，可以通过其子类扩展具体构件的功能。</li>
+<li>具体装饰（ConcreteDecorator）角色 ：实现抽象装饰的相关方法，并给具体构件对象添加附加的责任。</li>
+</ul>
+<h3 id="案例">案例</h3>
+<p>我们使用装饰者模式对快餐店案例进行改进，体会装饰者模式的精髓。</p>
+<p>类图如下：</p>
+<pre class="mermaid">classDiagram
+class FastFood {
+	- price : float
+	- desc : String
+	+ setPrice(float price) void
+	+ setDesc(String desc) void
+	+ getPrice() float
+	+ getDesc() String
+	+ cost() float
+}
+class FriedRice {
+	+ FriedRice()
+	+ cost() float
+}
+class FriedNoodles {
+	+ FriedNoodles()
+	+ cost() float
+}
+class Garnish {
+	- fastFood : FastFood
+	+ Garnish(FastFood fastFood, float price, String desc)
+	+ setFastFood(FastFood fastFood)
+	+ getFastFood() FastFood
+}
+class Egg {
+	+ Egg(FastFood fastFood)
+	+ cost() float
+	+ getDesc() String
+}
+class Bacon {
+	+ Bacon(FastFood fastFood)
+	+ cost() float
+	+ getDesc() String
+}
+FastFood <|-- FriedRice
+FastFood <|-- FriedNoodles
+Garnish --o FastFood
+Garnish <|-- Egg
+Ga</pre>
 
                 
             </div>
@@ -1711,6 +1805,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":250,"height":470},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":220,"hOffset":-20,"vOffset":-10},"mobile":{"show":false,"scale":0.5},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
 
 </html>
