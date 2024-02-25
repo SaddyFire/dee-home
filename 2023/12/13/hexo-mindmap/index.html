@@ -323,14 +323,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-27
+                    2024-02-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    262
+                    296
                 </div>
                 
 
@@ -401,9 +401,13 @@
 <p><a href="#%E6%A0%87%E7%AD%BE%E9%93%BE%E6%8E%A5">自定义文本</a></p>
 <h4 id="站内文章跳转">站内文章跳转</h4>
 <p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/tag-plugins#%E5%BC%95%E7%94%A8%E6%96%87%E7%AB%A0">官网方式</a></p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&#123;% post_link filename [title] [escape] %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&#123;% post_link filename [title] [escape] %&#125;
+
+&#123;% post_link design-pattern-structural2 design-pattern-structural2 %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h4 id="站内文章标题跳转">站内文章标题跳转</h4>
-<pre class="line-numbers language-htnl" data-language="htnl"><code class="language-htnl">&lt;a href&#x3D;&quot;&#123;% post_path filename(不要后缀) %&#125;#章节名&quot;&gt;escape&lt;&#x2F;a&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-htnl" data-language="htnl"><code class="language-htnl">&lt;a href&#x3D;&quot;&#123;% post_path filename(不要后缀) %&#125;#章节名&quot;&gt;escape&lt;&#x2F;a&gt;
+
+&lt;a href&#x3D;&quot;&#123;% post_path jvm-sgg7 %&#125;#1-对象的实例化&quot;&gt;链接&lt;&#x2F;a&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>注意</p>
 <p><code>#章节名</code>处英文字母要全小写，空格要转换为<code>-</code></p>

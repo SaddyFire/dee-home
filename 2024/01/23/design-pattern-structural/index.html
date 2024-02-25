@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="设计模式-04-结构型模式, SaddyFire">
+    <meta name="keywords" content="设计模式-05-结构型模式 Ⅰ, SaddyFire">
     <meta name="description" content="代理;适配器;装饰者;桥接">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>设计模式-04-结构型模式 | SaddyFire</title>
+    <title>设计模式-05-结构型模式 Ⅰ | SaddyFire</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -267,7 +267,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">设计模式-04-结构型模式</h1>
+                    <h1 class="description center-align post-title">设计模式-05-结构型模式 Ⅰ</h1>
                 </div>
             </div>
         </div>
@@ -331,7 +331,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-02-03
+                    2024-02-05
                 </div>
                 
 
@@ -368,7 +368,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1>结构型模式 Ⅰ</h1>
+                <blockquote>
+<p>链接:</p>
+<a href="/2024/02/04/design-pattern-structural2/" title="设计模式-06-结构型模式 Ⅱ">结构型模式Ⅱ</a>
+</blockquote>
+<h1>结构型模式 Ⅰ</h1>
 <p>结构型模式描述如何将类或对象按某种布局组成更大的结构。它分为<strong>类结构型模式</strong>和<strong>对象结构型模式</strong>，前者采用继承机制来组织接口和类，后者釆用组合或聚合来组合对象。</p>
 <p>由于组合关系或聚合关系比继承关系耦合度低，满足“合成复用原则”，所以对象结构型模式比类结构型模式具有更大的灵活性。</p>
 <p>结构型模式分为以下 7 种：</p>
@@ -1337,11 +1341,69 @@ OperatingSystem <|-- Mac
 OperatingSystem o-- VideoFile
 VideoFile <|.. AVIFile
 VideoFile <|.. RMVBFile</pre>
+<p><strong>Code:</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//视频文件(实现化角色)</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">VideoFile</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">void</span> <span class="token function">decode</span><span class="token punctuation">(</span><span class="token class-name">String</span> fileName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//rmvb视频文件（具体的实现化角色）</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RmvbFile</span> <span class="token keyword">implements</span> <span class="token class-name">VideoFile</span><span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">decode</span><span class="token punctuation">(</span><span class="token class-name">String</span> fileName<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"rmvb视频文件 ："</span> <span class="token operator">+</span> fileName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//avi视频文件（具体的实现化角色）</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AviFile</span> <span class="token keyword">implements</span> <span class="token class-name">VideoFile</span><span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">decode</span><span class="token punctuation">(</span><span class="token class-name">String</span> fileName<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"avi视频文件 ："</span> <span class="token operator">+</span> fileName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//抽象操作系统(抽象化角色)</span>
+<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">OperatingSystem</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//声明videoFile变量</span>
+    <span class="token keyword">protected</span> <span class="token class-name">VideoFile</span> videoFile<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">OperatingSystem</span><span class="token punctuation">(</span><span class="token class-name">VideoFile</span> videoFile<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>videoFile <span class="token operator">=</span> videoFile<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">void</span> <span class="token function">play</span><span class="token punctuation">(</span><span class="token class-name">String</span> fileName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//扩展抽象化角色(windows操作系统)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Windows</span> <span class="token keyword">extends</span> <span class="token class-name">OperatingSystem</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Windows</span><span class="token punctuation">(</span><span class="token class-name">VideoFile</span> videoFile<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>videoFile<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">play</span><span class="token punctuation">(</span><span class="token class-name">String</span> fileName<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        videoFile<span class="token punctuation">.</span><span class="token function">decode</span><span class="token punctuation">(</span>fileName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//扩展抽象化角色(Mac操作系统)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Mac</span> <span class="token keyword">extends</span> <span class="token class-name">OperatingSystem</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Mac</span><span class="token punctuation">(</span><span class="token class-name">VideoFile</span> videoFile<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>videoFile<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">play</span><span class="token punctuation">(</span><span class="token class-name">String</span> fileName<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        videoFile<span class="token punctuation">.</span><span class="token function">decode</span><span class="token punctuation">(</span>fileName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>测试类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Client</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">OperatingSystem</span> system <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Mac</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">AviFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        system<span class="token punctuation">.</span><span class="token function">play</span><span class="token punctuation">(</span><span class="token string">"战狼3"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="好处-2">好处</h3>
 <ul>
 <li>
 <p>桥接模式提高了系统的可扩充性，在两个变化维度中任意扩展一个维度，都不需要修改原有系统。</p>
-<p>如：如果现在还有一种视频文件类型wmv，我们只需要再定义一个类实现VideoFile接口即可，其他类不需要发生变化。</p>
+<p>如：如果现在还有一种视频文件类型 wmv，我们只需要再定义一个类实现 VideoFile 接口即可，其他类不需要发生变化。</p>
 </li>
 <li>
 <p>实现细节对客户透明</p>
@@ -1353,81 +1415,6 @@ VideoFile <|.. RMVBFile</pre>
 <li>当一个系统不希望使用继承或因为多层次继承导致系统类的个数急剧增加时。</li>
 <li>当一个系统需要在构件的抽象化角色和具体化角色之间增加更多的灵活性时。避免在两个层次之间建立静态的继承联系，通过桥接模式可以使它们在抽象层建立一个关联关系。</li>
 </ul>
-<h2 id="5-外观模式">5-外观模式</h2>
-<h3 id="概述-4">概述</h3>
-<p>有些人可能炒过股票，但其实大部分人都不太懂，这种没有足够了解证券知识的情况下做股票是很容易亏钱的，刚开始炒股肯定都会想，如果有个懂行的帮帮手就好，其实基金就是个好帮手，支付宝里就有许多的基金，它将投资者分散的资金集中起来，交由专业的经理人进行管理，投资于股票、债券、外汇等领域，而基金投资的收益归持有者所有，管理机构收取一定比例的托管管理费用。</p>
-<p><strong>定义：</strong></p>
-<p>​	又名门面模式，是一种通过为多个复杂的子系统提供一个一致的接口，而使这些子系统更加容易被访问的模式。该模式对外有一个统一接口，外部应用程序不用关心内部子系统的具体的细节，这样会大大降低应用程序的复杂度，提高了程序的可维护性。</p>
-<p>​	外观（Facade）模式是“迪米特法则”的典型应用</p>
-<p><img src="./../design-pattern-structural/image-20240203233543993.png" alt=""></p>
-<h3 id="结构-5">结构</h3>
-<p>外观（Facade）模式包含以下主要角色：</p>
-<ul>
-<li>外观（Facade）角色：为多个子系统对外提供一个共同的接口。</li>
-<li>子系统（Sub System）角色：实现系统的部分功能，客户可以通过外观角色访问它。</li>
-</ul>
-<h3 id="案例-3">案例</h3>
-<p>【例】智能家电控制</p>
-<p>小明的爷爷已经 60 岁了，一个人在家生活：每次都需要打开灯、打开电视、打开空调；睡觉时关闭灯、关闭电视、关闭空调；操作起来都比较麻烦。所以小明给爷爷买了智能音箱，可以通过语音直接控制这些智能家电的开启和关闭。类图如下：</p>
-<pre class="mermaid">classDiagram
-class SmartAppliancesFacade {
-	- light : Light
-	- tv : TV
-	- airCondition : AirCondition
-	+ SmartAppliancesFacade()
-	+ say(String message) void
-	- on() void
-	- off() void
-} 
-class Light {
-	- on() void
-	- off() void
-}
-class TV {
-	- on() void
-	- off() void
-}
-class AirCondition {
-	- on() void
-	- off() void
-}
-class Client {
-	+ main() void
-}
-SmartAppliancesFacade o-- Light
-SmartAppliancesFacade o-- TV
-SmartAppliancesFacade o-- AirCondition
-SmartAppliancesFacade <.. Client</pre>
-<p><strong>好处：</strong></p>
-<ul>
-<li>降低了子系统与客户端之间的耦合度，使得子系统的变化不会影响调用它的客户类。</li>
-<li>对客户屏蔽了子系统组件，减少了客户处理的对象数目，并使得子系统使用起来更加容易。</li>
-</ul>
-<p><strong>缺点：</strong></p>
-<ul>
-<li>不符合开闭原则，修改很麻烦</li>
-</ul>
-<h3 id="使用场景-4">使用场景</h3>
-<ul>
-<li>对分层结构系统构建时，使用外观模式定义子系统中每层的入口点可以简化子系统之间的依赖关系。</li>
-<li>当一个复杂系统的子系统很多时，外观模式可以为系统设计一个简单的接口供外界访问。</li>
-<li>当客户端与多个子系统之间存在很大的联系时，引入外观模式可将它们分离，从而提高子系统的独立性和可移植性。</li>
-</ul>
-<h3 id="源码解析">源码解析</h3>
-<p>使用 tomcat 作为 web 容器时，接收浏览器发送过来的请求，tomcat 会将请求信息封装成 ServletRequest 对象，如下图①处对象。但是大家想想 ServletRequest 是一个接口，它还有一个子接口 HttpServletRequest，而我们知道该 request 对象肯定是一个 HttpServletRequest 对象的子实现类对象，到底是哪个类的对象呢？可以通过输出 request 对象，我们就会发现是一个名为 RequestFacade 的类的对象。</p>
-<p>RequestFacade 类就使用了外观模式。先看结构图：</p>
-<pre class="mermaid">classDiagram
-class ServletRequest { }
-class HttpServletRequest { }
-class RequestFacade {
-	# request : Request
-}
-class Request { }
-ServletRequest <|-- HttpServletRequest
-HttpServletRequest <|.. RequestFacade
-HttpServletRequest <|.. Request</pre>
-<p><strong>为什么在此处使用外观模式呢？</strong></p>
-<p>​	定义 RequestFacade 类，分别实现 ServletRequest ，同时定义私有成员变量 Request ，并且方法的实现调用 Request  的实现。然后，将 RequestFacade 上转为 ServletRequest  传给 servlet 的 service 方法，这样即使在 servlet 中被下转为 RequestFacade ，也不能访问私有成员变量对象中的方法。既用了 Request ，又能防止其中方法被不合理的访问。</p>
 
                 
             </div>
@@ -1585,12 +1572,8 @@ HttpServletRequest <|.. Request</pre>
                         <span class="chip bg-color">Linux</span>
                     </a>
                     
-                    <a href="/tags/RaspberryPi/">
-                        <span class="chip bg-color">RaspberryPi</span>
-                    </a>
-                    
-                    <a href="/tags/Debian/">
-                        <span class="chip bg-color">Debian</span>
+                    <a href="/tags/Pi/">
+                        <span class="chip bg-color">Pi</span>
                     </a>
                     
                 </div>
@@ -1607,9 +1590,9 @@ HttpServletRequest <|.. Request</pre>
                 <a href="/2024/01/22/design-pattern-builder/">
                     <div class="card-image">
                         
-                        <img src="/images/article/78.jpg" class="responsive-img" alt="设计模式-03-创建型模式-原型&amp;建造者">
+                        <img src="/images/article/78.jpg" class="responsive-img" alt="设计模式-04-创建型模式-原型&amp;建造者">
                         
-                        <span class="card-title">设计模式-03-创建型模式-原型&amp;建造者</span>
+                        <span class="card-title">设计模式-04-创建型模式-原型&amp;建造者</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
