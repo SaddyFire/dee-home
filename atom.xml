@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2024-03-06T14:07:32.981Z</updated>
+  <updated>2024-03-12T14:41:23.690Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.saddyfire.cn/2024/03/02/docker02/"/>
     <id>https://www.saddyfire.cn/2024/03/02/docker02/</id>
     <published>2024-03-02T05:14:43.000Z</published>
-    <updated>2024-03-06T14:07:32.981Z</updated>
+    <updated>2024-03-12T14:41:23.690Z</updated>
     
     
       
@@ -598,21 +598,20 @@
   </entry>
   
   <entry>
-    <title>香橙派5B上手记录</title>
-    <link href="https://www.saddyfire.cn/2024/01/10/oranpi-start/"/>
-    <id>https://www.saddyfire.cn/2024/01/10/oranpi-start/</id>
-    <published>2024-01-10T12:41:20.000Z</published>
-    <updated>2024-02-04T02:29:36.795Z</updated>
+    <title>子网掩码案例</title>
+    <link href="https://www.saddyfire.cn/2024/01/13/pi-mask/"/>
+    <id>https://www.saddyfire.cn/2024/01/13/pi-mask/</id>
+    <published>2024-01-13T01:21:48.000Z</published>
+    <updated>2024-03-13T02:15:42.131Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1&gt;香橙派5B上手记录&lt;/h1&gt;
+    <summary type="html">&lt;h2 id=&quot;子网掩码案例&quot;&gt;子网掩码案例&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;本文基于香橙派官方文档, 结合自己上手记录过程&lt;/p&gt;
-&lt;p&gt;&lt;a</summary>
+&lt;p&gt;问题描述：板子换了个网络，首先使用网线 ssh 连接正常，nmcli 连接 wifi 并设置完 wlan 静态 ip 后。拔去网线后发现连接不上 ssh也 ping</summary>
         
       
     
@@ -621,9 +620,9 @@
     <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
     
     
-    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
-    
     <category term="Pi" scheme="https://www.saddyfire.cn/tags/Pi/"/>
+    
+    <category term="network" scheme="https://www.saddyfire.cn/tags/network/"/>
     
   </entry>
   

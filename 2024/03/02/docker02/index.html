@@ -327,21 +327,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-03-06
+                    2024-03-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.1k
+                    5.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    21 分
+                    23 分
                 </div>
                 
 
@@ -976,6 +976,97 @@ CMD <span class="token builtin class-name">echo</span> <span class="token string
 <span class="token instruction"><span class="token keyword">ADD</span> </span>
 <span class="token instruction"><span class="token keyword">ENV</span> MYPATH </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="Docker网络">Docker网络</h2>
+<h3 id="常用基本命令">常用基本命令</h3>
+<p><strong>查看网络</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> network <span class="token function">ls</span>
+
+<span class="token comment">##############</span>
+NETWORK ID     NAME      DRIVER    SCOPE
+b1dfde1fa38f   bridge    bridge    <span class="token builtin class-name">local</span>
+22fdd425c457   <span class="token function">host</span>      <span class="token function">host</span>      <span class="token builtin class-name">local</span>
+8a0d6dff90e5   none      null      <span class="token builtin class-name">local</span>
+<span class="token comment">##############</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>查看网络源数据</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> network inspect XXX网络名字
+
+<span class="token comment">#举例</span>
+<span class="token function">docker</span> network inspect b1dfde1fa38f
+
+<span class="token comment">##############</span>
+<span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token string">"Name"</span><span class="token builtin class-name">:</span> <span class="token string">"bridge"</span>,
+        <span class="token string">"Id"</span><span class="token builtin class-name">:</span> <span class="token string">"b1dfde1fa38f03e0db1e81eafefbd89db931593233e81bcabe631c6d4d66a16e"</span>,
+        <span class="token string">"Created"</span><span class="token builtin class-name">:</span> <span class="token string">"2024-03-12T20:55:02.274728201+08:00"</span>,
+        <span class="token string">"Scope"</span><span class="token builtin class-name">:</span> <span class="token string">"local"</span>,
+        <span class="token string">"Driver"</span><span class="token builtin class-name">:</span> <span class="token string">"bridge"</span>,
+        <span class="token string">"EnableIPv6"</span><span class="token builtin class-name">:</span> false,
+        <span class="token string">"IPAM"</span><span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token string">"Driver"</span><span class="token builtin class-name">:</span> <span class="token string">"default"</span>,
+            <span class="token string">"Options"</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">"Config"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">&#123;</span>
+                    <span class="token string">"Subnet"</span><span class="token builtin class-name">:</span> <span class="token string">"172.17.0.0/16"</span>,
+                    <span class="token string">"Gateway"</span><span class="token builtin class-name">:</span> <span class="token string">"172.17.0.1"</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">&#125;</span>,
+        <span class="token string">"Internal"</span><span class="token builtin class-name">:</span> false,
+        <span class="token string">"Attachable"</span><span class="token builtin class-name">:</span> false,
+        <span class="token string">"Ingress"</span><span class="token builtin class-name">:</span> false,
+        <span class="token string">"ConfigFrom"</span><span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token string">"Network"</span><span class="token builtin class-name">:</span> <span class="token string">""</span>
+        <span class="token punctuation">&#125;</span>,
+        <span class="token string">"ConfigOnly"</span><span class="token builtin class-name">:</span> false,
+        <span class="token string">"Containers"</span><span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>,
+        <span class="token string">"Options"</span><span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token string">"com.docker.network.bridge.default_bridge"</span><span class="token builtin class-name">:</span> <span class="token string">"true"</span>,
+            <span class="token string">"com.docker.network.bridge.enable_icc"</span><span class="token builtin class-name">:</span> <span class="token string">"true"</span>,
+            <span class="token string">"com.docker.network.bridge.enable_ip_masquerade"</span><span class="token builtin class-name">:</span> <span class="token string">"true"</span>,
+            <span class="token string">"com.docker.network.bridge.host_binding_ipv4"</span><span class="token builtin class-name">:</span> <span class="token string">"0.0.0.0"</span>,
+            <span class="token string">"com.docker.network.bridge.name"</span><span class="token builtin class-name">:</span> <span class="token string">"docker0"</span>,
+            <span class="token string">"com.docker.network.driver.mtu"</span><span class="token builtin class-name">:</span> <span class="token string">"1500"</span>
+        <span class="token punctuation">&#125;</span>,
+        <span class="token string">"Labels"</span><span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span>
+<span class="token comment">#############</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="作用">作用</h3>
+<p>容器间的互联和通信以及端口映射</p>
+<p>容器IP变动时候可以通过服务名直接网络通信而不受到影响</p>
+<h3 id="网络模式">网络模式</h3>
+<table>
+<thead>
+<tr>
+<th>网络模式</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bridge</td>
+<td>为每一个容器分配、设置IP等，并将容器链接到一个 <code>docker0</code><br/>虚拟网桥，默认为该模式。</td>
+</tr>
+<tr>
+<td>host</td>
+<td>容器将不会虚拟出自己的网卡，配置自己的 IP 等，而是使用宿主机的 IP 和端口</td>
+</tr>
+<tr>
+<td>none</td>
+<td>容器有独立的 Network namespace，但并没有对其进行任何网络设置，如分配 veth pair 和网桥连接，IP 等</td>
+</tr>
+<tr>
+<td>container</td>
+<td>新创建的容器不会创建自己的网卡和配置自己的 IP，而是和一个指定的容器共享 IP、端口范围等。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>bridge模式：使用–network bridge指定，默认使用docker0</p>
+<p>host模式：使用–network host指定</p>
+<p>none模式：使用–network none指定</p>
+<p>container模式：使用–network container:NAME或者容器ID指定</p>
+</blockquote>
 <h2 id="Docker-compose容器编排">Docker-compose容器编排</h2>
 <h2 id="轻量级可视化工具Portainer">轻量级可视化工具Portainer</h2>
 <h2 id="监控之CAdvisor-InfluxDB-Granfana">监控之CAdvisor+InfluxDB+Granfana</h2>

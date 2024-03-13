@@ -327,7 +327,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-02-04
+                    2024-03-13
                 </div>
                 
 
@@ -596,15 +596,15 @@
 <li>
 <p>然后输入下面的命令</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nmcli con mod <span class="token string">"&lt;网络名>"</span> <span class="token punctuation">\</span>
-ipv4.addresses <span class="token string">"192.168.1.110"</span> <span class="token punctuation">\</span>
+ipv4.addresses <span class="token string">"192.168.1.110&lt;ip>/&lt;mask>"</span> <span class="token punctuation">\</span>
 ipv4.gateway <span class="token string">"192.168.1.1"</span> <span class="token punctuation">\</span>
 ipv4.dns <span class="token string">"8.8.8.8"</span> <span class="token punctuation">\</span>
 ipv4.method <span class="token string">"manual"</span>
 
 
-nmcli con mod <span class="token string">"CMCC-6Xcu-5G"</span> <span class="token punctuation">\</span>
-ipv4.addresses <span class="token string">"192.168.1.111"</span> <span class="token punctuation">\</span>
-ipv4.gateway <span class="token string">"192.168.1.1"</span> <span class="token punctuation">\</span>
+nmcli con mod <span class="token string">"sssddd5"</span> <span class="token punctuation">\</span>
+ipv4.addresses <span class="token string">"192.168.10.100/24"</span> <span class="token punctuation">\</span>
+ipv4.gateway <span class="token string">"192.168.10.1"</span> <span class="token punctuation">\</span>
 ipv4.dns <span class="token string">"8.8.8.8"</span> <span class="token punctuation">\</span>
 ipv4.method <span class="token string">"manual"</span>
 <span class="token comment"># Wired connection 1 表示设置以太网的静态 IP 地址</span>
@@ -1239,23 +1239,23 @@ EOF</span>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/01/17/jvm-tuning3/">
+                <a href="/2024/01/13/pi-mask/">
                     <div class="card-image">
                         
-                        <img src="/images/article/62.jpg" class="responsive-img" alt="JVM-Tuning-03-JVM监控及诊断-运行参数篇">
+                        <img src="/images/article/89.jpeg" class="responsive-img" alt="子网掩码案例">
                         
-                        <span class="card-title">JVM-Tuning-03-JVM监控及诊断-运行参数篇</span>
+                        <span class="card-title">子网掩码案例</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JVM监控及诊断-运行参数篇
+                            树莓派子网掩码案例
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-17
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-13
                         </span>
                         <span class="publish-author">
                             
@@ -1272,8 +1272,12 @@ EOF</span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JVM/">
-                        <span class="chip bg-color">JVM</span>
+                    <a href="/tags/Pi/">
+                        <span class="chip bg-color">Pi</span>
+                    </a>
+                    
+                    <a href="/tags/network/">
+                        <span class="chip bg-color">network</span>
                     </a>
                     
                 </div>
