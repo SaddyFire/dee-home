@@ -327,7 +327,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-03-02
+                    2024-03-15
                 </div>
                 
 
@@ -1092,10 +1092,10 @@ version   Show the <span class="token function">docker</span> version informatio
 <span class="token function">mv</span> webapps.dist/ webapps<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="Mysql（自用）">Mysql（自用）</h3>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1.查找镜像</span>
-<span class="token function">docker</span> search mysql
+<span class="token function">docker</span> search mysql:8.0
 
 <span class="token comment"># 2.拉取镜像</span>
-<span class="token function">docker</span> pull mysql
+<span class="token function">docker</span> pull mysql:8.0
 
 <span class="token comment"># 3.查看镜像</span>
 <span class="token function">docker</span> images
@@ -1105,8 +1105,9 @@ version   Show the <span class="token function">docker</span> version informatio
 <span class="token parameter variable">-p</span> <span class="token number">3306</span>:3306 <span class="token punctuation">\</span>
 <span class="token parameter variable">--name</span> deesql <span class="token punctuation">\</span>
 <span class="token parameter variable">--privileged</span><span class="token operator">=</span>true <span class="token punctuation">\</span>
-<span class="token parameter variable">-v</span> /ddocker/mysql/log:/var/log/mysql <span class="token punctuation">\</span>
-<span class="token parameter variable">-v</span> /ddocker/mysql/data:/var/lib/mysql <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /ddocker/mysql-master/data:/var/lib/mysql <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /ddocker/mysql-master/conf:/etc/mysql/conf.d <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /ddcoker/mysql-master/mysql-files:/var/lib/mysql-files <span class="token punctuation">\</span>
 <span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">123456</span> <span class="token punctuation">\</span>
 <span class="token parameter variable">-d</span> mysql:8.0
 
@@ -1114,7 +1115,7 @@ version   Show the <span class="token function">docker</span> version informatio
 mysql <span class="token parameter variable">-uroot</span> <span class="token parameter variable">-p</span> <span class="token comment">#登录</span>
 show variables like <span class="token string">'character%'</span><span class="token punctuation">;</span> <span class="token comment">#查看字符编码</span>
 cd/docker/mysql/conf <span class="token comment">#宿主机 >>> 新建my.cnf</span>
-<span class="token comment"># 5.1新增配置(见下)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># 5.1新增配置(见下)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>mysql配置文件</strong></p>
 <blockquote>
 <p>注意！！！！</p>

@@ -327,21 +327,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-03-12
+                    2024-03-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.5k
+                    7.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    23 分
+                    30 分
                 </div>
                 
 
@@ -1067,8 +1067,247 @@ b1dfde1fa38f   bridge    bridge    <span class="token builtin class-name">local<
 <p>none模式：使用–network none指定</p>
 <p>container模式：使用–network container:NAME或者容器ID指定</p>
 </blockquote>
+<h4 id="bridge">bridge</h4>
+<p>Docker 服务默认会创建一个 docker0 网桥（其上有一个 docker0 内部接口），该桥接网络的名称为 docker0，它在<font color="red">内核层</font>连通了其他的物理或虚拟网卡，这就将所有容器和本地主机都放到<font color=red>同一个物理网络</font>。Docker 默认指定了 docke0 接口的 IP 地址和子网掩码，<font color=red>让主机和容器之间可以通过网桥相互通信</font>。</p>
+<p><strong>查看 bridge 网络的详细信息，并通过 grep 获取名称项</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> network inspect bridge<span class="token operator">|</span><span class="token function">grep</span> name
+
+<span class="token comment">######</span>
+<span class="token string">"com.docker.network.bridge.name"</span><span class="token builtin class-name">:</span> <span class="token string">"docker0"</span>,
+<span class="token comment">######</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol>
+<li>Docker 使用 Linux 桥接，在宿主机虚拟一个 Docker 容器网桥(docker0), Docker 启动一个容器时会根据 Docker 网桥的网段分配给容器一个IP地址，称为 Container-lP, 同时 Docker 网桥是每个容器的默认网关。因为在同一宿主机内的容器都接入同一个网桥，这样容器之间就能够通过容器的 Container-lP 直接通信。</li>
+<li>docker run 的时候，没有指定 network 的话默认使用的网桥模式就是 bridge,使用的就是 docker0。在宿主机ifconfig, 就可以看到 docker0 和自己 create 的 network(后面讲)eth0, eth1, eth2…代表网卡一，网卡二，网卡三…，lo 代表 127.0.0.1，即 localhost, inet addr)用来表示网卡的 IP 地址</li>
+<li>网桥 docker0 创建一对对等虚拟设备接口一个叫 veth, 另一个叫 eth0, 成对匹配。
+<ol>
+<li>整个宿主机的网桥模式都是 docker0, 类以一个交换机有一堆接口，每个接口叫 veth, 在本地主机和容器内分别创建一个虚拟接口，并让他们彼比联通（这样一对接口叫veth pair）</li>
+<li>每个容器实例内部也有一块网卡，每个接口叫eth0</li>
+<li>docker0 上面的每个 veth 匹配某个容器实例内部的 eth0, 两两配对，一一匹配。</li>
+</ol>
+</li>
+</ol>
+<p>通过上述，将宿主机上的所有容器都连接到这个内部网络上，两个容器在同一个网络下，会从这个网关下各自拿到分配的，此时两个容器的网络互通的。</p>
+<p><img src="./../docker02/image-20240313225441898.png" alt=""></p>
+<p><strong>案例</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#拉镜像</span>
+<span class="token function">docker</span> pull billygoo/tomcat8-jdk8
+
+<span class="token comment">#启动两个容器</span>
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">8081</span>:8080 <span class="token parameter variable">--name</span> tomcat81 billygoo/tomcat8-jdk8
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">8082</span>:8080 <span class="token parameter variable">--name</span> tomcat82 billygoo/tomcat8-jdk8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>通过 <code>ip addr</code> 查看当前网络信息</p>
+<p><img src="./../docker02/image-20240313174611998.png" alt="主机ip 信息"></p>
+<p>进入容器内部</p>
+<p><code>docker exec -it tomcat81 /bin/bash</code></p>
+<p>查看容器内部网络</p>
+<p><code>ip addr</code></p>
+<p><img src="./../docker02/image-20240313174743830.png" alt="tomcat81 内部网络"></p>
+<p>可以看到 <font color="#3498db">宿主机 &gt;&gt;&gt; 49: veth@if48</font> 和 <font color="#3498db">tomcat81 &gt;&gt;&gt; 48: eth0@if49</font> 一一对应</p>
+<h4 id="host">host</h4>
+<p>直接使用宿主机的 IP 地址与外界进行通信，不在需要额外进行 NAT 转换</p>
+<p>容器将不会获得一个独立的 Network Namespace，而是和宿主机公用一个 Network Namespace. 容器将不会虚拟出自己的网卡而是使用宿主机的 IP 和端口。</p>
+<p><img src="./../docker02/image-20240313231148528.png" alt=""></p>
+<p><strong>案例</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token parameter variable">--network</span> <span class="token function">host</span> <span class="token parameter variable">--name</span> tomcat83 billygoo/tomcat8-jdk8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>在 CentOS 里面用默认的浏览器访问容器内的 tomcat83 看到访问成功，因为此时容器的 IP 借用主机的，<br>
+所以容器共享宿主机网络 IP, 这样的好处是外部主机与容器可以直接通信。</p>
+<h4 id="none">none</h4>
+<p>在 none 模式下，并不为 Docker 容器进行任何网络配置。<br>
+也就是说，这个 Docker 容器没有网卡、IP、路由等信息，只有一个lo<br>
+需要我们自己为 Docker 容器添加网卡、配置 IP 等。</p>
+<h4 id="container">container</h4>
+<p>新建的容器和己经存在的一个容器共享一个网络配置而不是和宿主机共享。新创建的容器不会创建自己的网卡，配置自己的 IP,而 是和一个指定的容器共享 IP、端口范围等。同样，两个容器除了网络方面，其他的如文件系统、进程列表等还是隔离的。</p>
+<p><img src="./../docker02/image-20240313232808818.png" alt=""></p>
+<p><strong>案例</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">8085</span>:8080 <span class="token parameter variable">--name</span> tomcat85 billygoo/tamcat8-jdk8
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">8086</span>:8080 <span class="token parameter variable">--network</span> container:tomcat85 <span class="token parameter variable">--name</span> tomcat86 billygoo/tamcat8-jdk8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="自定义网络">自定义网络</h4>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">8081</span>:8080 <span class="token parameter variable">--name</span> tomcat81 billygoo/tomcat8-jdk8
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">8082</span>:8080 <span class="token parameter variable">--name</span> tomcat82 billygoo/tomcat8-jdk8
+
+<span class="token comment">#启动后进入容器实例内部</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> tomcat81 /bin/bash
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> tomcat82 /bin/bash
+
+<span class="token comment">#在81里ping 82</span>
+<span class="token function">ping</span> <span class="token number">172.17</span>.0.3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="./../docker02/image-20240314112821421.png" alt=""></p>
+<p><strong>通过自定义网络使用服务名连通网络</strong></p>
+<ol>
+<li>
+<p>新建自定义网络</p>
+<p><code>docker network create dee_network</code></p>
+</li>
+<li>
+<p>新建容器加入上一步新建的自定义网络</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">8081</span>:8080 <span class="token parameter variable">--network</span> dee_network <span class="token parameter variable">--name</span> tomcat81 billygoo/tomcat8-jdk8
+
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">8082</span>:8080 <span class="token parameter variable">--network</span> dee_network <span class="token parameter variable">--name</span> tomcat82 billygoo/tomcat8-jdk8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li>
+<p>互相ping测试</p>
+<p><img src="./../docker02/image-20240314114732809.png" alt=""></p>
+</li>
+</ol>
 <h2 id="Docker-compose容器编排">Docker-compose容器编排</h2>
+<p>Docker-Compose 是 Docker 官方的开源项目， 负责实现对 Docker 容器集群的快速编排。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.docker.com/compose/compose-file/compose-file-v3/">官网</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.docker.com/compose/install/">下载地址</a></p>
+<p><code>docker compose version</code></p>
+<h3 id="常用命令">常用命令</h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>docker compose -h</td>
+<td>查看帮助</td>
+</tr>
+<tr>
+<td>docker compose up</td>
+<td>启动所有docker-compose服务</td>
+</tr>
+<tr>
+<td>docker compose up -d</td>
+<td>启动所有docker-compose服务并后台运行</td>
+</tr>
+<tr>
+<td>docker compose down</td>
+<td>停止并删除容器、网络、卷、镜像</td>
+</tr>
+<tr>
+<td>docker compose exec yml里的服务id</td>
+<td>进入容器实例内部 docker-compose exec docker-compose.yml文件中写的服务id /bin/bash</td>
+</tr>
+<tr>
+<td>docker compose ps</td>
+<td>展示当前docker-compose编排过的运行的所有容器</td>
+</tr>
+<tr>
+<td>docker compose top</td>
+<td>展示当前docker-compose编排过的容器进程</td>
+</tr>
+<tr>
+<td>docker compose logs yml里面的服务id</td>
+<td>查看容器输入日志</td>
+</tr>
+<tr>
+<td>docker compose config</td>
+<td>检查配置</td>
+</tr>
+<tr>
+<td>docker compose config -q</td>
+<td>检查配置，有问题才输出</td>
+</tr>
+<tr>
+<td>docker compose restart</td>
+<td>重启服务</td>
+</tr>
+<tr>
+<td>docker compose start</td>
+<td>启动服务</td>
+</tr>
+<tr>
+<td>docker compose stop</td>
+<td>停止服务</td>
+</tr>
+</tbody>
+</table>
+<h3 id="编排服务">编排服务</h3>
+<p><strong>docker-compose.yml</strong></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"3.8"</span>
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">microService</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> dee_docker<span class="token punctuation">:</span><span class="token number">1.6</span>
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> dd01
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"6001:6001"</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> /app/microService<span class="token punctuation">:</span>/data
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span>dee_net
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> redis
+      <span class="token punctuation">-</span> mysql
+  <span class="token key atrule">redis</span><span class="token punctuation">:</span>
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> redis<span class="token punctuation">:</span>6.0.8
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> dee_redis
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"16379:6379"</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> /ddocker/redis/conf/redis.conf<span class="token punctuation">:</span>/etc/redis/redis.conf
+      <span class="token punctuation">-</span> /ddocker/redis/data<span class="token punctuation">:</span>/data
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> dee_net
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>server /etc/redis/redis.conf
+  <span class="token key atrule">mysql</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> mysql<span class="token punctuation">:</span><span class="token number">8.0</span>
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> dee_mysql
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"13306:3306"</span>
+    <span class="token key atrule">logging</span><span class="token punctuation">:</span>
+      <span class="token key atrule">driver</span><span class="token punctuation">:</span> <span class="token string">'json-file'</span>
+      <span class="token key atrule">options</span><span class="token punctuation">:</span>
+        <span class="token key atrule">max-size</span><span class="token punctuation">:</span> <span class="token string">'5g'</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">MYSQL_ROOT_PASSWORD</span><span class="token punctuation">:</span> <span class="token number">2323</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> /ddocker/mysql/data<span class="token punctuation">:</span>/var/lib/mysql
+      <span class="token punctuation">-</span> /ddocker/mysql/conf/my.cnf<span class="token punctuation">:</span>/etc/my.cnf
+      <span class="token punctuation">-</span> /ddocker/mysql/init<span class="token punctuation">:</span>/docker<span class="token punctuation">-</span>entrypoint<span class="token punctuation">-</span>initdb.d
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> dee_net
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> <span class="token punctuation">-</span><span class="token punctuation">-</span>default<span class="token punctuation">-</span>authentication<span class="token punctuation">-</span>plugin=mysql_native_password <span class="token comment">#解决外部无法访问</span>
+
+<span class="token key atrule">networks</span><span class="token punctuation">:</span>
+  dee_net<span class="token punctuation">:</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>单独mysql编排</strong></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"3.8"</span>
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">mysql</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> mysql<span class="token punctuation">:</span><span class="token number">8.0</span>
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> dee_mysql
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"13306:3306"</span>
+    <span class="token key atrule">logging</span><span class="token punctuation">:</span>
+      <span class="token key atrule">driver</span><span class="token punctuation">:</span> <span class="token string">'json-file'</span>
+      <span class="token key atrule">options</span><span class="token punctuation">:</span>
+        <span class="token key atrule">max-size</span><span class="token punctuation">:</span> <span class="token string">'5g'</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">MYSQL_ROOT_PASSWORD</span><span class="token punctuation">:</span> <span class="token number">2323</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> /ddocker/mysql/data<span class="token punctuation">:</span>/var/lib/mysql
+      <span class="token punctuation">-</span> /ddocker/mysql/conf/my.cnf<span class="token punctuation">:</span>/etc/my.cnf
+      <span class="token punctuation">-</span> /ddocker/mysql/init<span class="token punctuation">:</span>/docker<span class="token punctuation">-</span>entrypoint<span class="token punctuation">-</span>initdb.d
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> dee_net
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> <span class="token punctuation">-</span><span class="token punctuation">-</span>default<span class="token punctuation">-</span>authentication<span class="token punctuation">-</span>plugin=mysql_native_password <span class="token comment">#解决外部无法访问</span>
+
+<span class="token key atrule">networks</span><span class="token punctuation">:</span>
+  dee_net<span class="token punctuation">:</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="轻量级可视化工具Portainer">轻量级可视化工具Portainer</h2>
+<p>官网</p>
+<p><a target="_blank" rel="noopener" href="https://www.portainer.io/">官网</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.portainer.io/start/install-ce/server/docker/linux">在 Linux 上使用 Docker 安装 Portainer CE |2.19 |Portainer 文档</a></p>
+<p><strong>步骤</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> volume create portainer_data
+
+<span class="token comment">#官方</span>
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">8000</span>:8000 <span class="token parameter variable">-p</span> <span class="token number">9443</span>:9443 <span class="token parameter variable">--name</span> portainer <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token parameter variable">-v</span> /var/run/docker.sock:/var/run/docker.sock <span class="token parameter variable">-v</span> portainer_data:/data portainer/portainer-ce:latest
+
+<span class="token comment">#如果要用http端口</span>
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">8000</span>:8000 <span class="token parameter variable">-p</span> <span class="token number">9000</span>:9000 <span class="token parameter variable">--name</span> portainer <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token parameter variable">-v</span> /var/run/docker.sock:/var/run/docker.sock <span class="token parameter variable">-v</span> portainer_data:/data portainer/portainer-ce:latest
+
+<span class="token function">docker</span> <span class="token function">ps</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="监控之CAdvisor-InfluxDB-Granfana">监控之CAdvisor+InfluxDB+Granfana</h2>
 
                 

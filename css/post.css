@@ -46,6 +46,8 @@
     padding-bottom: 30px;
     overflow-y: scroll;
     height: calc(100vh - 250px);
+    scroll-behavior: smooth;
+    transform: translateY(0px);
 }
 
 #toc-content ol {
