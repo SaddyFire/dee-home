@@ -335,14 +335,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-22
+                    2024-03-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    742
+                    782
                 </div>
                 
 
@@ -435,9 +435,12 @@ sp_close_session<span class="token punctuation">(</span><span class="token numbe
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> table_count <span class="token keyword">order</span> <span class="token keyword">by</span> used_space_mb <span class="token keyword">desc</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="进程端口命令">进程端口命令</h2>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># linux</span>
-<span class="token function">lsof</span> <span class="token parameter variable">-i:80</span>  <span class="token comment"># 根据端口查看PID及应用名</span>
-<span class="token function">netstat</span> -ntulp<span class="token operator">|</span><span class="token function">grep</span> nginx  <span class="token comment"># 根据应用名查看端口</span>
-<span class="token function">top</span> <span class="token parameter variable">-Hp</span> pid  <span class="token comment"># 查看某个进程下所有子线程</span>
+<span class="token function">lsof</span> <span class="token parameter variable">-i:80</span>  <span class="token comment">#根据端口查看PID及应用名</span>
+<span class="token function">netstat</span> <span class="token parameter variable">-ntlp</span> <span class="token comment">#查看当前所有tcp端口</span>
+<span class="token function">netstat</span> -ntulp<span class="token operator">|</span><span class="token function">grep</span> <span class="token number">80</span> <span class="token comment">#查看所有80端口使用情况</span>
+<span class="token function">netstat</span> -ntulp<span class="token operator">|</span><span class="token function">grep</span> nginx  <span class="token comment">#根据应用名查看端口</span>
+<span class="token function">netstat</span> <span class="token parameter variable">-nlp</span> <span class="token operator">|</span><span class="token function">grep</span> LISTEN <span class="token comment">#查看当前所有监听端口</span>
+<span class="token function">top</span> <span class="token parameter variable">-Hp</span> pid  <span class="token comment">#查看某个进程下所有子线程</span>
 
 <span class="token comment">#win</span>
 tasklist <span class="token operator">|</span> findstr xxx  <span class="token comment"># 查看进程 ps -ef</span>
@@ -448,7 +451,7 @@ taskkill /T /F /PID <span class="token number">12345</span>  <span class="token 
 <span class="token function">find</span> / <span class="token parameter variable">-iname</span> *abc*  <span class="token comment"># 全局搜索</span>
 <span class="token function">find</span> / <span class="token parameter variable">-type</span> d <span class="token parameter variable">-iname</span> *abc* <span class="token comment"># 搜索文件夹</span>
 <span class="token function">find</span> / <span class="token parameter variable">-size</span> +100M
-<span class="token function">find</span> / <span class="token parameter variable">-maxdepth</span> <span class="token number">1</span> <span class="token parameter variable">-iname</span> abc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">find</span> / <span class="token parameter variable">-maxdepth</span> <span class="token number">1</span> <span class="token parameter variable">-iname</span> abc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="其他linux常用命令">其他linux常用命令</h2>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">journalctl <span class="token parameter variable">-u</span> <span class="token string">'服务名'</span> <span class="token parameter variable">-f</span> <span class="token parameter variable">-n</span> 行数
 <span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> 解压  <span class="token function">gzip</span> extract verbose <span class="token function">file</span>

@@ -327,14 +327,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-03-15
+                    2024-03-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.2k
+                    7.3k
                 </div>
                 
 
@@ -376,7 +376,7 @@
 <span class="token parameter variable">--privileged</span><span class="token operator">=</span>true <span class="token punctuation">\</span>
 <span class="token parameter variable">-v</span> /ddocker/mysql-master/data:/var/lib/mysql <span class="token punctuation">\</span>
 <span class="token parameter variable">-v</span> /ddocker/mysql-master/conf:/etc/mysql/conf.d <span class="token punctuation">\</span>
-<span class="token parameter variable">-v</span> /ddcoker/mysql-master/mysql-files:/var/lib/mysql-files <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /ddocker/mysql-master/mysql-files:/var/lib/mysql-files <span class="token punctuation">\</span>
 <span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">123456</span> <span class="token punctuation">\</span>
 <span class="token parameter variable">-d</span> mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ol start="2">
@@ -427,7 +427,7 @@ flush privileges<span class="token punctuation">;</span><span aria-hidden="true"
 <span class="token parameter variable">--privileged</span><span class="token operator">=</span>true <span class="token punctuation">\</span>
 <span class="token parameter variable">-v</span> /ddocker/mysql-slave/data:/var/lib/mysql <span class="token punctuation">\</span>
 <span class="token parameter variable">-v</span> /ddocker/mysql-slave/conf:/etc/mysql/conf.d <span class="token punctuation">\</span>
-<span class="token parameter variable">-v</span> /ddcoker/mysql-master/mysql-files:/var/lib/mysql-files <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /ddocker/mysql-master/mysql-files:/var/lib/mysql-files <span class="token punctuation">\</span>
 <span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">123456</span> <span class="token punctuation">\</span>
 <span class="token parameter variable">-d</span> mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ol start="6">
@@ -1308,7 +1308,62 @@ b1dfde1fa38f   bridge    bridge    <span class="token builtin class-name">local<
 <span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">8000</span>:8000 <span class="token parameter variable">-p</span> <span class="token number">9000</span>:9000 <span class="token parameter variable">--name</span> portainer <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token parameter variable">-v</span> /var/run/docker.sock:/var/run/docker.sock <span class="token parameter variable">-v</span> portainer_data:/data portainer/portainer-ce:latest
 
 <span class="token function">docker</span> <span class="token function">ps</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>访问 <code>http://192.168.10.100:9000/</code></p>
+<p><img src="./../docker02/image-20240316153909214.png" alt=""></p>
+<p><img src="./../docker02/image-20240316154454997.png" alt="docker system df"></p>
 <h2 id="监控之CAdvisor-InfluxDB-Granfana">监控之CAdvisor+InfluxDB+Granfana</h2>
+<p>新建目录</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /ddocker
+<span class="token function">mkdir</span> cig
+<span class="token function">vim</span> docker-compose.yml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>docker-compose.yml</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'3.8'</span>
+
+<span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+  <span class="token key atrule">grafana_data</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">influxdb</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> tutum/influxdb<span class="token punctuation">:</span><span class="token number">0.9</span>
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> RPE_CREATE_DB=cadvisor
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"8083:8083"</span>
+      <span class="token punctuation">-</span> <span class="token string">"8086:8086"</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ./data/influxdb<span class="token punctuation">:</span>/data
+      
+  <span class="token key atrule">cadvisor</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> goolgle/cadvisor
+    <span class="token key atrule">links</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">influxdb</span><span class="token punctuation">:</span> influxsrv
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> <span class="token punctuation">-</span>storage_driver=influxdb <span class="token punctuation">-</span>storage_driver_db=cadvisor <span class="token punctuation">-</span>storage_driver_host=influxsrv<span class="token punctuation">:</span><span class="token number">8086</span>
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"8080:8080"</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> /<span class="token punctuation">:</span>/rootfs<span class="token punctuation">:</span>ro
+      <span class="token punctuation">-</span> /var/run<span class="token punctuation">:</span>/var/run<span class="token punctuation">:</span>rw
+      <span class="token punctuation">-</span> /sys<span class="token punctuation">:</span>/sys<span class="token punctuation">:</span>ro
+      <span class="token punctuation">-</span> /var/lib/docker/<span class="token punctuation">:</span>var/lib/docker<span class="token punctuation">:</span>ro
+  
+  <span class="token key atrule">grafana</span><span class="token punctuation">:</span>
+    <span class="token key atrule">user</span><span class="token punctuation">:</span> <span class="token string">"104"</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> grafana/grafana
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+    <span class="token key atrule">links</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> influxdb<span class="token punctuation">:</span>influxsrv
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"3000:3000"</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> grafana_data<span class="token punctuation">:</span>/var/lib/grafana
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> HTTP_USER=admin
+      <span class="token punctuation">-</span> HTTP_PASS=admin
+      <span class="token punctuation">-</span> INFLUXDB_HOST=influxsrv
+      <span class="token punctuation">-</span> INFLUXDB_PORT=8086<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>docker compose</p>
+<p>docke compose up</p>
 
                 
             </div>
