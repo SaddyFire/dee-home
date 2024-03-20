@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2024-03-16T14:41:59.304Z</updated>
+  <updated>2024-03-20T01:04:36.163Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java日期类</title>
+    <link href="https://www.saddyfire.cn/2024/05/04/java-date/"/>
+    <id>https://www.saddyfire.cn/2024/05/04/java-date/</id>
+    <published>2024-05-04T00:51:18.000Z</published>
+    <updated>2024-03-20T01:04:36.163Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;Java日期类整理&lt;/h1&gt;
+&lt;p&gt;本文主要介绍 &lt;code&gt;java.util.Date&lt;/code&gt; 和 &lt;code&gt;java.time.LocalDateTime&lt;/code&gt; 的对比使用&lt;/p&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>DockerⅡ-深入</title>
@@ -594,35 +621,6 @@
     
     
     <category term="JVM" scheme="https://www.saddyfire.cn/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>子网掩码案例</title>
-    <link href="https://www.saddyfire.cn/2024/01/13/pi-mask/"/>
-    <id>https://www.saddyfire.cn/2024/01/13/pi-mask/</id>
-    <published>2024-01-13T01:21:48.000Z</published>
-    <updated>2024-03-13T02:15:42.131Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;子网掩码案例&quot;&gt;子网掩码案例&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;问题描述：板子换了个网络，首先使用网线 ssh 连接正常，nmcli 连接 wifi 并设置完 wlan 静态 ip 后。拔去网线后发现连接不上 ssh也 ping</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Pi" scheme="https://www.saddyfire.cn/tags/Pi/"/>
-    
-    <category term="network" scheme="https://www.saddyfire.cn/tags/network/"/>
     
   </entry>
   
