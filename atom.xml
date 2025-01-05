@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>SaddyFire</title>
+  
+  <subtitle>🐷Xian🐷</subtitle>
+  <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
+  
+  <link href="https://www.saddyfire.cn/"/>
+  <updated>2025-01-04T12:04:54.318Z</updated>
+  <id>https://www.saddyfire.cn/</id>
+  
+  <author>
+    <name>👑Dee👑</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>正则的一些笔记</title>
+    <link href="https://www.saddyfire.cn/2025/01/04/python-reg/"/>
+    <id>https://www.saddyfire.cn/2025/01/04/python-reg/</id>
+    <published>2025-01-04T08:18:48.000Z</published>
+    <updated>2025-01-04T12:04:54.318Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;正则的一些笔记&lt;/h1&gt;
+&lt;h2 id=&quot;常用正则&quot;&gt;常用正则&lt;/h2&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="python" scheme="https://www.saddyfire.cn/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python办公自动化</title>
+    <link href="https://www.saddyfire.cn/2025/01/02/python-office/"/>
+    <id>https://www.saddyfire.cn/2025/01/02/python-office/</id>
+    <published>2025-01-02T12:45:41.000Z</published>
+    <updated>2025-01-05T14:28:45.347Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;Python办公自动化&lt;/h1&gt;
+&lt;p&gt;依赖安装&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;pip &lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="python" scheme="https://www.saddyfire.cn/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js下的策略模式demo</title>
+    <link href="https://www.saddyfire.cn/2024/12/26/js-strategy/"/>
+    <id>https://www.saddyfire.cn/2024/12/26/js-strategy/</id>
+    <published>2024-12-26T07:50:30.000Z</published>
+    <updated>2024-12-28T10:43:55.264Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;js下的策略模式demo&lt;/h1&gt;
+&lt;h2 id=&quot;记一次demo&quot;&gt;记一次demo&lt;/h2&gt;
+&lt;h3 id=&quot;定义策略map&quot;&gt;定义策略map&lt;/h3&gt;
+&lt;pre class=&quot;line-numbers language-javascript&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="JavaScript" scheme="https://www.saddyfire.cn/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础语法</title>
+    <link href="https://www.saddyfire.cn/2024/11/27/python-basis/"/>
+    <id>https://www.saddyfire.cn/2024/11/27/python-basis/</id>
+    <published>2024-11-27T13:56:19.518Z</published>
+    <updated>2025-01-03T02:51:29.261Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;python基础语法&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.penpencode.com/playground&quot;&gt;在线编辑器&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;入门语法&quot;&gt;入门语法&lt;/h2&gt;
+&lt;h3 id=&quot;print-函数&quot;&gt;print()</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="python" scheme="https://www.saddyfire.cn/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript 常用查询</title>
+    <link href="https://www.saddyfire.cn/2024/11/17/js/"/>
+    <id>https://www.saddyfire.cn/2024/11/17/js/</id>
+    <published>2024-11-17T06:36:45.000Z</published>
+    <updated>2024-12-28T10:27:48.571Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;JavaScript&lt;/h1&gt;
+&lt;h2 id=&quot;对象&quot;&gt;对象&lt;/h2&gt;
+&lt;h3 id=&quot;1）Function&quot;&gt;1）Function&lt;/h3&gt;
+&lt;h4 id=&quot;匿名函数&quot;&gt;匿名函数&lt;/h4&gt;
+&lt;pre class=&quot;line-numbers</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="JavaScript" scheme="https://www.saddyfire.cn/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nginx Location Demo</title>
+    <link href="https://www.saddyfire.cn/2024/11/11/nginx-location-demo/"/>
+    <id>https://www.saddyfire.cn/2024/11/11/nginx-location-demo/</id>
+    <published>2024-11-11T01:18:45.000Z</published>
+    <updated>2024-11-13T15:05:39.638Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;Nginx Location Demo&lt;/h1&gt;
+&lt;h2 id=&quot;环境准备&quot;&gt;环境准备&lt;/h2&gt;
+&lt;p&gt;此处演示仅限本地修改&lt;/p&gt;
+&lt;h3 id=&quot;host-修改&quot;&gt;host 修改&lt;/h3&gt;
+&lt;pre class=&quot;line-numbers</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
+    
+    <category term="Nginx" scheme="https://www.saddyfire.cn/tags/Nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java注解+Aop</title>
+    <link href="https://www.saddyfire.cn/2024/07/27/anno-aop/"/>
+    <id>https://www.saddyfire.cn/2024/07/27/anno-aop/</id>
+    <published>2024-07-27T07:50:46.000Z</published>
+    <updated>2024-07-30T08:28:46.458Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Java注解-Aop&quot;&gt;Java注解+Aop&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文以实际简单需求，来整理 注解+Aop 的搭配步骤&lt;/p&gt;
+&lt;p&gt;需求：通过自定义注解拿到注解注释的东西，具体逻辑细节可忽略&lt;/p&gt;
+&lt;p&gt;环境：Springboot</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker实战</title>
+    <link href="https://www.saddyfire.cn/2024/07/27/docker-prac/"/>
+    <id>https://www.saddyfire.cn/2024/07/27/docker-prac/</id>
+    <published>2024-07-27T07:45:54.000Z</published>
+    <updated>2024-07-30T08:28:46.458Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;Docker实战&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Docker 的安装及配置见 &lt;a href=&quot;/2024/02/27/docker01/#CentOS7&quot;&gt;往期 Docker</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
+    
+    <category term="Docker" scheme="https://www.saddyfire.cn/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自定义注解实现实体类映射</title>
+    <link href="https://www.saddyfire.cn/2024/07/24/anno-mapping/"/>
+    <id>https://www.saddyfire.cn/2024/07/24/anno-mapping/</id>
+    <published>2024-07-24T14:54:20.000Z</published>
+    <updated>2024-07-24T15:19:18.407Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;自定义注解实现实体类映射&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;说明：根据 Map 自动将其映射成所对应的实体，其中 map 的 key 与属性灵活对应&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;定义元注解&quot;&gt;定义元注解&lt;/h3&gt;
+&lt;pre</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tar包安装mysql</title>
+    <link href="https://www.saddyfire.cn/2024/07/14/install-mysql/"/>
+    <id>https://www.saddyfire.cn/2024/07/14/install-mysql/</id>
+    <published>2024-07-14T03:34:56.000Z</published>
+    <updated>2024-07-14T14:15:05.892Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;记一次tar包安装mysql的流程详解&lt;/h1&gt;
+&lt;h2 id=&quot;需要用到的知识点&quot;&gt;需要用到的知识点&lt;/h2&gt;
+&lt;h3 id=&quot;安装前置&quot;&gt;安装前置&lt;/h3&gt;
+&lt;pre class=&quot;line-numbers language-bash&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Database" scheme="https://www.saddyfire.cn/tags/Database/"/>
+    
+    <category term="Mysql" scheme="https://www.saddyfire.cn/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nginx安装</title>
+    <link href="https://www.saddyfire.cn/2024/07/10/nginx-install/"/>
+    <id>https://www.saddyfire.cn/2024/07/10/nginx-install/</id>
+    <published>2024-07-10T15:31:40.000Z</published>
+    <updated>2024-07-24T15:58:59.265Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;Nginx安装&lt;/h1&gt;
+&lt;h2 id=&quot;Linux&quot;&gt;Linux&lt;/h2&gt;
+&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
+    
+    <category term="Nginx" scheme="https://www.saddyfire.cn/tags/Nginx/"/>
+    
+    <category term="Windows" scheme="https://www.saddyfire.cn/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo搭配Nginx配置二级目录</title>
+    <link href="https://www.saddyfire.cn/2024/07/06/hexo-url/"/>
+    <id>https://www.saddyfire.cn/2024/07/06/hexo-url/</id>
+    <published>2024-07-06T08:05:44.000Z</published>
+    <updated>2024-07-24T15:57:25.499Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;Hexo搭配Nginx配置二级目录&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有时候需要用 Nginx 配置在二级目录，要使用 alias 关键字，但是 Hexo 生成的链接并不是动态的，因此以此文章来实现该方案&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Nginx" scheme="https://www.saddyfire.cn/tags/Nginx/"/>
+    
+    <category term="Hexo" scheme="https://www.saddyfire.cn/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker启动Nginx</title>
+    <link href="https://www.saddyfire.cn/2024/07/06/docker-nginx/"/>
+    <id>https://www.saddyfire.cn/2024/07/06/docker-nginx/</id>
+    <published>2024-07-06T06:59:43.000Z</published>
+    <updated>2024-07-14T03:32:33.666Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;docker下启动Nginx&lt;/h1&gt;
+&lt;h3 id=&quot;搜索镜像&quot;&gt;搜索镜像&lt;/h3&gt;
+&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Docker" scheme="https://www.saddyfire.cn/tags/Docker/"/>
+    
+    <category term="Nginx" scheme="https://www.saddyfire.cn/tags/Nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>软考笔记大纲</title>
+    <link href="https://www.saddyfire.cn/2024/05/12/rk-note/"/>
+    <id>https://www.saddyfire.cn/2024/05/12/rk-note/</id>
+    <published>2024-05-12T13:59:10.000Z</published>
+    <updated>2024-07-14T03:32:33.673Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="RK" scheme="https://www.saddyfire.cn/tags/RK/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>快速手册之jvm</title>
+    <link href="https://www.saddyfire.cn/2024/03/21/init-point-jvm/"/>
+    <id>https://www.saddyfire.cn/2024/03/21/init-point-jvm/</id>
+    <published>2024-03-21T06:06:25.000Z</published>
+    <updated>2024-07-14T03:32:33.672Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;JVM速查&lt;/h1&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="InterviewPoint" scheme="https://www.saddyfire.cn/tags/InterviewPoint/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DockerⅡ-深入</title>
+    <link href="https://www.saddyfire.cn/2024/03/02/docker02/"/>
+    <id>https://www.saddyfire.cn/2024/03/02/docker02/</id>
+    <published>2024-03-02T05:14:43.000Z</published>
+    <updated>2024-07-04T14:39:10.678Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;Docker深入&lt;/h1&gt;
+&lt;h2 id=&quot;Docker复杂安装&quot;&gt;Docker复杂安装&lt;/h2&gt;
+&lt;h3 id=&quot;mysql主从复制&quot;&gt;mysql主从复制&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;启动主库容器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&quot;line-numbers</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
+    
+    <category term="Docker" scheme="https://www.saddyfire.cn/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DockerⅠ-入门</title>
+    <link href="https://www.saddyfire.cn/2024/02/27/docker01/"/>
+    <id>https://www.saddyfire.cn/2024/02/27/docker01/</id>
+    <published>2024-02-27T14:54:08.000Z</published>
+    <updated>2024-07-30T08:28:46.466Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;Docker入门&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.docker.com&quot;&gt;Docker 官网&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://hub.docker.com/&quot;&gt;Docker Hub 官网&lt;/a&gt;&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
+    
+    <category term="Docker" scheme="https://www.saddyfire.cn/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式-08-行为型模式 Ⅱ</title>
+    <link href="https://www.saddyfire.cn/2024/02/25/design-pattern-behavioral2/"/>
+    <id>https://www.saddyfire.cn/2024/02/25/design-pattern-behavioral2/</id>
+    <published>2024-02-25T11:50:48.000Z</published>
+    <updated>2024-07-04T14:39:10.622Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;行为型模式 Ⅱ&lt;/h1&gt;
+&lt;h2 id=&quot;观察者模式&quot;&gt;观察者模式&lt;/h2&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+    <category term="DesignPattern" scheme="https://www.saddyfire.cn/tags/DesignPattern/"/>
+    
+    <category term="Mermaid" scheme="https://www.saddyfire.cn/tags/Mermaid/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式-07-行为型模式 Ⅰ</title>
+    <link href="https://www.saddyfire.cn/2024/02/05/design-pattern-behavioral/"/>
+    <id>https://www.saddyfire.cn/2024/02/05/design-pattern-behavioral/</id>
+    <published>2024-02-05T07:37:24.000Z</published>
+    <updated>2024-07-04T14:39:10.615Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;行为型模式</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+    <category term="DesignPattern" scheme="https://www.saddyfire.cn/tags/DesignPattern/"/>
+    
+    <category term="Mermaid" scheme="https://www.saddyfire.cn/tags/Mermaid/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式-06-结构型模式 Ⅱ</title>
+    <link href="https://www.saddyfire.cn/2024/02/04/design-pattern-structural2/"/>
+    <id>https://www.saddyfire.cn/2024/02/04/design-pattern-structural2/</id>
+    <published>2024-02-04T02:32:24.000Z</published>
+    <updated>2024-07-04T14:39:10.639Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;链接:&lt;/p&gt;
+&lt;a href=&quot;/2024/01/23/design-pattern-structural/&quot; title=&quot;设计模式-05-结构型模式 Ⅰ&quot;&gt;结构型模式Ⅰ&lt;/a&gt; 
+&lt;/blockquote&gt;
+&lt;h1&gt;结构型模式</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+    <category term="DesignPattern" scheme="https://www.saddyfire.cn/tags/DesignPattern/"/>
+    
+    <category term="Mermaid" scheme="https://www.saddyfire.cn/tags/Mermaid/"/>
+    
+  </entry>
+  
+</feed>

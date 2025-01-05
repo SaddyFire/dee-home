@@ -1,0 +1,1732 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Mermaid-类图, SaddyFire">
+    <meta name="description" content="取自Mermaid中文网">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Mermaid-类图 | SaddyFire</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="SaddyFire" type="application/atom+xml">
+</head>
+
+
+<body>
+    
+    <div id="loading-box">
+        <div class="loading-left-bg"></div>
+        <div class="loading-right-bg"></div>
+        <div class="spinner-box">
+            <div class="configure-border-1">
+                <div class="configure-core"></div>
+            </div>
+            <div class="configure-border-2">
+                <div class="configure-core"></div>
+            </div>
+            <div class="loading-word">玩命加载中🤣🤣🤣</div>
+        </div>
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+        $(document).ready(function () {
+            document.body.style.overflow = 'auto';
+            document.getElementById('loading-box').classList.add("loaded")
+        })
+    </script>
+
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">SaddyFire</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">SaddyFire</div>
+        <div class="logo-desc">
+            
+            每一个抖腿的人, 心里都有台缝纫机
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/article/63.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Mermaid-类图</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Mermaid/">
+                                <span class="chip bg-color">Mermaid</span>
+                            </a>
+                        
+                            <a href="/tags/Markdown/">
+                                <span class="chip bg-color">Markdown</span>
+                            </a>
+                        
+                            <a href="/tags/UML/">
+                                <span class="chip bg-color">UML</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/program/" class="post-category">
+                                program
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-01-19
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-07-04
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    6 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1>Mermaid-类图</h1>
+<blockquote>
+<p>摘录自 <a target="_blank" rel="noopener" href="https://mermaid.nodejs.cn/syntax/classDiagram.html">类图 | Mermaid 中文网 (nodejs.cn)</a></p>
+</blockquote>
+<p>类图是面向对象建模的主要构建块。 它用于应用结构的一般概念建模，以及将模型转换为编程代码的详细建模。 类图也可用于数据建模。 类图中的类表示主要元素、应用中的交互以及要编程的类。</p>
+<p><strong>Code</strong></p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">---
+<span class="token function"><span class="token prefix">title<span class="token punctuation">:</span></span></span> Animal example
+---
+classDiagram
+    note <span class="token string">"From Duck till Zebra"</span>
+    Animal &lt;|-- Duck
+    note for Duck <span class="token string">"can fly\ncan swim\ncan dive\ncan help in debugging"</span>
+    Animal &lt;|-- Fish
+    Animal &lt;|-- Zebra
+    Animal <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +int age
+    Animal <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +String gender
+    <span class="token function"><span class="token prefix">Animal<span class="token punctuation">:</span></span></span> +isMammal<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function"><span class="token prefix">Animal<span class="token punctuation">:</span></span></span> +mate<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    class Duck<span class="token punctuation">&#123;</span>
+        +String beakColor
+        +swim<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        +quack<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+    class Fish<span class="token punctuation">&#123;</span>
+        -int sizeInFeet
+        -canEat<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+    class Zebra<span class="token punctuation">&#123;</span>
+        +bool is_wild
+        +run<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">---
+title: Animal example
+---
+classDiagram
+    note "From Duck till Zebra"
+    Animal <|-- Duck
+    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
+    Animal <|-- Fish
+    Animal <|-- Zebra
+    Animal : +int age
+    Animal : +String gender
+    Animal: +isMammal()
+    Animal: +mate()
+    class Duck{
+        +String beakColor
+        +swim()
+        +quack()
+    }
+    class Fish{
+        -int sizeInFeet
+        -canEat()
+    }
+    class Zebra{
+        +bool is_wild
+        +run()
+    }</pre>
+<h2 id="语法">语法</h2>
+<h3 id="类">类</h3>
+<p>UML 提供了表示类成员（例如属性和方法）以及有关它们的附加信息的机制。图中类的单个实例包含三个部分：</p>
+<ul>
+<li>顶部隔间包含类的名称。 它以粗体居中打印，第一个字母大写。 它还可能包含描述类性质的可选注释文本。</li>
+<li>中间的部分包含类的属性。 它们左对齐且第一个字母小写。</li>
+<li>底部隔间包含该类可以执行的操作。 它们也是左对齐的，并且第一个字母是小写的。</li>
+</ul>
+<p><strong>Code</strong></p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">---
+<span class="token function"><span class="token prefix">title<span class="token punctuation">:</span></span></span> Bank example
+---
+classDiagram
+	class BankAccount
+	BankAccount <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +String owner
+	BankAccount <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +Bigdecimal balance
+	BankAccount <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +deposit<span class="token punctuation">(</span>amount<span class="token punctuation">)</span>
+	BankAccount <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +withdrawal<span class="token punctuation">(</span>amount<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">---
+title: Bank example
+---
+classDiagram
+	class BankAccount
+	BankAccount : +String owner
+	BankAccount : +Bigdecimal balance
+	BankAccount : +deposit(amount)
+	BankAccount : +withdrawal(amount)</pre>
+<h2 id="定义一个类类">定义一个类类</h2>
+<p><strong>定义类有两种方法:</strong></p>
+<ul>
+<li>显示使用关键字 class (如 <code>class Animal</code>) 来定义 Animal 类。</li>
+<li>通过 relatinoship 一次定义两个类及其关系。例如, <code>Vehicle &lt;|-- Car</code>。</li>
+</ul>
+<p><strong>Code</strong></p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+	class Animal
+	Vehicle &lt;|-- Car<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">classDiagram
+	class Animal
+	Vehicle <|-- Car</pre>
+<p>命名约定： 类名只能由字母数字字符（包括 unicode）、下划线和短划线 (-) 组成。</p>
+<h3 id="类别标签">类别标签</h3>
+<p>如果你需要为类提供标签，可以使用以下语法：</p>
+<p><strong>Code:</strong></p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+    class Animal<span class="token punctuation">[</span><span class="token string">"Animal with a label"</span><span class="token punctuation">]</span>
+    class Car<span class="token punctuation">[</span><span class="token string">"Car with *! symbols"</span><span class="token punctuation">]</span>
+    Animal --> Car<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">classDiagram
+    class Animal["Animal with a label"]
+    class Car["Car with *! symbols"]
+    Animal --> Car</pre>
+<p>你还可以使用反引号来转义标签中的特殊字符：</p>
+<p><strong>Code:</strong></p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+    class `Animal Class!`
+    class `Car Class`
+    `Animal Class!` --> `Car Class`<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">classDiagram
+    class `Animal Class!`
+    class `Car Class`
+    `Animal Class!` --> `Car Class`</pre>
+<h2 id="定义类的成员">定义类的成员</h2>
+<p>UML 提供了表示类成员（例如属性和方法）的机制，以及有关它们的附加信息。</p>
+<p>Mermaid 根据 parenthesis<code>()</code> 是否存在来区分属性和函数/方法。带有 <code>()</code> 的被视为函数/方法，所有其他被视为属性。</p>
+<p>有两种方法可以定义类的成员，无论使用那种语法来定义成员，输出仍然是相同的。两种不同的方式是：</p>
+<ul>
+<li>使用 <strong>:</strong>（冒号）后跟成员名称来关联类的成员，这对于一次定义一个成员很有用。 例如：</li>
+</ul>
+<p><strong>Code:</strong></p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+    class BankAccount
+    BankAccount <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +String owner
+    BankAccount <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +BigDecimal balance
+    BankAccount <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +deposit<span class="token punctuation">(</span>amount<span class="token punctuation">)</span>
+    BankAccount <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +withdrawal<span class="token punctuation">(</span>amount<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">classDiagram
+    class BankAccount
+    BankAccount : +String owner
+    BankAccount : +BigDecimal balance
+    BankAccount : +deposit(amount)
+    BankAccount : +withdrawal(amount)</pre>
+<ul>
+<li>使用 <strong>{}</strong> 括号关联类的成员，其中成员分组在大括号内。 适合一次定义多个成员。 例如：</li>
+</ul>
+<p><strong>Code:</strong></p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+class BankAccount<span class="token punctuation">&#123;</span>
+    +String owner
+    +BigDecimal balance
+    +deposit<span class="token punctuation">(</span>amount<span class="token punctuation">)</span>
+    +withdrawal<span class="token punctuation">(</span>amount<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">classDiagram
+class BankAccount{
+    +String owner
+    +BigDecimal balance
+    +deposit(amount)
+    +withdrawal(amount)
+}</pre>
+<h3 id="返回类型">返回类型</h3>
+<p>或者，你可以使用将返回的数据类型来结束方法/函数定义（注意：最终的 <code>)</code> 和返回类型之间必须有空格）。 一个例子：</p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+class BankAccount<span class="token punctuation">&#123;</span>
+    +String owner
+    +BigDecimal balance
+    +deposit<span class="token punctuation">(</span>amount<span class="token punctuation">)</span> bool
+    +withdrawal<span class="token punctuation">(</span>amount<span class="token punctuation">)</span> int
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">classDiagram
+class BankAccount{
+    +String owner
+    +BigDecimal balance
+    +deposit(amount) bool
+    +withdrawal(amount) int
+}</pre>
+<h3 id="通用类型">通用类型</h3>
+<p>泛型可以表示为类定义的一部分以及类成员/返回类型。 为了将该项目表示为通用项，请将该类型括在 <code>~</code> (<strong>tilde</strong>) 内。 支持 <strong>嵌套</strong> 类型声明（例如 <code>List&lt;List&lt;int&gt;&gt;</code>），但当前不支持包含逗号的泛型。 （如 <code>List&lt;List&lt;K, V&gt;&gt;</code>）</p>
+<blockquote>
+<p>请注意，当在类定义中使用泛型时，泛型类型不被视为类名称的一部分。 IE。： 对于任何需要引用类名的语法，你需要删除定义的类型部分。 这也意味着 mermaid 目前不支持两个具有相同名称但泛型类型不同的类。</p>
+</blockquote>
+<p><strong>Code:</strong></p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+class Square~Shape~<span class="token punctuation">&#123;</span>
+    int id
+    List~int~ position
+    setPoints<span class="token punctuation">(</span>List~int~ points<span class="token punctuation">)</span>
+    getPoints<span class="token punctuation">(</span><span class="token punctuation">)</span> List~int~
+<span class="token punctuation">&#125;</span>
+
+Square <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> -List~string~ messages
+Square <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +setMessages<span class="token punctuation">(</span>List~string~ messages<span class="token punctuation">)</span>
+Square <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +getMessages<span class="token punctuation">(</span><span class="token punctuation">)</span> List~string~
+Square <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> +getDistanceMatrix<span class="token punctuation">(</span><span class="token punctuation">)</span> List~List~int~~<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">classDiagram
+class Square~Shape~{
+    int id
+    List~int~ position
+    setPoints(List~int~ points)
+    getPoints() List~int~
+}
+
+Square : -List~string~ messages
+Square : +setMessages(List~string~ messages)
+Square : +getMessages() List~string~
+Square : +getDistanceMatrix() List~List~int~~</pre>
+<h4 id="能见度">能见度</h4>
+<p>为了描述属于类（即类成员）的属性或方法/函数的可见性（或封装），可以在该成员名称之前放置可选的符号：</p>
+<ul>
+<li><code>+</code> 民众</li>
+<li><code>-</code> 私有的</li>
+<li><code>#</code> 受保护</li>
+<li><code>~</code> 封装/内部</li>
+</ul>
+<blockquote>
+<p>请注意，你还可以通过在方法末尾添加以下符号来在方法定义中包含其他分类器，即： 在 <code>()</code> 或返回类型之后：</p>
+<ul>
+<li><code>*</code> 摘要例如： <code>someAbstractMethod()*</code> 或 <code>someAbstractMethod() int*</code></li>
+<li><code>$</code> 静态例如： <code>someStaticMethod() 或 </code>someStaticMethod() String</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>请注意，你还可以通过在末尾添加以下符号来在字段定义中包含其他分类器：</p>
+<ul>
+<li><code>$</code> 静态例如： `String someField</li>
+</ul>
+</blockquote>
+<h2 id="定义关系">定义关系</h2>
+<p>关系是一个通用术语，涵盖类图和对象图上发现的特定类型的逻辑连接。</p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle"><span class="token punctuation">[</span>classA<span class="token punctuation">]</span><span class="token punctuation">[</span>Arrow<span class="token punctuation">]</span><span class="token punctuation">[</span>ClassB<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>目前支持的 UML 下为类定义了八种不同类型的关系：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;|--</code></td>
+<td>继承</td>
+</tr>
+<tr>
+<td><code>*--</code></td>
+<td>作品</td>
+</tr>
+<tr>
+<td><code>o--</code></td>
+<td>聚合</td>
+</tr>
+<tr>
+<td><code>--&gt;</code></td>
+<td>关联</td>
+</tr>
+<tr>
+<td><code>--</code></td>
+<td>链接（实心）</td>
+</tr>
+<tr>
+<td><code>..&gt;</code></td>
+<td>依赖</td>
+</tr>
+<tr>
+<td><code>..|&gt;</code></td>
+<td>实现</td>
+</tr>
+<tr>
+<td><code>..</code></td>
+<td>链接（虚线）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Code:</strong></p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+classA &lt;|-- classB
+classC *-- classD
+classE o-- classF
+classG &lt;-- classH
+classI -- classJ
+classK &lt;<span class="token punctuation">.</span><span class="token punctuation">.</span> classL
+classM &lt;|<span class="token punctuation">.</span><span class="token punctuation">.</span> classN
+classO <span class="token punctuation">.</span><span class="token punctuation">.</span> classP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">classDiagram
+classA <|-- classB
+classC *-- classD
+classE o-- classF
+classG <-- classH
+classI -- classJ
+classK <.. classL
+classM <|.. classN
+classO .. classP</pre>
+<p>我们可以使用标签来描述两个类之间关系的性质。 此外，箭头也可以用于相反的方向：</p>
+<p><strong>Code:</strong></p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+classA --|> classB <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> Inheritance
+classC --* classD <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> Composition
+classE --o classF <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> Aggregation
+classG --> classH <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> Association
+classI -- classJ <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> Link<span class="token punctuation">(</span>Solid<span class="token punctuation">)</span>
+classK <span class="token punctuation">.</span><span class="token punctuation">.</span>> classL <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> Dependency
+classM <span class="token punctuation">.</span><span class="token punctuation">.</span>|> classN <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> Realization
+classO <span class="token punctuation">.</span><span class="token punctuation">.</span> classP <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> Link<span class="token punctuation">(</span>Dashed<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">classDiagram
+classA --|> classB : Inheritance
+classC --* classD : Composition
+classE --o classF : Aggregation
+classG --> classH : Association
+classI -- classJ : Link(Solid)
+classK ..> classL : Dependency
+classM ..|> classN : Realization
+classO .. classP : Link(Dashed)</pre>
+<h3 id="关系标签">关系标签</h3>
+<p>可以将标签文本添加到关系中：</p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle"><span class="token punctuation">[</span>classA<span class="token punctuation">]</span><span class="token punctuation">[</span>Arrow<span class="token punctuation">]</span><span class="token punctuation">[</span>ClassB<span class="token punctuation">]</span><span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span><span class="token local-name">LabelText</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>Code:</strong></p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+classA &lt;|-- classB <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> implements
+classC *-- classD <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> composition
+classE o-- classF <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> aggregation<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">classDiagram
+classA <|-- classB : implements
+classC *-- classD : composition
+classE o-- classF : aggregation</pre>
+<h3 id="双向关系">双向关系</h3>
+<p>关系在逻辑上可以表示一个 N：M 关联：</p>
+<p><strong>Code:</strong></p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+    Animal &lt;|--|> Zebra<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="mermaid">classDiagram
+    Animal <|--|> Zebra</pre>
+<p>语法如下：</p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle"><span class="token punctuation">[</span>Relation Type<span class="token punctuation">]</span><span class="token punctuation">[</span>Link<span class="token punctuation">]</span><span class="token punctuation">[</span>Relation Type<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>其中 <code>Relation Type</code> 可以是以下之一：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>&lt;|</code></td>
+<td style="text-align:left">继承</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\*</code></td>
+<td style="text-align:left">作品</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>o</code></td>
+<td style="text-align:left">聚合</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&gt;</code></td>
+<td style="text-align:left">关联</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;</code></td>
+<td style="text-align:left">关联</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>|&gt;</code></td>
+<td style="text-align:left">实现</td>
+</tr>
+</tbody>
+</table>
+<p><code>Link</code> 可以是以下之一：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">–</td>
+<td style="text-align:left">实线</td>
+</tr>
+<tr>
+<td style="text-align:left">…</td>
+<td style="text-align:left">虚线</td>
+</tr>
+</tbody>
+</table>
+<h2 id="定义命名空间">定义命名空间</h2>
+<p>命名空间对类进行分组。</p>
+<p><strong>Code:</strong></p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+namespace BaseShapes <span class="token punctuation">&#123;</span>
+    class Triangle
+    class Rectangle <span class="token punctuation">&#123;</span>
+      double width
+      double height
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">classDiagram
+namespace BaseShapes {
+    class Triangle
+    class Rectangle {
+      double width
+      double height
+    }
+}</pre>
+<h2 id="关系的基数-多重性">关系的基数/多重性</h2>
+<p>类图中的多重性或基数指示可以链接到另一类的实例的一个类的实例数。 例如，每个公司都会有一名或多名员工（不是零），并且每个员工当前为零个或一个公司工作。</p>
+<p>多重符号放置在关联的末尾附近。</p>
+<p>不同的基数选项是：</p>
+<ul>
+<li><code>1</code> 只有 1 个</li>
+<li><code>0..1</code> 零或一</li>
+<li><code>1..*</code> 一个或多个</li>
+<li><code>*</code> 许多</li>
+<li><code>n</code> 和</li>
+<li><code>0..n</code> 零到 n</li>
+<li><code>1..n</code> 一对多</li>
+</ul>
+<p>通过将文本选项放在给定箭头之前或之后的引号 <code>&quot;</code> 内，可以轻松定义基数。 例如：</p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle"><span class="token punctuation">[</span>classA<span class="token punctuation">]</span> <span class="token string">"cardinality1"</span> <span class="token punctuation">[</span>Arrow<span class="token punctuation">]</span> <span class="token string">"cardinality2"</span> <span class="token punctuation">[</span>ClassB<span class="token punctuation">]</span><span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span><span class="token local-name">LabelText</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+    Customer <span class="token string">"1"</span> --> <span class="token string">"*"</span> Ticket
+    Student <span class="token string">"1"</span> --> <span class="token string">"1..*"</span> Course
+    Galaxy --> <span class="token string">"many"</span> Star <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> Contains<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">classDiagram
+    Customer "1" --> "*" Ticket
+    Student "1" --> "1..*" Course
+    Galaxy --> "many" Star : Contains</pre>
+<h2 id="类上的注释">类上的注释</h2>
+<p>可以使用标记来注释类，以提供有关该类的附加元数据。 这可以更清楚地表明其性质。 一些常见的注释包括：</p>
+<ul>
+<li><code>&lt;&lt;Interface&gt;&gt;</code> 表示一个接口类</li>
+<li><code>&lt;&lt;Abstract&gt;&gt;</code> 表示一个抽象类</li>
+<li><code>&lt;&lt;Service&gt;&gt;</code> 代表一个服务类</li>
+<li><code>&lt;&lt;Enumeration&gt;&gt;</code> 表示一个枚举</li>
+</ul>
+<p>注释在开头 <code>&lt;&lt;</code> 和结尾 <code>&gt;&gt;</code> 内定义。 有两种方法可以向类添加注释，两种方法的输出都是相同的：</p>
+<ul>
+<li>在 <strong>单独的线</strong> 中定义了一个类之后：</li>
+</ul>
+<p><strong>Code:</strong></p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+class Shape
+&lt;<span class="token url"><span class="token punctuation">&lt;</span>interface<span class="token punctuation">></span></span>> Shape
+Shape <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> noOfVertices
+Shape <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> draw<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">classDiagram
+class Shape
+<<interface>> Shape
+Shape : noOfVertices
+Shape : draw()</pre>
+<ul>
+<li>在 <strong>嵌套结构</strong> 中连同类定义：</li>
+</ul>
+<p><strong>Code:</strong></p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+class Shape<span class="token punctuation">&#123;</span>
+    &lt;<span class="token url"><span class="token punctuation">&lt;</span>interface<span class="token punctuation">></span></span>>
+    noOfVertices
+    draw<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+class Color<span class="token punctuation">&#123;</span>
+    &lt;<span class="token url"><span class="token punctuation">&lt;</span>Enumeration<span class="token punctuation">></span></span>>
+    RED
+    BLUE
+    GREEN
+    WHITE
+    BLACK
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">classDiagram
+class Shape{
+    << interface >>
+    noOfVertices
+    draw()
+}
+class Color{
+    << Enumeration >>
+    RED
+    BLUE
+    GREEN
+    WHITE
+    BLACK
+}</pre>
+<blockquote>
+<p>这种方式在类注释  <code>&lt;&lt;xxx&gt;&gt;</code>  会在html中报错, 在 <code>&lt;&lt;&gt;&gt;</code> 与注释中添加空格</p>
+</blockquote>
+<h2 id="注释">注释</h2>
+<p>可以在类图中输入注释，解析器将忽略该注释。 注释需要独占一行，并且必须以 <code>%%</code>（双百分号）开头。 下一个换行符之前的任何文本都将被视为注释，包括任何类图语法。</p>
+<p><strong>Code:</strong></p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+%% This whole line is <span class="token keyword">a</span> comment classDiagram class Shape
+class Shape<span class="token punctuation">&#123;</span>
+    &lt;<span class="token url"><span class="token punctuation">&lt;</span>interface<span class="token punctuation">></span></span>>
+    noOfVertices
+    draw<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">classDiagram
+%% This whole line is a comment classDiagram class Shape << interface >>
+class Shape{
+	<< interface >>
+    noOfVertices
+    draw()
+}</pre>
+<h2 id="设置图表的方向">设置图表的方向</h2>
+<p>对于类图，你可以使用方向语句来设置图渲染的方向：</p>
+<p><strong>Code:</strong></p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+  direction RL
+  class Student <span class="token punctuation">&#123;</span>
+    -idCard <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> IdCard
+  <span class="token punctuation">&#125;</span>
+  class IdCard<span class="token punctuation">&#123;</span>
+    -id <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> int
+    -name <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> string
+  <span class="token punctuation">&#125;</span>
+  class Bike<span class="token punctuation">&#123;</span>
+    -id <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> int
+    -name <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> string
+  <span class="token punctuation">&#125;</span>
+  Student <span class="token string">"1"</span> --o <span class="token string">"1"</span> IdCard <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> carries
+  Student <span class="token string">"1"</span> --o <span class="token string">"1"</span> Bike <span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span></span> rides<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">classDiagram
+  direction RL
+  class Student {
+    -idCard : IdCard
+  }
+  class IdCard{
+    -id : int
+    -name : string
+  }
+  class Bike{
+    -id : int
+    -name : string
+  }
+  Student "1" --o "1" IdCard : carries
+  Student "1" --o "1" Bike : rides</pre>
+<h2 id="相互作用">相互作用</h2>
+<p>可以将单击事件绑定到节点。 单击可能会导致 JavaScript 回调或导致在新浏览器选项卡中打开的链接。 <strong>注意</strong>： 使用 <code>securityLevel='strict'</code> 时禁用此功能，使用 <code>securityLevel='loose'</code> 时启用此功能。</p>
+<p>声明所有类后，你可以在单独的行上定义这些操作。</p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">action className <span class="token string">"reference"</span> <span class="token string">"tooltip"</span>
+click className call callback<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token string">"tooltip"</span>
+click className href <span class="token string">"url"</span> <span class="token string">"tooltip"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>action 是 <code>link</code> 或 <code>callback</code>，具体取决于你想要调用的交互类型</li>
+<li>className 是与操作关联的节点的 id</li>
+<li>Reference 可以是 url 链接，也可以是回调的函数名称。</li>
+<li>（可选）tooltip 是当鼠标悬停在元素上时要显示的字符串（注意：tooltip 的样式由类.mermaidTooltip 设置。）</li>
+<li>note: 将以 nodeId 作为参数调用回调函数。</li>
+</ul>
+<h2 id="图表注释">图表注释</h2>
+<p>可以使用 <code>note &quot;line1\nline2&quot;</code> 在图表上添加注释。 可以使用 <code>note for &lt;CLASS NAME&gt; &quot;line1\nline2&quot;</code> 为特定类添加注释。</p>
+<p><strong>Code:</strong></p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+    note <span class="token string">"This is a general note"</span>
+    note for Student <span class="token string">"This is a note for a class"</span>
+    class Student<span class="token punctuation">&#123;</span>
+    	+String name
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">classDiagram
+    note "This is a general note"
+    note for Student "This is a note for a class"
+    class Student{
+    	+String name
+    }</pre>
+<h2 id="网址链接">网址链接</h2>
+<p><strong>Code:</strong></p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+class Shape
+link Shape <span class="token string">"https://www.github.com"</span> <span class="token string">"This is a tooltip for a link"</span>
+class Shape2
+click Shape2 href <span class="token string">"https://www.github.com"</span> <span class="token string">"This is a tooltip for a link"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">classDiagram
+class Shape
+link Shape "https://www.github.com" "This is a tooltip for a link"
+class Shape2
+click Shape2 href "https://www.github.com" "This is a tooltip for a link"</pre>
+<h2 id="样式">样式</h2>
+<h3 id="设置节点样式-v-MERMAID-RELEASE-VERSION">设置节点样式 (v&lt;MERMAID_RELEASE_VERSION&gt;+)</h3>
+<p>可以使用 <code>style</code> 关键字将特定样式（例如较粗的边框或不同的背景颜色）应用于单个节点。</p>
+<p><strong>Code:</strong></p>
+<pre class="line-numbers language-turtle" data-language="turtle"><code class="language-turtle">classDiagram
+  class Animal
+  class Mineral
+  style Animal <span class="token function"><span class="token prefix">fill<span class="token punctuation">:</span></span></span><span class="token comment">#f9f,stroke:#333,stroke-width:4px</span>
+  style Mineral <span class="token function"><span class="token prefix">fill<span class="token punctuation">:</span></span></span><span class="token comment">#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="mermaid">classDiagram
+  class Animal
+  class Mineral
+  style Animal fill:#f9f,stroke:#333,stroke-width:4px
+  style Mineral fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5</pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.saddyfire.cn" rel="external nofollow noreferrer">👑Dee👑</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.saddyfire.cn/2024/01/19/mermaid-uml/">https://www.saddyfire.cn/2024/01/19/mermaid-uml/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://www.saddyfire.cn" target="_blank">👑Dee👑</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Mermaid/">
+                                    <span class="chip bg-color">Mermaid</span>
+                                </a>
+                            
+                                <a href="/tags/Markdown/">
+                                    <span class="chip bg-color">Markdown</span>
+                                </a>
+                            
+                                <a href="/tags/UML/">
+                                    <span class="chip bg-color">UML</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/01/20/nvm-note/">
+                    <div class="card-image">
+                        
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/images/article/64.jpg" class="responsive-img" alt="node">
+                        
+                        <span class="card-title">node</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            nvm管理node.js
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/program/" class="post-category">
+                                    program
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/node/">
+                        <span class="chip bg-color">node</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/01/19/design-pattern/">
+                    <div class="card-image">
+                        
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/images/article/71.jpg" class="responsive-img" alt="设计模式-01-概述">
+                        
+                        <span class="card-title">设计模式-01-概述</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            DesignPattern
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/program/" class="post-category">
+                                    program
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/DesignPattern/">
+                        <span class="chip bg-color">DesignPattern</span>
+                    </a>
+                    
+                    <a href="/tags/Mermaid/">
+                        <span class="chip bg-color">Mermaid</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: SaddyFire<br />'
+            + '文章作者: 👑Dee👑<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.js"></script>
+
+
+<!-- 代码语言 -->
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('4'),
+            headingSelector: 'h2, h3, h4, h5'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023-2025</span>
+            
+            <a href="/about" target="_blank">👑Dee👑</a>
+            
+                <span id="translate">|&nbsp;繁/简：</span><a id="translateLink" href="javascript:translatePage();">繁</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2023";
+                        var startMonth = "2";
+                        var startDate = "3";
+                        var startHour = "23";
+                        var startMinute = "22";
+                        var startSecond = "33";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备2022021631号-2</a>
+            </span>
+            
+            
+                &emsp;&emsp;&emsp;<span id="icp">
+                <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010202002588" target="_blank">浙公网安备 33010202002588号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/SaddyFire" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:960879984@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=960879984" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 960879984" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            // 如果用户点击切换则进行标记
+            sessionStorage.setItem('manualDark','0')
+            $('body').hasClass('DarkMode')
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <script>
+        //自动切换夜间模式
+        if (!sessionStorage.getItem('manualDark')){
+            // 当前主题是否为夜间模式
+            let isDark = localStorage.getItem("isDark") === '1';
+            // 当前时间是否为夜间
+            let isNight = (new Date().getHours() >= 20 || new Date().getHours() < 7)
+            // 夜间但不是夜间模式
+            if (isNight && !isDark) {
+                $('body').addClass('DarkMode')
+                localStorage.setItem('isDark', '1')
+                $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')
+            }
+            // 不是夜间但是夜间模式
+            if (!isNight && isDark) {
+                $('body').removeClass('DarkMode')
+                localStorage.setItem('isDark', '0')
+                $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')
+            }
+        }
+    </script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+
+    
+        <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
+        <script>
+            if (window.mermaid) {
+                mermaid.initialize({theme: 'forest'});
+            }
+        </script>
+    
+
+    
+        <script type="text/javascript" src="/js/tw_cn.js"></script>
+        <script type="text/javascript">
+          var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
+          var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+          var cookieDomain = "https://www.saddyfire.cn"; //Cookie地址, 一定要设定, 通常为你的网址
+          var msgToTraditionalChinese = "繁"; //此处可以更改为你想要显示的文字
+          var msgToSimplifiedChinese = "简"; //同上，但两处均不建议更改
+          var translateButtonId = "translateLink"; //默认互换id
+          translateInitilization();
+        </script>
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+        <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+<!--        <script src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>-->
+        <script src="/libs/others/anime.min.js"></script>
+        <script src="/libs/others/firework.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":220,"hOffset":-20,"vOffset":-10},"mobile":{"show":false,"scale":0.5},"dialog":{"enable":false,"hitokoto":false},"log":false});</script></body>
+
+</html>
