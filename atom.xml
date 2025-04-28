@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2025-03-25T06:24:22.459Z</updated>
+  <updated>2025-04-28T08:17:40.168Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一些 java 模板的笔记</title>
+    <link href="https://www.saddyfire.cn/2025/04/28/java-note/"/>
+    <id>https://www.saddyfire.cn/2025/04/28/java-note/</id>
+    <published>2025-04-28T06:39:10.000Z</published>
+    <updated>2025-04-28T08:17:40.168Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;枚举-Option-的动态鉴权&quot;&gt;枚举 + Option 的动态鉴权&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用场景：当有一组规则需要进行配置及匹配，通过枚举完成封装，但是在进行判断的时候通过 Option 来干掉</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>xyplorer 激活码</title>
+    <link href="https://www.saddyfire.cn/2025/03/25/xyplorer/"/>
+    <id>https://www.saddyfire.cn/2025/03/25/xyplorer/</id>
+    <published>2025-03-25T08:30:15.000Z</published>
+    <updated>2025-03-25T08:31:24.701Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;用户名：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Tool" scheme="https://www.saddyfire.cn/tags/Tool/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue目录结构</title>
@@ -533,66 +585,6 @@
     <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
     
     <category term="Docker" scheme="https://www.saddyfire.cn/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设计模式-08-行为型模式 Ⅱ</title>
-    <link href="https://www.saddyfire.cn/2024/02/25/design-pattern-behavioral2/"/>
-    <id>https://www.saddyfire.cn/2024/02/25/design-pattern-behavioral2/</id>
-    <published>2024-02-25T11:50:48.000Z</published>
-    <updated>2024-07-04T14:39:10.622Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;行为型模式 Ⅱ&lt;/h1&gt;
-&lt;h2 id=&quot;观察者模式&quot;&gt;观察者模式&lt;/h2&gt;
-&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
-    
-    <category term="DesignPattern" scheme="https://www.saddyfire.cn/tags/DesignPattern/"/>
-    
-    <category term="Mermaid" scheme="https://www.saddyfire.cn/tags/Mermaid/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设计模式-07-行为型模式 Ⅰ</title>
-    <link href="https://www.saddyfire.cn/2024/02/05/design-pattern-behavioral/"/>
-    <id>https://www.saddyfire.cn/2024/02/05/design-pattern-behavioral/</id>
-    <published>2024-02-05T07:37:24.000Z</published>
-    <updated>2024-07-04T14:39:10.615Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;行为型模式</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
-    
-    <category term="DesignPattern" scheme="https://www.saddyfire.cn/tags/DesignPattern/"/>
-    
-    <category term="Mermaid" scheme="https://www.saddyfire.cn/tags/Mermaid/"/>
     
   </entry>
   
