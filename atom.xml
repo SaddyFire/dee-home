@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2025-04-28T08:17:40.168Z</updated>
+  <updated>2025-06-13T02:14:56.107Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -15,6 +15,63 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue的一些笔记</title>
+    <link href="https://www.saddyfire.cn/2025/06/13/vue-note/"/>
+    <id>https://www.saddyfire.cn/2025/06/13/vue-note/</id>
+    <published>2025-06-13T02:08:11.000Z</published>
+    <updated>2025-06-13T02:14:56.107Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;记一次vue插槽&quot;&gt;记一次vue插槽&lt;/h2&gt;
+&lt;p&gt;在Ant Design Vue的表格组件中，&lt;code&gt;scopedSlots: &amp;#123; customRender: &#39;xxx&#39; &amp;#125;&lt;/code&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="JavaScript" scheme="https://www.saddyfire.cn/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>playwright-python</title>
+    <link href="https://www.saddyfire.cn/2025/06/13/playwright-python/"/>
+    <id>https://www.saddyfire.cn/2025/06/13/playwright-python/</id>
+    <published>2025-06-13T01:35:43.292Z</published>
+    <updated>2025-06-13T02:16:51.390Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;👍👍 &lt;a href=&quot;https://www.byhy.net/etc/playwright/01/&quot;&gt;快速上手 - 白月黑羽&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;快速上手&quot;&gt;快速上手&lt;/h2&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="python" scheme="https://www.saddyfire.cn/tags/python/"/>
+    
+    <category term="playwright" scheme="https://www.saddyfire.cn/tags/playwright/"/>
+    
+  </entry>
   
   <entry>
     <title>一些 java 模板的笔记</title>
@@ -522,69 +579,6 @@
     
     
     <category term="InterviewPoint" scheme="https://www.saddyfire.cn/tags/InterviewPoint/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DockerⅡ-深入</title>
-    <link href="https://www.saddyfire.cn/2024/03/02/docker02/"/>
-    <id>https://www.saddyfire.cn/2024/03/02/docker02/</id>
-    <published>2024-03-02T05:14:43.000Z</published>
-    <updated>2024-07-04T14:39:10.678Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;Docker深入&lt;/h1&gt;
-&lt;h2 id=&quot;Docker复杂安装&quot;&gt;Docker复杂安装&lt;/h2&gt;
-&lt;h3 id=&quot;mysql主从复制&quot;&gt;mysql主从复制&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;启动主库容器&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre class=&quot;line-numbers</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
-    
-    <category term="Docker" scheme="https://www.saddyfire.cn/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DockerⅠ-入门</title>
-    <link href="https://www.saddyfire.cn/2024/02/27/docker01/"/>
-    <id>https://www.saddyfire.cn/2024/02/27/docker01/</id>
-    <published>2024-02-27T14:54:08.000Z</published>
-    <updated>2024-07-30T08:28:46.466Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;Docker入门&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.docker.com&quot;&gt;Docker 官网&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://hub.docker.com/&quot;&gt;Docker Hub 官网&lt;/a&gt;&lt;/p&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
-    
-    <category term="Docker" scheme="https://www.saddyfire.cn/tags/Docker/"/>
     
   </entry>
   
