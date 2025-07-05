@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2025-06-13T02:14:56.107Z</updated>
+  <updated>2025-07-05T14:15:06.802Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>playwright-tool</title>
+    <link href="https://www.saddyfire.cn/2025/07/05/playwright-tool/"/>
+    <id>https://www.saddyfire.cn/2025/07/05/playwright-tool/</id>
+    <published>2025-07-05T14:06:40.000Z</published>
+    <updated>2025-07-05T14:15:06.802Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;记一次基于playwright-python的工具&quot;&gt;记一次基于playwright-python的工具&lt;/h2&gt;
+&lt;h3 id=&quot;配置封装&quot;&gt;配置封装&lt;/h3&gt;
+&lt;h4 id=&quot;依赖安装&quot;&gt;依赖安装&lt;/h4&gt;
+&lt;pre class=&quot;line-numbers</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="python" scheme="https://www.saddyfire.cn/tags/python/"/>
+    
+    <category term="playwright" scheme="https://www.saddyfire.cn/tags/playwright/"/>
+    
+  </entry>
   
   <entry>
     <title>vue的一些笔记</title>
@@ -553,32 +583,6 @@
     
     
     <category term="RK" scheme="https://www.saddyfire.cn/tags/RK/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>快速手册之jvm</title>
-    <link href="https://www.saddyfire.cn/2024/03/21/init-point-jvm/"/>
-    <id>https://www.saddyfire.cn/2024/03/21/init-point-jvm/</id>
-    <published>2024-03-21T06:06:25.000Z</published>
-    <updated>2024-07-14T03:32:33.672Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;JVM速查&lt;/h1&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="InterviewPoint" scheme="https://www.saddyfire.cn/tags/InterviewPoint/"/>
     
   </entry>
   

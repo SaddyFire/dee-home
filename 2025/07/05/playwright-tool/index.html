@@ -1,0 +1,1832 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="playwright-tool, SaddyFire">
+    <meta name="description" content="python-playwright 工具">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>playwright-tool | SaddyFire</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="SaddyFire" type="application/atom+xml">
+</head>
+
+
+<body>
+    
+    <div id="loading-box">
+        <div class="loading-left-bg"></div>
+        <div class="loading-right-bg"></div>
+        <div class="spinner-box">
+            <div class="configure-border-1">
+                <div class="configure-core"></div>
+            </div>
+            <div class="configure-border-2">
+                <div class="configure-core"></div>
+            </div>
+            <div class="loading-word">玩命加载中🤣🤣🤣</div>
+        </div>
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+        $(document).ready(function () {
+            document.body.style.overflow = 'auto';
+            document.getElementById('loading-box').classList.add("loaded")
+        })
+    </script>
+
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">SaddyFire</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">SaddyFire</div>
+        <div class="logo-desc">
+            
+            每一个抖腿的人, 心里都有台缝纫机
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/article/138.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">playwright-tool</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
+                            </a>
+                        
+                            <a href="/tags/playwright/">
+                                <span class="chip bg-color">playwright</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/program/" class="post-category">
+                                program
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-07-05
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-07-05
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    17 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="记一次基于playwright-python的工具">记一次基于playwright-python的工具</h2>
+<h3 id="配置封装">配置封装</h3>
+<h4 id="依赖安装">依赖安装</h4>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">pip install configparser<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="配置文件设计（config-ini）">配置文件设计（config.ini）</h4>
+<pre class="line-numbers language-ini" data-language="ini"><code class="language-ini"><span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">Browser</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">port</span> <span class="token punctuation">=</span> <span class="token value attr-value">9222</span>
+<span class="token key attr-name">title</span> <span class="token punctuation">=</span> <span class="token value attr-value">开始 | 钉钉宜搭</span>
+<span class="token key attr-name">url</span> <span class="token punctuation">=</span> <span class="token value attr-value">https://nozkyz.aliwork.com/workPlatform</span>
+<span class="token comment">;path = C:\Chrome\App\chrome.exe</span>
+
+<span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">Excel</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">live_room_path</span> <span class="token punctuation">=</span> <span class="token value attr-value">./files/直播间录入.xlsx</span>
+<span class="token key attr-name">infringement_song_path</span> <span class="token punctuation">=</span> <span class="token value attr-value">./files/侵权歌曲录入.xlsx</span>
+
+<span class="token comment"># 直播间,侵权歌曲</span>
+<span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">Strategy</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">enabled_strategies</span> <span class="token punctuation">=</span> <span class="token value attr-value">直播间,侵权歌曲</span>
+
+<span class="token comment">; 下面的省略...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="配置的加载与验证（util-config-utils-py）">配置的加载与验证（util/config_utils.py）</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> configparser
+<span class="token keyword">import</span> logging
+<span class="token keyword">import</span> sys
+<span class="token keyword">from</span> pathlib <span class="token keyword">import</span> Path
+<span class="token keyword">from</span> typing <span class="token keyword">import</span> Dict<span class="token punctuation">,</span> Any
+
+<span class="token keyword">from</span> config<span class="token punctuation">.</span>excel_header <span class="token keyword">import</span> ExcelHeaderConfig
+
+logger <span class="token operator">=</span> logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">load_config</span><span class="token punctuation">(</span>config_path<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    加载配置文件，明确区分开发环境和生产环境
+
+    规则：
+    1. 如果指定了config_path参数，优先使用该路径
+    2. 开发环境使用项目根目录下的config.ini
+    3. 生产环境使用exe同级目录下的config.ini
+    4. 如果都找不到，抛出明确的错误
+    """</span>
+    <span class="token comment"># 1. 如果指定了config_path参数，优先使用</span>
+    <span class="token keyword">if</span> config_path<span class="token punctuation">:</span>
+        config_file <span class="token operator">=</span> Path<span class="token punctuation">(</span>config_path<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> config_file<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> _load_config_file<span class="token punctuation">(</span>config_file<span class="token punctuation">)</span>
+        <span class="token keyword">raise</span> FileNotFoundError<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"指定的配置文件不存在: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>config_path<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+    <span class="token comment"># 2. 判断环境并确定默认配置文件路径</span>
+    <span class="token keyword">if</span> <span class="token builtin">getattr</span><span class="token punctuation">(</span>sys<span class="token punctuation">,</span> <span class="token string">'frozen'</span><span class="token punctuation">,</span> <span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># 生产环境 - 使用exe同级目录下的config.ini</span>
+        config_file <span class="token operator">=</span> Path<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>executable<span class="token punctuation">)</span><span class="token punctuation">.</span>parent <span class="token operator">/</span> <span class="token string">"config.ini"</span>
+        env_type <span class="token operator">=</span> <span class="token string">"生产环境"</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token comment"># 开发环境 - 使用项目根目录下的config.ini</span>
+        config_file <span class="token operator">=</span> Path<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">.</span>parent<span class="token punctuation">.</span>parent <span class="token operator">/</span> <span class="token string">"config.ini"</span>
+        env_type <span class="token operator">=</span> <span class="token string">"开发环境"</span>
+
+    <span class="token comment"># 调试信息（生产环境可移除）</span>
+    logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">&#123;</span>env_type<span class="token punctuation">&#125;</span></span><span class="token string">配置文件路径: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>config_file<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+    logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"当前工作目录: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>Path<span class="token punctuation">.</span>cwd<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+    <span class="token comment"># 3. 检查并加载配置文件</span>
+    <span class="token keyword">if</span> config_file<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> _load_config_file<span class="token punctuation">(</span>config_file<span class="token punctuation">)</span>
+
+    <span class="token comment"># 4. 配置文件不存在，抛出详细错误</span>
+    error_msg <span class="token operator">=</span> <span class="token punctuation">(</span>
+        <span class="token string-interpolation"><span class="token string">f"未找到</span><span class="token interpolation"><span class="token punctuation">&#123;</span>env_type<span class="token punctuation">&#125;</span></span><span class="token string">配置文件\n"</span></span>
+        <span class="token string-interpolation"><span class="token string">f"期望路径: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>config_file<span class="token punctuation">&#125;</span></span><span class="token string">\n"</span></span>
+        <span class="token string-interpolation"><span class="token string">f"当前工作目录: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>Path<span class="token punctuation">.</span>cwd<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">\n"</span></span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword">if</span> env_type <span class="token operator">==</span> <span class="token string">"生产环境"</span><span class="token punctuation">:</span>
+        error_msg <span class="token operator">+=</span> <span class="token punctuation">(</span>
+            <span class="token string">"解决方案:\n"</span>
+            <span class="token string">"1. 请确保config.ini文件与可执行文件在同一目录\n"</span>
+            <span class="token string">"2. 或者通过命令行参数指定配置文件路径"</span>
+        <span class="token punctuation">)</span>
+    <span class="token keyword">raise</span> FileNotFoundError<span class="token punctuation">(</span>error_msg<span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">_load_config_file</span><span class="token punctuation">(</span>config_path<span class="token punctuation">:</span> Path<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""从文件加载配置的内部实现"""</span>
+    config <span class="token operator">=</span> configparser<span class="token punctuation">.</span>ConfigParser<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    config<span class="token punctuation">.</span>optionxform <span class="token operator">=</span> <span class="token builtin">str</span>  <span class="token comment"># 保留键的原始大小写</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        config<span class="token punctuation">.</span>read<span class="token punctuation">(</span>config_path<span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+        <span class="token comment"># 加载表头配置</span>
+        ExcelHeaderConfig<span class="token punctuation">.</span>load_headers<span class="token punctuation">(</span>config<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> _validate_config<span class="token punctuation">(</span>config<span class="token punctuation">)</span>
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"无法读取配置文件 </span><span class="token interpolation"><span class="token punctuation">&#123;</span>config_path<span class="token punctuation">&#125;</span></span><span class="token string">: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>e<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">_validate_config</span><span class="token punctuation">(</span>config<span class="token punctuation">:</span> configparser<span class="token punctuation">.</span>ConfigParser<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">:</span>
+    config_dict <span class="token operator">=</span> <span class="token punctuation">&#123;</span>s<span class="token punctuation">:</span> <span class="token builtin">dict</span><span class="token punctuation">(</span>config<span class="token punctuation">.</span>items<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> s <span class="token keyword">in</span> config<span class="token punctuation">.</span>sections<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span>
+    required_sections <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+        <span class="token string">"Browser"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"port"</span><span class="token punctuation">,</span> <span class="token string">"title"</span><span class="token punctuation">,</span> <span class="token string">"url"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">"Excel"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"live_room_path"</span><span class="token punctuation">,</span> <span class="token string">"infringement_song_path"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">"Strategy"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"enabled_strategies"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment"># 验证必要配置段和键</span>
+    <span class="token keyword">for</span> section<span class="token punctuation">,</span> keys <span class="token keyword">in</span> required_sections<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> section <span class="token keyword">not</span> <span class="token keyword">in</span> config_dict<span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"配置文件缺少必要配置段 [</span><span class="token interpolation"><span class="token punctuation">&#123;</span>section<span class="token punctuation">&#125;</span></span><span class="token string">]"</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> key <span class="token keyword">in</span> keys<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> key <span class="token keyword">not</span> <span class="token keyword">in</span> config_dict<span class="token punctuation">[</span>section<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"段[</span><span class="token interpolation"><span class="token punctuation">&#123;</span>section<span class="token punctuation">&#125;</span></span><span class="token string">]中缺少必要键: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>key<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+    <span class="token comment"># 转换port 为整数</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        config_dict<span class="token punctuation">[</span><span class="token string">"Browser"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"port"</span><span class="token punctuation">]</span> <span class="token operator">=</span> config<span class="token punctuation">[</span><span class="token string">"Browser"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>getint<span class="token punctuation">(</span><span class="token string">"port"</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string">"配置文件Browser.port不是有效的整数"</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># 转换enabled_strategies 为列表</span>
+    config_dict<span class="token punctuation">[</span><span class="token string">"Strategy"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"enabled_strategies"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        s<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> s <span class="token keyword">in</span> config<span class="token punctuation">[</span><span class="token string">"Strategy"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"enabled_strategies"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+
+    <span class="token keyword">return</span> config_dict
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>调用方(伪代码)</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> util<span class="token punctuation">.</span>config_utils <span class="token keyword">import</span> load_config
+
+<span class="token comment"># 加载配置</span>
+config <span class="token operator">=</span> load_config<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 配置的使用</span>
+title <span class="token operator">=</span> config<span class="token punctuation">[</span><span class="token string">'Browser'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span>
+url <span class="token operator">=</span> config<span class="token punctuation">[</span><span class="token string">'Browser'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span>
+context <span class="token operator">=</span> init_browser<span class="token punctuation">(</span>p<span class="token punctuation">,</span> config<span class="token punctuation">[</span><span class="token string">'Browser'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'port'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+strategy<span class="token punctuation">.</span>process<span class="token punctuation">(</span>context<span class="token punctuation">,</span> page<span class="token punctuation">,</span> config<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="核心步骤">核心步骤</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 1.导包(伪代码)</span>
+<span class="token keyword">import</span> configparser
+<span class="token keyword">from</span> pathlib <span class="token keyword">import</span> Path <span class="token comment"># 读取配置文件</span>
+<span class="token keyword">import</span> sys
+
+<span class="token comment"># 2.配置文件的读取，这里建议预留开发/生产环境(伪代码)</span>
+<span class="token keyword">if</span> <span class="token builtin">getattr</span><span class="token punctuation">(</span>sys<span class="token punctuation">,</span> <span class="token string">'frozen'</span><span class="token punctuation">,</span> <span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"程序正在以打包后的可执行文件形式运行"</span><span class="token punctuation">)</span>
+    <span class="token comment">## 生产环境 - 使用exe同级目录下的config.ini</span>
+    config_file <span class="token operator">=</span> Path<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>executable<span class="token punctuation">)</span><span class="token punctuation">.</span>parent <span class="token operator">/</span> <span class="token string">"config.ini"</span>
+    env_type <span class="token operator">=</span> <span class="token string">"生产环境"</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"程序正在以普通 Python 脚本形式运行"</span><span class="token punctuation">)</span>
+    <span class="token comment">## 开发环境 - 使用项目根目录下的config.ini</span>
+    config_file <span class="token operator">=</span> Path<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">.</span>parent<span class="token punctuation">.</span>parent <span class="token operator">/</span> <span class="token string">"config.ini"</span>
+    env_type <span class="token operator">=</span> <span class="token string">"开发环境"</span>
+logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">&#123;</span>env_type<span class="token punctuation">&#125;</span></span><span class="token string">配置文件路径: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>config_file<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"当前工作目录: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>Path<span class="token punctuation">.</span>cwd<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> config_file<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> _load_config_file<span class="token punctuation">(</span>config_file<span class="token punctuation">)</span>
+<span class="token comment">## 后续逻辑...</span>
+
+<span class="token comment"># 3.加载配置文件(伪代码)</span>
+config <span class="token operator">=</span> configparser<span class="token punctuation">.</span>ConfigParser<span class="token punctuation">(</span><span class="token punctuation">)</span>
+config<span class="token punctuation">.</span>optionxform <span class="token operator">=</span> <span class="token builtin">str</span>  <span class="token comment">## 保留键的原始大小写</span>
+<span class="token keyword">try</span><span class="token punctuation">:</span>
+    config<span class="token punctuation">.</span>read<span class="token punctuation">(</span>config_path<span class="token punctuation">:</span> Path<span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+    <span class="token comment">## 后续逻辑...</span>
+<span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+    <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"无法读取配置文件 </span><span class="token interpolation"><span class="token punctuation">&#123;</span>config_path<span class="token punctuation">&#125;</span></span><span class="token string">: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>e<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+<span class="token comment"># 4.config的校验(利用字典)(伪代码)</span>
+<span class="token comment">## 先将config转换成dict</span>
+config_dict <span class="token operator">=</span> <span class="token punctuation">&#123;</span>s<span class="token punctuation">:</span> <span class="token builtin">dict</span><span class="token punctuation">(</span>config<span class="token punctuation">.</span>items<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> s <span class="token keyword">in</span> config<span class="token punctuation">.</span>sections<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span>
+<span class="token comment">## 构建需要校验的dict</span>
+required_sections <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">"Browser"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"port"</span><span class="token punctuation">,</span> <span class="token string">"title"</span><span class="token punctuation">,</span> <span class="token string">"url"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">"Excel"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"live_room_path"</span><span class="token punctuation">,</span> <span class="token string">"infringement_song_path"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">"Strategy"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"enabled_strategies"</span><span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">## 验证必要配置段和键</span>
+<span class="token keyword">for</span> section<span class="token punctuation">,</span> keys <span class="token keyword">in</span> required_sections<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> section <span class="token keyword">not</span> <span class="token keyword">in</span> config_dict<span class="token punctuation">:</span>
+        <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"配置文件缺少必要配置段 [</span><span class="token interpolation"><span class="token punctuation">&#123;</span>section<span class="token punctuation">&#125;</span></span><span class="token string">]"</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> key <span class="token keyword">in</span> keys<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> key <span class="token keyword">not</span> <span class="token keyword">in</span> config_dict<span class="token punctuation">[</span>section<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"段[</span><span class="token interpolation"><span class="token punctuation">&#123;</span>section<span class="token punctuation">&#125;</span></span><span class="token string">]中缺少必要键: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>key<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>getattr(sys, ‘frozen’, False) 是 Python 中一个常用的检查代码是否被打包成独立可执行文件的惯用方法。它的作用如下：</p>
+<p>解释：<br>
+sys 模块：Python 的内置系统模块，提供与 Python 解释器交互的功能。<br>
+getattr() 函数：获取对象的属性值，如果属性不存在则返回默认值。<br>
+语法：getattr(object, name, default)<br>
+‘frozen’ 属性：<br>
+当 Python 程序被工具（如 PyInstaller、cx_Freeze、py2exe 等）打包成独立可执行文件时，这些工具通常会在 sys 模块中设置 sys.frozen = True。<br>
+在普通 Python 解释器环境中运行时，sys 模块默认没有 frozen 属性。<br>
+False：默认值，表示如果 sys.frozen 属性不存在，则返回 False。</p>
+</blockquote>
+<blockquote>
+<p>字典推导式</p>
+<p>{key_expr: value_expr for item in iterable if condition}</p>
+<ul>
+<li>key_expr: 生成字典键值的表达式</li>
+<li>value_expr: 生成字典值的表达式</li>
+<li>item: 可迭代对象（如列表、元组、集合等）中的每个元素</li>
+<li>if condition（可选）：过滤条件，仅复合条件的元素会被包含在字典中</li>
+</ul>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">## 从列表生成字典</span>
+words <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"apple"</span><span class="token punctuation">,</span> <span class="token string">"banana"</span><span class="token punctuation">,</span> <span class="token string">"pear"</span><span class="token punctuation">]</span>
+dict1 <span class="token operator">=</span> <span class="token punctuation">&#123;</span>word<span class="token punctuation">:</span> <span class="token builtin">len</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span> <span class="token keyword">for</span> word <span class="token keyword">in</span> words<span class="token punctuation">&#125;</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>dict1<span class="token punctuation">)</span> <span class="token comment"># &#123;'apple': 5, 'banana': 6, 'pear': 4&#125;</span>
+
+<span class="token comment">## 带条件的推导式</span>
+dict2 <span class="token operator">=</span> <span class="token punctuation">&#123;</span>word<span class="token punctuation">:</span> <span class="token builtin">len</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span> <span class="token keyword">for</span> word <span class="token keyword">in</span> words <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">5</span><span class="token punctuation">&#125;</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>dict2<span class="token punctuation">)</span> <span class="token comment"># &#123;'banana': 6&#125;</span>
+
+<span class="token comment">## 从2个数组创建字典</span>
+keys <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">]</span>
+values <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+dict3 <span class="token operator">=</span> <span class="token punctuation">&#123;</span>k<span class="token punctuation">:</span> v <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>keys<span class="token punctuation">,</span> values<span class="token punctuation">)</span><span class="token punctuation">&#125;</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>dict3<span class="token punctuation">)</span> <span class="token comment"># &#123;'a': 1, 'b': 2, 'c': 3&#125;</span>
+
+<span class="token comment">## 转换现有字典</span>
+o_dict <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"a"</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">&#125;</span>
+n_dict <span class="token operator">=</span> <span class="token punctuation">&#123;</span>k<span class="token punctuation">:</span> v <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> o_dict<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">if</span> v <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">&#125;</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>n_dict<span class="token punctuation">)</span> <span class="token comment"># &#123;'b': 2, 'c': 3&#125;</span>
+
+<span class="token comment">## 与for循环的对比</span>
+squares <span class="token operator">=</span> <span class="token punctuation">&#123;</span>k<span class="token punctuation">:</span> k<span class="token operator">**</span><span class="token number">2</span> <span class="token keyword">for</span> k <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>squares<span class="token punctuation">)</span> <span class="token comment"># &#123;1: 1, 2: 4, 3: 9, 4: 16, 5: 25&#125;</span>
+squares2 <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+<span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    squares2<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token operator">**</span><span class="token number">2</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>squares2<span class="token punctuation">)</span> <span class="token comment"># &#123;1: 1, 2: 4, 3: 9, 4: 16, 5: 25&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="策略模式">策略模式</h3>
+<h4 id="策略接口（strategies-base-stratety-py）">策略接口（strategies.base_stratety.py）</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> abc <span class="token keyword">import</span> ABC<span class="token punctuation">,</span> abstractmethod
+<span class="token keyword">from</span> typing <span class="token keyword">import</span> Dict<span class="token punctuation">,</span> Any
+
+
+<span class="token keyword">class</span> <span class="token class-name">DataProcessingStrategy</span><span class="token punctuation">(</span>ABC<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""数据处理策略接口"""</span>
+
+    <span class="token decorator annotation punctuation">@abstractmethod</span>
+    <span class="token keyword">def</span> <span class="token function">process</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> context<span class="token punctuation">:</span> <span class="token string">'BrowserContext'</span><span class="token punctuation">,</span> page<span class="token punctuation">:</span> <span class="token string">'Page'</span><span class="token punctuation">,</span> config<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""执行数据处理"""</span>
+        <span class="token keyword">pass</span>
+
+    <span class="token decorator annotation punctuation">@abstractmethod</span>
+    <span class="token keyword">def</span> <span class="token function">get_excel_path</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> config<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""获取Excel文件路径"""</span>
+        <span class="token keyword">pass</span>
+
+    <span class="token decorator annotation punctuation">@abstractmethod</span>
+    <span class="token keyword">def</span> <span class="token function">validate_data</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> data<span class="token punctuation">:</span> <span class="token string">'pd.DataFrame'</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""验证数据格式"""</span>
+        <span class="token keyword">pass</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="策略工厂（strategies-init-py）">策略工厂（strategies._<em>init</em>_.py）</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> <span class="token punctuation">.</span>base_strategy <span class="token keyword">import</span> DataProcessingStrategy
+<span class="token keyword">from</span> <span class="token punctuation">.</span>infringement_song_strategy <span class="token keyword">import</span> InfringementSongStrategy
+<span class="token keyword">from</span> <span class="token punctuation">.</span>live_room_strategy <span class="token keyword">import</span> LiveRoomStrategy
+
+
+<span class="token keyword">class</span> <span class="token class-name">StrategyFactory</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""策略工厂（集中管理所有策略）"""</span>
+
+    <span class="token decorator annotation punctuation">@staticmethod</span>
+    <span class="token keyword">def</span> <span class="token function">create_strategy</span><span class="token punctuation">(</span>strategy_name<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> DataProcessingStrategy<span class="token punctuation">:</span>
+        strategies <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+            <span class="token string">'直播间'</span><span class="token punctuation">:</span> LiveRoomStrategy<span class="token punctuation">,</span>
+            <span class="token string">'侵权歌曲'</span><span class="token punctuation">:</span> InfringementSongStrategy
+            <span class="token comment"># 可以继续添加其他策略...</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token keyword">if</span> strategy_name <span class="token keyword">not</span> <span class="token keyword">in</span> strategies<span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"未知策略: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>strategy_name<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> strategies<span class="token punctuation">[</span>strategy_name<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="具体实现类（如：直播间）">具体实现类（如：直播间）</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">`<span class="token keyword">from</span> typing <span class="token keyword">import</span> Dict<span class="token punctuation">,</span> Any
+
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">from</span> playwright<span class="token punctuation">.</span>sync_api <span class="token keyword">import</span> Page<span class="token punctuation">,</span> BrowserContext
+
+<span class="token keyword">from</span> strategies<span class="token punctuation">.</span>base_strategy <span class="token keyword">import</span> DataProcessingStrategy
+
+
+<span class="token keyword">class</span> <span class="token class-name">LiveRoomStrategy</span><span class="token punctuation">(</span>DataProcessingStrategy<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""直播间录入策略"""</span>
+
+    <span class="token keyword">def</span> <span class="token function">process</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> context<span class="token punctuation">:</span> BrowserContext<span class="token punctuation">,</span> page<span class="token punctuation">:</span> Page<span class="token punctuation">,</span> config<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment">## 处理逻辑</span>
+
+    <span class="token keyword">def</span> <span class="token function">get_excel_path</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> config<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> config<span class="token punctuation">[</span><span class="token string">'Excel'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'live_room_path'</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">def</span> <span class="token function">validate_data</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> data<span class="token punctuation">:</span> <span class="token string">'pd.DataFrame'</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
+        required_columns <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">'直播间名称ID'</span><span class="token punctuation">,</span> <span class="token string">'直播间名称'</span><span class="token punctuation">,</span> <span class="token string">'蓝V平台认证公司名称'</span><span class="token punctuation">,</span> <span class="token string">'状态'</span><span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> required_columns<span class="token punctuation">.</span>issubset<span class="token punctuation">(</span><span class="token builtin">set</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>columns<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">_load_data</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> config<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token string">'pd.DataFrame'</span><span class="token punctuation">:</span>
+        excel_path <span class="token operator">=</span> self<span class="token punctuation">.</span>get_excel_path<span class="token punctuation">(</span>config<span class="token punctuation">)</span>
+        data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span>excel_path<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token keyword">not</span> self<span class="token punctuation">.</span>validate_data<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string">"Excel文件格式不符合要求"</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"成功加载 excel </span><span class="token interpolation"><span class="token punctuation">&#123;</span>excel_path<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> data
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="策略的使用">策略的使用</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> strategies <span class="token keyword">import</span> StrategyFactory
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token comment"># 拿到所有配置的策略</span>
+  enabled_strategies <span class="token operator">=</span> config<span class="token punctuation">[</span><span class="token string">'Strategy'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'enabled_strategies'</span><span class="token punctuation">]</span>
+  <span class="token keyword">for</span> stratety_name <span class="token keyword">in</span> enabled_strategies<span class="token punctuation">:</span>
+    strategy <span class="token operator">=</span> StrategyFactory<span class="token punctuation">.</span>create_strategy<span class="token punctuation">(</span>strategy_name<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    strategy<span class="token punctuation">.</span>process<span class="token punctuation">(</span>context<span class="token punctuation">,</span> page<span class="token punctuation">,</span> config<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Pandas-处理合并单元格">Pandas 处理合并单元格</h3>
+<h4 id="依赖安装-2">依赖安装</h4>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">pip install pandas openpyxl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="逻辑-伪代码">逻辑(伪代码)</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> pathlib <span class="token keyword">import</span> Path
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+
+excel_path <span class="token operator">=</span> Path<span class="token punctuation">.</span>cwd<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>parent <span class="token operator">/</span> <span class="token string">"files/侵权歌曲录入.xlsx"</span>
+dtype <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"账号ID"</span><span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">&#125;</span>
+data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span>excel_path<span class="token punctuation">,</span> dtype<span class="token operator">=</span>dtype<span class="token punctuation">)</span> <span class="token comment"># 隶属公司名称	账号ID	取证日期	歌曲	表演者	目的	证据链接	提取码	所在证据时间点	状态</span>
+<span class="token comment">## 合并的列</span>
+fill_columns <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"隶属公司名称"</span><span class="token punctuation">,</span> <span class="token string">"账号ID"</span><span class="token punctuation">,</span> <span class="token string">"取证日期"</span><span class="token punctuation">]</span>
+<span class="token comment">## 向前填充</span>
+data<span class="token punctuation">[</span>fill_columns<span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">[</span>fill_columns<span class="token punctuation">]</span><span class="token punctuation">.</span>fillna<span class="token punctuation">(</span>method<span class="token operator">=</span><span class="token string">"ffill"</span><span class="token punctuation">)</span>
+<span class="token comment">## 分组</span>
+grouped <span class="token operator">=</span> data<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>fill_columns<span class="token punctuation">)</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>company<span class="token punctuation">,</span> count_id<span class="token punctuation">,</span> date<span class="token punctuation">)</span><span class="token punctuation">,</span> group <span class="token keyword">in</span> grouped<span class="token punctuation">:</span>
+    <span class="token comment">## 处理公共字段逻辑</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>company<span class="token punctuation">,</span> count_id<span class="token punctuation">,</span> date<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> excel_index<span class="token punctuation">,</span> <span class="token punctuation">(</span>index<span class="token punctuation">,</span> row<span class="token punctuation">)</span> <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>group<span class="token punctuation">.</span>iterrows<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># 处理逻辑, 当然row也是包含公共字段的</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> row<span class="token punctuation">)</span>
+    <span class="token comment"># 将状态修改为已录入</span>
+    data<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>group<span class="token punctuation">.</span>index<span class="token punctuation">,</span> <span class="token string">"状态"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"已录入"</span>
+    <span class="token comment"># 保存</span>
+    data<span class="token punctuation">.</span>to_excel<span class="token punctuation">(</span>excel_path<span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="enumerate-用法与-set">enumerate 用法与 set</h3>
+<h4 id="enumerate">enumerate</h4>
+<p>enumerate() 是 Python 内置的一个非常有用的函数，用于在遍历序列（如列表、元组、字符串等）时同时获取元素的索引和值。</p>
+<ol>
+<li>遍历列表获取索引和值</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'apple'</span><span class="token punctuation">,</span> <span class="token string">'banana'</span><span class="token punctuation">,</span> <span class="token string">'cherry'</span><span class="token punctuation">]</span>
+
+<span class="token keyword">for</span> index<span class="token punctuation">,</span> fruit <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> fruit<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出：</p>
+<pre class="line-numbers language-none"><code class="language-none">0 apple
+1 banana
+2 cherry<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="2">
+<li>指定起始值</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> index<span class="token punctuation">,</span> fruit <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>fruits<span class="token punctuation">,</span> start<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> fruit<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>输出：</p>
+<pre class="line-numbers language-none"><code class="language-none">1 apple
+2 banana
+3 cherry<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="3">
+<li>本次使用方式</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> song_index<span class="token punctuation">,</span> <span class="token punctuation">(</span>index<span class="token punctuation">,</span> row<span class="token punctuation">)</span> <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>group<span class="token punctuation">.</span>iterrows<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> start<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"正在添加歌曲: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>row<span class="token punctuation">.</span>to_dict<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> song_index <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">:</span>
+        lc<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">"//span[text()='新增一项']"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        n_page<span class="token punctuation">.</span>wait_for_load_state<span class="token punctuation">(</span><span class="token string">"networkidle"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="集合-set">集合 set {}</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">required_columns <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">'直播间名称ID'</span><span class="token punctuation">,</span> <span class="token string">'直播间名称'</span><span class="token punctuation">,</span> <span class="token string">'蓝V平台认证公司名称'</span><span class="token punctuation">,</span> <span class="token string">'状态'</span><span class="token punctuation">&#125;</span>
+<span class="token comment"># 确认是否为子集合</span>
+required_columns<span class="token punctuation">.</span>issubset<span class="token punctuation">(</span><span class="token builtin">set</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>columns<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="Playwright浏览器复用模板">Playwright浏览器复用模板</h3>
+<h4 id="util-browser-utils-py">util.browser_utils.py</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> logging
+<span class="token keyword">import</span> socket
+<span class="token keyword">import</span> time
+<span class="token keyword">from</span> typing <span class="token keyword">import</span> Optional
+
+<span class="token keyword">from</span> playwright<span class="token punctuation">.</span>sync_api <span class="token keyword">import</span> BrowserContext<span class="token punctuation">,</span> Playwright<span class="token punctuation">,</span> Page
+
+logger <span class="token operator">=</span> logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">is_port_in_use</span><span class="token punctuation">(</span>port<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""检查浏览器端口是否被占用"""</span>
+    <span class="token keyword">with</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>AF_INET<span class="token punctuation">,</span> socket<span class="token punctuation">.</span>SOCK_STREAM<span class="token punctuation">)</span> <span class="token keyword">as</span> s<span class="token punctuation">:</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            s<span class="token punctuation">.</span>bind<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"localhost"</span><span class="token punctuation">,</span> port<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">False</span>
+        <span class="token keyword">except</span> socket<span class="token punctuation">.</span>error<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">True</span>
+
+
+<span class="token keyword">def</span> <span class="token function">init_browser</span><span class="token punctuation">(</span>p<span class="token punctuation">:</span> Playwright<span class="token punctuation">,</span> port<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> BrowserContext<span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token keyword">not</span> is_port_in_use<span class="token punctuation">(</span>port<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">raise</span> ConnectionError<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'端口 </span><span class="token interpolation"><span class="token punctuation">&#123;</span>port<span class="token punctuation">&#125;</span></span><span class="token string"> 未被监听，请确保浏览器已经启动并监听该端口'</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        browser <span class="token operator">=</span> p<span class="token punctuation">.</span>chromium<span class="token punctuation">.</span>connect_over_cdp<span class="token punctuation">(</span>endpoint_url<span class="token operator">=</span><span class="token string-interpolation"><span class="token string">f'http://localhost:</span><span class="token interpolation"><span class="token punctuation">&#123;</span>port<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+        context <span class="token operator">=</span> browser<span class="token punctuation">.</span>contexts<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">if</span> browser<span class="token punctuation">.</span>contexts <span class="token keyword">else</span> browser<span class="token punctuation">.</span>new_context<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        context<span class="token punctuation">.</span>set_default_timeout<span class="token punctuation">(</span><span class="token number">10000</span><span class="token punctuation">)</span>
+        logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"成功连接到浏览器, 端口: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>port<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> context
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">raise</span> ConnectionError<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"连接失败, </span><span class="token interpolation"><span class="token punctuation">&#123;</span>e<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">wait_for_page_with_title</span><span class="token punctuation">(</span>
+        context<span class="token punctuation">:</span> BrowserContext<span class="token punctuation">,</span>
+        title<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span>
+        timeout<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">30000</span><span class="token punctuation">,</span>
+        close_other_pages<span class="token punctuation">:</span> <span class="token builtin">bool</span> <span class="token operator">=</span> <span class="token boolean">False</span>
+<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Optional<span class="token punctuation">[</span>Page<span class="token punctuation">]</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""等待页面加载完成
+
+    Args:
+        context: 浏览器上下文
+        title: 需要等待的页面标题(部分匹配)
+        timeout: 超时时间(毫秒)
+        close_other_pages: 是否关闭其他页面
+
+    Returns:
+        Page: 找到的页面对象，未找到返回None
+    """</span>
+    start_time <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">while</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> start_time <span class="token operator">&lt;</span> timeout<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> close_other_pages<span class="token punctuation">:</span>
+            <span class="token keyword">for</span> page <span class="token keyword">in</span> context<span class="token punctuation">.</span>pages<span class="token punctuation">:</span>
+                <span class="token keyword">if</span> title <span class="token keyword">not</span> <span class="token keyword">in</span> page<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    page<span class="token punctuation">.</span>bring_to_front<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                    logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"关闭页面: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>page<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+                    page<span class="token punctuation">.</span>wait_for_timeout<span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span>
+                    page<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    <span class="token keyword">continue</span>
+        <span class="token keyword">for</span> page <span class="token keyword">in</span> context<span class="token punctuation">.</span>pages<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> title <span class="token keyword">in</span> page<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                page<span class="token punctuation">.</span>bring_to_front<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token keyword">return</span> page
+        page<span class="token punctuation">.</span>wait_for_timeout<span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token boolean">None</span>
+
+
+<span class="token keyword">def</span> <span class="token function">open_browser</span><span class="token punctuation">(</span>p<span class="token punctuation">:</span> Playwright<span class="token punctuation">,</span> port<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> BrowserContext<span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""自定义打开浏览器"""</span>
+
+    <span class="token keyword">return</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="使用">使用</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> playwright<span class="token punctuation">.</span>sync_api <span class="token keyword">import</span> sync_playwright
+<span class="token keyword">from</span> util<span class="token punctuation">.</span>browser_utils <span class="token keyword">import</span> init_browser<span class="token punctuation">,</span> wait_for_page_with_title
+
+<span class="token keyword">with</span> sync_playwright<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> p<span class="token punctuation">:</span>
+    config <span class="token operator">=</span> load_config<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    title <span class="token operator">=</span> config<span class="token punctuation">[</span><span class="token string">'Browser'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span>
+    url <span class="token operator">=</span> config<span class="token punctuation">[</span><span class="token string">'Browser'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span>
+    context <span class="token operator">=</span> init_browser<span class="token punctuation">(</span>p<span class="token punctuation">,</span> config<span class="token punctuation">[</span><span class="token string">'Browser'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'port'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        page <span class="token operator">=</span> wait_for_page_with_title<span class="token punctuation">(</span>context<span class="token punctuation">,</span> title<span class="token punctuation">,</span> close_other_pages<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        page <span class="token operator">=</span> wait_for_page_with_title<span class="token punctuation">(</span>context<span class="token punctuation">,</span> title<span class="token punctuation">,</span> close_other_pages<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> <span class="token keyword">not</span> page<span class="token punctuation">:</span>
+        logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"未找到指定页面 </span><span class="token interpolation"><span class="token punctuation">&#123;</span>title<span class="token punctuation">&#125;</span></span><span class="token string">, 即将打开 </span><span class="token interpolation"><span class="token punctuation">&#123;</span>url<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+        page <span class="token operator">=</span> context<span class="token punctuation">.</span>new_page<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        page<span class="token punctuation">.</span>goto<span class="token punctuation">(</span>url<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="动态表头映射">动态表头映射</h3>
+<blockquote>
+<p>背景：为了兼容excel中的表头动态变化，因此这里可以在配置文件做一个动态映射</p>
+</blockquote>
+<h4 id="配置文件-config-ini">配置文件 config.ini</h4>
+<pre class="line-numbers language-ini" data-language="ini"><code class="language-ini"><span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">ExcelHeaders.InfringementSong</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">COMPANY</span> <span class="token punctuation">=</span> <span class="token value attr-value">隶属公司名称</span>
+<span class="token key attr-name">ACCOUNT_ID</span> <span class="token punctuation">=</span> <span class="token value attr-value">账号ID</span>
+<span class="token key attr-name">DATE</span> <span class="token punctuation">=</span> <span class="token value attr-value">取证日期</span>
+<span class="token key attr-name">SONG</span> <span class="token punctuation">=</span> <span class="token value attr-value">歌曲</span>
+<span class="token key attr-name">PERFORMER</span> <span class="token punctuation">=</span> <span class="token value attr-value">表演者</span>
+<span class="token key attr-name">TIME_POINT</span> <span class="token punctuation">=</span> <span class="token value attr-value">所在证据时间点</span>
+<span class="token key attr-name">EVIDENCE_LINK</span> <span class="token punctuation">=</span> <span class="token value attr-value">证据链接</span>
+<span class="token key attr-name">EXTRACTION_CODE</span> <span class="token punctuation">=</span> <span class="token value attr-value">提取码</span>
+<span class="token key attr-name">STATUS</span> <span class="token punctuation">=</span> <span class="token value attr-value">状态</span>
+
+<span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">ExcelHeaders.LiveRoom</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">ROOM_ID</span> <span class="token punctuation">=</span> <span class="token value attr-value">直播间名称ID</span>
+<span class="token key attr-name">ROOM_NAME</span> <span class="token punctuation">=</span> <span class="token value attr-value">直播间名称</span>
+<span class="token key attr-name">PLATFORM</span> <span class="token punctuation">=</span> <span class="token value attr-value">所在平台</span>
+<span class="token key attr-name">COMPANY</span> <span class="token punctuation">=</span> <span class="token value attr-value">蓝V平台认证公司名称</span>
+<span class="token key attr-name">STATUS</span> <span class="token punctuation">=</span> <span class="token value attr-value">状态</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="配置文件-config-excel-header-py">配置文件 config.excel_header.py</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> typing <span class="token keyword">import</span> Dict<span class="token punctuation">,</span> Any<span class="token punctuation">,</span> ClassVar
+
+
+<span class="token keyword">class</span> <span class="token class-name">ExcelHeaderConfig</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""Excel表头配置中心"""</span>
+
+    _headers_loaded<span class="token punctuation">:</span> ClassVar<span class="token punctuation">[</span><span class="token builtin">bool</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">False</span>
+
+    <span class="token comment"># 侵权歌曲录入表头</span>
+    INFRINGEMENT_SONG<span class="token punctuation">:</span> ClassVar<span class="token punctuation">[</span>Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+
+    <span class="token comment"># 直播间录入表头</span>
+    LIVE_ROOM<span class="token punctuation">:</span> ClassVar<span class="token punctuation">[</span>Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+
+    <span class="token decorator annotation punctuation">@classmethod</span>
+    <span class="token keyword">def</span> <span class="token function">load_headers</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> config<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""从配置文件加载表头映射"""</span>
+        <span class="token keyword">if</span> cls<span class="token punctuation">.</span>_headers_loaded<span class="token punctuation">:</span>
+            <span class="token keyword">return</span>
+
+        <span class="token comment"># 加载侵权歌曲表头</span>
+        cls<span class="token punctuation">.</span>INFRINGEMENT_SONG <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+            key<span class="token punctuation">:</span> value
+            <span class="token keyword">for</span> key<span class="token punctuation">,</span> value <span class="token keyword">in</span> config<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token string">"ExcelHeaders.InfringementSong"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token comment"># 加载直播间表头</span>
+        cls<span class="token punctuation">.</span>LIVE_ROOM <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+            key<span class="token punctuation">:</span> value
+            <span class="token keyword">for</span> key<span class="token punctuation">,</span> value <span class="token keyword">in</span> config<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token string">"ExcelHeaders.LiveRoom"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>
+
+        cls<span class="token punctuation">.</span>_headers_loaded <span class="token operator">=</span> <span class="token boolean">True</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">HeaderMapper</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""表头映射工具类"""</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> headers<span class="token punctuation">:</span> <span class="token builtin">dict</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># headers 结构应为 &#123;字段键: 表头文字&#125;</span>
+        self<span class="token punctuation">.</span>headers <span class="token operator">=</span> <span class="token punctuation">&#123;</span>k<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> v <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> headers<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span>
+        <span class="token comment"># 创建反向映射 &#123;表头文字: 字段键&#125;</span>
+        self<span class="token punctuation">.</span>reverse_map <span class="token operator">=</span> <span class="token punctuation">&#123;</span>v<span class="token punctuation">:</span> k <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> headers<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">def</span> <span class="token function">get_excel_header</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> field_key<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+        <span class="token comment"># 大小写不敏感</span>
+        key <span class="token operator">=</span> field_key<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token triple-quoted-string string">"""通过字段键获取Excel表头文字"""</span>
+        <span class="token keyword">if</span> key <span class="token keyword">not</span> <span class="token keyword">in</span> self<span class="token punctuation">.</span>headers<span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"未知字段键: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>field_key<span class="token punctuation">&#125;</span></span><span class="token string"> (尝试使用 </span><span class="token interpolation"><span class="token punctuation">&#123;</span>key<span class="token punctuation">&#125;</span></span><span class="token string">)"</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>headers<span class="token punctuation">[</span>key<span class="token punctuation">]</span>  <span class="token comment"># 返回表头文字</span>
+
+    <span class="token keyword">def</span> <span class="token function">get_field_key</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> excel_header<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""通过Excel表头文字获取字段键"""</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>reverse_map<span class="token punctuation">.</span>get<span class="token punctuation">(</span>excel_header<span class="token punctuation">,</span> excel_header<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="配置的加载与使用">配置的加载与使用</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">## 配置的加载(在主方法配置)</span>
+ExcelHeaderConfig<span class="token punctuation">.</span>load_headers<span class="token punctuation">(</span>config<span class="token punctuation">)</span>
+
+<span class="token comment">## mapper的实例化</span>
+<span class="token keyword">class</span> <span class="token class-name">InfringementSongStrategy</span><span class="token punctuation">(</span>DataProcessingStrategy<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment">## 初始化mapper</span>
+        self<span class="token punctuation">.</span>mapper <span class="token operator">=</span> HeaderMapper<span class="token punctuation">(</span>ExcelHeaderConfig<span class="token punctuation">.</span>INFRINGEMENT_SONG<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">process</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> context<span class="token punctuation">:</span> BrowserContext<span class="token punctuation">,</span> page<span class="token punctuation">:</span> Page<span class="token punctuation">,</span> config<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment">## 获取字段 表头文字</span>
+        company_header <span class="token operator">=</span> self<span class="token punctuation">.</span>mapper<span class="token punctuation">.</span>get_excel_header<span class="token punctuation">(</span><span class="token string">"COMPANY"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="日志文件输出">日志文件输出</h3>
+<h4 id="配置文件-config-logging-config-py">配置文件 config/logging_config.py</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># config/logging_config.py</span>
+<span class="token keyword">import</span> logging
+<span class="token keyword">import</span> sys
+<span class="token keyword">from</span> pathlib <span class="token keyword">import</span> Path
+
+
+<span class="token keyword">def</span> <span class="token function">setup_logging</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""配置全局日志系统，兼容打包和开发环境"""</span>
+    <span class="token comment"># 确定基础路径</span>
+    <span class="token keyword">if</span> <span class="token builtin">getattr</span><span class="token punctuation">(</span>sys<span class="token punctuation">,</span> <span class="token string">'frozen'</span><span class="token punctuation">,</span> <span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># 打包环境 - 使用exe所在目录</span>
+        base_path <span class="token operator">=</span> Path<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>executable<span class="token punctuation">)</span><span class="token punctuation">.</span>parent
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token comment"># 开发环境 - 使用项目根目录</span>
+        base_path <span class="token operator">=</span> Path<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">.</span>parent<span class="token punctuation">.</span>parent
+
+    <span class="token comment"># 创建日志目录（确保可写）</span>
+    log_dir <span class="token operator">=</span> base_path <span class="token operator">/</span> <span class="token string">"logs"</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        log_dir<span class="token punctuation">.</span>mkdir<span class="token punctuation">(</span>exist_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> mode<span class="token operator">=</span><span class="token number">0o755</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"无法创建日志目录: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>e<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+        log_dir <span class="token operator">=</span> Path<span class="token punctuation">.</span>cwd<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token string">"logs"</span>  <span class="token comment"># 回退到当前工作目录</span>
+        log_dir<span class="token punctuation">.</span>mkdir<span class="token punctuation">(</span>exist_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> mode<span class="token operator">=</span><span class="token number">0o755</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># 配置日志</span>
+    log_file <span class="token operator">=</span> log_dir <span class="token operator">/</span> <span class="token string">"application.log"</span>
+    logging<span class="token punctuation">.</span>basicConfig<span class="token punctuation">(</span>
+        level<span class="token operator">=</span>logging<span class="token punctuation">.</span>INFO<span class="token punctuation">,</span>
+        <span class="token builtin">format</span><span class="token operator">=</span><span class="token string">'%(asctime)s [%(levelname)s] %(name)s: %(message)s'</span><span class="token punctuation">,</span>
+        handlers<span class="token operator">=</span><span class="token punctuation">[</span>
+            logging<span class="token punctuation">.</span>FileHandler<span class="token punctuation">(</span>log_file<span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            logging<span class="token punctuation">.</span>StreamHandler<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>stdout<span class="token punctuation">)</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">)</span>
+
+    <span class="token comment"># 设置第三方库的日志级别</span>
+    logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span><span class="token string">"urllib3"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>setLevel<span class="token punctuation">(</span>logging<span class="token punctuation">.</span>WARNING<span class="token punctuation">)</span>
+    logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span><span class="token string">"PIL"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>setLevel<span class="token punctuation">(</span>logging<span class="token punctuation">.</span>WARNING<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="主方法初始化">主方法初始化</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> config<span class="token punctuation">.</span>logging_config <span class="token keyword">import</span> setup_logging
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    setup_logging<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment">## 获取当前模块的logger实例</span>
+    logger <span class="token operator">=</span> logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
+    logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"开始输出日志"</span></span><span class="token punctuation">)</span>
+    <span class="token comment">## 然后执行其他初始化</span>
+    <span class="token comment">## ...</span>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>其他类需要引用仅需在最上层初始化即可，如下：</p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> logging
+
+logger <span class="token operator">=</span> logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="打包与部署">打包与部署</h3>
+<h4 id="安装-pyinstaller">安装 pyinstaller</h4>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pip <span class="token function">install</span> pyinstaller<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="打包配置文件-build-spec">打包配置文件 build.spec</h4>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text"># build.spec
+# -*- mode: python -*-
+from PyInstaller.utils.hooks import collect_all
+import shutil
+from pathlib import Path
+
+# 自动收集 fitz 的所有依赖（包括 DLL）
+datas, binaries, hiddenimports = collect_all("fitz")
+
+a = Analysis(
+    ["main.py"], # 主入口文件
+    pathex=["."],
+    binaries=binaries,
+    datas=[("config.ini", ".")],
+    hiddenimports=hiddenimports,
+    hookspath=[],
+    runtime_hooks=[],
+    excludes=[],
+    win_no_prefer_redirects=False,
+    win_private_assemblies=False,
+    cipher=None,
+    noarchive=False,
+    optimize=0,           # 优化级别
+)
+pyz = PYZ(a.pure, a.zipped_data, cipher=None)
+exe = EXE(
+    pyz,
+    a.scripts,
+    a.binaries,
+    a.datas,
+    name="音集协工具",
+    debug=False,
+    strip=False,
+    upx=True,
+    console=True,
+    icon="icon/icon.ico",
+)
+
+# 打包完成后自动复制config.ini到dist目录
+def _post_build():
+    dist_dir = Path('dist') / '音集协工具'
+    if not dist_dir.exists():
+        dist_dir.mkdir(parents=True)
+    # 移动文件到子目录
+    if (Path('dist') / '音集协工具.exe').exists():
+        (Path('dist') / '音集协工具.exe').rename(dist_dir / '音集协工具.exe')
+    shutil.copy('config.ini', dist_dir)
+    file_dir = Path('files')
+    # 将文件夹下的文件复制到打包目录
+    shutil.copytree(file_dir, dist_dir / 'files')
+
+_post_build()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>打包</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pyinstaller <span class="token parameter variable">--clean</span> build.spec<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="附：创建虚拟环境">附：创建虚拟环境</h4>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">python <span class="token parameter variable">-m</span> venv stamp_env
+<span class="token builtin class-name">cd</span> stamp_env
+Scripts<span class="token punctuation">\</span>activate  <span class="token comment"># Windows</span>
+<span class="token comment"># 或 source bin/activate (Linux/Mac)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="附：环境维护">附：环境维护</h4>
+<ul>
+<li>生成 requirements.txt</li>
+</ul>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">pip freeze > requirements<span class="token punctuation">.</span>txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>新环境初始化项目</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 在新环境中测试</span>
+python <span class="token operator">-</span>m venv test_env
+test_env\Scripts\activate
+pip install <span class="token operator">-</span>r requirements<span class="token punctuation">.</span>txt
+python main<span class="token punctuation">.</span>py  <span class="token comment"># 运行程序验证功能</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.saddyfire.cn" rel="external nofollow noreferrer">👑Dee👑</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.saddyfire.cn/2025/07/05/playwright-tool/">https://www.saddyfire.cn/2025/07/05/playwright-tool/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://www.saddyfire.cn" target="_blank">👑Dee👑</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
+                                </a>
+                            
+                                <a href="/tags/playwright/">
+                                    <span class="chip bg-color">playwright</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2025/07/05/playwright-tool/">
+                    <div class="card-image">
+                        
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/images/article/138.jpg" class="responsive-img" alt="playwright-tool">
+                        
+                        <span class="card-title">playwright-tool</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            python-playwright 工具
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/program/" class="post-category">
+                                    program
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/playwright/">
+                        <span class="chip bg-color">playwright</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/06/13/vue-note/">
+                    <div class="card-image">
+                        
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/images/article/137.jpg" class="responsive-img" alt="vue的一些笔记">
+                        
+                        <span class="card-title">vue的一些笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            vue的一些笔记
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-06-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/program/" class="post-category">
+                                    program
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: SaddyFire<br />'
+            + '文章作者: 👑Dee👑<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.js"></script>
+
+
+<!-- 代码语言 -->
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('4'),
+            headingSelector: 'h2, h3, h4, h5'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023-2025</span>
+            
+            <a href="/about" target="_blank">👑Dee👑</a>
+            
+                <span id="translate">|&nbsp;繁/简：</span><a id="translateLink" href="javascript:translatePage();">繁</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2023";
+                        var startMonth = "2";
+                        var startDate = "3";
+                        var startHour = "23";
+                        var startMinute = "22";
+                        var startSecond = "33";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备2022021631号-2</a>
+            </span>
+            
+            
+                &emsp;&emsp;&emsp;<span id="icp">
+                <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010202002588" target="_blank">浙公网安备 33010202002588号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/SaddyFire" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:960879984@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=960879984" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 960879984" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            // 如果用户点击切换则进行标记
+            sessionStorage.setItem('manualDark','0')
+            $('body').hasClass('DarkMode')
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <script>
+        //自动切换夜间模式
+        if (!sessionStorage.getItem('manualDark')){
+            // 当前主题是否为夜间模式
+            let isDark = localStorage.getItem("isDark") === '1';
+            // 当前时间是否为夜间
+            let isNight = (new Date().getHours() >= 20 || new Date().getHours() < 7)
+            // 夜间但不是夜间模式
+            if (isNight && !isDark) {
+                $('body').addClass('DarkMode')
+                localStorage.setItem('isDark', '1')
+                $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')
+            }
+            // 不是夜间但是夜间模式
+            if (!isNight && isDark) {
+                $('body').removeClass('DarkMode')
+                localStorage.setItem('isDark', '0')
+                $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')
+            }
+        }
+    </script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+
+    
+        <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
+        <script>
+            if (window.mermaid) {
+                mermaid.initialize({theme: 'forest'});
+            }
+        </script>
+    
+
+    
+        <script type="text/javascript" src="/js/tw_cn.js"></script>
+        <script type="text/javascript">
+          var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
+          var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+          var cookieDomain = "https://www.saddyfire.cn"; //Cookie地址, 一定要设定, 通常为你的网址
+          var msgToTraditionalChinese = "繁"; //此处可以更改为你想要显示的文字
+          var msgToSimplifiedChinese = "简"; //同上，但两处均不建议更改
+          var translateButtonId = "translateLink"; //默认互换id
+          translateInitilization();
+        </script>
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+        <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+<!--        <script src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>-->
+        <script src="/libs/others/anime.min.js"></script>
+        <script src="/libs/others/firework.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":220,"hOffset":-20,"vOffset":-10},"mobile":{"show":false,"scale":0.5},"dialog":{"enable":false,"hitokoto":false},"log":false});</script>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body>
+
+</html>
