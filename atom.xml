@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2025-07-14T01:16:14.977Z</updated>
+  <updated>2025-07-21T05:34:59.626Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -17,11 +17,71 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>PyQt-图书馆管理系统</title>
+    <link href="https://www.saddyfire.cn/2025/07/20/pyqt-library/"/>
+    <id>https://www.saddyfire.cn/2025/07/20/pyqt-library/</id>
+    <published>2025-07-20T13:51:42.000Z</published>
+    <updated>2025-07-21T05:34:59.626Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;PyQt6-library&quot;&gt;PyQt6 library&lt;/h2&gt;
+&lt;h3 id=&quot;PyQt部分&quot;&gt;PyQt部分&lt;/h3&gt;
+&lt;p&gt;前置步骤：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ui 界面设计&lt;/li&gt;
+&lt;li&gt;数据库设计&lt;/li&gt;
+&lt;li&gt;python.exe -m</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="python" scheme="https://www.saddyfire.cn/tags/python/"/>
+    
+    <category term="QyQt" scheme="https://www.saddyfire.cn/tags/QyQt/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pytest、request入门</title>
+    <link href="https://www.saddyfire.cn/2025/07/19/pytest-start/"/>
+    <id>https://www.saddyfire.cn/2025/07/19/pytest-start/</id>
+    <published>2025-07-19T03:44:06.000Z</published>
+    <updated>2025-07-21T05:34:59.630Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Python自动化&quot;&gt;Python自动化&lt;/h2&gt;
+&lt;p&gt;依赖安装&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;pip</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="python" scheme="https://www.saddyfire.cn/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PyQt6 入门笔记</title>
     <link href="https://www.saddyfire.cn/2025/07/14/pyqt-basic/"/>
     <id>https://www.saddyfire.cn/2025/07/14/pyqt-basic/</id>
     <published>2025-07-13T16:43:05.000Z</published>
-    <updated>2025-07-14T01:16:14.977Z</updated>
+    <updated>2025-07-16T15:21:29.816Z</updated>
     
     
       
@@ -527,66 +587,6 @@
     <category term="Nginx" scheme="https://www.saddyfire.cn/tags/Nginx/"/>
     
     <category term="Windows" scheme="https://www.saddyfire.cn/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo搭配Nginx配置二级目录</title>
-    <link href="https://www.saddyfire.cn/2024/07/06/hexo-url/"/>
-    <id>https://www.saddyfire.cn/2024/07/06/hexo-url/</id>
-    <published>2024-07-06T08:05:44.000Z</published>
-    <updated>2024-07-24T15:57:25.499Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;Hexo搭配Nginx配置二级目录&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;有时候需要用 Nginx 配置在二级目录，要使用 alias 关键字，但是 Hexo 生成的链接并不是动态的，因此以此文章来实现该方案&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Nginx" scheme="https://www.saddyfire.cn/tags/Nginx/"/>
-    
-    <category term="Hexo" scheme="https://www.saddyfire.cn/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>docker启动Nginx</title>
-    <link href="https://www.saddyfire.cn/2024/07/06/docker-nginx/"/>
-    <id>https://www.saddyfire.cn/2024/07/06/docker-nginx/</id>
-    <published>2024-07-06T06:59:43.000Z</published>
-    <updated>2024-07-14T03:32:33.666Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;docker下启动Nginx&lt;/h1&gt;
-&lt;h3 id=&quot;搜索镜像&quot;&gt;搜索镜像&lt;/h3&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Docker" scheme="https://www.saddyfire.cn/tags/Docker/"/>
-    
-    <category term="Nginx" scheme="https://www.saddyfire.cn/tags/Nginx/"/>
     
   </entry>
   
