@@ -295,8 +295,8 @@
                                 <span class="chip bg-color">python</span>
                             </a>
                         
-                            <a href="/tags/QyQt/">
-                                <span class="chip bg-color">QyQt</span>
+                            <a href="/tags/PyQt/">
+                                <span class="chip bg-color">PyQt</span>
                             </a>
                         
                     </div>
@@ -327,21 +327,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-07-21
+                    2025-07-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    2.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    12 分
                 </div>
                 
 
@@ -603,7 +603,7 @@ self<span class="token punctuation">.</span>radio_none<span class="token punctua
     sex <span class="token operator">=</span> self<span class="token punctuation">.</span>radio_woman<span class="token punctuation">.</span>text<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">else</span><span class="token punctuation">:</span>
     sex <span class="token operator">=</span> self<span class="token punctuation">.</span>radio_none<span class="token punctuation">.</span>text<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 避免硬编码</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="dao层">dao层</h3>
+<h3 id="dao层mysql">dao层mysql</h3>
 <h4 id="db-util-py">db_util.py</h4>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> pymysql <span class="token keyword">import</span> Connection
 
@@ -707,32 +707,177 @@ self<span class="token punctuation">.</span>radio_none<span class="token punctua
             <span class="token keyword">return</span> <span class="token number">0</span>
     <span class="token keyword">finally</span><span class="token punctuation">:</span>
         db_util<span class="token punctuation">.</span>closeConn<span class="token punctuation">(</span>conn<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="dao层sqlite">dao层sqlite</h3>
+<h4 id="db-util-py-2">db_util.py</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> sqlite3
+<span class="token keyword">from</span> pathlib <span class="token keyword">import</span> Path
+
+<span class="token keyword">from</span> pymysql <span class="token keyword">import</span> Connection
+
+<span class="token comment"># 数据库文件路径（自动创建在程序目录下）</span>
+DB_PATH <span class="token operator">=</span> Path<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">.</span>parent<span class="token punctuation">.</span>parent <span class="token operator">/</span> <span class="token string">"db"</span> <span class="token operator">/</span> <span class="token string">"dee_library.db"</span>
+
+<span class="token keyword">def</span> <span class="token function">get_conn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""获取SQLite数据库连接"""</span>
+    conn <span class="token operator">=</span> sqlite3<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>DB_PATH<span class="token punctuation">)</span>
+    <span class="token comment"># 启用外键约束（如果需要）</span>
+    conn<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">"PRAGMA foreign_keys = ON"</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> conn
+
+<span class="token keyword">def</span> <span class="token function">close_conn</span><span class="token punctuation">(</span>conn<span class="token punctuation">:</span> Connection<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> conn<span class="token punctuation">:</span>
+        conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="create-模板">create 模板</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> entity<span class="token punctuation">.</span>book_type_model <span class="token keyword">import</span> BookType
+<span class="token keyword">from</span> util<span class="token punctuation">.</span>db_util <span class="token keyword">import</span> get_conn<span class="token punctuation">,</span> close_conn
+<span class="token keyword">import</span> sqlite3
+
+<span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>book_type<span class="token punctuation">:</span> BookType<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    添加图书类别
+    :param book_type: 图书类别实体
+    :return: 影响的行数 (0表示失败)
+    """</span>
+    conn <span class="token operator">=</span> <span class="token boolean">None</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        conn <span class="token operator">=</span> get_conn<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        cursor <span class="token operator">=</span> conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>
+            <span class="token string">"INSERT INTO t_book_type (book_type_name, book_type_desc) VALUES (?, ?)"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">(</span>book_type<span class="token punctuation">.</span>book_type_name<span class="token punctuation">,</span> book_type<span class="token punctuation">.</span>book_type_desc<span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        conn<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> cursor<span class="token punctuation">.</span>rowcount
+    <span class="token keyword">except</span> sqlite3<span class="token punctuation">.</span>Error <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"添加图书类别出错: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>e<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> conn<span class="token punctuation">:</span>
+            conn<span class="token punctuation">.</span>rollback<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token number">0</span>
+    <span class="token keyword">finally</span><span class="token punctuation">:</span>
+        close_conn<span class="token punctuation">(</span>conn<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="select-模板-2">select 模板</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">list</span><span class="token punctuation">(</span>s_book_type_name<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">list</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    查询图书类别列表
+    :param s_book_type_name: 图书类别名称(模糊查询)
+    :return: 图书类别列表
+    """</span>
+    conn <span class="token operator">=</span> <span class="token boolean">None</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        conn <span class="token operator">=</span> get_conn<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        cursor <span class="token operator">=</span> conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        sql <span class="token operator">=</span> <span class="token string">"SELECT id, book_type_name, book_type_desc FROM t_book_type WHERE 1=1"</span>
+        params <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+        <span class="token keyword">if</span> s_book_type_name<span class="token punctuation">:</span>
+            sql <span class="token operator">+=</span> <span class="token string">" AND book_type_name LIKE ?"</span>
+            params<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"%</span><span class="token interpolation"><span class="token punctuation">&#123;</span>s_book_type_name<span class="token punctuation">&#125;</span></span><span class="token string">%"</span></span><span class="token punctuation">)</span>
+
+        cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">,</span> params<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span> sqlite3<span class="token punctuation">.</span>Error <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"查询图书类别出错: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>e<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">finally</span><span class="token punctuation">:</span>
+        close_conn<span class="token punctuation">(</span>conn<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="update-模板-2">update 模板</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">modify</span><span class="token punctuation">(</span>book_type<span class="token punctuation">:</span> BookType<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    修改图书类别
+    :param book_type: 图书类别实体
+    :return: 影响的行数 (0表示失败)
+    """</span>
+    conn <span class="token operator">=</span> <span class="token boolean">None</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        conn <span class="token operator">=</span> get_conn<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        cursor <span class="token operator">=</span> conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>
+            <span class="token string">"UPDATE t_book_type SET book_type_name=?, book_type_desc=? WHERE id=?"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">(</span>book_type<span class="token punctuation">.</span>book_type_name<span class="token punctuation">,</span> book_type<span class="token punctuation">.</span>book_type_desc<span class="token punctuation">,</span> book_type<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        conn<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> cursor<span class="token punctuation">.</span>rowcount
+    <span class="token keyword">except</span> sqlite3<span class="token punctuation">.</span>Error <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"修改图书类别出错: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>e<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> conn<span class="token punctuation">:</span>
+            conn<span class="token punctuation">.</span>rollback<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token number">0</span>
+    <span class="token keyword">finally</span><span class="token punctuation">:</span>
+        close_conn<span class="token punctuation">(</span>conn<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="delete-模板-2">delete 模板</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">remove</span><span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    删除图书类别
+    :param id: 图书类别ID
+    :return: 影响的行数 (0表示失败)
+    """</span>
+    conn <span class="token operator">=</span> <span class="token boolean">None</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        conn <span class="token operator">=</span> get_conn<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        cursor <span class="token operator">=</span> conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>
+            <span class="token string">"DELETE FROM t_book_type WHERE id=?"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        conn<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> cursor<span class="token punctuation">.</span>rowcount
+    <span class="token keyword">except</span> sqlite3<span class="token punctuation">.</span>Error <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"删除图书类别出错: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>e<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> conn<span class="token punctuation">:</span>
+            conn<span class="token punctuation">.</span>rollback<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token number">0</span>
+    <span class="token keyword">finally</span><span class="token punctuation">:</span>
+        close_conn<span class="token punctuation">(</span>conn<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="count-模板">count 模板</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">count_by_type_name</span><span class="token punctuation">(</span>book_type_name<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    统计同名图书类别数量
+    :param book_type_name: 图书类别名称
+    :return: 数量 (查询失败返回0)
+    """</span>
+    conn <span class="token operator">=</span> <span class="token boolean">None</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        conn <span class="token operator">=</span> get_conn<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        cursor <span class="token operator">=</span> conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>
+            <span class="token string">"SELECT COUNT(1) FROM t_book_type WHERE book_type_name=?"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">(</span>book_type_name<span class="token punctuation">,</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        <span class="token keyword">return</span> cursor<span class="token punctuation">.</span>fetchone<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token keyword">except</span> sqlite3<span class="token punctuation">.</span>Error <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"统计图书类别出错: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>e<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token number">0</span>
+    <span class="token keyword">finally</span><span class="token punctuation">:</span>
+        close_conn<span class="token punctuation">(</span>conn<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="entity-封装">entity 封装</h3>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> dataclasses <span class="token keyword">import</span> dataclass
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token triple-quoted-string string">"""
+    图书类别实体类
+"""</span>
+<span class="token keyword">from</span> dataclasses <span class="token keyword">import</span> dataclass<span class="token punctuation">,</span> field
 
 
 <span class="token decorator annotation punctuation">@dataclass</span>
 <span class="token keyword">class</span> <span class="token class-name">BookType</span><span class="token punctuation">:</span>
-    <span class="token builtin">id</span><span class="token punctuation">:</span> <span class="token builtin">int</span>
-    book_type_name<span class="token punctuation">:</span> <span class="token builtin">str</span>
-    book_type_desc<span class="token punctuation">:</span> <span class="token builtin">str</span>
+    <span class="token builtin">id</span><span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> field<span class="token punctuation">(</span>default<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> <span class="token builtin">repr</span><span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    book_type_name<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">""</span>
+    book_type_desc<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">""</span>
 
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> book_type_name<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> book_type_desc<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>book_type_name <span class="token operator">=</span> book_type_name
-        self<span class="token punctuation">.</span>book_type_desc <span class="token operator">=</span> book_type_desc
+    <span class="token decorator annotation punctuation">@classmethod</span>
+    <span class="token keyword">def</span> <span class="token function">create_default</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> book_type_name<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> book_type_desc<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> cls<span class="token punctuation">(</span>book_type_name<span class="token operator">=</span>book_type_name<span class="token punctuation">,</span> book_type_desc<span class="token operator">=</span>book_type_desc<span class="token punctuation">)</span>
 
-    <span class="token comment"># 如果有新的字段需要初始化，可以重载构造方法</span>
-    <span class="token decorator annotation punctuation">@staticmethod</span>
-    <span class="token keyword">def</span> <span class="token function">my_contrustor</span><span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">,</span> book_type_name<span class="token punctuation">,</span> book_type_desc<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        obj <span class="token operator">=</span> BookType<span class="token punctuation">(</span>book_type_name<span class="token punctuation">,</span> book_type_desc<span class="token punctuation">)</span>
-        obj<span class="token punctuation">.</span><span class="token builtin">id</span> <span class="token operator">=</span> <span class="token builtin">id</span>
-        <span class="token keyword">return</span> obj<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token decorator annotation punctuation">@property</span>
+    <span class="token keyword">def</span> <span class="token function">price_value</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""可以对属性做相应的转换"""</span>
+        <span class="token keyword">return</span> <span class="token builtin">int</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>price<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"¥"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>entity 的初始化</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 初始化实体</span>
-book_type <span class="token operator">=</span> BookType<span class="token punctuation">(</span><span class="token string">"type_name"</span><span class="token punctuation">,</span> <span class="token string">"type_desc"</span><span class="token punctuation">)</span>
+book_type <span class="token operator">=</span> BookType<span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">)</span><span class="token punctuation">,</span> book_type_name<span class="token punctuation">,</span> self<span class="token punctuation">.</span>input_book_desc_add<span class="token punctuation">.</span>toPlainText<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 <span class="token comment"># 通过重载方法初始化实体</span>
-book_type <span class="token operator">=</span> BookType<span class="token punctuation">.</span>my_contrustor<span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">,</span> <span class="token string">"type_name"</span><span class="token punctuation">,</span> <span class="token string">"type_desc"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+book_type <span class="token operator">=</span> BookType<span class="token punctuation">.</span>create_default<span class="token punctuation">(</span>book_type_name<span class="token punctuation">,</span> book_type_desc<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -801,8 +946,8 @@ book_type <span class="token operator">=</span> BookType<span class="token punct
                                     <span class="chip bg-color">python</span>
                                 </a>
                             
-                                <a href="/tags/QyQt/">
-                                    <span class="chip bg-color">QyQt</span>
+                                <a href="/tags/PyQt/">
+                                    <span class="chip bg-color">PyQt</span>
                                 </a>
                             
                         </div>
@@ -888,8 +1033,8 @@ book_type <span class="token operator">=</span> BookType<span class="token punct
                         <span class="chip bg-color">python</span>
                     </a>
                     
-                    <a href="/tags/QyQt/">
-                        <span class="chip bg-color">QyQt</span>
+                    <a href="/tags/PyQt/">
+                        <span class="chip bg-color">PyQt</span>
                     </a>
                     
                 </div>
@@ -1484,7 +1629,7 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":220,"hOffset":-20,"vOffset":-10},"mobile":{"show":false,"scale":0.5},"dialog":{"enable":false,"hitokoto":false},"log":false});</script>
         <style>
             [bg-lazy] {
                 background-image: none !important;
@@ -1497,6 +1642,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":220,"hOffset":-20,"vOffset":-10},"mobile":{"show":false,"scale":0.5},"dialog":{"enable":false,"hitokoto":false},"log":false});</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body>
 
 </html>

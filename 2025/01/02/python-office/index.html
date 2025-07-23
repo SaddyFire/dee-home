@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Python办公自动化, SaddyFire">
-    <meta name="description" content="Python办公自动化">
+    <meta name="keywords" content="文件与pandas, SaddyFire">
+    <meta name="description" content="文件夹与pandas">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Python办公自动化 | SaddyFire</title>
+    <title>文件与pandas | SaddyFire</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -262,12 +262,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/article/117.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/article/147.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Python办公自动化</h1>
+                    <h1 class="description center-align post-title">文件与pandas</h1>
                 </div>
             </div>
         </div>
@@ -323,14 +323,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-07-21
+                    2025-07-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.3k
+                    4.4k
                 </div>
                 
 
@@ -703,7 +703,7 @@ shutil<span class="token punctuation">.</span>copy2<span class="token punctuatio
 origin_dir <span class="token operator">=</span> <span class="token string">'./test_dir'</span>
 target_dir <span class="token operator">=</span> <span class="token string">'./copy/test_dir'</span>
 
-shutil<span class="token punctuation">.</span>copytree<span class="token punctuation">(</span>origin_dir<span class="token punctuation">,</span> target_dir<span class="token punctuation">)</span> <span class="token comment"># 复制文件夹 注意不能是已经存在的文件夹</span>
+shutil<span class="token punctuation">.</span>copytree<span class="token punctuation">(</span>origin_dir<span class="token punctuation">,</span> target_dir<span class="token punctuation">,</span> dirs_exist_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span> <span class="token comment"># 复制文件夹 注意不能是已经存在的文件夹</span>
 
 shutil<span class="token punctuation">.</span>move<span class="token punctuation">(</span>target_path<span class="token punctuation">,</span> origin_path<span class="token punctuation">)</span> <span class="token comment"># 移动文件/文件夹</span>
 
@@ -778,139 +778,6 @@ shutil<span class="token punctuation">.</span>rename<span class="token punctuati
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
     zipDir<span class="token punctuation">(</span><span class="token string">r"C:\练习1"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="pandas">pandas</h2>
-<h3 id="智能写入excel">智能写入excel</h3>
-<p>根据【数据】【文件夹路径】【文件名】，智能写入excel，如果不存在则新建【文件夹】/【文件名】，并写入数据，如果存在则追加，如果文件被占用，则会重新命名【文件名_1】并写入数据</p>
-<h4 id="文件路径相关">文件路径相关</h4>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
-<span class="token keyword">from</span> pathlib <span class="token keyword">import</span> Path
-
-
-<span class="token comment">#### os相关</span>
-<span class="token comment"># 递归创建文件夹</span>
-os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span><span class="token builtin">dir</span><span class="token punctuation">,</span> exist_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-<span class="token comment"># 合并路径</span>
-new_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token builtin">dir</span><span class="token punctuation">,</span> <span class="token builtin">file</span><span class="token punctuation">)</span>
-<span class="token comment"># 判断文件是否存在</span>
-exist<span class="token punctuation">:</span> <span class="token builtin">bool</span> <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>new_path<span class="token punctuation">)</span>
-<span class="token comment"># 分割文件名和拓展名</span>
-name<span class="token punctuation">,</span> ext <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>splitext<span class="token punctuation">(</span>new_path<span class="token punctuation">)</span>
-
-<span class="token comment">#### Path相关</span>
-<span class="token comment"># 获取当前文件路径</span>
-path <span class="token operator">=</span> Path<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span>
-<span class="token comment"># 判断是否存在</span>
-exist<span class="token punctuation">:</span> <span class="token builtin">bool</span> <span class="token operator">=</span> path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment"># 获取父文件夹</span>
-path <span class="token operator">=</span> Path<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">.</span>parent<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="文件读写相关">文件读写相关</h4>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">### 判断当前文件是否被锁定(以写模式打开文件，失败说明被占用)</span>
-<span class="token keyword">def</span> <span class="token function">is_file_locked</span><span class="token punctuation">(</span>filepath<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>filepath<span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-            <span class="token keyword">pass</span>
-        <span class="token keyword">return</span> <span class="token boolean">False</span>
-    <span class="token keyword">except</span> PermissionError<span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token boolean">True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="pandas相关">pandas相关</h4>
-<p>新建文件</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
-
-sheet_name <span class="token operator">=</span> <span class="token string">"Sheet1"</span>
-data<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">dict</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-output_file <span class="token operator">=</span> <span class="token string">"/a/b/excel.xslx"</span>
-<span class="token comment"># 准备数据</span>
-df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>products<span class="token punctuation">)</span>
-df<span class="token punctuation">.</span>to_excel<span class="token punctuation">(</span>output_file<span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> sheet_name<span class="token operator">=</span>sheet_name<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>追加文件</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
-
-sheet_name <span class="token operator">=</span> <span class="token string">"Sheet1"</span>
-data<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">dict</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-output_file <span class="token operator">=</span> <span class="token string">"/a/b/excel.xslx"</span>
-<span class="token comment"># 准备数据</span>
-df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>products<span class="token punctuation">)</span>
-
-<span class="token comment"># 智能写入</span>
-<span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>output_file<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        existing_df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span>output_file<span class="token punctuation">,</span> sheet_name<span class="token operator">=</span>sheet_name<span class="token punctuation">)</span>
-        <span class="token comment"># 合并数据</span>
-        comnined_df <span class="token operator">=</span> pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span><span class="token punctuation">[</span>existing_df<span class="token punctuation">,</span> df<span class="token punctuation">]</span><span class="token punctuation">,</span> ignore_index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-        <span class="token keyword">with</span> pd<span class="token punctuation">.</span>ExcelWriter<span class="token punctuation">(</span>output_file<span class="token punctuation">,</span> engine<span class="token operator">=</span><span class="token string">'openpyxl'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> writer<span class="token punctuation">:</span>
-            comnined_df<span class="token punctuation">.</span>to_excel<span class="token punctuation">(</span>writer<span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> sheet_name<span class="token operator">=</span>sheet_name<span class="token punctuation">)</span>
-    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
-        logger<span class="token punctuation">.</span>warning<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"读取现有文件失败"</span></span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="智能写入excel工具">智能写入excel工具</h4>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token triple-quoted-string string">"""excel 工具模块"""</span>
-
-<span class="token keyword">import</span> logging
-<span class="token keyword">import</span> os
-<span class="token keyword">from</span> typing <span class="token keyword">import</span> List
-
-<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
-<span class="token keyword">import</span> datetime
-
-logger <span class="token operator">=</span> logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
-
-
-<span class="token keyword">def</span> <span class="token function">is_file_locked</span><span class="token punctuation">(</span>filepath<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""判断文件是否被占用"""</span>
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>filepath<span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-            <span class="token keyword">pass</span>
-        <span class="token keyword">return</span> <span class="token boolean">False</span>
-    <span class="token keyword">except</span> PermissionError<span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token boolean">True</span>
-
-
-<span class="token keyword">def</span> <span class="token function">get_available_file_name</span><span class="token punctuation">(</span>base_path<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> file_name<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""获取有效文件名"""</span>
-    original_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>base_path<span class="token punctuation">,</span> file_name<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>original_path<span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token keyword">not</span> is_file_locked<span class="token punctuation">(</span>original_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> file_name
-    <span class="token comment"># 分割文件名和拓展名</span>
-    name<span class="token punctuation">,</span> ext <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>splitext<span class="token punctuation">(</span>file_name<span class="token punctuation">)</span>
-    counter <span class="token operator">=</span> <span class="token number">1</span>
-    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-        new_file_name <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">&#123;</span>name<span class="token punctuation">&#125;</span></span><span class="token string">_</span><span class="token interpolation"><span class="token punctuation">&#123;</span>counter<span class="token punctuation">&#125;</span></span><span class="token interpolation"><span class="token punctuation">&#123;</span>ext<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span>
-        new_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>base_path<span class="token punctuation">,</span> new_file_name<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>new_path<span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token keyword">not</span> is_file_locked<span class="token punctuation">(</span>new_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> new_file_name
-        counter <span class="token operator">+=</span> <span class="token number">1</span>
-
-
-<span class="token keyword">def</span> <span class="token function">save_to_excel</span><span class="token punctuation">(</span>products<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">dict</span><span class="token punctuation">]</span><span class="token punctuation">,</span> output_dir<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> file_name<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        <span class="token comment"># 校验文件夹是否存在</span>
-        os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span>output_dir<span class="token punctuation">,</span> exist_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-        <span class="token comment"># 获取可用的文件名</span>
-        final_filename <span class="token operator">=</span> get_available_file_name<span class="token punctuation">(</span>output_dir<span class="token punctuation">,</span> file_name<span class="token punctuation">)</span>
-        output_file <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>output_dir<span class="token punctuation">,</span> final_filename<span class="token punctuation">)</span>
-        sheet_name <span class="token operator">=</span> <span class="token string">"Sheet1"</span>
-
-        <span class="token comment"># 准备数据</span>
-        df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>products<span class="token punctuation">)</span>
-        <span class="token comment"># 智能写入</span>
-        <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>output_file<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">try</span><span class="token punctuation">:</span>
-                existing_df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span>output_file<span class="token punctuation">,</span> sheet_name<span class="token operator">=</span>sheet_name<span class="token punctuation">)</span>
-                <span class="token comment"># 合并数据</span>
-                comnined_df <span class="token operator">=</span> pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span><span class="token punctuation">[</span>existing_df<span class="token punctuation">,</span> df<span class="token punctuation">]</span><span class="token punctuation">,</span> ignore_index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-                <span class="token keyword">with</span> pd<span class="token punctuation">.</span>ExcelWriter<span class="token punctuation">(</span>output_file<span class="token punctuation">,</span> engine<span class="token operator">=</span><span class="token string">'openpyxl'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> writer<span class="token punctuation">:</span>
-                    comnined_df<span class="token punctuation">.</span>to_excel<span class="token punctuation">(</span>writer<span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> sheet_name<span class="token operator">=</span>sheet_name<span class="token punctuation">)</span>
-            <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
-                logger<span class="token punctuation">.</span>warning<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"读取现有文件失败，将创建新文件: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>e<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
-                df<span class="token punctuation">.</span>to_excel<span class="token punctuation">(</span>output_file<span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> sheet_name<span class="token operator">=</span>sheet_name<span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token comment"># 新文件</span>
-            df<span class="token punctuation">.</span>to_excel<span class="token punctuation">(</span>output_file<span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> sheet_name<span class="token operator">=</span>sheet_name<span class="token punctuation">)</span>
-
-        logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"成功保存 </span><span class="token interpolation"><span class="token punctuation">&#123;</span><span class="token builtin">len</span><span class="token punctuation">(</span>products<span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string"> 条数据到 </span><span class="token interpolation"><span class="token punctuation">&#123;</span>output_file<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token boolean">True</span>
-    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
-        logger<span class="token punctuation">.</span>warning<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"保存数据失败: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>e<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token boolean">False</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="写入">写入</h3>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
 <span class="token keyword">import</span> os
@@ -1383,6 +1250,166 @@ data<span class="token punctuation">[</span><span class="token string">'最终�
 
 <span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="智能写入excel">智能写入excel</h2>
+<p>根据【数据】【文件夹路径】【文件名】，智能写入excel，如果不存在则新建【文件夹】/【文件名】，并写入数据，如果存在则追加，如果文件被占用，则会重新命名【文件名_1】并写入数据</p>
+<h3 id="文件读写">文件读写</h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">### 判断当前文件是否被锁定(以写模式打开文件，失败说明被占用)</span>
+<span class="token keyword">def</span> <span class="token function">is_file_locked</span><span class="token punctuation">(</span>filepath<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>filepath<span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+            <span class="token keyword">pass</span>
+        <span class="token keyword">return</span> <span class="token boolean">False</span>
+    <span class="token keyword">except</span> PermissionError<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+    
+<span class="token comment">### 文件写入操作</span>
+<span class="token keyword">def</span> <span class="token function">save_to_file</span><span class="token punctuation">(</span>md_name<span class="token punctuation">,</span> md_content<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> md_name <span class="token keyword">and</span> md_content<span class="token punctuation">:</span>
+        <span class="token comment"># 清理文件名中的非法字符（Windows）</span>
+        safe_name <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r'[\\/:*?"&lt;>|]'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">(</span>md_name<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        file_name <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">&#123;</span>doc_id<span class="token punctuation">&#125;</span></span><span class="token string">_</span><span class="token interpolation"><span class="token punctuation">&#123;</span>safe_name<span class="token punctuation">&#125;</span></span><span class="token string">.md"</span></span>
+        <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>file_name<span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+            f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>md_content<span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"即将写入 </span><span class="token interpolation"><span class="token punctuation">&#123;</span>safe_name<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token boolean">False</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="pandas相关">pandas相关</h3>
+<h4 id="普通新建文件">普通新建文件</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+
+sheet_name <span class="token operator">=</span> <span class="token string">"Sheet1"</span>
+data<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">dict</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+output_file <span class="token operator">=</span> <span class="token string">"/a/b/excel.xslx"</span>
+<span class="token comment"># 准备数据</span>
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>products<span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>to_excel<span class="token punctuation">(</span>output_file<span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> sheet_name<span class="token operator">=</span>sheet_name<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="普通追加文件">普通追加文件</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+
+sheet_name <span class="token operator">=</span> <span class="token string">"Sheet1"</span>
+data<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">dict</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+output_file <span class="token operator">=</span> <span class="token string">"/a/b/excel.xslx"</span>
+<span class="token comment"># 准备数据</span>
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>products<span class="token punctuation">)</span>
+
+<span class="token comment"># 智能写入</span>
+<span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>output_file<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        existing_df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span>output_file<span class="token punctuation">,</span> sheet_name<span class="token operator">=</span>sheet_name<span class="token punctuation">)</span>
+        <span class="token comment"># 合并数据</span>
+        comnined_df <span class="token operator">=</span> pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span><span class="token punctuation">[</span>existing_df<span class="token punctuation">,</span> df<span class="token punctuation">]</span><span class="token punctuation">,</span> ignore_index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+        <span class="token keyword">with</span> pd<span class="token punctuation">.</span>ExcelWriter<span class="token punctuation">(</span>output_file<span class="token punctuation">,</span> engine<span class="token operator">=</span><span class="token string">'openpyxl'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> writer<span class="token punctuation">:</span>
+            comnined_df<span class="token punctuation">.</span>to_excel<span class="token punctuation">(</span>writer<span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> sheet_name<span class="token operator">=</span>sheet_name<span class="token punctuation">)</span>
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        logger<span class="token punctuation">.</span>warning<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"读取现有文件失败"</span></span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="智能写入excel工具">智能写入excel工具</h3>
+<p>uitl/excel_util.py</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token triple-quoted-string string">"""excel 工具模块"""</span>
+
+<span class="token keyword">import</span> logging
+<span class="token keyword">import</span> os
+<span class="token keyword">from</span> typing <span class="token keyword">import</span> List
+
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">import</span> datetime
+
+logger <span class="token operator">=</span> logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">is_file_locked</span><span class="token punctuation">(</span>filepath<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""判断文件是否被占用"""</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>filepath<span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+            <span class="token keyword">pass</span>
+        <span class="token keyword">return</span> <span class="token boolean">False</span>
+    <span class="token keyword">except</span> PermissionError<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+
+
+<span class="token keyword">def</span> <span class="token function">get_available_file_name</span><span class="token punctuation">(</span>base_path<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> file_name<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""获取有效文件名"""</span>
+    original_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>base_path<span class="token punctuation">,</span> file_name<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>original_path<span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token keyword">not</span> is_file_locked<span class="token punctuation">(</span>original_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> file_name
+    <span class="token comment"># 分割文件名和拓展名</span>
+    name<span class="token punctuation">,</span> ext <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>splitext<span class="token punctuation">(</span>file_name<span class="token punctuation">)</span>
+    counter <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        new_file_name <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">&#123;</span>name<span class="token punctuation">&#125;</span></span><span class="token string">_</span><span class="token interpolation"><span class="token punctuation">&#123;</span>counter<span class="token punctuation">&#125;</span></span><span class="token interpolation"><span class="token punctuation">&#123;</span>ext<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span>
+        new_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>base_path<span class="token punctuation">,</span> new_file_name<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>new_path<span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token keyword">not</span> is_file_locked<span class="token punctuation">(</span>new_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> new_file_name
+        counter <span class="token operator">+=</span> <span class="token number">1</span>
+
+
+<span class="token keyword">def</span> <span class="token function">save_to_excel</span><span class="token punctuation">(</span>products<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">dict</span><span class="token punctuation">]</span><span class="token punctuation">,</span> output_dir<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> file_name<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token comment"># 校验文件夹是否存在</span>
+        os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span>output_dir<span class="token punctuation">,</span> exist_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+        <span class="token comment"># 获取可用的文件名</span>
+        final_filename <span class="token operator">=</span> get_available_file_name<span class="token punctuation">(</span>output_dir<span class="token punctuation">,</span> file_name<span class="token punctuation">)</span>
+        output_file <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>output_dir<span class="token punctuation">,</span> final_filename<span class="token punctuation">)</span>
+        sheet_name <span class="token operator">=</span> <span class="token string">"Sheet1"</span>
+
+        <span class="token comment"># 准备数据</span>
+        df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>products<span class="token punctuation">)</span>
+        <span class="token comment"># 智能写入</span>
+        <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>output_file<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">try</span><span class="token punctuation">:</span>
+                existing_df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span>output_file<span class="token punctuation">,</span> sheet_name<span class="token operator">=</span>sheet_name<span class="token punctuation">)</span>
+                <span class="token comment"># 合并数据</span>
+                comnined_df <span class="token operator">=</span> pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span><span class="token punctuation">[</span>existing_df<span class="token punctuation">,</span> df<span class="token punctuation">]</span><span class="token punctuation">,</span> ignore_index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+                <span class="token keyword">with</span> pd<span class="token punctuation">.</span>ExcelWriter<span class="token punctuation">(</span>output_file<span class="token punctuation">,</span> engine<span class="token operator">=</span><span class="token string">'openpyxl'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> writer<span class="token punctuation">:</span>
+                    comnined_df<span class="token punctuation">.</span>to_excel<span class="token punctuation">(</span>writer<span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> sheet_name<span class="token operator">=</span>sheet_name<span class="token punctuation">)</span>
+            <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+                logger<span class="token punctuation">.</span>warning<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"读取现有文件失败，将创建新文件: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>e<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+                df<span class="token punctuation">.</span>to_excel<span class="token punctuation">(</span>output_file<span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> sheet_name<span class="token operator">=</span>sheet_name<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token comment"># 新文件</span>
+            df<span class="token punctuation">.</span>to_excel<span class="token punctuation">(</span>output_file<span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> sheet_name<span class="token operator">=</span>sheet_name<span class="token punctuation">)</span>
+
+        logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"成功保存 </span><span class="token interpolation"><span class="token punctuation">&#123;</span><span class="token builtin">len</span><span class="token punctuation">(</span>products<span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string"> 条数据到 </span><span class="token interpolation"><span class="token punctuation">&#123;</span>output_file<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        logger<span class="token punctuation">.</span>warning<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"保存数据失败: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>e<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token boolean">False</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="文件常用整理">文件常用整理</h2>
+<h3 id="文件路径相关api">文件路径相关api</h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">from</span> pathlib <span class="token keyword">import</span> Path
+
+
+<span class="token comment">#### os相关</span>
+<span class="token comment"># 递归创建文件夹</span>
+os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span><span class="token builtin">dir</span><span class="token punctuation">,</span> exist_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token comment"># 合并路径</span>
+new_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token builtin">dir</span><span class="token punctuation">,</span> <span class="token builtin">file</span><span class="token punctuation">)</span>
+<span class="token comment"># 判断文件是否存在</span>
+exist<span class="token punctuation">:</span> <span class="token builtin">bool</span> <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>new_path<span class="token punctuation">)</span>
+<span class="token comment"># 分割文件名和拓展名</span>
+name<span class="token punctuation">,</span> ext <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>splitext<span class="token punctuation">(</span>new_path<span class="token punctuation">)</span>
+
+<span class="token comment">#### Path相关</span>
+<span class="token comment"># 获取当前文件路径</span>
+cur_file <span class="token operator">=</span> Path<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span>
+<span class="token comment"># 判断是否存在</span>
+exist<span class="token punctuation">:</span> <span class="token builtin">bool</span> <span class="token operator">=</span> cur_file<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 获取父文件夹</span>
+parent_path <span class="token operator">=</span> Path<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">.</span>parent
+<span class="token comment"># 删除该文件</span>
+cur_file<span class="token punctuation">.</span>unlink<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 删除文件夹</span>
+cur_dir<span class="token punctuation">.</span>rmdir<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 移动和重命名文件, 这里注意：如果文件夹不存在会报错</span>
+cur_file<span class="token punctuation">.</span>rename<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">#### shutil相关 剩余在上面查找</span>
+<span class="token comment"># 文件的复制</span>
+shutil<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token string">'config.ini'</span><span class="token punctuation">,</span> exe_dir<span class="token punctuation">)</span>
+shutil<span class="token punctuation">.</span>copytree<span class="token punctuation">(</span>origin_dir<span class="token punctuation">,</span> target_dir<span class="token punctuation">,</span> dirs_exist_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id=""></h4>
 
                 
             </div>
@@ -2124,7 +2151,7 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":220,"hOffset":-20,"vOffset":-10},"mobile":{"show":false,"scale":0.5},"dialog":{"enable":false,"hitokoto":false},"log":false});</script>
         <style>
             [bg-lazy] {
                 background-image: none !important;
@@ -2137,6 +2164,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":220,"hOffset":-20,"vOffset":-10},"mobile":{"show":false,"scale":0.5},"dialog":{"enable":false,"hitokoto":false},"log":false});</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body>
 
 </html>

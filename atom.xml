@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2025-07-21T05:34:59.626Z</updated>
+  <updated>2025-07-23T10:43:17.787Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.saddyfire.cn/2025/07/20/pyqt-library/"/>
     <id>https://www.saddyfire.cn/2025/07/20/pyqt-library/</id>
     <published>2025-07-20T13:51:42.000Z</published>
-    <updated>2025-07-21T05:34:59.626Z</updated>
+    <updated>2025-07-23T10:43:17.787Z</updated>
     
     
       
@@ -45,7 +45,7 @@
     
     <category term="python" scheme="https://www.saddyfire.cn/tags/python/"/>
     
-    <category term="QyQt" scheme="https://www.saddyfire.cn/tags/QyQt/"/>
+    <category term="PyQt" scheme="https://www.saddyfire.cn/tags/PyQt/"/>
     
   </entry>
   
@@ -106,11 +106,11 @@
   </entry>
   
   <entry>
-    <title>playwright-tool</title>
+    <title>基于playwright的工具</title>
     <link href="https://www.saddyfire.cn/2025/07/05/playwright-tool/"/>
     <id>https://www.saddyfire.cn/2025/07/05/playwright-tool/</id>
     <published>2025-07-05T14:06:40.000Z</published>
-    <updated>2025-07-13T16:30:53.184Z</updated>
+    <updated>2025-07-23T16:29:41.433Z</updated>
     
     
       
@@ -132,6 +132,8 @@
     <category term="python" scheme="https://www.saddyfire.cn/tags/python/"/>
     
     <category term="playwright" scheme="https://www.saddyfire.cn/tags/playwright/"/>
+    
+    <category term="PyQt" scheme="https://www.saddyfire.cn/tags/PyQt/"/>
     
   </entry>
   
@@ -162,11 +164,11 @@
   </entry>
   
   <entry>
-    <title>playwright-python</title>
+    <title>playwright-py基础入门</title>
     <link href="https://www.saddyfire.cn/2025/06/13/playwright-python/"/>
     <id>https://www.saddyfire.cn/2025/06/13/playwright-python/</id>
     <published>2025-06-13T01:35:43.292Z</published>
-    <updated>2025-07-08T06:43:48.035Z</updated>
+    <updated>2025-07-22T08:48:54.997Z</updated>
     
     
       
@@ -299,11 +301,11 @@
   </entry>
   
   <entry>
-    <title>Python办公自动化</title>
+    <title>文件与pandas</title>
     <link href="https://www.saddyfire.cn/2025/01/02/python-office/"/>
     <id>https://www.saddyfire.cn/2025/01/02/python-office/</id>
     <published>2025-01-02T12:45:41.000Z</published>
-    <updated>2025-07-21T09:21:44.432Z</updated>
+    <updated>2025-07-23T12:09:20.991Z</updated>
     
     
       
