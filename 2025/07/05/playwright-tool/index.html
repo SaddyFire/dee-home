@@ -338,7 +338,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.6k
+                    4.7k
                 </div>
                 
 
@@ -682,16 +682,45 @@ logger <span class="token operator">=</span> logging<span class="token punctuati
         logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>addHandler<span class="token punctuation">(</span>self<span class="token punctuation">.</span>gui_handler<span class="token punctuation">)</span>
         self<span class="token punctuation">.</span>logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"GUI日志处理器初始化完成"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="策略模式">策略模式</h3>
-<h4 id="策略接口（strategies-base-stratety-py）">策略接口（strategies.base_stratety.py）</h4>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> abc <span class="token keyword">import</span> ABC<span class="token punctuation">,</span> abstractmethod
-<span class="token keyword">from</span> threading <span class="token keyword">import</span> Event
-<span class="token keyword">from</span> typing <span class="token keyword">import</span> Dict<span class="token punctuation">,</span> Any<span class="token punctuation">,</span> Optional
+<h4 id="策略工厂（strategies-init-py）">策略工厂（strategies._<em>init</em>_.py）</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token triple-quoted-string string">"""策略工厂"""</span>
+<span class="token keyword">from</span> util<span class="token punctuation">.</span>cancel_check <span class="token keyword">import</span> CancellationChecker
+<span class="token keyword">from</span> <span class="token punctuation">.</span>base_strategy <span class="token keyword">import</span> DataProcessingStrategy
+<span class="token comment"># 注意: 策略实现类不能优先与抽象类</span>
+<span class="token keyword">from</span> <span class="token punctuation">.</span>alibaba_strategy <span class="token keyword">import</span> AlibabaStrategy
+<span class="token keyword">from</span> <span class="token punctuation">.</span>taobao_strategy <span class="token keyword">import</span> TaobaoStrategy
+
+
+<span class="token keyword">class</span> <span class="token class-name">StrategyFactory</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""策略工厂（集中管理所有策略）"""</span>
+
+    <span class="token decorator annotation punctuation">@staticmethod</span>
+    <span class="token keyword">def</span> <span class="token function">create_strategy</span><span class="token punctuation">(</span>strategy_name<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> cancel_checker<span class="token punctuation">:</span> CancellationChecker<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> DataProcessingStrategy<span class="token punctuation">:</span>
+        strategies <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+            <span class="token string">'淘宝'</span><span class="token punctuation">:</span> TaobaoStrategy<span class="token punctuation">,</span>
+            <span class="token string">'1688'</span><span class="token punctuation">:</span> AlibabaStrategy<span class="token punctuation">,</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token keyword">if</span> strategy_name <span class="token keyword">not</span> <span class="token keyword">in</span> strategies<span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"未知策略: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>strategy_name<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+        <span class="token comment"># 初始化策略(状态携带检查器)</span>
+        <span class="token keyword">return</span> strategies<span class="token punctuation">[</span>strategy_name<span class="token punctuation">]</span><span class="token punctuation">(</span>cancel_checker<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="策略抽象（strategies-base-stratety-py）">策略抽象（strategies.base_stratety.py）</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token triple-quoted-string string">"""数据处理策略接口"""</span>
+<span class="token keyword">from</span> abc <span class="token keyword">import</span> ABC<span class="token punctuation">,</span> abstractmethod
+<span class="token keyword">from</span> typing <span class="token keyword">import</span> Dict<span class="token punctuation">,</span> Any
 
 <span class="token keyword">from</span> playwright<span class="token punctuation">.</span>sync_api <span class="token keyword">import</span> BrowserContext<span class="token punctuation">,</span> Page
 
+<span class="token keyword">from</span> util<span class="token punctuation">.</span>cancel_check <span class="token keyword">import</span> CancellationChecker
+
 
 <span class="token keyword">class</span> <span class="token class-name">DataProcessingStrategy</span><span class="token punctuation">(</span>ABC<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""数据处理策略接口"""</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> cancel_checker<span class="token punctuation">:</span> CancellationChecker <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""初始化时配置取消检查器"""</span>
+        self<span class="token punctuation">.</span>checker <span class="token operator">=</span> cancel_checker
 
     <span class="token decorator annotation punctuation">@abstractmethod</span>
     <span class="token keyword">def</span> <span class="token function">process</span><span class="token punctuation">(</span>
@@ -700,74 +729,60 @@ logger <span class="token operator">=</span> logging<span class="token punctuati
             page<span class="token punctuation">:</span> Page<span class="token punctuation">,</span>
             config<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
             search_mode<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span>
-            keyword<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
-            image_path<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
-            stop_event<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Event<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+            keyword<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
+            image_path<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
     <span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token triple-quoted-string string">"""执行数据处理"""</span>
         <span class="token keyword">pass</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="策略工厂（strategies-init-py）">策略工厂（strategies._<em>init</em>_.py）</h4>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> <span class="token punctuation">.</span>base_strategy <span class="token keyword">import</span> DataProcessingStrategy
-<span class="token keyword">from</span> <span class="token punctuation">.</span>infringement_song_strategy <span class="token keyword">import</span> InfringementSongStrategy
-<span class="token keyword">from</span> <span class="token punctuation">.</span>live_room_strategy <span class="token keyword">import</span> LiveRoomStrategy
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="具体实现类">具体实现类</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token triple-quoted-string string">"""阿里巴巴策略"""</span>
+<span class="token keyword">import</span> logging
+<span class="token keyword">from</span> typing <span class="token keyword">import</span> Dict<span class="token punctuation">,</span> Any
 
+<span class="token keyword">from</span> playwright<span class="token punctuation">.</span>sync_api <span class="token keyword">import</span> BrowserContext<span class="token punctuation">,</span> Page
 
-<span class="token keyword">class</span> <span class="token class-name">StrategyFactory</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""策略工厂（集中管理所有策略）"""</span>
+<span class="token keyword">from</span> strategies <span class="token keyword">import</span> DataProcessingStrategy
 
-    <span class="token decorator annotation punctuation">@staticmethod</span>
-    <span class="token keyword">def</span> <span class="token function">create_strategy</span><span class="token punctuation">(</span>strategy_name<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> DataProcessingStrategy<span class="token punctuation">:</span>
-        strategies <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-            <span class="token string">'直播间'</span><span class="token punctuation">:</span> LiveRoomStrategy<span class="token punctuation">,</span>
-            <span class="token string">'侵权歌曲'</span><span class="token punctuation">:</span> InfringementSongStrategy
-            <span class="token comment"># 可以继续添加其他策略...</span>
-        <span class="token punctuation">&#125;</span>
+logger <span class="token operator">=</span> logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
 
-        <span class="token keyword">if</span> strategy_name <span class="token keyword">not</span> <span class="token keyword">in</span> strategies<span class="token punctuation">:</span>
-            <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"未知策略: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>strategy_name<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">AlibabaStrategy</span><span class="token punctuation">(</span>DataProcessingStrategy<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-        <span class="token keyword">return</span> strategies<span class="token punctuation">[</span>strategy_name<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="具体实现类（如：直播间）">具体实现类（如：直播间）</h4>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">`<span class="token keyword">from</span> typing <span class="token keyword">import</span> Dict<span class="token punctuation">,</span> Any
+    <span class="token keyword">def</span> <span class="token function">process</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> context<span class="token punctuation">:</span> BrowserContext<span class="token punctuation">,</span> page<span class="token punctuation">:</span> Page<span class="token punctuation">,</span> config<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span> search_mode<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span>
+                keyword<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span> image_path<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># 查看检查器是否争取初始化</span>
+        checker <span class="token operator">=</span> self<span class="token punctuation">.</span>checker
+        <span class="token keyword">print</span><span class="token punctuation">(</span>checker<span class="token punctuation">)</span>
 
-<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
-<span class="token keyword">from</span> playwright<span class="token punctuation">.</span>sync_api <span class="token keyword">import</span> Page<span class="token punctuation">,</span> BrowserContext
-
-<span class="token keyword">from</span> strategies<span class="token punctuation">.</span>base_strategy <span class="token keyword">import</span> DataProcessingStrategy
-
-
-<span class="token keyword">class</span> <span class="token class-name">LiveRoomStrategy</span><span class="token punctuation">(</span>DataProcessingStrategy<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""直播间录入策略"""</span>
-
-    <span class="token keyword">def</span> <span class="token function">process</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> context<span class="token punctuation">:</span> BrowserContext<span class="token punctuation">,</span> page<span class="token punctuation">:</span> Page<span class="token punctuation">,</span> config<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment">## 处理逻辑</span>
-
-    <span class="token keyword">def</span> <span class="token function">get_excel_path</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> config<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> config<span class="token punctuation">[</span><span class="token string">'Excel'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'live_room_path'</span><span class="token punctuation">]</span>
-
-    <span class="token keyword">def</span> <span class="token function">validate_data</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> data<span class="token punctuation">:</span> <span class="token string">'pd.DataFrame'</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
-        required_columns <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">'直播间名称ID'</span><span class="token punctuation">,</span> <span class="token string">'直播间名称'</span><span class="token punctuation">,</span> <span class="token string">'蓝V平台认证公司名称'</span><span class="token punctuation">,</span> <span class="token string">'状态'</span><span class="token punctuation">&#125;</span>
-        <span class="token keyword">return</span> required_columns<span class="token punctuation">.</span>issubset<span class="token punctuation">(</span><span class="token builtin">set</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>columns<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-    <span class="token keyword">def</span> <span class="token function">_load_data</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> config<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token string">'pd.DataFrame'</span><span class="token punctuation">:</span>
-        excel_path <span class="token operator">=</span> self<span class="token punctuation">.</span>get_excel_path<span class="token punctuation">(</span>config<span class="token punctuation">)</span>
-        data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span>excel_path<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> <span class="token keyword">not</span> self<span class="token punctuation">.</span>validate_data<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string">"Excel文件格式不符合要求"</span><span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"成功加载 excel </span><span class="token interpolation"><span class="token punctuation">&#123;</span>excel_path<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> data
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <span class="token keyword">pass</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="策略的使用">策略的使用</h4>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> strategies <span class="token keyword">import</span> StrategyFactory
 
 <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-  <span class="token comment"># 拿到所有配置的策略</span>
-  enabled_strategies <span class="token operator">=</span> config<span class="token punctuation">[</span><span class="token string">'Strategy'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'enabled_strategies'</span><span class="token punctuation">]</span>
-  <span class="token keyword">for</span> stratety_name <span class="token keyword">in</span> enabled_strategies<span class="token punctuation">:</span>
-    strategy <span class="token operator">=</span> StrategyFactory<span class="token punctuation">.</span>create_strategy<span class="token punctuation">(</span>strategy_name<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    strategy<span class="token punctuation">.</span>process<span class="token punctuation">(</span>context<span class="token punctuation">,</span> page<span class="token punctuation">,</span> config<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token comment"># 拿到所有配置的策略</span>
+    enabled_strategies <span class="token operator">=</span> config<span class="token punctuation">[</span><span class="token string">'Strategy'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'enabled_strategies'</span><span class="token punctuation">]</span>
+
+    <span class="token comment">## 使用示例(遍历所有策略，以此执行, 可实现流程化过程)</span>
+    <span class="token keyword">for</span> stratety_name <span class="token keyword">in</span> enabled_strategies<span class="token punctuation">:</span>
+        <span class="token comment"># 策略工厂初始化策略</span>
+        strategy <span class="token operator">=</span> StrategyFactory<span class="token punctuation">.</span>create_strategy<span class="token punctuation">(</span>strategy_name<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        strategy<span class="token punctuation">.</span>process<span class="token punctuation">(</span>context<span class="token punctuation">,</span> page<span class="token punctuation">,</span> config<span class="token punctuation">)</span>
+    
+  	<span class="token comment">## 使用示例(由用户选择执行策略)</span>
+    <span class="token comment"># 策略工厂初始化策略</span>
+    strategy <span class="token operator">=</span> StrategyFactory<span class="token punctuation">.</span>create_strategy<span class="token punctuation">(</span>self<span class="token punctuation">.</span>selected_strategy<span class="token punctuation">,</span> self<span class="token punctuation">.</span>cancel_checker<span class="token punctuation">)</span>
+    data<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">dict</span><span class="token punctuation">]</span> <span class="token operator">=</span> strategy<span class="token punctuation">.</span>process<span class="token punctuation">(</span>
+        browser_context<span class="token punctuation">,</span>
+        page<span class="token punctuation">,</span>
+        self<span class="token punctuation">.</span>config<span class="token punctuation">,</span>
+        search_mode<span class="token operator">=</span>search_mode<span class="token punctuation">,</span>
+        keyword<span class="token operator">=</span>self<span class="token punctuation">.</span>keyword_input<span class="token punctuation">.</span>text<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">if</span> search_mode <span class="token operator">==</span> <span class="token string">"text"</span> <span class="token keyword">else</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
+        image_path<span class="token operator">=</span>self<span class="token punctuation">.</span>selected_image <span class="token keyword">if</span> search_mode <span class="token operator">==</span> <span class="token string">"image"</span> <span class="token keyword">else</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="策略的配置">策略的配置</h4>
+<pre class="line-numbers language-ini" data-language="ini"><code class="language-ini"><span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">Strategy</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">enabled_strategies</span> <span class="token punctuation">=</span> <span class="token value attr-value">淘宝,1688</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="Playwright浏览器复用模板">Playwright浏览器复用模板</h3>
 <h4 id="util-browser-utils-py">util.browser_utils.py</h4>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> logging
@@ -907,6 +922,7 @@ T <span class="token operator">=</span> TypeVar<span class="token punctuation">(
 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="threading-Event-的事件监听">threading.Event 的事件监听</h3>
+<p><a href="/2025/07/24/py-concurrent/#线程间的事件监听">跳转至 多线程demo笔记</a></p>
 <h4 id="threading-Event-详解">threading.Event() 详解</h4>
 <p><code>threading.Event()</code> 是 Python 线程同步的一个基本工具，它提供了一个简单的线程间通信机制。以下是它的核心特性和用法：</p>
 <ul>

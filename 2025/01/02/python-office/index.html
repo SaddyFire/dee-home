@@ -323,21 +323,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-07-23
+                    2025-07-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.4k
+                    5.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    20 分
+                    24 分
                 </div>
                 
 
@@ -1409,7 +1409,171 @@ cur_file<span class="token punctuation">.</span>rename<span class="token punctua
 <span class="token comment"># 文件的复制</span>
 shutil<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token string">'config.ini'</span><span class="token punctuation">,</span> exe_dir<span class="token punctuation">)</span>
 shutil<span class="token punctuation">.</span>copytree<span class="token punctuation">(</span>origin_dir<span class="token punctuation">,</span> target_dir<span class="token punctuation">,</span> dirs_exist_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id=""></h4>
+<h2 id="shell调用">shell调用</h2>
+<h4 id="shell-工具类">shell 工具类</h4>
+<p>提供了一个 Shell 命令执行工具, 支持同步/异步执行、超时控制、环境变量等</p>
+<p>util/shell_util.py</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token triple-quoted-string string">"""shell 工具"""</span>
+<span class="token keyword">import</span> logging
+<span class="token keyword">import</span> shlex
+<span class="token keyword">import</span> subprocess
+<span class="token keyword">from</span> pathlib <span class="token keyword">import</span> Path
+<span class="token keyword">from</span> typing <span class="token keyword">import</span> List<span class="token punctuation">,</span> Tuple<span class="token punctuation">,</span> Dict
+
+
+<span class="token keyword">class</span> <span class="token class-name">ShellExecutor</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""通用 Shell 命令执行工具, 支持同步/异步执行、超时控制、环境变量等"""</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> log_errors<span class="token punctuation">:</span> <span class="token builtin">bool</span> <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        Args:
+            log_errors: 是否自动记录错误日志
+        """</span>
+        self<span class="token punctuation">.</span>log_errors <span class="token operator">=</span> log_errors
+        self<span class="token punctuation">.</span>logger <span class="token operator">=</span> logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span><span class="token string">"ShellExecutor"</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>
+            self<span class="token punctuation">,</span>
+            command<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token operator">|</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">|</span> Tuple<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            cwd<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">|</span> Path <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
+            env<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
+            timeout<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
+            encoding<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">"utf-8"</span><span class="token punctuation">,</span>
+            shell<span class="token punctuation">:</span> <span class="token builtin">bool</span> <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
+            check<span class="token punctuation">:</span> <span class="token builtin">bool</span> <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Tuple<span class="token punctuation">[</span><span class="token builtin">bool</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        同步执行命令并返回结果
+
+        Args:
+            command: 命令（字符串或列表形式，如 "ping 127.0.0.1" 或 ["ping", "127.0.0.1"]）
+            cwd: 工作目录
+            env: 环境变量
+            timeout: 超时时间（秒）
+            encoding: 输出编码
+            shell: 是否通过系统shell执行
+            check: 如果为True，非零返回码会引发异常
+
+        Returns:
+            Tuple[执行成功, 标准输出, 错误输出]
+        """</span>
+        <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>command<span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            args <span class="token operator">=</span> command <span class="token keyword">if</span> shell <span class="token keyword">else</span> shlex<span class="token punctuation">.</span>split<span class="token punctuation">(</span>command<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            args <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>command<span class="token punctuation">)</span>
+
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            result <span class="token operator">=</span> subprocess<span class="token punctuation">.</span>run<span class="token punctuation">(</span>
+                args<span class="token punctuation">,</span>
+                cwd<span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">(</span>cwd<span class="token punctuation">)</span> <span class="token keyword">if</span> cwd <span class="token keyword">else</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
+                env<span class="token operator">=</span>env<span class="token punctuation">,</span>
+                timeout<span class="token operator">=</span>timeout<span class="token punctuation">,</span>
+                check<span class="token operator">=</span>check<span class="token punctuation">,</span>
+                stdout<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">,</span>
+                stderr<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">,</span>
+                text<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+                encoding<span class="token operator">=</span>encoding<span class="token punctuation">,</span>
+                shell<span class="token operator">=</span>shell<span class="token punctuation">,</span>
+            <span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span>result<span class="token punctuation">.</span>returncode <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">,</span> result<span class="token punctuation">.</span>stdout<span class="token punctuation">,</span> result<span class="token punctuation">.</span>stderr<span class="token punctuation">)</span>
+
+        <span class="token keyword">except</span> subprocess<span class="token punctuation">.</span>TimeoutExpired <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+            error_msg <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"Command timed out after </span><span class="token interpolation"><span class="token punctuation">&#123;</span>timeout<span class="token punctuation">&#125;</span></span><span class="token string"> seconds: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>command<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span>
+            <span class="token keyword">if</span> self<span class="token punctuation">.</span>log_errors<span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>logger<span class="token punctuation">.</span>error<span class="token punctuation">(</span>error_msg<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token boolean">False</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> error_msg<span class="token punctuation">)</span>
+
+        <span class="token keyword">except</span> subprocess<span class="token punctuation">.</span>CalledProcessError <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+            error_msg <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"Command failed with code </span><span class="token interpolation"><span class="token punctuation">&#123;</span>e<span class="token punctuation">.</span>returncode<span class="token punctuation">&#125;</span></span><span class="token string">: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>command<span class="token punctuation">&#125;</span></span><span class="token string">\n</span><span class="token interpolation"><span class="token punctuation">&#123;</span>e<span class="token punctuation">.</span>stderr<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span>
+            <span class="token keyword">if</span> self<span class="token punctuation">.</span>log_errors<span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>logger<span class="token punctuation">.</span>error<span class="token punctuation">(</span>error_msg<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token boolean">False</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>stdout<span class="token punctuation">,</span> e<span class="token punctuation">.</span>stderr<span class="token punctuation">)</span>
+
+        <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+            error_msg <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"Unexpected error executing command: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>command<span class="token punctuation">&#125;</span></span><span class="token string">\n</span><span class="token interpolation"><span class="token punctuation">&#123;</span><span class="token builtin">str</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span>
+            <span class="token keyword">if</span> self<span class="token punctuation">.</span>log_errors<span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>logger<span class="token punctuation">.</span>error<span class="token punctuation">(</span>error_msg<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token boolean">False</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> error_msg<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">run_async</span><span class="token punctuation">(</span>
+            self<span class="token punctuation">,</span>
+            command<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">|</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">|</span> Tuple<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            cwd<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">|</span> Path <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
+            env<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
+            encoding<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">"utf-8"</span><span class="token punctuation">,</span>
+            shell<span class="token punctuation">:</span> <span class="token builtin">bool</span> <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> subprocess<span class="token punctuation">.</span>Popen<span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        异步执行命令（返回Popen对象，可后续控制）
+
+        Args:
+            同 run() 方法
+
+        Returns:
+            subprocess.Popen 对象
+        """</span>
+        <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>command<span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            args <span class="token operator">=</span> command <span class="token keyword">if</span> shell <span class="token keyword">else</span> shlex<span class="token punctuation">.</span>split<span class="token punctuation">(</span>command<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            args <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>command<span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> subprocess<span class="token punctuation">.</span>Popen<span class="token punctuation">(</span>
+            args<span class="token punctuation">,</span>
+            cwd<span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">(</span>cwd<span class="token punctuation">)</span> <span class="token keyword">if</span> cwd <span class="token keyword">else</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
+            env<span class="token operator">=</span>env<span class="token punctuation">,</span>
+            stdout<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">,</span>
+            stderr<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">,</span>
+            text<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+            encoding<span class="token operator">=</span>encoding<span class="token punctuation">,</span>
+            shell<span class="token operator">=</span>shell<span class="token punctuation">,</span>
+        <span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">execute_tool</span><span class="token punctuation">(</span>
+            self<span class="token punctuation">,</span>
+            tool_path<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">|</span> Path<span class="token punctuation">,</span>
+            <span class="token operator">*</span>args<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">|</span> Path<span class="token punctuation">,</span>
+            <span class="token operator">**</span>kwargs<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Tuple<span class="token punctuation">[</span><span class="token builtin">bool</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        执行指定工具（自动处理路径）
+
+        Args:
+            tool_path: 工具路径
+            *args: 工具参数
+            **kwargs: 同 run() 方法的参数
+
+        Returns:
+            同 run() 方法的返回值
+        """</span>
+        full_command <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">(</span>tool_path<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span> <span class="token keyword">for</span> arg <span class="token keyword">in</span> args<span class="token punctuation">]</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>run<span class="token punctuation">(</span>full_command<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="工具使用示例">工具使用示例</h4>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token comment"># 初始化执行器（可选：配置日志）</span>
+    logging<span class="token punctuation">.</span>basicConfig<span class="token punctuation">(</span>level<span class="token operator">=</span>logging<span class="token punctuation">.</span>INFO<span class="token punctuation">)</span>
+    executor <span class="token operator">=</span> ShellExecutor<span class="token punctuation">(</span>log_errors<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># 示例1: 执行系统命令（字符串形式）</span>
+    success<span class="token punctuation">,</span> stdout<span class="token punctuation">,</span> stderr <span class="token operator">=</span> executor<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token string">"ping -n 2 127.0.0.1"</span><span class="token punctuation">,</span> timeout<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"gbk"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Ping结果: 成功=</span><span class="token interpolation"><span class="token punctuation">&#123;</span>success<span class="token punctuation">&#125;</span></span><span class="token string">\n输出:\n</span><span class="token interpolation"><span class="token punctuation">&#123;</span>stdout<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+    <span class="token comment"># 示例2: 执行系统命令（列表形式）</span>
+    success<span class="token punctuation">,</span> stdout<span class="token punctuation">,</span> stderr <span class="token operator">=</span> executor<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"ping"</span><span class="token punctuation">,</span> <span class="token string">"-n"</span><span class="token punctuation">,</span> <span class="token string">"2"</span><span class="token punctuation">,</span> <span class="token string">"127.0.0.1"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"gbk"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Ping结果: 成功=</span><span class="token interpolation"><span class="token punctuation">&#123;</span>success<span class="token punctuation">&#125;</span></span><span class="token string">\n输出:\n</span><span class="token interpolation"><span class="token punctuation">&#123;</span>stdout<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+    <span class="token comment"># 示例3: 执行外部工具</span>
+    tool_path <span class="token operator">=</span> Path<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">.</span>cwd<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>parent <span class="token operator">/</span> <span class="token string">"files"</span> <span class="token operator">/</span> <span class="token string">"searchall64.exe"</span>
+    <span class="token keyword">if</span> tool_path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        success<span class="token punctuation">,</span> stdout<span class="token punctuation">,</span> stderr <span class="token operator">=</span> executor<span class="token punctuation">.</span>execute_tool<span class="token punctuation">(</span>tool_path<span class="token punctuation">,</span> <span class="token string">"search"</span><span class="token punctuation">,</span> <span class="token string">"-p"</span><span class="token punctuation">,</span> <span class="token string">"D:\\Admin\\Desktop\\"</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"工具执行结果: 成功=</span><span class="token interpolation"><span class="token punctuation">&#123;</span>success<span class="token punctuation">&#125;</span></span><span class="token string">\n输出:\n</span><span class="token interpolation"><span class="token punctuation">&#123;</span>stdout<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"工具不存在: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>tool_path<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+    <span class="token comment"># 示例4: 异步执行（适合长时间任务）</span>
+    process <span class="token operator">=</span> executor<span class="token punctuation">.</span>run_async<span class="token punctuation">(</span><span class="token string">"python -m http.server 8000"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"HTTP服务器已启动（异步执行）..."</span><span class="token punctuation">)</span>
+    <span class="token comment"># 后续可以通过 process.terminate() 或 process.kill() 停止</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
