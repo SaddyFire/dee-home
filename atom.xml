@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2025-07-24T07:46:34.576Z</updated>
+  <updated>2025-10-18T07:02:15.602Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -15,6 +15,93 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>conda快速开始</title>
+    <link href="https://www.saddyfire.cn/2025/09/19/conda-start/"/>
+    <id>https://www.saddyfire.cn/2025/09/19/conda-start/</id>
+    <published>2025-09-19T09:29:06.000Z</published>
+    <updated>2025-10-18T07:02:15.602Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;conda快速开始&lt;/h1&gt;
+&lt;h2 id=&quot;conda部分&quot;&gt;conda部分&lt;/h2&gt;
+&lt;p&gt;安装 miniconda 后设置环境变量&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-bash&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="python" scheme="https://www.saddyfire.cn/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础语法</title>
+    <link href="https://www.saddyfire.cn/2025/09/18/python-basis/"/>
+    <id>https://www.saddyfire.cn/2025/09/18/python-basis/</id>
+    <published>2025-09-18T02:02:53.169Z</published>
+    <updated>2025-01-03T02:51:29.261Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;python基础语法&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.penpencode.com/playground&quot;&gt;在线编辑器&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;入门语法&quot;&gt;入门语法&lt;/h2&gt;
+&lt;h3 id=&quot;print-函数&quot;&gt;print()</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="python" scheme="https://www.saddyfire.cn/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>playwright-py基础入门</title>
+    <link href="https://www.saddyfire.cn/2025/09/18/playwright-python/"/>
+    <id>https://www.saddyfire.cn/2025/09/18/playwright-python/</id>
+    <published>2025-09-18T02:02:53.142Z</published>
+    <updated>2025-07-22T08:48:54.997Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;👍👍 &lt;a href=&quot;https://www.byhy.net/etc/playwright/01/&quot;&gt;快速上手 - 白月黑羽&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;快速上手&quot;&gt;快速上手&lt;/h2&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="python" scheme="https://www.saddyfire.cn/tags/python/"/>
+    
+    <category term="playwright" scheme="https://www.saddyfire.cn/tags/playwright/"/>
+    
+  </entry>
   
   <entry>
     <title>python 多线程demo</title>
@@ -49,7 +136,7 @@
     <link href="https://www.saddyfire.cn/2025/07/20/pyqt-library/"/>
     <id>https://www.saddyfire.cn/2025/07/20/pyqt-library/</id>
     <published>2025-07-20T13:51:42.000Z</published>
-    <updated>2025-07-23T10:43:17.787Z</updated>
+    <updated>2025-08-20T02:54:07.721Z</updated>
     
     
       
@@ -192,37 +279,6 @@
   </entry>
   
   <entry>
-    <title>playwright-py基础入门</title>
-    <link href="https://www.saddyfire.cn/2025/06/13/playwright-python/"/>
-    <id>https://www.saddyfire.cn/2025/06/13/playwright-python/</id>
-    <published>2025-06-13T01:35:43.292Z</published>
-    <updated>2025-07-22T08:48:54.997Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;👍👍 &lt;a href=&quot;https://www.byhy.net/etc/playwright/01/&quot;&gt;快速上手 - 白月黑羽&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;快速上手&quot;&gt;快速上手&lt;/h2&gt;
-&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="python" scheme="https://www.saddyfire.cn/tags/python/"/>
-    
-    <category term="playwright" scheme="https://www.saddyfire.cn/tags/playwright/"/>
-    
-  </entry>
-  
-  <entry>
     <title>一些 java 模板的笔记</title>
     <link href="https://www.saddyfire.cn/2025/04/28/java-note/"/>
     <id>https://www.saddyfire.cn/2025/04/28/java-note/</id>
@@ -360,7 +416,7 @@
     <link href="https://www.saddyfire.cn/2024/12/26/js-strategy/"/>
     <id>https://www.saddyfire.cn/2024/12/26/js-strategy/</id>
     <published>2024-12-26T07:50:30.000Z</published>
-    <updated>2024-12-28T10:43:55.264Z</updated>
+    <updated>2025-09-20T03:15:21.753Z</updated>
     
     
       
@@ -380,34 +436,6 @@
     
     
     <category term="JavaScript" scheme="https://www.saddyfire.cn/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python基础语法</title>
-    <link href="https://www.saddyfire.cn/2024/11/27/python-basis/"/>
-    <id>https://www.saddyfire.cn/2024/11/27/python-basis/</id>
-    <published>2024-11-27T13:56:19.518Z</published>
-    <updated>2025-01-03T02:51:29.261Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;python基础语法&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.penpencode.com/playground&quot;&gt;在线编辑器&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;入门语法&quot;&gt;入门语法&lt;/h2&gt;
-&lt;h3 id=&quot;print-函数&quot;&gt;print()</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="python" scheme="https://www.saddyfire.cn/tags/python/"/>
     
   </entry>
   
@@ -505,7 +533,7 @@
     <link href="https://www.saddyfire.cn/2024/07/27/docker-prac/"/>
     <id>https://www.saddyfire.cn/2024/07/27/docker-prac/</id>
     <published>2024-07-27T07:45:54.000Z</published>
-    <updated>2024-07-30T08:28:46.458Z</updated>
+    <updated>2025-09-20T03:16:30.067Z</updated>
     
     
       
@@ -556,36 +584,6 @@
     
     
     <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>tar包安装mysql</title>
-    <link href="https://www.saddyfire.cn/2024/07/14/install-mysql/"/>
-    <id>https://www.saddyfire.cn/2024/07/14/install-mysql/</id>
-    <published>2024-07-14T03:34:56.000Z</published>
-    <updated>2024-07-14T14:15:05.892Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;记一次tar包安装mysql的流程详解&lt;/h1&gt;
-&lt;h2 id=&quot;需要用到的知识点&quot;&gt;需要用到的知识点&lt;/h2&gt;
-&lt;h3 id=&quot;安装前置&quot;&gt;安装前置&lt;/h3&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Database" scheme="https://www.saddyfire.cn/tags/Database/"/>
-    
-    <category term="Mysql" scheme="https://www.saddyfire.cn/tags/Mysql/"/>
     
   </entry>
   
