@@ -246,9 +246,9 @@
     
     <category term="python" scheme="https://www.saddyfire.cn/tags/python/"/>
     
-    <category term="PyQt" scheme="https://www.saddyfire.cn/tags/PyQt/"/>
-    
     <category term="playwright" scheme="https://www.saddyfire.cn/tags/playwright/"/>
+    
+    <category term="PyQt" scheme="https://www.saddyfire.cn/tags/PyQt/"/>
     
   </entry>
   
