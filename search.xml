@@ -1521,9 +1521,9 @@
       
         <tags>
             
-            <tag> JVM </tag>
-            
             <tag> NIO </tag>
+            
+            <tag> JVM </tag>
             
         </tags>
       
