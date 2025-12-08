@@ -335,21 +335,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-06-27
+                    2025-12-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    14 分
                 </div>
                 
 
@@ -397,9 +397,19 @@
 <span class="token function">git</span> br
 <span class="token function">git</span> config branch.develop.description 分支备注
 
-<span class="token function">git</span> <span class="token function">rm</span> <span class="token parameter variable">-r</span> <span class="token parameter variable">--cached</span> <span class="token builtin class-name">.</span> <span class="token comment">## 清除Git暂存区缓存</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">git</span> <span class="token function">rm</span> <span class="token parameter variable">-r</span> <span class="token parameter variable">--cached</span> <span class="token builtin class-name">.</span> <span class="token comment">## 清除Git暂存区缓存</span>
+
+<span class="token comment">#### 账户相关</span>
+<span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name
+<span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email
+
+<span class="token comment"># 查看相关的配置具体在哪个文件路径</span>
+<span class="token function">git</span> config --show-origin --get-regexp <span class="token punctuation">[</span>配置<span class="token punctuation">]</span>
+<span class="token comment"># 例如：</span>
+<span class="token function">git</span> config --show-origin --get-regexp user.name
+<span class="token function">git</span> config --show-origin --get-regexp credential.helper store<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>删除git中.idea文件</li>
+<li>删除远程仓库中类似.idea的配置文件</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-- <span class="token number">1</span>. 修改.gitignore文件
 -- <span class="token number">2</span>. 删除本地缓存区.idea文件
@@ -423,6 +433,29 @@
 
 <span class="token comment"># 查看该提交所在的远程分支</span>
 <span class="token function">git</span> branch <span class="token parameter variable">-r</span> <span class="token parameter variable">--contains</span> 96ef26ab0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>
+<p>vscode 配置远程Git凭据</p>
+<ol>
+<li>
+<p>先配置 username、email ，见基础命令#账户相关</p>
+</li>
+<li>
+<p>配置 Git 凭据存储</p>
+</li>
+</ol>
+</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> credential.helper store<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>
+<ol start="3">
+<li>登录一次</li>
+<li>如果配置后不行，尝试参考</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42372534/article/details/131423056">配置了git config --global credential.helper store后,还是弹出输入密码框-CSDN博客</a></p>
+</li>
+</ul>
 <h2 id="进程端口命令">进程端口命令</h2>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># linux</span>
 <span class="token function">lsof</span> <span class="token parameter variable">-i:80</span>  <span class="token comment">#根据端口查看PID及应用名</span>

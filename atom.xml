@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2025-10-18T07:02:15.602Z</updated>
+  <updated>2025-12-08T05:47:34.958Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -15,6 +15,120 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NodeJs-03-npm</title>
+    <link href="https://www.saddyfire.cn/2025/12/08/node-demo03/"/>
+    <id>https://www.saddyfire.cn/2025/12/08/node-demo03/</id>
+    <published>2025-12-08T05:03:00.000Z</published>
+    <updated>2025-12-08T05:47:34.958Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;NodeJs-03-npm&lt;/h1&gt;
+&lt;h2 id=&quot;npm&quot;&gt;npm&lt;/h2&gt;
+&lt;h3 id=&quot;基本使用&quot;&gt;基本使用&lt;/h3&gt;
+&lt;pre class=&quot;line-numbers language-powershell&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="node" scheme="https://www.saddyfire.cn/tags/node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NodeJs-02-http及模块化</title>
+    <link href="https://www.saddyfire.cn/2025/12/08/node-demo02/"/>
+    <id>https://www.saddyfire.cn/2025/12/08/node-demo02/</id>
+    <published>2025-12-08T04:56:30.000Z</published>
+    <updated>2025-12-08T05:01:20.344Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;NodeJs-02-http及模块化&lt;/h1&gt;
+&lt;h2 id=&quot;http模块&quot;&gt;http模块&lt;/h2&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="node" scheme="https://www.saddyfire.cn/tags/node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NodeJs-01-基础内置模块</title>
+    <link href="https://www.saddyfire.cn/2025/12/08/node-demo01/"/>
+    <id>https://www.saddyfire.cn/2025/12/08/node-demo01/</id>
+    <published>2025-12-08T04:52:59.000Z</published>
+    <updated>2025-12-08T04:56:00.246Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;NodeJs-01-基础内置模块&lt;/h1&gt;
+&lt;h2 id=&quot;fs模块&quot;&gt;fs模块&lt;/h2&gt;
+&lt;pre class=&quot;line-numbers language-javascript&quot; data-language=&quot;javascript&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="node" scheme="https://www.saddyfire.cn/tags/node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>windows远程开发</title>
+    <link href="https://www.saddyfire.cn/2025/12/08/remote-dev/"/>
+    <id>https://www.saddyfire.cn/2025/12/08/remote-dev/</id>
+    <published>2025-12-08T04:44:24.000Z</published>
+    <updated>2025-12-08T05:56:04.707Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;windos远程开发配置&lt;/h1&gt;
+&lt;h2 id=&quot;docker构建容器&quot;&gt;docker构建容器&lt;/h2&gt;
+&lt;h3 id=&quot;启动容器&quot;&gt;启动容器&lt;/h3&gt;
+&lt;pre class=&quot;line-numbers language-bash&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
+    
+    <category term="Docker" scheme="https://www.saddyfire.cn/tags/Docker/"/>
+    
+    <category term="Windows" scheme="https://www.saddyfire.cn/tags/Windows/"/>
+    
+  </entry>
   
   <entry>
     <title>conda快速开始</title>
@@ -362,7 +476,7 @@
     <link href="https://www.saddyfire.cn/2025/01/04/python-reg/"/>
     <id>https://www.saddyfire.cn/2025/01/04/python-reg/</id>
     <published>2025-01-04T08:18:48.000Z</published>
-    <updated>2025-01-07T04:54:46.472Z</updated>
+    <updated>2025-12-08T05:56:56.773Z</updated>
     
     
       
@@ -465,125 +579,6 @@
     
     
     <category term="JavaScript" scheme="https://www.saddyfire.cn/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Nginx Location Demo</title>
-    <link href="https://www.saddyfire.cn/2024/11/11/nginx-location-demo/"/>
-    <id>https://www.saddyfire.cn/2024/11/11/nginx-location-demo/</id>
-    <published>2024-11-11T01:18:45.000Z</published>
-    <updated>2024-11-13T15:05:39.638Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;Nginx Location Demo&lt;/h1&gt;
-&lt;h2 id=&quot;环境准备&quot;&gt;环境准备&lt;/h2&gt;
-&lt;p&gt;此处演示仅限本地修改&lt;/p&gt;
-&lt;h3 id=&quot;host-修改&quot;&gt;host 修改&lt;/h3&gt;
-&lt;pre class=&quot;line-numbers</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
-    
-    <category term="Nginx" scheme="https://www.saddyfire.cn/tags/Nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java注解+Aop</title>
-    <link href="https://www.saddyfire.cn/2024/07/27/anno-aop/"/>
-    <id>https://www.saddyfire.cn/2024/07/27/anno-aop/</id>
-    <published>2024-07-27T07:50:46.000Z</published>
-    <updated>2024-07-30T08:28:46.458Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Java注解-Aop&quot;&gt;Java注解+Aop&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;本文以实际简单需求，来整理 注解+Aop 的搭配步骤&lt;/p&gt;
-&lt;p&gt;需求：通过自定义注解拿到注解注释的东西，具体逻辑细节可忽略&lt;/p&gt;
-&lt;p&gt;环境：Springboot</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker实战</title>
-    <link href="https://www.saddyfire.cn/2024/07/27/docker-prac/"/>
-    <id>https://www.saddyfire.cn/2024/07/27/docker-prac/</id>
-    <published>2024-07-27T07:45:54.000Z</published>
-    <updated>2025-09-20T03:16:30.067Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;Docker实战&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Docker 的安装及配置见 &lt;a href=&quot;/2024/02/27/docker01/#CentOS7&quot;&gt;往期 Docker</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Linux" scheme="https://www.saddyfire.cn/tags/Linux/"/>
-    
-    <category term="Docker" scheme="https://www.saddyfire.cn/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自定义注解实现实体类映射</title>
-    <link href="https://www.saddyfire.cn/2024/07/24/anno-mapping/"/>
-    <id>https://www.saddyfire.cn/2024/07/24/anno-mapping/</id>
-    <published>2024-07-24T14:54:20.000Z</published>
-    <updated>2024-07-24T15:19:18.407Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;自定义注解实现实体类映射&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;说明：根据 Map 自动将其映射成所对应的实体，其中 map 的 key 与属性灵活对应&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;定义元注解&quot;&gt;定义元注解&lt;/h3&gt;
-&lt;pre</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="Java" scheme="https://www.saddyfire.cn/tags/Java/"/>
     
   </entry>
   

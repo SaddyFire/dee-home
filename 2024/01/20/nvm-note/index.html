@@ -323,21 +323,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-09-20
+                    2025-12-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    7 分
                 </div>
                 
 
@@ -390,7 +390,7 @@ app.use<span class="token punctuation">(</span>express.static<span class="token 
 app.listen<span class="token punctuation">(</span><span class="token number">7070</span><span class="token punctuation">)</span>  //监听7070端口
 <span class="token comment">##5.启动服务</span>
 <span class="token function">node</span> main.js<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="安装-nvm">安装 nvm</h2>
+<h2 id="安装nvm">安装nvm</h2>
 <p>nvm 即 (node version manager)，好处是方便切换 node.js 版本</p>
 <p>安装注意事项</p>
 <ol>
@@ -439,19 +439,54 @@ nvm install 14.20.0<span aria-hidden="true" class="line-numbers-rows"><span></sp
 <p>切换到 14.20.0</p>
 <pre class="line-numbers language-none"><code class="language-none">nvm use 14.20.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>安装后 nvm 自己的环境变量会自动添加，但可能需要手工添加 nodejs 的 PATH 环境变量</p>
-<h2 id="nrm">nrm</h2>
+<h2 id="安装nrm及使用">安装nrm及使用</h2>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> nrm  <span class="token comment">## 安装</span>
 nrm <span class="token function">ls</span> <span class="token comment">## 查看当前源</span>
 nrm use taobao  <span class="token comment">## 切换源</span>
 nrm <span class="token function">add</span> <span class="token operator">&lt;</span>registry<span class="token operator">></span> <span class="token operator">&lt;</span>url<span class="token operator">></span>  <span class="token comment">## 添加源</span>
 nrm del <span class="token operator">&lt;</span>registry<span class="token operator">></span>  <span class="token comment">## 删除源</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="检查-npm"><s>检查 npm</s></h2>
+<h2 id="安装yrm及使用">安装yrm及使用</h2>
+<h3 id="安装">安装</h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> yrm
+<span class="token comment"># 或指定淘宝源安装</span>
+<span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> yrm <span class="token parameter variable">--registry</span><span class="token operator">=</span>https://registry.npmmirror.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="使用">使用</h3>
+<h4 id="查看可用镜像源">查看可用镜像源</h4>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yrm <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>带 * 的为当前使用的源，例如：</p>
+<pre class="line-numbers language-none"><code class="language-none"> npm ---- https:&#x2F;&#x2F;registry.npmjs.org&#x2F;
+ cnpm --- http:&#x2F;&#x2F;r.cnpmjs.org&#x2F;
+* taobao - https:&#x2F;&#x2F;registry.npmmirror.com&#x2F;
+ yarn --- https:&#x2F;&#x2F;registry.yarnpkg.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="切换镜像源">切换镜像源</h4>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yrm use taobao<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>此操作会同时更新 <code>.npmrc</code> 和 <code>.yarnrc</code>，避免 npm/yarn 源不一致的问题。</p>
+<h4 id="添加自定义源">添加自定义源</h4>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yrm <span class="token function">add</span> my-registry http://your.registry.url/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="删除源">删除源</h4>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yrm del my-registry<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="测试镜像源速度">测试镜像源速度</h4>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yrm <span class="token builtin class-name">test</span> taobao<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="查看当前源">查看当前源</h4>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yrm current
+<span class="token comment"># 或分别查看</span>
+<span class="token function">npm</span> config get registry
+<span class="token function">yarn</span> config get registry<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>yrm 与 nrm 类似，但 yrm 更适合多包管理器环境。</li>
+<li>切换源后建议执行一次 <code>npm cache clean --force</code> 或 <code>yarn cache clean</code> 清理缓存，确保新源生效。</li>
+</ul>
+</blockquote>
+<h2 id="检查npm-使用nrm"><s>检查npm(使用nrm)</s></h2>
 <p>npm 是 js 的包管理器，就类似于 java 界的 maven，要确保它使用的是国内镜像</p>
 <p>检查镜像</p>
 <pre class="line-numbers language-none"><code class="language-none">npm get registry<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>如果返回的不是 <code>https://registry.npm.taobao.org/</code>，需要做如下设置</p>
 <pre class="line-numbers language-none"><code class="language-none">npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="npm-常用命令">npm 常用命令</h2>
+<h2 id="npm常用命令">npm常用命令</h2>
+<p><a href="/2025/12/08/node-demo03/#NodeJs-03-npm">npm相关文档</a></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token parameter variable">-v</span> <span class="token comment">#查看 npm 的版本</span>
 <span class="token function">npm</span> <span class="token parameter variable">-l</span> <span class="token comment">#查看各个命令的简单用法</span>
 <span class="token function">npm</span> <span class="token builtin class-name">help</span> <span class="token comment">#查看 npm 命令列表</span>
@@ -468,15 +503,15 @@ nrm del <span class="token operator">&lt;</span>registry<span class="token opera
 <span class="token function">npm</span> publish <span class="token comment">#发布自己的包。</span>
 <span class="token function">npm</span> search <span class="token operator">&lt;</span>package_name<span class="token operator">></span> <span class="token comment">#搜索指定的依赖包。</span>
 <span class="token function">npm</span> info <span class="token operator">&lt;</span>package_name<span class="token operator">></span> <span class="token comment">#查看指定依赖包的详细信息。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="npm-search-搜索模块">npm search 搜索模块</h3>
+<h3 id="npm-search搜索模块">npm search搜索模块</h3>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> search <span class="token operator">&lt;</span>搜索词<span class="token operator">></span> <span class="token punctuation">[</span>-g<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><code>npm search</code> 命令用于搜索 npm 仓库，它后面可以跟字符串，也可以跟正则表达式。</p>
-<h3 id="npm-list-查看模块">npm list 查看模块</h3>
+<h3 id="npm-list查看模块">npm list查看模块</h3>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#当前项目安装的所有模块</span>
 <span class="token function">npm</span> list
 <span class="token comment">#列出全局安装的模块 带上[--depth 0] 不深入到包的支点 更简洁</span>
 <span class="token function">npm</span> list <span class="token parameter variable">-g</span> <span class="token parameter variable">--depth</span> <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="npm-install-安装模块">npm install 安装模块</h3>
+<h3 id="npm-install安装模块">npm install安装模块</h3>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#读取package.json里面的配置单安装  </span>
 <span class="token function">npm</span> <span class="token function">install</span> <span class="token comment">#可简写成 npm i</span>
 
@@ -494,7 +529,7 @@ nrm del <span class="token operator">&lt;</span>registry<span class="token opera
 
 <span class="token comment"># 通过Github代码库地址安装</span>
 <span class="token function">npm</span> <span class="token function">install</span> <span class="token operator">&lt;</span>tarball url<span class="token operator">></span> <span class="token comment">#eg:npm install git://github.com/package/path.git</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="npm-uninstall-卸载模块">npm uninstall 卸载模块</h3>
+<h3 id="npm-uninstall卸载模块">npm uninstall卸载模块</h3>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#卸载当前项目或全局模块 </span>
 <span class="token function">npm</span> uninstall <span class="token operator">&lt;</span>name<span class="token operator">></span> <span class="token punctuation">[</span>-g<span class="token punctuation">]</span> 
 <span class="token comment">#eg: npm uninstall gulp --save-dev  </span>
@@ -502,7 +537,7 @@ nrm del <span class="token operator">&lt;</span>registry<span class="token opera
 
 <span class="token comment">#卸载后，你可以到 /node\_modules/ 目录下查看包是否还存在，或者使用以下命令查看：</span>
 <span class="token function">npm</span> <span class="token function">ls</span> <span class="token comment">#查看安装的模块</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="npm-update-更新模块">npm update 更新模块</h3>
+<h3 id="npm-update更新模块">npm update更新模块</h3>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> update <span class="token comment">#检查并更新项目的全部依赖包</span>
 
 <span class="token comment">#升级当前项目或全局的指定模块</span>
