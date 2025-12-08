@@ -1625,9 +1625,9 @@
       
         <tags>
             
-            <tag> JVM </tag>
-            
             <tag> NIO </tag>
+            
+            <tag> JVM </tag>
             
         </tags>
       
@@ -2349,9 +2349,9 @@
       
         <tags>
             
-            <tag> SpringBoot </tag>
-            
             <tag> InterviewPoint </tag>
+            
+            <tag> SpringBoot </tag>
             
         </tags>
       
@@ -2613,11 +2613,11 @@
             
             <tag> Java </tag>
             
-            <tag> Linux </tag>
-            
             <tag> Git </tag>
             
             <tag> Database </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
