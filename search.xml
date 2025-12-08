@@ -1625,9 +1625,9 @@
       
         <tags>
             
-            <tag> NIO </tag>
-            
             <tag> JVM </tag>
+            
+            <tag> NIO </tag>
             
         </tags>
       
