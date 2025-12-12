@@ -6,7 +6,7 @@
   <link href="https://www.saddyfire.cn/atom.xml" rel="self"/>
   
   <link href="https://www.saddyfire.cn/"/>
-  <updated>2025-12-08T05:47:34.958Z</updated>
+  <updated>2025-12-12T08:01:03.994Z</updated>
   <id>https://www.saddyfire.cn/</id>
   
   <author>
@@ -15,6 +15,63 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TS速通笔记</title>
+    <link href="https://www.saddyfire.cn/2025/12/12/ts-note/"/>
+    <id>https://www.saddyfire.cn/2025/12/12/ts-note/</id>
+    <published>2025-12-12T07:57:59.000Z</published>
+    <updated>2025-12-12T08:01:03.994Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;TS速通笔记&lt;/h1&gt;
+&lt;h2 id=&quot;编译-TypeScript&quot;&gt;编译 TypeScript&lt;/h2&gt;
+&lt;h3 id=&quot;1-命令行编译&quot;&gt;1.命令行编译&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;要把 &lt;code&gt;.ts&lt;/code&gt; 文件编译为</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="node" scheme="https://www.saddyfire.cn/tags/node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NodeJs-04-express</title>
+    <link href="https://www.saddyfire.cn/2025/12/11/node-demo04/"/>
+    <id>https://www.saddyfire.cn/2025/12/11/node-demo04/</id>
+    <published>2025-12-11T01:25:39.000Z</published>
+    <updated>2025-12-11T06:14:20.133Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;NodeJS-04-express&lt;/h1&gt;
+&lt;h2 id=&quot;基础操作&quot;&gt;基础操作&lt;/h2&gt;
+&lt;h3 id=&quot;服务启动&quot;&gt;服务启动&lt;/h3&gt;
+&lt;pre class=&quot;line-numbers language-javascript&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
+    
+    
+    <category term="node" scheme="https://www.saddyfire.cn/tags/node/"/>
+    
+  </entry>
   
   <entry>
     <title>NodeJs-03-npm</title>
@@ -522,63 +579,6 @@
     
     
     <category term="python" scheme="https://www.saddyfire.cn/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js下的策略模式demo</title>
-    <link href="https://www.saddyfire.cn/2024/12/26/js-strategy/"/>
-    <id>https://www.saddyfire.cn/2024/12/26/js-strategy/</id>
-    <published>2024-12-26T07:50:30.000Z</published>
-    <updated>2025-09-20T03:15:21.753Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;js下的策略模式demo&lt;/h1&gt;
-&lt;h2 id=&quot;记一次demo&quot;&gt;记一次demo&lt;/h2&gt;
-&lt;h3 id=&quot;定义策略map&quot;&gt;定义策略map&lt;/h3&gt;
-&lt;pre class=&quot;line-numbers language-javascript&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="JavaScript" scheme="https://www.saddyfire.cn/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript 常用查询</title>
-    <link href="https://www.saddyfire.cn/2024/11/17/js/"/>
-    <id>https://www.saddyfire.cn/2024/11/17/js/</id>
-    <published>2024-11-17T06:36:45.000Z</published>
-    <updated>2024-12-28T10:27:48.571Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;JavaScript&lt;/h1&gt;
-&lt;h2 id=&quot;对象&quot;&gt;对象&lt;/h2&gt;
-&lt;h3 id=&quot;1）Function&quot;&gt;1）Function&lt;/h3&gt;
-&lt;h4 id=&quot;匿名函数&quot;&gt;匿名函数&lt;/h4&gt;
-&lt;pre class=&quot;line-numbers</summary>
-        
-      
-    
-    
-    
-    <category term="program" scheme="https://www.saddyfire.cn/categories/program/"/>
-    
-    
-    <category term="JavaScript" scheme="https://www.saddyfire.cn/tags/JavaScript/"/>
     
   </entry>
   
