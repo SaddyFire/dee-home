@@ -323,21 +323,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-12-08
+                    2026-01-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    10 分
                 </div>
                 
 
@@ -497,7 +497,6 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
     <span class="token keyword">return</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<br/>
 <h3 id="完整代码示例">完整代码示例</h3>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> http <span class="token keyword">from</span> <span class="token string">'http'</span>
 <span class="token keyword">import</span> fs <span class="token keyword">from</span> <span class="token string">'fs'</span>
@@ -657,6 +656,81 @@ exports<span class="token punctuation">.</span>property1 <span class="token oper
 <h3 id="CommonJs-规范">CommonJs 规范</h3>
 <p><code>module.exports</code>、<code>exports</code> 以及 <code>require</code> 这些都是 <code>CommonJS</code> 模块化规范中的内容。</p>
 <p>而 <code>Node.js</code> 是实现了 <code>CommonJS</code> 模块化规范，二者关系有点像 <code>JavaScript</code> 与 <code>ECMAScript</code></p>
+<h3 id="ES6-模块-现代前端">ES6 模块 (现代前端)</h3>
+<p>与 <code>CommonJs</code> 的对比</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>ES6 模块 (现代前端)</th>
+<th>CommonJS (Node.js)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>语法</td>
+<td><code>export &#123; increment, decrement &#125;;</code><br /><code>export default counterReducer;</code></td>
+<td><code>module.exports = value</code> <code>exports.name = value</code></td>
+</tr>
+<tr>
+<td>导出本质</td>
+<td><code>export</code>导出的是<strong>绑定（引用）</strong> <br /><code>export default</code>导出的是<strong>默认值</strong></td>
+<td><code>module.exports</code>是<strong>真正的导出对象</strong><br /><code>exports</code>是 <code>module.exports</code>的<strong>一个引用</strong></td>
+</tr>
+<tr>
+<td>导入方式</td>
+<td><code>import &#123; increment &#125; from '...'</code><br /><code>import reducer from '...'</code></td>
+<td><code>const module = require('...')</code></td>
+</tr>
+<tr>
+<td>数量限制</td>
+<td>一个模块只能有一个 <code>export default</code>，但可以有多个 <code>export</code></td>
+<td>一个模块只能有一个 <code>module.exports</code>赋值，但可以有多个 <code>exports.name</code></td>
+</tr>
+<tr>
+<td>主要使用场景</td>
+<td>React、Vue 等现代前端项目</td>
+<td>Node.js 环境、旧的构建工具</td>
+</tr>
+</tbody>
+</table>
+<h3 id="🔍-详解不同导出方式">🔍 详解不同导出方式</h3>
+<h4 id="ES6-模块导出">ES6 模块导出</h4>
+<p>ES6 模块系统是现代前端开发的主流。</p>
+<ul>
+<li><strong>命名导出 (<code>export &#123; increment, decrement &#125;;</code>)</strong> 这种方式用于从一个模块中导出多个特定的值（变量、函数等）。导入时必须使用与导出时完全相同的名称，并用花括号 <code>&#123;&#125;</code>包裹，这称为<strong>按需导入</strong>。</li>
+</ul>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 导入命名导出的内容</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> increment<span class="token punctuation">,</span> decrement <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./counterStore'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ul>
+<li>
+<p><strong>默认导出 (<code>export default counterReducer;</code>)</strong></p>
+<p>一个模块只能有一个默认导出。它通常用于导出一个模块最主要、最核心的功能，比如你的 <code>counterReducer</code>。导入时可以为其指定任意名称。</p>
+</li>
+</ul>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 导入默认导出的内容，可以任意命名</span>
+<span class="token keyword">import</span> myReducer <span class="token keyword">from</span> <span class="token string">'./counterStore'</span><span class="token punctuation">;</span> <span class="token comment">// 有效</span>
+<span class="token keyword">import</span> counterReducer <span class="token keyword">from</span> <span class="token string">'./counterStore'</span><span class="token punctuation">;</span> <span class="token comment">// 同样有效，但建议保持语义清晰</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>同时使用默认导出和命名导出：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 同时导入默认导出和命名导出</span>
+<span class="token keyword">import</span> counterReducer<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> increment<span class="token punctuation">,</span> decrement <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./counterStore'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="CommonJS-模块导出">CommonJS 模块导出</h4>
+<ul>
+<li>
+<p>module.exports = value</p>
+<p>这是直接给模块的导出对象赋值。无论 value是什么（函数、对象、字符串等），require得到的就是这个 value本身。</p>
+</li>
+</ul>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 导出一个函数</span>
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="http://exports.name">exports.name</a> = value</p>
+<p>这是向导出对象上添加属性。exports初始时指向 module.exports的引用。这种方式适合导出一个包含多个属性的工具对象。</p>
+</li>
+</ul>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">exports<span class="token punctuation">.</span><span class="token function-variable function">increment</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+exports<span class="token punctuation">.</span><span class="token function-variable function">decrement</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -1021,7 +1095,7 @@ exports<span class="token punctuation">.</span>property1 <span class="token oper
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2023-2025</span>
+                <span id="year">2023-2026</span>
             
             <a href="/about" target="_blank">👑Dee👑</a>
             
@@ -1398,7 +1472,7 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":220,"hOffset":-20,"vOffset":-10},"mobile":{"show":false,"scale":0.5},"dialog":{"enable":false,"hitokoto":false},"log":false});</script>
+
         <style>
             [bg-lazy] {
                 background-image: none !important;
@@ -1411,6 +1485,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":220,"hOffset":-20,"vOffset":-10},"mobile":{"show":false,"scale":0.5},"dialog":{"enable":false,"hitokoto":false},"log":false});</script></body>
 
 </html>
